@@ -1,0 +1,39 @@
+:host {
+  height: 100%;
+}
+
+.closedFill1 {
+  fill: #efe4e4;
+}
+.closedFill2 {
+  fill: #dcc3c3;
+}
+.openedFill1 {
+  fill: #dcc3c3;
+}
+.openedFill2 {
+  fill: #efe4e4;
+}
+
+#SquareOne {
+  fill: #efe4e4;
+}
+#SquareTwo {
+  fill: #dcc3c3;
+}
+#SquareThree {
+  fill: #dcc3c3;
+}
+#SquareFour {
+  fill: #efe4e4;
+}
+
+#notificationsDiv {
+  background-color: black;
+  position: fixed;
+  top: 52px;
+  right: 0;
+  width: 20vw;
+  display: none;
+  max-width: 300px;
+}

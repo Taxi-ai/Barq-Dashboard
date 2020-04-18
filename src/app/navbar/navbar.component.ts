@@ -1,20 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { GlobalVariablesService } from './global-variables.service';
+import { GlobalVariablesService } from '../global-variables.service';
 import { Subscription } from 'rxjs';
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
-  title = 'taxi-dashboard';
+
+export class NavbarComponent implements OnInit, OnDestroy {
   private makeItDark: boolean = true;
   private themeSubscription: Subscription;
-
-  constructor(public globalVariablesService: GlobalVariablesService) { }
-
   changeTheme(makeItDark) {
     console.log('look here \/ \/');
     console.log(document.getElementsByClassName('darkThemeMain'));
@@ -41,6 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
       // document.getElementById("MyElement").className.replace(/(?:^|\s)MyClass(?!\S)/g, '');
     }
   }
+  constructor(public globalVariablesService: GlobalVariablesService) { }
 
   ngOnInit() {
     console.log(this.makeItDark);
@@ -53,7 +50,6 @@ export class AppComponent implements OnInit, OnDestroy {
         // console.log(this.makeItDark);
 
       });
-
   }
   ngOnDestroy() {
     this.themeSubscription.unsubscribe();
