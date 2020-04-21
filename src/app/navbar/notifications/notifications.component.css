@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+#notificationButton {
+  cursor: pointer;
+}
+
 .closedFill1 {
   fill: #efe4e4;
 }

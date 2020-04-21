@@ -1,8 +1,6 @@
-<div class="btn-group" role="group" aria-label="Basic example">
-  <button id="dark" type="button" (click)="dark()" class="btn btn-secondary">
-    dark
-  </button>
-  <button id="light" type="button" (click)="light()" class="btn btn-secondary">
-    light
-  </button>
+<div>
+  <label class="switch">
+    <input (click)="toggleTheme()" type="checkbox" id="themeSwitch" />
+    <span class="slider round"></span>
+  </label>
 </div>
