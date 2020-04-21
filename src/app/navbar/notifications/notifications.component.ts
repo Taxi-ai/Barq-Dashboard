@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 export class NotificationsComponent implements OnInit, OnDestroy {
   private makeItDark = true;
   private themeSubscription: Subscription;
+  buttonColorsClass1 = { closedFill1: true, openedFill1: false };
+  buttonColorsClass2 = { closedFill2: true, openedFill2: false };
 
   divOpen() {
 
@@ -18,30 +20,17 @@ export class NotificationsComponent implements OnInit, OnDestroy {
 
     if (notificationsDivState === 'none' || notificationsDivState === '') {
       document.getElementById('notificationsDiv').style.display = 'block';
-      const iconBoxesFill1 = document.getElementsByClassName('closedFill1');
-      const iconBoxesFill2 = document.getElementsByClassName('closedFill2');
-      console.log(iconBoxesFill1[0].className);
-      console.log(typeof (iconBoxesFill1[0].className));
-
-
-      for (let i = 0; i < iconBoxesFill1.length; i++) {
-
-        iconBoxesFill1[i].className.baseVal = iconBoxesFill1[i].className.baseVal.replace(/(?:^|\s)closedFill1(?!\S)/g, '');
-        iconBoxesFill2[i].className.baseVal = iconBoxesFill2[i].className.baseVal.replace(/(?:^|\s)closedFill2(?!\S)/g, '');
-        iconBoxesFill1[i].className.baseVal += ' openedFill1';
-        iconBoxesFill2[i].className.baseVal += ' openedFill2';
-      }
+      this.buttonColorsClass1.closedFill1 = false;
+      this.buttonColorsClass1.openedFill1 = true;
+      this.buttonColorsClass2.closedFill2 = false;
+      this.buttonColorsClass2.openedFill2 = true;
     } else if (notificationsDivState === 'block') {
       document.getElementById('notificationsDiv').style.display = 'none';
-      const iconBoxesFill1 = document.getElementsByClassName('openedFill1');
-      const iconBoxesFill2 = document.getElementsByClassName('openedFill2');
+      this.buttonColorsClass1.closedFill1 = true;
+      this.buttonColorsClass1.openedFill1 = false;
+      this.buttonColorsClass2.closedFill2 = true;
+      this.buttonColorsClass2.openedFill2 = false;
 
-      for (let i = 0; i < iconBoxesFill1.length; i++) {
-        iconBoxesFill1[i].className.baseVal = iconBoxesFill1[i].className.baseVal.replace(/(?:^|\s)openedFill1(?!\S)/g, '');
-        iconBoxesFill2[i].className.baseVal = iconBoxesFill2[i].className.baseVal.replace(/(?:^|\s)openedFill2(?!\S)/g, '');
-        iconBoxesFill1[i].className.baseVal += ' closedFill1';
-        iconBoxesFill2[i].className.baseVal += ' closedFill2';
-      }
     }
   }
 
