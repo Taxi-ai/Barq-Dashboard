@@ -1,4 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav
+  [ngClass]="{ darkThemeMain: makeItDark, lightThemeNavMain: !makeItDark }"
+  class="navbar navbar-expand-lg navbar-dark bg-dark"
+>
   <app-navbar-dark-light-toggle></app-navbar-dark-light-toggle>
   <a class="navbar-brand mr-auto ml-auto" href="#">Navbar</a>
   <app-navbar-notifications class="mr-3"></app-navbar-notifications>

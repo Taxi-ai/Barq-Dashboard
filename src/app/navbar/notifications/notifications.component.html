@@ -41,7 +41,9 @@
   </svg>
 </div>
 <div
-  class="
-"
+  [ngClass]="{ darkThemeMain: makeItDark, lightThemeNavMain: !makeItDark }"
+  [ngStyle]="{
+    'border-top': makeItDark == true ? '2px solid #16202a' : '2px solid #dcc3c3'
+  }"
   id="notificationsDiv"
 ></div>

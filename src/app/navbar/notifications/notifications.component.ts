@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 
 export class NotificationsComponent implements OnInit, OnDestroy {
-  private makeItDark = true;
+  makeItDark = true;
   private themeSubscription: Subscription;
   buttonColorsClass1 = { closedFill1: true, openedFill1: false };
   buttonColorsClass2 = { closedFill2: true, openedFill2: false };
@@ -38,38 +38,13 @@ export class NotificationsComponent implements OnInit, OnDestroy {
 
   }
 
-  changeTheme(makeItDark) {
-    console.log('look here \/ \/');
-    // console.log(document.getElementsByClassName('darkThemeMain');
 
-    // if (!makeItDark) {
-    //   let x = document.getElementsByClassName("darkThemeMain");
-    //   let i;
-    //   for (i = 0; i < x.length; i++) {
-    //     x[i].className = x[i].className.replace(/(?:^|\s)darkThemeMain(?!\S)/g, '');
-    //     x[i].className += " lightThemeMain";
-    //   }
-    //   // document.getElementsByClassName('darkThemeMain')[0].className = 'lightThemeMain';
-    //   // document.getElementsByClassName('darkThemeMain')[0].className = 'lightThemeMain';
-    // } else if (makeItDark) {
-    //   let x = document.getElementsByClassName("lightThemeMain");
-    //   let i;
-    //   for (i = 0; i < x.length; i++) {
-    //     x[i].className = x[i].className.replace(/(?:^|\s)lightThemeMain(?!\S)/g, '');
-    //     x[i].className += " darkThemeMain";
-    //     // document.getElementsByClassName('lightThemeMain')[0].className = 'darkThemeMain';
-    //   }
-
-    //   // document.getElementById("MyElement").className =
-    //   // document.getElementById("MyElement").className.replace(/(?:^|\s)MyClass(?!\S)/g, '');
-    // }
-  }
   ngOnInit() {
     console.log(this.makeItDark);
     this.makeItDark = this.globalVariablesService.getTheme();
     console.log(this.makeItDark);
     this.themeSubscription = this.globalVariablesService.getThemeChangedListener()
-      .subscribe((makeItDark: boolean) => { this.makeItDark = makeItDark; this.changeTheme(makeItDark); });
+      .subscribe((makeItDark: boolean) => { this.makeItDark = makeItDark; });
 
     const viewportHeight = window.innerHeight;
     const notificationsDivHeight = viewportHeight - 52;

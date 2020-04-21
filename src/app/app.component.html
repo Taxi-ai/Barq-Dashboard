@@ -1,1 +1,6 @@
-<app-navbar class="fixed-top"></app-navbar>
+<div
+  style="width: 100%; height: 100%;"
+  [ngClass]="{ darkThemeSecondary: makeItDark, lightThemeMain: !makeItDark }"
+>
+  <app-navbar class="fixed-top"></app-navbar>
+</div>

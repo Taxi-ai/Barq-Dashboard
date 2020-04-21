@@ -3,8 +3,17 @@
 /* TODO make sure that these styles work
 1- variable in each component and on every second search for its value */
 .darkThemeMain {
-  background-color: blue !important;
+  background-color: #050510 !important;
+}
+.darkThemeSecondary {
+  background-color: #16202a !important;
 }
 .lightThemeMain {
-  background-color: burlywood !important;
+  background-color: #dcc3c3 !important;
+}
+.lightThemeSecondary {
+  background-color: #dcc3c3 !important;
+}
+.lightThemeNavMain {
+  background-color: #707070 !important;
 }

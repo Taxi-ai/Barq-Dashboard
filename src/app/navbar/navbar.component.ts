@@ -9,34 +9,9 @@ import { Subscription } from 'rxjs';
 })
 
 export class NavbarComponent implements OnInit, OnDestroy {
-  private makeItDark: boolean = true;
+  makeItDark = true;
   private themeSubscription: Subscription;
-  changeTheme(makeItDark) {
-    console.log('look here \/ \/');
-    console.log(document.getElementsByClassName('darkThemeMain'));
 
-    if (!makeItDark) {
-      let x = document.getElementsByClassName("darkThemeMain");
-      let i;
-      for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(/(?:^|\s)darkThemeMain(?!\S)/g, 'lightThemeMain');
-        // x[i].className += " lightThemeMain";
-      }
-      // document.getElementsByClassName('darkThemeMain')[0].className = 'lightThemeMain';
-      // document.getElementsByClassName('darkThemeMain')[0].className = 'lightThemeMain';
-    } else if (makeItDark) {
-      let x = document.getElementsByClassName("lightThemeMain");
-      let i;
-      for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(/(?:^|\s)lightThemeMain(?!\S)/g, 'darkThemeMain');
-        // x[i].className += " darkThemeMain";
-        // document.getElementsByClassName('lightThemeMain')[0].className = 'darkThemeMain';
-      }
-
-      // document.getElementById("MyElement").className =
-      // document.getElementById("MyElement").className.replace(/(?:^|\s)MyClass(?!\S)/g, '');
-    }
-  }
   constructor(public globalVariablesService: GlobalVariablesService) { }
 
   ngOnInit() {
@@ -46,7 +21,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.themeSubscription = this.globalVariablesService.getThemeChangedListener()
       .subscribe((makeItDark: boolean) => {
         this.makeItDark = makeItDark;
-        this.changeTheme(makeItDark);
         // console.log(this.makeItDark);
 
       });
