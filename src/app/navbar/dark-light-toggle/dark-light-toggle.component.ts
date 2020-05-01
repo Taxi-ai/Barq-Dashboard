@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalVariablesService } from '../../global-variables.service';
+import { ThemeService } from '../../theme.service';
 
 
 
@@ -15,12 +15,12 @@ export class DarkLightToggleComponent implements OnInit {
   toggleTheme() {
 
     this.makeItDark = !this.makeItDark;
-    this.globalVariablesService.changeTheme(this.makeItDark);
-    console.log(this.globalVariablesService.getTheme());
+    this.themeService.changeTheme(this.makeItDark);
+    console.log(this.themeService.getTheme());
 
   }
 
-  constructor(public globalVariablesService: GlobalVariablesService) {
+  constructor(public themeService: ThemeService) {
 
   }
 

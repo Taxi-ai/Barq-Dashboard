@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ChartsModule } from 'ng2-charts';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +13,11 @@ import { NotificationsComponent } from './navbar/notifications/notifications.com
 import { UsersComponent } from './users/users.component';
 import { UsersTableComponent } from './users/users-table/users-table.component';
 import { UsersGraphComponent } from './users/users-graph/users-graph.component';
-import { UserPageComponent } from './users/user-page/user-page.component';
+import { UserPageComponent } from './users/user/user-page/user-page.component';
+import { EditUserComponent } from './users/user/edit-user/edit-user.component';
+import { SideMenuComponent } from './side-menu/side-menu.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +29,18 @@ import { UserPageComponent } from './users/user-page/user-page.component';
     UsersComponent,
     UsersTableComponent,
     UsersGraphComponent,
-    UserPageComponent
+    UserPageComponent,
+    EditUserComponent,
+    SideMenuComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ChartsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

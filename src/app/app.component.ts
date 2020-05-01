@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { GlobalVariablesService } from './global-variables.service';
+import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
 
 
@@ -13,18 +13,14 @@ export class AppComponent implements OnInit, OnDestroy {
   makeItDark = true;
   private themeSubscription: Subscription;
 
-  constructor(public globalVariablesService: GlobalVariablesService) { }
+  constructor(public themeService: ThemeService) { }
 
 
   ngOnInit() {
-    console.log(this.makeItDark);
-    this.makeItDark = this.globalVariablesService.getTheme();
-    console.log(this.makeItDark);
-    this.themeSubscription = this.globalVariablesService.getThemeChangedListener()
+    this.makeItDark = this.themeService.getTheme();
+    this.themeSubscription = this.themeService.getThemeChangedListener()
       .subscribe((makeItDark: boolean) => {
         this.makeItDark = makeItDark;
-        // console.log(this.makeItDark);
-
       });
 
   }

@@ -1,7 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-/* TODO put here dark and light theme and use them as classes in every component */
-/* TODO make sure that these styles work
-1- variable in each component and on every second search for its value */
 .darkThemeMain {
   background-color: #050510 !important;
 }

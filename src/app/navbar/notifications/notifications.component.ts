@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { GlobalVariablesService } from '../../global-variables.service';
+import { ThemeService } from '../../theme.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -34,16 +34,16 @@ export class NotificationsComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(public globalVariablesService: GlobalVariablesService) {
+  constructor(public themeService: ThemeService) {
 
   }
 
 
   ngOnInit() {
     console.log(this.makeItDark);
-    this.makeItDark = this.globalVariablesService.getTheme();
+    this.makeItDark = this.themeService.getTheme();
     console.log(this.makeItDark);
-    this.themeSubscription = this.globalVariablesService.getThemeChangedListener()
+    this.themeSubscription = this.themeService.getThemeChangedListener()
       .subscribe((makeItDark: boolean) => { this.makeItDark = makeItDark; });
 
     const viewportHeight = window.innerHeight;

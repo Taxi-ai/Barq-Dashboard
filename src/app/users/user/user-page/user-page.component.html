@@ -1,0 +1,16 @@
+<div *ngIf="user">
+  <div class="row">
+    <div class="col-md-2">
+      User ID:
+    </div>
+    <div class="col-md-10">
+      {{ user.ID }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <a class="btn btn-block btn-danger" routerLink="edit">Edit User Data</a>
+    </div>
+  </div>
+</div>
+<div *ngIf="!user"><h1>This user isn't in database</h1></div>
