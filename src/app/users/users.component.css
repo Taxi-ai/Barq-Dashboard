@@ -2,3 +2,14 @@ table tr:hover td {
   background-color: bisque;
   color: darkblue;
 }
+
+.informationCardNumber {
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+}
+.informationCardName {
+  border-radius: 0 0 10px 10px;
+  background-color: whitesmoke;
+  text-align: center;
+}

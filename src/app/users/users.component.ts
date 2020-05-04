@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UsersComponent implements OnInit {
 
   users: User[] = [];
+  usersStates = { none: 0, active: 0, panned: 0 };
   finalCounter: number[] = new Array(12); // array with numbers of months duplicates
 
   constructor(private usersService: UsersService, private router: Router, private route: ActivatedRoute) { }
@@ -20,11 +21,13 @@ export class UsersComponent implements OnInit {
 
     this.users = this.usersService.getAllUsers();
     this.handlingGraphData();
+    this.gettingUsersStates();
 
     this.usersService.usersChanged.subscribe(
       (users: User[]) => {
         this.users = users;
         this.handlingGraphData();
+        this.gettingUsersStates();
       }
     );
   }
@@ -54,7 +57,23 @@ export class UsersComponent implements OnInit {
     }
   }
 
-
+  gettingUsersStates() {
+    this.users.forEach((user) => {
+      switch (user.state) {
+        case 'none':
+          this.usersStates.none += 1;
+          break;
+        case 'active':
+          this.usersStates.active += 1;
+          break;
+        case 'panned':
+          this.usersStates.panned += 1;
+          break;
+        default:
+          break;
+      }
+    });
+  }
 
 
 }

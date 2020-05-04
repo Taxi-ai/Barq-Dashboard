@@ -1,3 +1,37 @@
-<app-users-graph [finalCounter]="finalCounter"></app-users-graph>
+<div class="row">
+  <div class="col-md-4">
+    <h1 class="m-0 py-5 informationCardNumber">
+      {{ users.length }}
+    </h1>
+    <h3 class="m-0 mb-3 py-3 informationCardName">
+      Users
+    </h3>
+  </div>
+  <div class="col-md-4">
+    <h1 class="m-0 py-5 informationCardNumber">
+      {{ usersStates.active }}
+    </h1>
+    <h3 class="m-0 mb-3 py-3 informationCardName">
+      Active Users
+    </h3>
+  </div>
+  <div class="col-md-4">
+    <h1 class="m-0 py-5 informationCardNumber">
+      {{ usersStates.panned }}
+    </h1>
+    <h3 class="m-0 mb-3 py-3 informationCardName">
+      Panned Users
+    </h3>
+  </div>
+</div>
 
-<app-users-table [users]="users"></app-users-table>
+<div class="row">
+  <div class="col-md-12">
+    <app-users-graph [finalCounter]="finalCounter"></app-users-graph>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <app-users-table [users]="users"></app-users-table>
+  </div>
+</div>
