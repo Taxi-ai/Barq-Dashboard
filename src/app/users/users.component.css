@@ -13,3 +13,32 @@ table tr:hover td {
   background-color: whitesmoke;
   text-align: center;
 }
+
+label {
+  color: bisque;
+}
+
+select {
+  background-color: transparent;
+  width: fit-content;
+  color: bisque;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  text-align: left;
+  padding: 0;
+}
+select:focus {
+  border: none;
+  color: bisque;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+select:active {
+  border: none;
+  color: bisque;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+select:default {
+  border: none;
+  color: bisque;
+  background-color: rgba(255, 255, 255, 0.2);
+}

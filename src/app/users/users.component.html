@@ -1,37 +1,101 @@
-<div class="row">
+<div class="row mb-5">
   <div class="col-md-4">
     <h1 class="m-0 py-5 informationCardNumber">
       {{ users.length }}
     </h1>
-    <h3 class="m-0 mb-3 py-3 informationCardName">
-      Users
+    <h3 class="m-0 py-3 informationCardName">
+      User<span *ngIf="users.length > 1">s</span>
     </h3>
   </div>
   <div class="col-md-4">
     <h1 class="m-0 py-5 informationCardNumber">
       {{ usersStates.active }}
     </h1>
-    <h3 class="m-0 mb-3 py-3 informationCardName">
-      Active Users
+    <h3 class="m-0 py-3 informationCardName">
+      Active User<span *ngIf="usersStates.active > 1">s</span>
     </h3>
   </div>
   <div class="col-md-4">
     <h1 class="m-0 py-5 informationCardNumber">
       {{ usersStates.panned }}
     </h1>
-    <h3 class="m-0 mb-3 py-3 informationCardName">
-      Panned Users
+    <h3 class="m-0 py-3 informationCardName">
+      Panned User<span *ngIf="usersStates.panned > 1">s</span>
     </h3>
+  </div>
+</div>
+
+<form class="form-row pb-2">
+  <div class="col-md-6">
+    <div class="form-group m-0">
+      <div class="row">
+        <div class="col-md-12">
+          <label for="searchForUsers"
+            >Search by
+            <select class="form-control d-inline" id="searchForUsers">
+              <option value="name">Name</option>
+              <option value="id">ID</option>
+              <option value="email">Email Address</option>
+              <option value="phone">Phone Number</option>
+            </select>
+            :</label
+          >
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-9 pr-0">
+          <input class="form-control" id="searchForUsersText" type="text" />
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-primary btn-block">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="separator" class="col-md-1"></div>
+
+  <div class="col-md-5">
+    <div class="form-group m-0">
+      <div class="row">
+        <div class="col-md-12">
+          <label for="filterUsers"
+            >Filter by
+            <select class="form-control d-inline" id="filterUsers">
+              <option value="date">Registration Date</option>
+              <option value="city">City</option>
+              <option value="state">User State</option>
+            </select>
+            :</label
+          >
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-9 pr-0">
+          <input class="form-control" id="filterUsersByText" type="text" />
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-primary btn-block">
+            Filter
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="col-md-12">
+    <app-users-table [users]="users"></app-users-table>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <app-users-graph [finalCounter]="finalCounter"></app-users-graph>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <app-users-table [users]="users"></app-users-table>
   </div>
 </div>
