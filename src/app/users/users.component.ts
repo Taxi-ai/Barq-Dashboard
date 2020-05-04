@@ -96,9 +96,5 @@ export class UsersComponent implements OnInit {
 
   }
 
-  userProfile(user) {
-    console.log(user.ID);
-    this.router.navigate([user.ID], { relativeTo: this.route });
-  }
 
 }

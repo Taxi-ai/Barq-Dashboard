@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../user.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-users-table',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersTableComponent implements OnInit {
 
-  constructor() { }
+  @Input() users: User[];
+
+  userProfile(user) {
+    console.log(user.ID);
+    this.router.navigate([user.ID], { relativeTo: this.route });
+  }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }

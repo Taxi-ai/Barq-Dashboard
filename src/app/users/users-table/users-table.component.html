@@ -1,1 +1,37 @@
-<p>users-table works!</p>
+<div style="border-radius: 0px 0px 10px 10px;" class="table-responsive p-0 m-0">
+  <table
+    style="border-radius: 0px 0px 10px 10px;"
+    class="table table-dark p-0 m-0"
+  >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">User Name</th>
+        <th scope="col">City</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Day of registration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let user of users; index as i"
+        (click)="userProfile(user)"
+        style="cursor: pointer;"
+      >
+        <td scope="row">{{ i }}</td>
+        <td scope="row">{{ user.ID }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.country }} - {{ user.city }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>
+          {{ user.registered.year }}/{{ user.registered.month }}/{{
+            user.registered.day
+          }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
