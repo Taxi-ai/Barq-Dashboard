@@ -32,7 +32,13 @@
         <div class="col-md-12">
           <label for="searchForUsers"
             >Search by
-            <select class="form-control d-inline" id="searchForUsers">
+            <select
+              [(ngModel)]="selectForSearch"
+              [ngModelOptions]="{ standalone: true }"
+              #selectOfSearch
+              class="form-control d-inline"
+              id="searchForUsers"
+            >
               <option value="name">Name</option>
               <option value="id">ID</option>
               <option value="email">Email Address</option>
@@ -45,7 +51,30 @@
 
       <div class="row">
         <div class="col-md-9 pr-0">
-          <input class="form-control" id="searchForUsersText" type="text" />
+          <input
+            *ngIf="selectForSearch === 'name'"
+            class="form-control"
+            id="searchForUsersText"
+            type="text"
+          />
+          <input
+            *ngIf="selectForSearch === 'id'"
+            class="form-control"
+            id="searchForUsersText"
+            type="number"
+          />
+          <input
+            *ngIf="selectForSearch === 'phone'"
+            class="form-control"
+            id="searchForUsersText"
+            type="tel"
+          />
+          <input
+            *ngIf="selectForSearch === 'email'"
+            class="form-control"
+            id="searchForUsersText"
+            type="email"
+          />
         </div>
         <div class="col-md-3">
           <button type="button" class="btn btn-primary btn-block">
@@ -61,12 +90,18 @@
   <div class="col-md-5">
     <div class="form-group m-0">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 pl-0">
           <label for="filterUsers"
             >Filter by
-            <select class="form-control d-inline" id="filterUsers">
+            <select
+              [(ngModel)]="selectForFilter"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control d-inline"
+              id="filterUsers"
+            >
               <option value="date">Registration Date</option>
               <option value="city">City</option>
+              <option value="country">Country</option>
               <option value="state">User State</option>
             </select>
             :</label
@@ -75,8 +110,70 @@
       </div>
 
       <div class="row">
-        <div class="col-md-9 pr-0">
-          <input class="form-control" id="filterUsersByText" type="text" />
+        <div class="col-md-9 px-0">
+          <div [ngSwitch]="selectForFilter">
+            <div *ngSwitchCase="'city'">
+              <input class="form-control" type="text" />
+            </div>
+            <div *ngSwitchCase="'country'">
+              <input class="form-control" type="text" />
+            </div>
+            <div *ngSwitchCase="'date'">
+              <div style="height: 100%;" class="row">
+                <div style="height: 100%;" class="col-md-1 p-0 m-auto">
+                  <label
+                    for="filterFromDate"
+                    class="m-auto d-block text-center"
+                    style="
+                      color: wheat;
+                      text-align: center;
+                      font-size: smaller;
+                    "
+                    >from</label
+                  >
+                </div>
+                <div class="col-md-5 pl-0">
+                  <input
+                    id="filterFromDate"
+                    class="form-control d-inline ml-0 pl-0"
+                    type="date"
+                  />
+                </div>
+                <div
+                  style="height: 100% !important;"
+                  class="col-md-1 p-0 m-auto"
+                >
+                  <label
+                    for="filterToDate"
+                    class="m-auto d-block text-center"
+                    style="
+                      color: wheat;
+                      text-align: center;
+                      font-size: smaller;
+                    "
+                    >to</label
+                  >
+                </div>
+                <div class="col-md-5 pl-0">
+                  <input
+                    id="filterToDate"
+                    class="form-control d-inline ml-0 pl-0"
+                    type="date"
+                  />
+                </div>
+              </div>
+            </div>
+            <div *ngSwitchCase="'state'">
+              <select class="form-control">
+                <option value="active">Active</option>
+                <option value="panned">Panned</option>
+                <option value="notActiveNotPanned">
+                  Not Active Not Panned
+                </option>
+              </select>
+            </div>
+            <div *ngSwitchDefault></div>
+          </div>
         </div>
         <div class="col-md-3">
           <button type="button" class="btn btn-primary btn-block">

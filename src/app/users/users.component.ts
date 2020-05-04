@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { User } from './user.model';
 import { UsersService } from './users.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -13,6 +13,8 @@ export class UsersComponent implements OnInit {
   users: User[] = [];
   usersStates = { none: 0, active: 0, panned: 0 };
   finalCounter: number[] = new Array(12); // array with numbers of months duplicates
+  selectForSearch = 'name';
+  selectForFilter = 'date';
 
   constructor(private usersService: UsersService, private router: Router, private route: ActivatedRoute) { }
 
@@ -31,6 +33,7 @@ export class UsersComponent implements OnInit {
       }
     );
   }
+
 
   handlingGraphData() {
     // function to initialize graph data
