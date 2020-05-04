@@ -1,1 +1,17 @@
-<p>users-graph works!</p>
+<div
+  style="background-color: antiquewhite; border-radius: 10px 10px 0px 0px;"
+  class="chart-wrapper"
+>
+  <canvas
+    baseChart
+    height="100%"
+    [datasets]="lineChartData"
+    [labels]="lineChartLabels"
+    [options]="lineChartOptions"
+    [colors]="lineChartColors"
+    [legend]="lineChartLegend"
+    [chartType]="lineChartType"
+    [plugins]="lineChartPlugins"
+  >
+  </canvas>
+</div>
