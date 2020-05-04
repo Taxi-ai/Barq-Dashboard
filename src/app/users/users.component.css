@@ -27,6 +27,10 @@ select {
   text-align: left;
   padding: 0;
 }
+select option {
+  color: black;
+}
+
 select:focus {
   border: none;
   color: bisque;
