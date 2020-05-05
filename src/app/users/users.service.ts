@@ -123,6 +123,8 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   fetchUsers(): Observable<object> {
+    // this function gets data but there is no component use it till now
+    // TODO I still need to post data to an api to edit it
     return this.http.get('/assets/users.json');
   }
 
