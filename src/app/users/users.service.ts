@@ -1,5 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { User } from './user.model';
+import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -118,13 +120,20 @@ export class UsersService {
 
   usersChanged = new EventEmitter<User[]>();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  fetchUsers(): Observable<object> {
+    return this.http.get('/assets/users.json');
+  }
 
   getAllUsers() {
+    // console.log(JSON.stringify(this.users));
+
     return this.users;
   }
 
   getUserByID(id: number) {
+
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.users.length; i++) {
       if (this.users[i].ID === id) {
