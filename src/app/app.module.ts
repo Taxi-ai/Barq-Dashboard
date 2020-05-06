@@ -19,6 +19,8 @@ import { EditUserComponent } from './users/user/edit-user/edit-user.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FeedbacksComponent } from './feedbacks/feedbacks.component';
+import { ChatPanelComponent } from './chat-panel/chat-panel.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     EditUserComponent,
     SideMenuComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FeedbacksComponent,
+    ChatPanelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { User } from './user.model';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class UsersService {
   users = [
 
-    new User('Mahmoud Samy',
+    new User(912346, 'Mahmoud Samy',
       'none',
       'mahmoudsamy50@outlook.com',
       'Egypt',
@@ -25,7 +25,7 @@ export class UsersService {
       { offerCount: 5, offers: ['offer1', 'offer2'] },
       { year: 2018, month: 3, day: 12 }),
 
-    new User('Mahmoud Samy',
+    new User(197564, 'Mahmoud Samy',
       'none',
       'mahmoudsamy50@outlook.com',
       'Egypt',
@@ -40,7 +40,7 @@ export class UsersService {
       '22/10/2025',
       { offerCount: 5, offers: ['offer1', 'offer2'] },
       { year: 2018, month: 4, day: 12 }),
-    new User('Mahmoud Samy',
+    new User(654791, 'Mahmoud Samy',
       'none',
       'mahmoudsamy50@outlook.com',
       'Egypt',
@@ -55,7 +55,7 @@ export class UsersService {
       '22/10/2025',
       { offerCount: 5, offers: ['offer1', 'offer2'] },
       { year: 2018, month: 3, day: 12 }),
-    new User('Mahmoud Samy',
+    new User(347951, 'Mahmoud Samy',
       'none',
       'mahmoudsamy50@outlook.com',
       'Egypt',
@@ -70,7 +70,7 @@ export class UsersService {
       '22/10/2025',
       { offerCount: 5, offers: ['offer1', 'offer2'] },
       { year: 2018, month: 8, day: 12 }),
-    new User('Mahmoud Samy',
+    new User(264795, 'Mahmoud Samy',
       'none',
       'mahmoudsamy50@outlook.com',
       'Egypt',
@@ -85,7 +85,7 @@ export class UsersService {
       '22/10/2025',
       { offerCount: 5, offers: ['offer1', 'offer2'] },
       { year: 2018, month: 5, day: 12 }),
-    new User('Mahmoud Samy',
+    new User(657181, 'Mahmoud Samy',
       'panned',
       'mahmoudsamy50@outlook.com',
       'Egypt',
@@ -100,7 +100,7 @@ export class UsersService {
       '22/10/2025',
       { offerCount: 5, offers: ['offer1', 'offer2'] },
       { year: 2018, month: 8, day: 12 }),
-    new User('Mahmoud Samy',
+    new User(758477, 'Mahmoud Samy',
       'active',
       'mahmoudsamy50@outlook.com',
       'Egypt',
@@ -138,7 +138,7 @@ export class UsersService {
 
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.users.length; i++) {
-      if (this.users[i].ID === id) {
+      if (this.users[i].userID === id) {
         return this.users[i];
       }
     }
@@ -147,7 +147,7 @@ export class UsersService {
   updateUserByID(id: number, user: User) {
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.users.length; i++) {
-      if (this.users[i].ID === id) {
+      if (this.users[i].userID === id) {
         this.users[i] = user;
       }
     }

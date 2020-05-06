@@ -1,0 +1,29 @@
+<div style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;" class="table-responsive p-0 m-0">
+    <table style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;" class="table table-dark p-0 m-0">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Feedback ID</th>
+                <th scope="col">Type</th>
+                <th scope="col">Content</th>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Day of Submission</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let feedback of feedbacks; index as i" (click)="goToFeedbackProfile(feedback)"
+                style="cursor: pointer;">
+                <td scope="row">{{ i + 1 }}</td>
+                <td scope="row">{{ feedback.feedbackID }}</td>
+                <td>{{ feedback.type }}<span *ngIf="feedback.type==='issue'"> - {{ feedback.issueType }}</span></td>
+                <td>{{ feedback.content }}</td>
+                <td>{{ feedback.customerID }}</td>
+                <td>
+                    {{ feedback.submissionDate.year }}/{{ feedback.submissionDate.month }}/{{
+                        feedback.submissionDate.day
+            }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

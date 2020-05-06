@@ -29,7 +29,7 @@ export class EditUserComponent implements OnInit {
   updateUserData() {
     console.log(this.user);
     const userID = Number(this.route.snapshot.params.id);
-    this.usersService.updateUserByID(userID, this.user)
+    this.usersService.updateUserByID(userID, this.user);
     this.changesIsSaved = true;
     this.router.navigate(['../'], { relativeTo: this.route });
   }
