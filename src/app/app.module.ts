@@ -22,6 +22,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { ChatPanelComponent } from './chat-panel/chat-panel.component';
 import { MapComponent } from './map/map.component';
+import { DashboardSpinnerComponent } from './dashboard-spinner/dashboard-spinner.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { MapComponent } from './map/map.component';
     NotFoundComponent,
     FeedbacksComponent,
     ChatPanelComponent,
-    MapComponent
+    MapComponent,
+    DashboardSpinnerComponent
   ],
   imports: [
     BrowserModule,

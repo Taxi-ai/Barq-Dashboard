@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit, AfterViewInit {
+export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor() { }
 
@@ -14,11 +14,17 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   numberCanvasCoordinates = { canvasWidth: 0, canvasHeight: 0 };
 
-  sources = {
+  canvasImages = {
     map: 'https://image.freepik.com/free-vector/colored-city-map-with-river-park_23-2148319224.jpg',
-    pin: 'https://www.connectsafely.org/wp-content/uploads/Location-pin-1.png',
-    dot: 'https://lh3.googleusercontent.com/S8BDYwHyxKR9T1DupOmAhif21jqLLUkl6GGQrwIXQuV7jFlmBXEF6TCvkCUl9V1D2Q'
+    endPoint: 'https://www.connectsafely.org/wp-content/uploads/Location-pin-1.png',
+    startingPoint: 'https://lh3.googleusercontent.com/S8BDYwHyxKR9T1DupOmAhif21jqLLUkl6GGQrwIXQuV7jFlmBXEF6TCvkCUl9V1D2Q',
+    currentLocation: 'https://play14.org/images/games/magic-triangles/01.png'
   };
+
+  newX = 0;
+  newY = 0;
+  stopLoading = false;
+  locationInterval;
 
   ngOnInit() {
 
@@ -41,14 +47,22 @@ export class MapComponent implements OnInit, AfterViewInit {
     // it put (0,0) of the image in the place you want
     // if you need to put pin in 100,75 and pin width is 30 and hight is 50
     // pin need to be drawImage(images.pin, 100-(30/2) , 75-50, 30, 50)
-    this.loadingImages(this.sources, (images: any) => {
-      this.context.drawImage(images.map, 0, 0, this.numberCanvasCoordinates.canvasWidth, this.numberCanvasCoordinates.canvasHeight);
-      this.context.drawImage(images.pin, (839.5 - 100 / 2), 123 - 100, 100, 100);
-      this.context.drawImage(images.dot, 437.5 - 25, 399 - 25, 50, 50);
+
+    this.loadingImages(this.canvasImages, (images: any) => {
+      this.locationInterval = setInterval(
+        () => {
+          this.stopLoading = true;
+          this.context.clearRect(0, 0, this.numberCanvasCoordinates.canvasWidth, this.numberCanvasCoordinates.canvasHeight);
+          this.context.drawImage(images.map, 0, 0, this.numberCanvasCoordinates.canvasWidth, this.numberCanvasCoordinates.canvasHeight);
+          this.context.drawImage(images.endPoint, (839.5 - 100 / 2), 123 - 100, 100, 100);
+          this.context.drawImage(images.startingPoint, 437.5 - 25, 399 - 25, 50, 50);
+          this.context.drawImage(images.currentLocation, this.newX - 25, this.newY - 16.65, 50, 33.3);
+          console.log('running');
+        }
+        , 2000);
+
     });
 
-
-    //437.5 - 399
 
     //////////////////////// Drawing a path
     // this.context.beginPath();
@@ -76,6 +90,12 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   }
 
+  ngOnDestroy() {
+    console.log('destroy map');
+
+    clearInterval(this.locationInterval);
+  }
+
   getMousePosition(event: MouseEvent) {
     console.log(event);
     const rect = this.myCanvas.nativeElement.getBoundingClientRect();
@@ -83,12 +103,14 @@ export class MapComponent implements OnInit, AfterViewInit {
     const y = event.clientY - rect.top;
     console.log('Coordinate x: ' + x,
       'Coordinate y: ' + y);
+    this.newX = x;
+    this.newY = y;
   }
 
 
 
 
-  loadingImages(sources: {}, callback: (images: any) => void) {
+  loadingImages(canvasImages: {}, callback: (images: any) => void) {
 
 
     const images = {};
@@ -96,19 +118,19 @@ export class MapComponent implements OnInit, AfterViewInit {
     let imagesCounter = 0;
 
     // tslint:disable-next-line: forin
-    for (const src in sources) {
+    for (const image in canvasImages) {
       imagesNumber++;
     }
 
     // tslint:disable-next-line: forin
-    for (const src in sources) {
-      images[src] = new Image();
-      images[src].onload = () => {
+    for (const image in canvasImages) {
+      images[image] = new Image();
+      images[image].onload = () => {
         if (++imagesCounter >= imagesNumber) {
           callback(images);
         }
       };
-      images[src].src = sources[src];
+      images[image].src = canvasImages[image];
     }
   }
 

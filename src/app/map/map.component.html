@@ -1,5 +1,12 @@
+<app-dashboard-spinner
+  *ngIf="!stopLoading"
+  class="m-auto"
+></app-dashboard-spinner
+>%
+
 <canvas
   #myCanvas
+  [hidden]="!stopLoading"
   (click)="getMousePosition($event)"
   style="border: 1px solid #d3d3d3;"
 >
