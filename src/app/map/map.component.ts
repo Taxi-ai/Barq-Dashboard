@@ -23,6 +23,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   newX = 0;
   newY = 0;
+  oldX: number;
+  oldY: number;
   stopLoading = false;
   locationInterval;
 
@@ -52,40 +54,25 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       this.locationInterval = setInterval(
         () => {
           this.stopLoading = true;
-          this.context.clearRect(0, 0, this.numberCanvasCoordinates.canvasWidth, this.numberCanvasCoordinates.canvasHeight);
-          this.context.drawImage(images.map, 0, 0, this.numberCanvasCoordinates.canvasWidth, this.numberCanvasCoordinates.canvasHeight);
-          this.context.drawImage(images.endPoint, (839.5 - 100 / 2), 123 - 100, 100, 100);
-          this.context.drawImage(images.startingPoint, 437.5 - 25, 399 - 25, 50, 50);
-          this.context.drawImage(images.currentLocation, this.newX - 25, this.newY - 16.65, 50, 33.3);
-          console.log('running');
+
+          if (this.newX !== this.oldX || this.newY !== this.oldY) {
+
+            this.context.clearRect(0, 0, this.numberCanvasCoordinates.canvasWidth, this.numberCanvasCoordinates.canvasHeight);
+            this.context.drawImage(images.map, 0, 0, this.numberCanvasCoordinates.canvasWidth, this.numberCanvasCoordinates.canvasHeight);
+            this.context.drawImage(images.endPoint, (839.5 - 100 / 2), 123 - 100, 100, 100);
+            this.context.drawImage(images.startingPoint, 437.5 - 25, 399 - 25, 50, 50);
+            this.context.drawImage(images.currentLocation, this.newX - 25, this.newY - 16.65, 50, 33.3);
+            console.log('running');
+            this.newX = this.oldX;
+            this.newY = this.oldY;
+
+          }
+
+
         }
         , 2000);
 
     });
-
-
-    //////////////////////// Drawing a path
-    // this.context.beginPath();
-    // this.context.moveTo(841.84375, 71);
-
-    // // line 1
-    // this.context.lineTo(800.84375, 360);
-
-
-    // // quadratic curve
-    // this.context.quadraticCurveTo(784.84375, 471, 250, 120);
-
-    // // bezier curve
-    // this.context.bezierCurveTo(290, -40, 300, 200, 400, 150);
-
-    // // line 2
-    // this.context.lineTo(500, 90);
-
-    // this.context.lineWidth = 5;
-    // this.context.strokeStyle = 'blue';
-    // this.context.stroke();
-
-
 
 
   }
@@ -95,6 +82,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     clearInterval(this.locationInterval);
   }
+
 
   getMousePosition(event: MouseEvent) {
     console.log(event);
