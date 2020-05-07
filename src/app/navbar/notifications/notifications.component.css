@@ -35,11 +35,23 @@
 }
 
 #notificationsDiv {
-  background-color: black;
+  border-left: 2px solid #050510;
   position: fixed;
   top: 52px;
   right: 0;
   width: 20vw;
   display: none;
   max-width: 300px;
+}
+
+.notificationTopic {
+  font-weight: bolder;
+  background-color: #16202a;
+  border-bottom: #16202a solid 2px;
+  color: #dcc3c3;
+}
+
+.notificationContent {
+  border-bottom: #16202a solid 2px;
+  color: #dcc3c3;
 }

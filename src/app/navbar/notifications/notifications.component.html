@@ -46,4 +46,17 @@
     'border-top': makeItDark == true ? '2px solid #16202a' : '2px solid #dcc3c3'
   }"
   id="notificationsDiv"
-></div>
+>
+  <div class="row p-3 m-0 notificationTopic">
+    <div class="col-md-12">
+      <i class="fas fa-bell"></i>
+      NOTIFICATIONS
+    </div>
+  </div>
+  <div
+    *ngFor="let item of [1, 2, 3, 4, 5]"
+    class="row notificationContent m-0 p-2 pl-3"
+  >
+    <div class="col-md-12">notification no. {{ item }}</div>
+  </div>
+</div>

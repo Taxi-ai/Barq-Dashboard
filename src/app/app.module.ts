@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { ChatPanelComponent } from './chat-panel/chat-panel.component';
+import { MapComponent } from './map/map.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ChatPanelComponent } from './chat-panel/chat-panel.component';
     HomeComponent,
     NotFoundComponent,
     FeedbacksComponent,
-    ChatPanelComponent
+    ChatPanelComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
