@@ -1,30 +1,29 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ThemeService } from '../dashboard/theme.service';
+import { ThemeService } from './theme.service';
 import { Subscription } from 'rxjs';
 
-@Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
-})
 
-export class NavbarComponent implements OnInit, OnDestroy {
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
+})
+export class DashboardComponent implements OnInit, OnDestroy {
+  title = 'taxi-dashboard';
   makeItDark = true;
   private themeSubscription: Subscription;
 
   constructor(public themeService: ThemeService) { }
 
+
   ngOnInit() {
-    console.log(this.makeItDark);
     this.makeItDark = this.themeService.getTheme();
-    console.log(this.makeItDark);
     this.themeSubscription = this.themeService.getThemeChangedListener()
       .subscribe((makeItDark: boolean) => {
         this.makeItDark = makeItDark;
-        // console.log(this.makeItDark);
-
       });
   }
+
   ngOnDestroy() {
     this.themeSubscription.unsubscribe();
   }

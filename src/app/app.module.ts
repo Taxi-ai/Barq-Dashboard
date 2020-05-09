@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,7 @@ import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { ChatPanelComponent } from './chat-panel/chat-panel.component';
 import { MapComponent } from './map/map.component';
 import { DashboardSpinnerComponent } from './dashboard-spinner/dashboard-spinner.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { DashboardSpinnerComponent } from './dashboard-spinner/dashboard-spinner
     FeedbacksComponent,
     ChatPanelComponent,
     MapComponent,
-    DashboardSpinnerComponent
+    DashboardSpinnerComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

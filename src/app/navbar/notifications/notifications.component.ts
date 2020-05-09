@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ThemeService } from '../../theme.service';
+import { ThemeService } from '../../dashboard/theme.service';
 import { Subscription } from 'rxjs';
 
 @Component({

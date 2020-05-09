@@ -6,15 +6,18 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UserPageComponent } from './users/user/user-page/user-page.component';
 import { EditUserComponent } from './users/user/edit-user/edit-user.component';
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
-
+// TODO remake routing after making the front end site using dashboard and main sites
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'feedbacks', component: FeedbacksComponent },
   { path: 'users', component: UsersComponent },
   { path: 'users/:id', component: UserPageComponent },
   { path: 'users/:id/edit', component: EditUserComponent },
   { path: 'not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({

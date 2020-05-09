@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from "../theme.service";
+import { ThemeService } from "../dashboard/theme.service";
 
 @Component({
   selector: 'app-side-menu',
