@@ -1,6 +1,27 @@
-<nav [ngClass]="{ darkThemeMain: makeItDark, lightThemeNavMain: !makeItDark }" class="nav flex-column py-2 px-2">
-  <a class="nav-link" class="btn btn-primary m-1" routerLinkActive="activeLink"
-    [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Home</a>
-  <a class="nav-link" class="btn btn-primary m-1" routerLinkActive="activeLink" routerLink="/users">Users</a>
-  <a class="nav-link" class="btn btn-primary m-1" routerLinkActive="activeLink" routerLink="/feedbacks">Feedbacks</a>
+<nav
+  [ngClass]="{ darkThemeMain: makeItDark, lightThemeNavMain: !makeItDark }"
+  class="nav flex-column py-2 px-2"
+>
+  <a
+    class="nav-link"
+    class="btn btn-primary m-1"
+    routerLinkActive="activeLink"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLink=""
+    >Home</a
+  >
+  <a
+    class="nav-link"
+    class="btn btn-primary m-1"
+    routerLinkActive="activeLink"
+    routerLink="users"
+    >Users</a
+  >
+  <a
+    class="nav-link"
+    class="btn btn-primary m-1"
+    routerLinkActive="activeLink"
+    routerLink="feedbacks"
+    >Feedbacks</a
+  >
 </nav>

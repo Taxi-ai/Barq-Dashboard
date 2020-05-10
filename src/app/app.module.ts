@@ -24,6 +24,7 @@ import { ChatPanelComponent } from './chat-panel/chat-panel.component';
 import { MapComponent } from './map/map.component';
 import { DashboardSpinnerComponent } from './dashboard-spinner/dashboard-spinner.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ChatPanelComponent,
     MapComponent,
     DashboardSpinnerComponent,
-    DashboardComponent
+    DashboardComponent,
+    UnderConstructionComponent
   ],
   imports: [
     BrowserModule,
