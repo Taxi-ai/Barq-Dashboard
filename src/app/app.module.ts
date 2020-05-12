@@ -25,6 +25,7 @@ import { MapComponent } from './map/map.component';
 import { DashboardSpinnerComponent } from './dashboard-spinner/dashboard-spinner.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
+import { ShortenPipe } from './users/shorten.pipe';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { UnderConstructionComponent } from './under-construction/under-construct
     MapComponent,
     DashboardSpinnerComponent,
     DashboardComponent,
-    UnderConstructionComponent
+    UnderConstructionComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,

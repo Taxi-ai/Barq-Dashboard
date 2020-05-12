@@ -1,5 +1,11 @@
-<div style="border-radius: 0.25rem 0.25rem 0px 0px;" class="table-responsive p-0 m-0">
-  <table style="border-radius: 0.25rem 0.25rem 0px 0px;" class="table table-dark p-0 m-0">
+<div
+  style="border-radius: 0.25rem 0.25rem 0px 0px;"
+  class="table-responsive p-0 m-0"
+>
+  <table
+    style="border-radius: 0.25rem 0.25rem 0px 0px;"
+    class="table table-dark p-0 m-0"
+  >
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -12,12 +18,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users; index as i" (click)="userProfile(user)" style="cursor: pointer;">
+      <tr
+        *ngFor="let user of users; index as i"
+        (click)="userProfile(user)"
+        style="cursor: pointer;"
+      >
         <td scope="row">{{ i + 1 }}</td>
         <td scope="row">{{ user.userID }}</td>
-        <td>{{ user.username }}</td>
-        <td>{{ user.country }} - {{ user.city }}</td>
-        <td>{{ user.email }}</td>
+        <td>{{ user.username | titlecase }}</td>
+        <td>{{ user.country | titlecase }} - {{ user.city | titlecase }}</td>
+        <td>{{ user.email | shorten: 15 }}</td>
         <td>{{ user.phone }}</td>
         <td>
           {{ user.registered.year }}/{{ user.registered.month }}/{{
