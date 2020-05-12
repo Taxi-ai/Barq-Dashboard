@@ -1,6 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ThemeService } from '../dashboard/theme.service';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,24 +6,13 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./navbar.component.css']
 })
 
-export class NavbarComponent implements OnInit, OnDestroy {
-  makeItDark = true;
-  private themeSubscription: Subscription;
+export class NavbarComponent implements OnInit {
 
-  constructor(public themeService: ThemeService) { }
+
+  constructor() { }
 
   ngOnInit() {
-    console.log(this.makeItDark);
-    this.makeItDark = this.themeService.getTheme();
-    console.log(this.makeItDark);
-    this.themeSubscription = this.themeService.getThemeChangedListener()
-      .subscribe((makeItDark: boolean) => {
-        this.makeItDark = makeItDark;
-        // console.log(this.makeItDark);
 
-      });
   }
-  ngOnDestroy() {
-    this.themeSubscription.unsubscribe();
-  }
+
 }

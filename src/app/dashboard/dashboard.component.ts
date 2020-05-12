@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ThemeService } from './theme.service';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ThemeService } from "./theme.service";
 
 
 @Component({
@@ -8,23 +7,28 @@ import { Subscription } from 'rxjs';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
-  title = 'taxi-dashboard';
-  makeItDark = true;
-  private themeSubscription: Subscription;
-
+export class DashboardComponent implements OnInit {
   constructor(public themeService: ThemeService) { }
-
-
   ngOnInit() {
-    this.makeItDark = this.themeService.getTheme();
-    this.themeSubscription = this.themeService.getThemeChangedListener()
-      .subscribe((makeItDark: boolean) => {
-        this.makeItDark = makeItDark;
-      });
+
+    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
+      // browser supports 'prefers-color-scheme' media query
+      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+      if (darkModeMediaQuery.matches === true) {
+        // user use dark mode in his device
+        this.themeService.changeTheme(true);
+      } else {
+        // user use dark mode in his light
+        this.themeService.changeTheme(false);
+      }
+
+    } else {
+      // browser doesn't support 'prefers-color-scheme' media query
+      this.themeService.changeTheme(true);
+    }
+
+
   }
 
-  ngOnDestroy() {
-    this.themeSubscription.unsubscribe();
-  }
 }

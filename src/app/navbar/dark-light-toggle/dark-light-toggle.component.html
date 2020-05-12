@@ -1,6 +1,11 @@
 <div>
   <label class="switch">
-    <input (click)="toggleTheme()" type="checkbox" id="themeSwitch" />
+    <input
+      (click)="toggleTheme()"
+      type="checkbox"
+      [checked]="!makeItDark"
+      id="themeSwitch"
+    />
     <span class="slider round"></span>
   </label>
 </div>

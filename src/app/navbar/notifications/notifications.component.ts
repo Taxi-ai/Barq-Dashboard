@@ -1,6 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ThemeService } from '../../dashboard/theme.service';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-notifications',
@@ -8,9 +6,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./notifications.component.css']
 })
 
-export class NotificationsComponent implements OnInit, OnDestroy {
-  makeItDark = true;
-  private themeSubscription: Subscription;
+export class NotificationsComponent implements OnInit {
+
   buttonColorsClass1 = { closedFill1: true, openedFill1: false };
   buttonColorsClass2 = { closedFill2: true, openedFill2: false };
 
@@ -34,17 +31,12 @@ export class NotificationsComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(public themeService: ThemeService) {
+  constructor() {
 
   }
 
 
   ngOnInit() {
-    console.log(this.makeItDark);
-    this.makeItDark = this.themeService.getTheme();
-    console.log(this.makeItDark);
-    this.themeSubscription = this.themeService.getThemeChangedListener()
-      .subscribe((makeItDark: boolean) => { this.makeItDark = makeItDark; });
 
     const viewportHeight = window.innerHeight;
     const notificationsDivHeight = viewportHeight - 52;
@@ -53,7 +45,5 @@ export class NotificationsComponent implements OnInit, OnDestroy {
 
 
   }
-  ngOnDestroy() {
-    this.themeSubscription.unsubscribe();
-  }
+
 }

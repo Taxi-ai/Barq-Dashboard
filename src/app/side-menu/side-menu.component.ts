@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from "../dashboard/theme.service";
 
 @Component({
   selector: 'app-side-menu',
@@ -8,18 +7,11 @@ import { ThemeService } from "../dashboard/theme.service";
 })
 export class SideMenuComponent implements OnInit {
 
-  makeItDark = true;
 
-  constructor(private themeService: ThemeService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.makeItDark = this.themeService.getTheme();
-    this.themeService.getThemeChangedListener().subscribe(
 
-      (makeItDark: boolean) => {
-        this.makeItDark = makeItDark;
-      }
-    )
   }
 
 }
