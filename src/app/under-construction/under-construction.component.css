@@ -8,23 +8,14 @@
   transform: translate(-50%, -50%);
 }
 img {
-  width: 100%;
+  display: block;
+  width: 30%;
   height: auto;
+  margin: auto;
 }
 
-h1 {
-  color: #ffa420;
-  text-align: center;
-  font-size: 4rem;
-  font-family: "Fredoka One", cursive;
-  font-weight: lighter;
-}
-span {
-  color: #d98c1b;
-}
-
-@media only screen and (max-width: 499px) {
-  h1 {
-    font-size: 2.5rem;
+@media only screen and (max-width: 800px) {
+  img {
+    width: 40%;
   }
 }
