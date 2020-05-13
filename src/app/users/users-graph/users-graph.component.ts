@@ -24,6 +24,8 @@ export class UsersGraphComponent implements OnInit {
 
   ngOnInit() {
     this.handlingGraphDesign(this.finalCounter);
+    // console.log(this.finalCounter);
+
   }
 
   handlingGraphDesign(finalCounter: number[]) {

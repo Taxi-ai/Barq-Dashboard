@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { User, UserX } from './user.model';
+import { Component, OnInit } from '@angular/core';
+import { UserX } from './user.model';
 import { UsersService } from './users.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-users',
@@ -11,11 +10,13 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class UsersComponent implements OnInit {
 
-  users: UserX[] = [];
+  users: UserX[];
   usersStates = { active: 0, panned: 0 };
   finalCounter: number[] = new Array(12); // array with numbers of months duplicates
   selectForSearch = 'name';
   selectForFilter = 'date';
+  fetchingDataVars = { isFetchingError: false, isFetchingDone: false, usersArrayLength: 0 };
+
 
   constructor(private usersService: UsersService, private router: Router, private route: ActivatedRoute) { }
 
@@ -23,9 +24,18 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
 
     this.usersService.getAllUsers().subscribe(users => {
+      this.fetchingDataVars.isFetchingError = false;
       this.users = users;
-      this.handlingGraphData();
-      this.gettingUsersStates();
+      if (this.users.length > 0) {
+        this.fetchingDataVars.usersArrayLength = this.users.length;
+        this.handlingGraphData();
+        this.gettingUsersStates();
+      }
+      this.fetchingDataVars.isFetchingDone = true;
+    }, error => {
+      this.fetchingDataVars.isFetchingError = true;
+      console.log(new Error(error.message));
+
     });
 
 
