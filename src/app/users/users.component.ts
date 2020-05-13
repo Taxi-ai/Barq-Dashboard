@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { User, UserْX } from './user.model';
+import { User, UserX } from './user.model';
 import { UsersService } from './users.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
@@ -11,7 +11,7 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class UsersComponent implements OnInit {
 
-  users: UserْX[] = [];
+  users: UserX[] = [];
   usersStates = { active: 0, panned: 0 };
   finalCounter: number[] = new Array(12); // array with numbers of months duplicates
   selectForSearch = 'name';
@@ -49,8 +49,6 @@ export class UsersComponent implements OnInit {
     const months: number[] = []; // all months that has users registered in
     this.users.forEach(
       (user) => {
-        console.log(user.registered);
-        console.log(typeof user.registered);
         months.push(user.registered.getMonth() + 1);
       }
     );

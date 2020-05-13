@@ -45,7 +45,7 @@ export class User {
 
 }
 
-export class UserْX {
+export class UserX {
     public userID?: number; // not to show in table --> uncomment this after connecting to database
     public userState: boolean; // true (in ride)/false (not in ride)
     public pannedState: boolean; // true (user is panned)/false (user isn't panned)

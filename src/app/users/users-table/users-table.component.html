@@ -9,7 +9,6 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">ID</th>
         <th scope="col">In A Ride?</th>
         <th scope="col">User Name</th>
         <th scope="col">City</th>
@@ -31,7 +30,6 @@
         style="cursor: pointer;"
       >
         <td scope="row">{{ i + 1 }}</td>
-        <td scope="row">{{ user.id | shorten: 4 }}</td>
         <td>{{ user.userState ? "✅" : "❎" }}</td>
         <td>
           {{ user.firstName | titlecase }} {{ user.lastName | titlecase }}

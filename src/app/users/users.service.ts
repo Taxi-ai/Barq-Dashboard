@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { User, UserْX } from './user.model';
+import { User, UserX } from './user.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -135,7 +135,7 @@ export class UsersService {
   postUser() {
     // TODO this function in just for creation of firebase database so delete it after that
 
-    const user: UserْX = {
+    const user: UserX = {
       firstName: 'Mahmoud',
       lastName: 'Samy',
       email: 'mahmoudSamy50@outlook.com',
@@ -164,7 +164,7 @@ export class UsersService {
         const usersArray = [];
         // tslint:disable-next-line: forin
         for (const userID in usersStream) {
-          usersArray.push({ ...usersStream[userID], id: userID });
+          usersArray.push({ ...usersStream[userID], userID });
         }
         return usersArray;
       }))
