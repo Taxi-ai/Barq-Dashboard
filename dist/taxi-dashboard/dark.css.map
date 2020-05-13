@@ -1,0 +1,1 @@
+{"version":3,"sources":["./src/assets/css/dark.css"],"names":[],"mappings":"AAAA;EACE,yBAAyB;AAC3B;;AAEA;EACE,yBAAyB;AAC3B","file":"dark.css","sourcesContent":[".primaryBG {\r\n  background-color: #050510;\r\n}\r\n\r\n.secondaryBG {\r\n  background-color: #16202a;\r\n}\r\n"],"sourceRoot":"webpack:///"}
