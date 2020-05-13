@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../user.model';
+import { UserْX } from '../user.model';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,11 +9,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UsersTableComponent implements OnInit {
 
-  @Input() users: User[];
+  @Input() users: UserْX[];
 
-  userProfile(user: User) {
-    console.log(user.userID);
-    this.router.navigate([user.userID], { relativeTo: this.route });
+  userProfile(user: userX) {
+    console.log(user.id);
+    this.router.navigate([user.id], { relativeTo: this.route });
   }
   constructor(private router: Router, private route: ActivatedRoute) { }
 

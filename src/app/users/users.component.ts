@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { User } from './user.model';
+import { User, UserْX } from './user.model';
 import { UsersService } from './users.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-users',
@@ -10,8 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
 
-  users: User[] = [];
-  usersStates = { none: 0, active: 0, panned: 0 };
+  users: UserْX[] = [];
+  usersStates = { active: 0, panned: 0 };
   finalCounter: number[] = new Array(12); // array with numbers of months duplicates
   selectForSearch = 'name';
   selectForFilter = 'date';
@@ -21,17 +22,25 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
 
-    this.users = this.usersService.getAllUsers();
-    this.handlingGraphData();
-    this.gettingUsersStates();
+    this.usersService.getAllUsers().subscribe(users => {
+      this.users = users;
+      this.handlingGraphData();
+      this.gettingUsersStates();
+    });
 
-    this.usersService.usersChanged.subscribe(
-      (users: User[]) => {
-        this.users = users;
-        this.handlingGraphData();
-        this.gettingUsersStates();
-      }
-    );
+
+    // this.usersService.usersChanged.subscribe(
+    //   (users: User[]) => {
+    //     this.users = users;
+    //     this.handlingGraphData();
+    //     this.gettingUsersStates();
+    //   }
+    // );
+  }
+
+  postUser() {
+    // remove this method after removing its button in the UI
+    this.usersService.postUser();
   }
 
 
@@ -40,7 +49,9 @@ export class UsersComponent implements OnInit {
     const months: number[] = []; // all months that has users registered in
     this.users.forEach(
       (user) => {
-        months.push(user.registered.month);
+        console.log(user.registered);
+        console.log(typeof user.registered);
+        months.push(user.registered.getMonth() + 1);
       }
     );
 
@@ -62,18 +73,11 @@ export class UsersComponent implements OnInit {
 
   gettingUsersStates() {
     this.users.forEach((user) => {
-      switch (user.state) {
-        case 'none':
-          this.usersStates.none += 1;
-          break;
-        case 'active':
-          this.usersStates.active += 1;
-          break;
-        case 'panned':
-          this.usersStates.panned += 1;
-          break;
-        default:
-          break;
+      if (user.userState === true) {
+        this.usersStates.active += 1;
+      }
+      if (user.pannedState === true) {
+        this.usersStates.panned += 1;
       }
     });
   }

@@ -1,7 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { User } from './user.model';
+import { User, UserْX } from './user.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -122,16 +123,65 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  fetchUsers(): Observable<object> {
-    // this function gets data but there is no component use it till now
-    // TODO I still need to post data to an api to edit it
-    return this.http.get('/assets/users.json');
+  randomTrueFalse() {
+    // TODO useless function - remove it after removing user constant in postUser function
+    if (Math.round(Math.random() * 10) / 2 >= 5) {
+      return true;
+    } else {
+      return false;
+    }
   }
+
+  postUser() {
+    // TODO this function in just for creation of firebase database so delete it after that
+
+    const user: UserْX = {
+      firstName: 'Mahmoud',
+      lastName: 'Samy',
+      email: 'mahmoudSamy50@outlook.com',
+      country: 'Egypt',
+      city: 'Tanta',
+      age: Math.round(Math.random() * 100),
+      wallet: Math.round(Math.random() * 1000),
+      phone: Math.round(Math.random() * 100000000000),
+      numberOfOffers: Math.round(Math.random() * 10),
+      numberOfRides: Math.round(Math.random() * 100),
+      numberOfIssue: Math.round(Math.random() * 10),
+      userState: this.randomTrueFalse(),
+      pannedState: this.randomTrueFalse(),
+      registered: new Date()
+    };
+
+    this.http.post('https://taxi-graduation-project.firebaseio.com/users.json', user).subscribe(data => console.log(data));
+  }
+
 
   getAllUsers() {
     // console.log(JSON.stringify(this.users));
 
-    return this.users;
+    return this.http.get('https://taxi-graduation-project.firebaseio.com/users.json')
+      .pipe(map(usersStream => {
+        const usersArray = [];
+        // tslint:disable-next-line: forin
+        for (const userID in usersStream) {
+          usersArray.push({ ...usersStream[userID], id: userID });
+        }
+        return usersArray;
+      }))
+      .pipe(map(usersArray => {
+
+        usersArray.forEach(user => {
+          // data came as string so we need to convert it to date object
+          user.registered = new Date(user.registered);
+        });
+
+        return usersArray;
+      }
+      ));
+
+
+
+    // return this.users;
   }
 
   getUserByID(id: number) {
