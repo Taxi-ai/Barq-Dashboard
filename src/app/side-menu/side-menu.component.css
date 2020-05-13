@@ -12,3 +12,22 @@ nav {
   background-color: #3ea6ff;
   border-color: #3ea6ff;
 }
+
+#menuToggle {
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  nav {
+    position: static;
+    height: auto;
+    width: auto;
+    margin-bottom: 15px;
+  }
+  #menuToggle {
+    display: block;
+  }
+  a {
+    display: none;
+  }
+}

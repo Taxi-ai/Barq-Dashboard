@@ -55,7 +55,8 @@ import { FetchedNothingComponent } from './fetching/fetched-nothing/fetched-noth
     ShortenPipe,
     FetchingErrorComponent,
     IsFetchingComponent,
-    FetchedNothingComponent
+    FetchedNothingComponent,
+
   ],
   imports: [
     BrowserModule,
