@@ -26,6 +26,9 @@ import { DashboardSpinnerComponent } from './dashboard-spinner/dashboard-spinner
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 import { ShortenPipe } from './users/shorten.pipe';
+import { FetchingErrorComponent } from './fetching/fetching-error/fetching-error.component';
+import { IsFetchingComponent } from './fetching/is-fetching/is-fetching.component';
+import { FetchedNothingComponent } from './fetching/fetched-nothing/fetched-nothing.component';
 
 
 @NgModule({
@@ -49,7 +52,10 @@ import { ShortenPipe } from './users/shorten.pipe';
     DashboardSpinnerComponent,
     DashboardComponent,
     UnderConstructionComponent,
-    ShortenPipe
+    ShortenPipe,
+    FetchingErrorComponent,
+    IsFetchingComponent,
+    FetchedNothingComponent
   ],
   imports: [
     BrowserModule,

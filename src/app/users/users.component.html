@@ -9,22 +9,12 @@
 
 <div
   *ngIf="!fetchingDataVars.isFetchingDone && !fetchingDataVars.isFetchingError"
-  class="row"
 >
-  <div class="col-md-12">
-    <p style="text-align: center; color: whitesmoke; font-size: 2rem;">
-      <i class="fas fa-cloud-download-alt"></i> Fetching Data
-    </p>
-  </div>
+  <app-is-fetching></app-is-fetching>
 </div>
 
-<div *ngIf="fetchingDataVars.isFetchingError" class="row">
-  <div class="col-md-12">
-    <p style="text-align: center; color: whitesmoke; font-size: 2.5rem;">
-      <i class="fas fa-exclamation-triangle"></i> An Error happened, more
-      information in console.
-    </p>
-  </div>
+<div *ngIf="fetchingDataVars.isFetchingError">
+  <app-fetching-error></app-fetching-error>
 </div>
 
 <div
@@ -33,13 +23,8 @@
     fetchingDataVars.usersArrayLength < 1 &&
     !fetchingDataVars.isFetchingError
   "
-  class="row"
 >
-  <div class="col-md-12">
-    <p style="text-align: center; color: whitesmoke; font-size: 2rem;">
-      <i class="fas fa-sad-tear"></i> No Users !
-    </p>
-  </div>
+  <app-fetched-nothing [dataType]="'Users'"></app-fetched-nothing>
 </div>
 
 <div

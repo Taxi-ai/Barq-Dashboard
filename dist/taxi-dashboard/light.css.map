@@ -1,1 +1,0 @@
-{"version":3,"sources":["./src/assets/css/light.css"],"names":[],"mappings":"AAAA;EACE,oCAAoC;AACtC;;AAEA;EACE,oCAAoC;AACtC","file":"light.css","sourcesContent":[".primaryBG {\r\n  background-color: #707070 !important;\r\n}\r\n\r\n.secondaryBG {\r\n  background-color: #dcc3c3 !important;\r\n}\r\n"],"sourceRoot":"webpack:///"}
