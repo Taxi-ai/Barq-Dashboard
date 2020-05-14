@@ -65,12 +65,6 @@
 
 @media only screen and (max-width: 500px) {
   #sideMenuNarrowScreen p {
-    display: block;
-  }
-}
-
-@media only screen and (max-width: 300px) {
-  #sideMenuNarrowScreen p {
     display: none;
   }
 }
