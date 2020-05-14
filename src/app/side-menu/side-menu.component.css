@@ -8,9 +8,9 @@
   display: none;
   position: fixed;
   bottom: 0;
-  right: 0;
   left: 0;
   z-index: 1000;
+  width: 100%;
 }
 
 .btn-primary {
@@ -24,8 +24,11 @@
 }
 
 #sideMenuNarrowScreen a {
+  color: white;
   height: 100%;
   border-radius: 0px !important;
+  padding-right: 0px;
+  padding-left: 0px;
   /* padding-; */
 }
 
@@ -33,16 +36,22 @@
   #sideMenuWideScreen {
     display: none;
   }
+  #sideMenuNarrowScreen p {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+  }
   #sideMenuNarrowScreen {
     display: block;
     backdrop-filter: blur(20px) !important;
-    background-color: rgba(5, 5, 16, 0.6) !important;
+    background-color: rgba(5, 5, 16, 0.7) !important;
   }
 
-  .col-sm-4 {
-    max-width: 33.333333% !important;
-    flex: 0 0 33.333333% !important;
+  #sideMenuNarrowScreen .col-sm-3 {
+    max-width: 25% !important;
+    flex: 0 0 25% !important;
   }
+
   .btn-primary {
     background-color: transparent;
     border-color: transparent;
@@ -51,5 +60,17 @@
   .activeLink {
     background-color: #3ea6ff;
     border-color: #3ea6ff;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #sideMenuNarrowScreen p {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  #sideMenuNarrowScreen p {
+    display: none;
   }
 }

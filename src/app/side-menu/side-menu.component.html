@@ -25,34 +25,44 @@
 
 <nav id="sideMenuNarrowScreen" class="row p-0 m-0">
   <div class="row">
-    <div class="col-sm-4 p-0">
+    <div class="col-sm-3 p-0">
       <a
-        class="btn d-block btn-block btn-primary py-2"
+        class="btn d-block btn-block btn-primary py-3"
         routerLinkActive="activeLink"
         [routerLinkActiveOptions]="{ exact: true }"
         routerLink="./"
       >
-        Home
+        <i class="fa fa-home mr-1"></i>
+        <p>Home</p>
       </a>
     </div>
 
-    <div class="col-sm-4 p-0">
+    <div class="col-sm-3 p-0">
       <a
-        class="btn d-block btn-block btn-primary py-2"
+        class="btn d-block btn-block btn-primary py-3"
         routerLinkActive="activeLink"
         routerLink="users"
       >
-        Users
+        <i class="fa fa-address-book mr-1"></i>
+        <p>Users</p>
       </a>
     </div>
 
-    <div class="col-sm-4 p-0">
+    <div class="col-sm-3 p-0">
       <a
-        class="btn btn-block btn-primary py-2"
+        class="btn btn-block btn-primary py-3"
         routerLinkActive="activeLink"
         routerLink="feedbacks"
       >
-        Feedbacks
+        <i class="fa fa-book-open mr-1"></i>
+        <p>Feedbacks</p>
+      </a>
+    </div>
+    <div class="col-sm-3 p-0">
+      <a class="btn btn-block btn-danger py-3" (click)="nassarMessage()">
+        <!-- TODO remove this button -->
+        <i class="fa fa-info mr-1"></i>
+        <p>important</p>
       </a>
     </div>
   </div>
