@@ -14,7 +14,7 @@ export class SideMenuComponent implements OnInit {
   constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
-    console.log(this.notActivatedButtons.nativeElement);
+    // console.log(this.notActivatedButtons.nativeElement);
   }
 
   toggleMenu() {
