@@ -32,17 +32,8 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.css",
               "./node_modules/@fortawesome/fontawesome-free/css/all.css",
-              "src/styles.css",
-              {
-                "input": "src/assets/css/light.css",
-                "bundleName": "light",
-                "inject": false
-              },
-              {
-                "input": "src/assets/css/dark.css",
-                "bundleName": "dark",
-                "inject": false
-              }
+              "src/assets/css/dashboardThemes.css",
+              "src/styles.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",

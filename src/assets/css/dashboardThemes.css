@@ -1,0 +1,23 @@
+:root {
+  --primary-color: #050510;
+  --secondary-color: #16202a;
+  /* --font-color: #424242;
+  --bg-color: #fff;
+  --heading-color: #292922; */
+}
+
+[data-theme="light"] {
+  --primary-color: #dcc3c3;
+  --secondary-color: #efe4e4;
+  /* --font-color: #e1e1ff;
+  --bg-color: #161625;
+  --heading-color: #818cab; */
+}
+
+.primaryBG {
+  background-color: var(--primary-color);
+}
+
+.secondaryBG {
+  background-color: var(--secondary-color);
+}
