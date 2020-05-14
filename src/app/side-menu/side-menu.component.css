@@ -44,7 +44,7 @@
   #sideMenuNarrowScreen {
     display: block;
     backdrop-filter: blur(20px) !important;
-    background-color: rgba(5, 5, 16, 0.7) !important;
+    background-color: rgba(5, 5, 16, 0.6) !important;
   }
 
   #sideMenuNarrowScreen .col-sm-3 {

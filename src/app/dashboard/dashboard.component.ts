@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
-    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null; // get theme value from localStorage
+    const currentTheme = localStorage.getItem('theme') || null; // get theme value from localStorage
 
     // check if there is a value for attribute 'theme'
     if (currentTheme) {

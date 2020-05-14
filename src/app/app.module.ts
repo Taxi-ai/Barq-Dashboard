@@ -25,10 +25,14 @@ import { MapComponent } from './map/map.component';
 import { DashboardSpinnerComponent } from './dashboard-spinner/dashboard-spinner.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
-import { ShortenPipe } from './users/shorten.pipe';
+import { ShortenPipe } from './shared/shorten.pipe';
 import { FetchingErrorComponent } from './fetching/fetching-error/fetching-error.component';
 import { IsFetchingComponent } from './fetching/is-fetching/is-fetching.component';
 import { FetchedNothingComponent } from './fetching/fetched-nothing/fetched-nothing.component';
+import { CompaniesComponent } from './companies/companies.component';
+import { CompaniesTableComponent } from './companies/companies-table/companies-table.component';
+import { CompanyPageComponent } from './companies/company/company-page/company-page.component';
+import { CompanyEditComponent } from './companies/company/company-edit/company-edit.component';
 
 
 @NgModule({
@@ -56,6 +60,10 @@ import { FetchedNothingComponent } from './fetching/fetched-nothing/fetched-noth
     FetchingErrorComponent,
     IsFetchingComponent,
     FetchedNothingComponent,
+    CompaniesComponent,
+    CompaniesTableComponent,
+    CompanyPageComponent,
+    CompanyEditComponent,
 
   ],
   imports: [
