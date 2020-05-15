@@ -7,7 +7,11 @@ import { UserPageComponent } from './users/user/user-page/user-page.component';
 import { EditUserComponent } from './users/user/edit-user/edit-user.component';
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UnderConstructionComponent } from "./under-construction/under-construction.component";
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
+import { CompaniesComponent } from './companies/companies.component';
+import { CompanyPageComponent } from "./companies/company/company-page/company-page.component";
+import { CompanyEditComponent } from "./companies/company/company-edit/company-edit.component";
+
 
 // TODO remake routing after making the front end site using dashboard and main sites
 const routes: Routes = [
@@ -19,6 +23,9 @@ const routes: Routes = [
       { path: 'users', component: UsersComponent },
       { path: 'users/:id', component: UserPageComponent },
       { path: 'users/:id/edit', component: EditUserComponent },
+      { path: 'companies', component: CompaniesComponent },
+      { path: 'companies/:id', component: CompanyPageComponent },
+      { path: 'companies/:id/edit', component: CompanyEditComponent },
       { path: '**', redirectTo: 'not-found' }
     ]
   },

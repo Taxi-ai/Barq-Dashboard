@@ -125,7 +125,7 @@ export class UsersService {
 
   randomTrueFalse() {
     // TODO useless function - remove it after removing user constant in postUser function
-    if (Math.round(Math.random() * 10) / 2 >= 5) {
+    if (Math.round(Math.random() * 10) > 5) {
       return true;
     } else {
       return false;

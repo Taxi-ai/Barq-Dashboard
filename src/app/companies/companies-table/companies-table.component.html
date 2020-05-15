@@ -1,1 +1,37 @@
-<p>companies-table works!</p>
+<div
+  style="border-radius: 0.25rem 0.25rem 0px 0px;"
+  class="table-responsive p-0 m-0"
+>
+  <table
+    style="border-radius: 0.25rem 0.25rem 0px 0px;"
+    class="table table-dark p-0 m-0"
+  >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let company of companies; index as i"
+        (click)="companyProfile(company)"
+        style="cursor: pointer;"
+      >
+        <td scope="row">{{ i + 1 }}</td>
+        <td>{{ company.name | titlecase }}</td>
+        <td>{{ company.email | shorten: 10 }}</td>
+        <td>{{ company.phone }}</td>
+
+        <td>
+          {{ company.address.country | titlecase }} |
+          {{ company.address.city | titlecase }} |
+          {{ company.address.street | titlecase }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

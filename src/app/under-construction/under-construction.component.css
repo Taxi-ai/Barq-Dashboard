@@ -1,8 +1,7 @@
-.centered {
+/* .centered {
   position: fixed;
   top: 50%;
   left: 50%;
-  /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
 img {
@@ -16,4 +15,14 @@ img {
   img {
     width: 40%;
   }
+} */
+
+#background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: black;
+  z-index: 0;
 }

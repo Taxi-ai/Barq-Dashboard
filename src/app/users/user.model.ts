@@ -1,4 +1,4 @@
-export class User {
+export class User { // TODO remove this after getting user & users
     public userID: number; // not to show in table
     // tslint:disable-next-line: max-line-length
     public state: 'none' | 'active' | 'panned'; // new property for userState true (in ride)/false (not in ride) and pannedState -> true/false
