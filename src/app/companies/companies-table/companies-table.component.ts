@@ -11,7 +11,7 @@ export class CompaniesTableComponent implements OnInit {
 
   @Input() companies: Company[];
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }

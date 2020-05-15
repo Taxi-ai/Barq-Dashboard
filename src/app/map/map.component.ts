@@ -65,10 +65,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
             console.log('running');
             this.newX = this.oldX;
             this.newY = this.oldY;
-
           }
-
-
         }
         , 2000);
 
@@ -98,7 +95,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
 
-  loadingImages(canvasImages: {}, callback: (images: any) => void) {
+  loadingImages(canvasImages: object, callback: (images: any) => void) {
 
 
     const images = {};
@@ -121,7 +118,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       images[image].src = canvasImages[image];
     }
   }
-
 
 
 }
