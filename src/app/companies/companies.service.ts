@@ -26,7 +26,8 @@ export class CompaniesService {
       name: 'The Great',
       email: 'great@great.com',
       phone: '01019111816',
-      address: { country: 'egypt', city: 'tanta', street: 'galaa' }
+      address: { country: 'egypt', city: 'tanta', street: 'galaa' },
+      numberOfEmployees: 50
     };
 
     this.http.post('https://taxi-graduation-project.firebaseio.com/companies.json ', company).subscribe(data => console.log(data));
@@ -35,15 +36,26 @@ export class CompaniesService {
 
   getAllCompanies() {
 
-    return this.http.get('https://taxi-graduation-project.firebaseio.com/companies.json')
-      .pipe(map(companiesStream => {
-        const companiesArray = [];
-        // tslint:disable-next-line: forin
-        for (const id in companiesStream) {
-          companiesArray.push({ ...companiesStream[id], id });
-        }
-        return companiesArray;
-      }));
+    return this.http.get('https://barq-api.herokuapp.com/api/companies')
+      .pipe(map(
+        (companiesStream: Company) => {
+          const companiesArray = [];
+          // tslint:disable-next-line: forin
+          for (const id in companiesStream) {
+            companiesArray.push({ ...companiesStream[id] });
+          }
+          return companiesArray;
+        }));
+
+    // return this.http.get('https://taxi-graduation-project.firebaseio.com/companies.json')
+    //   .pipe(map(companiesStream => {
+    //     const companiesArray = [];
+    //     // tslint:disable-next-line: forin
+    //     for (const id in companiesStream) {
+    //       companiesArray.push({ ...companiesStream[id], id });
+    //     }
+    //     return companiesArray;
+    //   }));
 
   }
 

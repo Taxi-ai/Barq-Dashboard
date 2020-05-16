@@ -3,6 +3,7 @@ export class Company {
     public name: string; // companyName
     public email: string;
     public phone: string;
+    public numberOfEmployees: number;
     public address: {
         country: string,
         city: string,

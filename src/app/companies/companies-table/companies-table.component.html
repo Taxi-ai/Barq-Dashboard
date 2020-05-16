@@ -12,6 +12,7 @@
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
+        <th scope="col">No. of employees</th>
         <th scope="col">Address</th>
       </tr>
     </thead>
@@ -25,7 +26,7 @@
         <td>{{ company.name | titlecase }}</td>
         <td>{{ company.email | shorten: 10 }}</td>
         <td>{{ company.phone }}</td>
-
+        <td>{{ company.numberOfEmployees }}</td>
         <td>
           {{ company.address.country | titlecase }} |
           {{ company.address.city | titlecase }} |

@@ -19,7 +19,11 @@ export class CompaniesComponent implements OnInit {
 
     this.companiesService.getAllCompanies().subscribe(companies => {
       this.fetchingDataVars.isFetchingError = false;
-      this.companies = companies;
+      console.log(companies);
+      console.log(typeof companies);
+
+
+      this.companies = [...companies];
       if (this.companies.length > 0) {
         this.fetchingDataVars.companiesArrayLength = this.companies.length;
         // this.handlingGraphData(); // there is no graph
