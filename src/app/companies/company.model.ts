@@ -1,5 +1,6 @@
 export class Company {
-    public id?: number; // not to show in table --> uncomment this after connecting to database
+    // tslint:disable-next-line: variable-name
+    public _id?: number; // not to show in table --> uncomment this after connecting to database
     public name: string; // companyName
     public email: string;
     public phone: string;
@@ -9,5 +10,9 @@ export class Company {
         city: string,
         street: string
     };
+
+    get id() {
+        return this._id;
+    }
 
 }

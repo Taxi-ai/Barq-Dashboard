@@ -33,6 +33,8 @@ import { CompaniesComponent } from './companies/companies.component';
 import { CompaniesTableComponent } from './companies/companies-table/companies-table.component';
 import { CompanyPageComponent } from './companies/company/company-page/company-page.component';
 import { CompanyEditComponent } from './companies/company/company-edit/company-edit.component';
+import { FeedbackPageComponent } from './feedbacks/feedback-page/feedback-page.component';
+import { LoginComponent } from './admin-login/admin-login.component';
 
 
 @NgModule({
@@ -64,6 +66,8 @@ import { CompanyEditComponent } from './companies/company/company-edit/company-e
     CompaniesTableComponent,
     CompanyPageComponent,
     CompanyEditComponent,
+    FeedbackPageComponent,
+    LoginComponent,
 
   ],
   imports: [

@@ -32,7 +32,8 @@ export class CompaniesComponent implements OnInit {
       this.fetchingDataVars.isFetchingDone = true;
     }, error => {
       this.fetchingDataVars.isFetchingError = true;
-      console.log(new Error(error.message));
+
+      console.log(error.message);
 
     });
   }

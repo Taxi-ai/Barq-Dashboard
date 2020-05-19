@@ -17,8 +17,8 @@ export class CompaniesTableComponent implements OnInit {
   }
 
   companyProfile(company: Company) {
-    console.log(company.id);
-    // this.router.navigate([company.id], { relativeTo: this.route });
+    console.log(company._id);
+    this.router.navigate([company._id], { relativeTo: this.route });
   }
 
 }

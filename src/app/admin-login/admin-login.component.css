@@ -1,0 +1,61 @@
+#imgDiv {
+  background-image: url("../../assets/loginBackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 200px;
+  box-shadow: -8px 0px 5rem 1px rgba(0, 0, 0, 0.2);
+  background-position: center;
+  padding: 0;
+  border-radius: inherit;
+}
+
+#imgDiv img {
+  width: 25%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#imgDiv div {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+form .ng-invalid {
+  border: red 1px solid;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#spinnerRow {
+  border-radius: 10px !important;
+  box-shadow: 7px 6px 3rem 20px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: fit-content;
+  box-sizing: border-box;
+}
+
+#loggingRow {
+  border-radius: 10px !important;
+  box-sizing: border-box;
+  box-shadow: 7px 6px 3rem 20px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+#formDiv {
+  background-color: white;
+  border-radius: inherit;
+}
+
+@media only screen and (max-width: 768px) {
+  #imgDiv {
+    box-shadow: 0px 4px 5rem 1px rgba(0, 0, 0, 0.2);
+  }
+}

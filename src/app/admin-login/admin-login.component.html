@@ -1,0 +1,59 @@
+<div style="background-color: rgba(0, 0, 0, 0.1); width: 100vw; height: 100vh;">
+  <div class="container">
+    <div *ngIf="isLogging" id="spinnerRow" class="row m-auto px-0 pt-2 pb-1">
+      <div class="col-md-12 px-2">
+        <app-dashboard-spinner class="m-0 p-0"></app-dashboard-spinner>
+      </div>
+    </div>
+
+    <div *ngIf="!isLogging" id="loggingRow" class="row flex-wrap-reverse">
+      <div id="formDiv" class="py-5 px-4 col-md-6">
+        <h2 style="font-weight: bold;">Admin Login</h2>
+        <p>
+          If you forgot your logging information, tell the IT center.
+        </p>
+        <p *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </p>
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              ngModel
+              email
+              name="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              ngModel
+              name="password"
+              required
+              minlength="8"
+            />
+          </div>
+          <button
+            class="btn btn-primary"
+            [disabled]="!loginForm.valid"
+            type="submit"
+          >
+            LOGIN
+          </button>
+        </form>
+      </div>
+      <div id="imgDiv" class="col-md-6">
+        <div>
+          <img src="../../assets/barq-dark.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

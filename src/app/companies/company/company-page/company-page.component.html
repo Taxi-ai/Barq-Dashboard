@@ -1,1 +1,18 @@
-<p>company-page works!</p>
+<div *ngIf="company">
+  <div class="row">
+    <div class="col-md-2">
+      Company name:
+    </div>
+    <div class="col-md-10">
+      {{ company.name }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <a class="btn btn-block btn-danger" routerLink="edit">Edit User Data</a>
+    </div>
+  </div>
+</div>
+<div *ngIf="!company">
+  <h1>This user isn't in database</h1>
+</div>

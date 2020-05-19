@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Feedback } from './feedback.model';
 import { FeedbacksService } from './feedbacks.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-feedbacks',
@@ -10,10 +11,12 @@ import { FeedbacksService } from './feedbacks.service';
 export class FeedbacksComponent implements OnInit {
 
   feedbacks: Feedback[];
+  overlay = false;
 
-  constructor(private feedbacksService: FeedbacksService) { }
+  constructor(private feedbacksService: FeedbacksService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+
     this.feedbacks = this.feedbacksService.getAllFeedbacks();
     this.feedbacksService.feedbacksChanged.subscribe(
       (users: Feedback[]) => {
@@ -22,6 +25,10 @@ export class FeedbacksComponent implements OnInit {
     );
   }
 
-  goToFeedbackProfile() { }
+  goToFeedbackProfile(feedback) {
+    this.overlay = true;
+    this.router.navigate(['page'], { relativeTo: this.route });
+
+  }
 
 }

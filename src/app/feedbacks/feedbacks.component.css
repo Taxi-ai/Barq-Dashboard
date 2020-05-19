@@ -1,5 +1,22 @@
 table tr:hover td {
-    background-color: bisque;
-    color: darkblue;
-  }
-  
+  background-color: bisque;
+  color: darkblue;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 52px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#routerPlace {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
+}

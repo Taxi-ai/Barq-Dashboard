@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Company } from './company.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -23,6 +23,7 @@ export class CompaniesService {
     // TODO this function in just for creation of firebase database so delete it after that
 
     const company: Company = {
+      id: 264564,
       name: 'The Great',
       email: 'great@great.com',
       phone: '01019111816',
@@ -38,7 +39,7 @@ export class CompaniesService {
 
     return this.http.get('https://barq-api.herokuapp.com/api/companies')
       .pipe(map(
-        (companiesStream: Company) => {
+        (companiesStream: Company[]) => {
           const companiesArray = [];
           // tslint:disable-next-line: forin
           for (const id in companiesStream) {
@@ -57,6 +58,18 @@ export class CompaniesService {
     //     return companiesArray;
     //   }));
 
+  }
+
+
+
+  getCompanyByID(companyID: number) {
+    const companyAPI = 'https://barq-api.herokuapp.com/api/companies/' + companyID;
+    return this.http.get(companyAPI)
+      .pipe(map(
+        (companyStream: Company) => {
+
+          return companyStream;
+        }));
   }
 
 
