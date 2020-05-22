@@ -24,9 +24,10 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-form .ng-invalid {
+input.ng-invalid.ng-dirty {
   border: red 1px solid;
 }
+
 .container {
   position: absolute;
   top: 50%;
@@ -34,10 +35,26 @@ form .ng-invalid {
   transform: translate(-50%, -50%);
 }
 
-#spinnerRow {
+.row {
   border-radius: 10px !important;
   box-shadow: 7px 6px 3rem 20px rgba(0, 0, 0, 0.1);
   background-color: white;
+  /* width: fit-content; */
+  /* box-sizing: border-box; */
+}
+
+#spinnerRow {
+  /* border-radius: 10px !important;
+  box-shadow: 7px 6px 3rem 20px rgba(0, 0, 0, 0.1);
+  background-color: white; */
+  width: fit-content;
+  box-sizing: border-box;
+}
+
+#spinnerRow {
+  /* border-radius: 10px !important;
+  box-shadow: 7px 6px 3rem 20px rgba(0, 0, 0, 0.1);
+  background-color: white; */
   width: fit-content;
   box-sizing: border-box;
 }

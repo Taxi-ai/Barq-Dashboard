@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +35,7 @@ import { CompanyPageComponent } from './companies/company/company-page/company-p
 import { CompanyEditComponent } from './companies/company/company-edit/company-edit.component';
 import { FeedbackPageComponent } from './feedbacks/feedback-page/feedback-page.component';
 import { LoginComponent } from './admin-login/admin-login.component';
+import { AuthInterceptorService } from './admin-login/auth-interceptor.service';
 
 
 @NgModule({
@@ -78,7 +79,7 @@ import { LoginComponent } from './admin-login/admin-login.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

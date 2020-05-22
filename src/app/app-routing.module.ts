@@ -13,13 +13,17 @@ import { CompanyPageComponent } from './companies/company/company-page/company-p
 import { CompanyEditComponent } from './companies/company/company-edit/company-edit.component';
 import { FeedbackPageComponent } from './feedbacks/feedback-page/feedback-page.component';
 import { LoginComponent } from './admin-login/admin-login.component';
+import { AuthGuard } from './admin-login/auth.guard';
 
 
 // TODO remake routing after making the front end site using dashboard and main sites
 const routes: Routes = [
 
   {
-    path: 'dashboard', component: DashboardComponent, children: [
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+    children: [
       { path: '', component: HomeComponent },
       { path: 'users', component: UsersComponent },
       { path: 'users/:id', component: UserPageComponent },
@@ -36,7 +40,7 @@ const routes: Routes = [
     ]
   },
   { path: '', component: UnderConstructionComponent, pathMatch: 'full' },
-  { path: 'admin-login', component: LoginComponent },
+  { path: 'barq-admin', component: LoginComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' }
 ];

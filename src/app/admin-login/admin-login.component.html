@@ -6,11 +6,26 @@
       </div>
     </div>
 
-    <div *ngIf="!isLogging" id="loggingRow" class="row flex-wrap-reverse">
+    <div
+      *ngIf="isAuthenticated"
+      id="userDataRow"
+      class="row m-auto px-0 pt-2 pb-1"
+    >
+      <div class="col-md-12 px-2">
+        <!-- here display admin data and a link to dashboard -->
+        <a routerLink="../dashboard">WELCOME ADMIN, GO TO DASHBOARD >></a>
+      </div>
+    </div>
+
+    <div
+      *ngIf="!isAuthenticated && !isLogging"
+      id="loggingRow"
+      class="row flex-wrap-reverse"
+    >
       <div id="formDiv" class="py-5 px-4 col-md-6">
         <h2 style="font-weight: bold;">Admin Login</h2>
         <p>
-          If you forgot your logging information, tell the IT center.
+          If you forgot your logging information, ask the IT center for a reset.
         </p>
         <p *ngIf="errorMessage" class="alert alert-danger">
           {{ errorMessage }}
@@ -18,11 +33,17 @@
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
           <div class="form-group">
             <label for="email">Email</label>
+            <small
+              *ngIf="email.dirty && !email.valid"
+              class="form-text font-italic text-muted ml-2 d-inline"
+              >~ Please enter a valid email!</small
+            >
             <input
               type="email"
               class="form-control"
               id="email"
               ngModel
+              #email="ngModel"
               email
               name="email"
               required
@@ -30,11 +51,17 @@
           </div>
           <div class="form-group">
             <label for="password">Password</label>
+            <small
+              *ngIf="password.dirty && !password.valid"
+              class="form-text font-italic text-muted ml-2 d-inline"
+              >~ Please enter a valid password!</small
+            >
             <input
               type="password"
               class="form-control"
               id="password"
               ngModel
+              #password="ngModel"
               name="password"
               required
               minlength="8"

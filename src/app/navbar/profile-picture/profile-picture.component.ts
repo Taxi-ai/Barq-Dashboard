@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/admin-login/auth.service';
+
 
 @Component({
   selector: 'app-navbar-profile-picture',
@@ -10,7 +12,16 @@ export class ProfilePictureComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+  }
+
+
+  onLogout() {
+    this.authService.signingOut();
+  }
+
+
 }
