@@ -9,18 +9,19 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">In A Ride?</th>
+        <!-- <th scope="col">In A Ride?</th> -->
         <th scope="col">User Name</th>
         <th scope="col">City</th>
-        <th scope="col">age</th>
+        <!-- <th scope="col">age</th> -->
+        <th scope="col">Birth date</th>
         <th scope="col">Phone</th>
         <th scope="col">Email</th>
         <th scope="col">Wallet</th>
-        <th scope="col">Rides</th>
-        <th scope="col">Used Offers</th>
-        <th scope="col">Requested Issues</th>
+        <!-- <th scope="col">Rides</th> -->
+        <!-- <th scope="col">Used Offers</th> -->
+        <!-- <th scope="col">Requested Issues</th> -->
         <th scope="col">Panned?</th>
-        <th scope="col">Registration Date</th>
+        <!-- <th scope="col">Registration Date</th> -->
       </tr>
     </thead>
     <tbody>
@@ -30,22 +31,28 @@
         style="cursor: pointer;"
       >
         <td scope="row">{{ i + 1 }}</td>
-        <td>{{ user.userState ? "✅" : "❎" }}</td>
-        <td>
+        <!-- <td>{{ user.userState ? "✅" : "❎" }}</td> -->
+        <!-- <td>
           {{ user.firstName | titlecase }} {{ user.lastName | titlecase }}
+        </td> -->
+        <td>
+          {{ user.username | titlecase }}
         </td>
-        <td>{{ user.city | titlecase }} - {{ user.country | titlecase }}</td>
-        <td>{{ user.age }}</td>
+        <td>
+          {{ user.address.city | titlecase }} -
+          {{ user.address.country | titlecase }}
+        </td>
+        <td>{{ user.dateOfBirth | date: "y/MM/dd" }}</td>
         <td>{{ user.phone }}</td>
         <td>{{ user.email | shorten: 10 }}</td>
         <td>{{ user.wallet }}</td>
-        <td>{{ user.numberOfRides }}</td>
-        <td>{{ user.numberOfOffers }}</td>
-        <td>{{ user.numberOfIssue }}</td>
+        <!-- <td>{{ user.numberOfRides }}</td> -->
+        <!-- <td>{{ user.numberOfOffers }}</td> -->
+        <!-- <td>{{ user.numberOfIssue }}</td> -->
         <td>{{ user.pannedState ? "Panned" : "Not Panned" }}</td>
-        <td>
+        <!-- <td>
           {{ user.registered | date: "short" }}
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>

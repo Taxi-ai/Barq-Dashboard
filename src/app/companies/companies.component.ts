@@ -21,15 +21,16 @@ export class CompaniesComponent implements OnInit {
       this.fetchingDataVars.isFetchingError = false;
       console.log(companies);
       console.log(typeof companies);
-
-
       this.companies = [...companies];
+
       if (this.companies.length > 0) {
         this.fetchingDataVars.companiesArrayLength = this.companies.length;
         // this.handlingGraphData(); // there is no graph
         // this.gettingCompaniesStates(); //company won't be banned
       }
+
       this.fetchingDataVars.isFetchingDone = true;
+
     }, error => {
       this.fetchingDataVars.isFetchingError = true;
 

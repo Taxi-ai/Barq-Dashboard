@@ -11,8 +11,6 @@ export class Company {
         street: string
     };
 
-    get id() {
-        return this._id;
-    }
+
 
 }

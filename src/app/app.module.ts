@@ -36,6 +36,11 @@ import { CompanyEditComponent } from './companies/company/company-edit/company-e
 import { FeedbackPageComponent } from './feedbacks/feedback-page/feedback-page.component';
 import { LoginComponent } from './admin-login/admin-login.component';
 import { AuthInterceptorService } from './admin-login/auth-interceptor.service';
+import { CarsComponent } from './cars/cars.component';
+import { CarsTableComponent } from './cars/cars-table/cars-table.component';
+import { CarPageComponent } from './cars/car/car-page/car-page.component';
+import { CarEditComponent } from './cars/car/car-edit/car-edit.component';
+import { CarsGraphComponent } from './cars/cars-graph/cars-graph.component';
 
 
 @NgModule({
@@ -69,6 +74,11 @@ import { AuthInterceptorService } from './admin-login/auth-interceptor.service';
     CompanyEditComponent,
     FeedbackPageComponent,
     LoginComponent,
+    CarsComponent,
+    CarsTableComponent,
+    CarPageComponent,
+    CarEditComponent,
+    CarsGraphComponent,
 
   ],
   imports: [

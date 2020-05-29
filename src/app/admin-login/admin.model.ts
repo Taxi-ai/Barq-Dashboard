@@ -1,15 +1,14 @@
+
 export class Admin {
 
-    // TODO remove all '?' symbols when yousef send you admin data or admin ID
-
-
+    // we used ? as firstly admin may be creates as jwt and we decode all of its data
     constructor(
         // tslint:disable-next-line: variable-name
         private _jwtToken: string,
-        // public email: string,
-        // public id: string,
+        public adminId?: string,
+        public adminName?: string,
+        public adminEmail?: string,
         // public image: string,
-        // public username: string,
         // public phone: string
 
 

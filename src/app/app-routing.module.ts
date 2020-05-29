@@ -14,6 +14,9 @@ import { CompanyEditComponent } from './companies/company/company-edit/company-e
 import { FeedbackPageComponent } from './feedbacks/feedback-page/feedback-page.component';
 import { LoginComponent } from './admin-login/admin-login.component';
 import { AuthGuard } from './admin-login/auth.guard';
+import { CarsComponent } from './cars/cars.component';
+import { CarPageComponent } from './cars/car/car-page/car-page.component';
+import { CarEditComponent } from './cars/car/car-edit/car-edit.component';
 
 
 // TODO remake routing after making the front end site using dashboard and main sites
@@ -31,6 +34,9 @@ const routes: Routes = [
       { path: 'companies', component: CompaniesComponent },
       { path: 'companies/:id', component: CompanyPageComponent },
       { path: 'companies/:id/edit', component: CompanyEditComponent },
+      { path: 'cars', component: CarsComponent },
+      { path: 'cars/:id', component: CarPageComponent },
+      { path: 'cars/:id/edit', component: CarEditComponent },
       {
         path: 'feedbacks', component: FeedbacksComponent, children: [
           { path: 'page', component: FeedbackPageComponent }

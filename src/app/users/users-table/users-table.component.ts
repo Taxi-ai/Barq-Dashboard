@@ -12,8 +12,8 @@ export class UsersTableComponent implements OnInit {
   @Input() users: UserX[];
 
   userProfile(user: UserX) {
-    console.log(user.userID);
-    // this.router.navigate([user.userID], { relativeTo: this.route });
+    console.log(user._id);
+    this.router.navigate([user._id], { relativeTo: this.route });
   }
   constructor(private router: Router, private route: ActivatedRoute) { }
 

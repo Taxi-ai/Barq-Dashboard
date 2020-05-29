@@ -4,6 +4,8 @@ import { catchError, tap } from 'rxjs/operators';
 import { throwError, BehaviorSubject } from 'rxjs';
 import { Admin } from './admin.model';
 import { Router } from '@angular/router';
+import * as jwt_decode from 'jwt-decode';
+
 
 // interface of all logging responses
 interface AuthResponseData {
@@ -24,7 +26,6 @@ export class AuthService {
     console.log(`email is ${email} - password is ${password}`);
 
     const requestOptions = {
-      // TODO add this headers: new HttpHeaders().append('x-auth-token', 'Bearer <yourTokenHere>') with all requests but the login request
       responseType: 'text' as 'text'
     };
 
@@ -38,16 +39,19 @@ export class AuthService {
   }
 
 
-  handlingAuthentication(adminData) {
+  handlingAuthentication(adminToken: string) {
     console.log('handlingAuthentication');
-    console.log(adminData);
+    console.log(adminToken);
+
+    const { adminID, adminName, adminEmail } = this.decodingAdminToken(adminToken);
+
 
 
     /* TODO here we make new admin using admin data, change dataRes when yousef send data as an object
-       and define adminData as AuthResponseData */
-    const admin = new Admin(adminData);
+       and define adminToken as AuthResponseData */
+    const admin = new Admin(adminToken, adminID, adminName, adminEmail);
     console.log(admin);
-    this.storingData(adminData);
+    this.storingData(adminToken);
 
     this.admin.next(admin);
   }
@@ -74,11 +78,15 @@ export class AuthService {
 
 
   autoLogin() {
-    const jwtToken = this.gettingData();
+    const jwtToken = this.gettingStoredData('jwt');
+
     if (!jwtToken) {
       return;
     }
-    const loadedAdmin = new Admin(jwtToken);
+
+    const { adminID, adminName, adminEmail } = this.decodingAdminToken(jwtToken);
+
+    const loadedAdmin = new Admin(jwtToken, adminID, adminName, adminEmail);
 
     if (loadedAdmin.jwtToken) {
       this.admin.next(loadedAdmin);
@@ -87,7 +95,7 @@ export class AuthService {
 
   signingOut() {
     this.admin.next(null);
-    this.removingData();
+    this.removingData('jwt');
     this.router.navigate(['/barq-admin']);
   }
 
@@ -96,13 +104,23 @@ export class AuthService {
     localStorage.setItem('jwt', jwt);
   }
 
-  gettingData() {
-    const jwtToken = localStorage.getItem('jwt');
+  gettingStoredData(jwt: string) {
+    const jwtToken = localStorage.getItem(jwt);
     return jwtToken;
   }
 
-  removingData() {
-    localStorage.removeItem('jwt');
+  removingData(jwt: string) {
+    localStorage.removeItem(jwt);
+  }
+
+  decodingAdminToken(adminToken: string) {
+    const decodedAdminData = jwt_decode(adminToken);
+    this.storingAdminData(decodedAdminData);
+    return { adminID: decodedAdminData._id, adminName: decodedAdminData.username, adminEmail: decodedAdminData.email };
+  }
+
+  storingAdminData(decodedAdminData: {}) {
+    sessionStorage.setItem('decodedAdminData', JSON.stringify(decodedAdminData));
   }
 
 }

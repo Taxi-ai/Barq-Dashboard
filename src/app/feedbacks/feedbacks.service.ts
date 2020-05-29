@@ -1,6 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { UsersService } from '../users/users.service';
-import { Feedback } from './feedback.model';
+import { Feedback, FeedbackX } from './feedback.model';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,7 @@ export class FeedbacksService {
 
   feedbacksChanged = new EventEmitter<Feedback[]>();
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService, private http: HttpClient) { }
 
   getFeedbackOwner(ownerID: number) {
     this.usersService.getUserByID(ownerID);
@@ -24,18 +26,26 @@ export class FeedbacksService {
 
 
   getAllFeedbacks() {
-    return this.feedbacks;
+    return this.http.get('https://barq-api.herokuapp.com/api/issues').pipe(
+      map((companiesStream) => {
+        const companiesArray = [];
+        // tslint:disable-next-line: forin
+        for (const id in companiesStream) {
+          companiesArray.push({ ...companiesStream[id] });
+        }
+        console.log(companiesArray);
+        return companiesArray;
+      }));
   }
 
 
-  getFeedbackByID(feedbackID: number) {
+  getFeedbackByID(feedbackID: string) {
 
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.feedbacks.length; i++) {
-      if (this.feedbacks[i].feedbackID === feedbackID) {
-        return this.feedbacks[i];
-      }
-    }
+    const feedbackAPI = 'https://barq-api.herokuapp.com/api/issues/' + feedbackID;
+    return this.http.get<FeedbackX>(feedbackAPI);
+
+
+
   }
 
   updateFeedbackByID(feedbackID: number, changedFeedback: Feedback) {

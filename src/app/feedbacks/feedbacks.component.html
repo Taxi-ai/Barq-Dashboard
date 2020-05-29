@@ -13,7 +13,6 @@
         <th scope="col">Type</th>
         <th scope="col">Content</th>
         <th scope="col">Customer ID</th>
-        <th scope="col">Day of Submission</th>
       </tr>
     </thead>
     <tbody>
@@ -23,20 +22,12 @@
         style="cursor: pointer;"
       >
         <td scope="row">{{ i + 1 }}</td>
-        <td scope="row">{{ feedback.feedbackID }}</td>
+        <td scope="row">{{ feedback._id }}</td>
         <td>
-          {{ feedback.type
-          }}<span *ngIf="feedback.type === 'issue'">
-            - {{ feedback.issueType }}</span
-          >
+          {{ feedback.label }}
         </td>
-        <td>{{ feedback.content }}</td>
-        <td>{{ feedback.customerID }}</td>
-        <td>
-          {{ feedback.submissionDate.year }}/{{
-            feedback.submissionDate.month
-          }}/{{ feedback.submissionDate.day }}
-        </td>
+        <td>{{ feedback.body }}</td>
+        <td>{{ feedback.userId }}</td>
       </tr>
     </tbody>
   </table>

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Feedback } from './feedback.model';
+import { Feedback, FeedbackX } from './feedback.model';
 import { FeedbacksService } from './feedbacks.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -10,19 +10,33 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FeedbacksComponent implements OnInit {
 
-  feedbacks: Feedback[];
+  feedbacks: FeedbackX[] = [];
   overlay = false;
 
   constructor(private feedbacksService: FeedbacksService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
 
-    this.feedbacks = this.feedbacksService.getAllFeedbacks();
-    this.feedbacksService.feedbacksChanged.subscribe(
-      (users: Feedback[]) => {
-        this.feedbacks = users;
+    this.feedbacksService.getAllFeedbacks().subscribe(feedbacks => {
+      // this.fetchingDataVars.isFetchingError = false;
+      console.log(feedbacks);
+      console.log(typeof feedbacks);
+      this.feedbacks = [...feedbacks];
+
+      if (this.feedbacks.length > 0) {
+        // this.fetchingDataVars.feedbacksArrayLength = this.feedbacks.length;
+        // this.handlingGraphData(); // there is no graph
+        // this.gettingFeedbacksStates(); //company won't be banned
       }
-    );
+
+      // this.fetchingDataVars.isFetchingDone = true;
+
+    }, error => {
+      // this.fetchingDataVars.isFetchingError = true;
+
+      console.log(error.message);
+
+    });
   }
 
   goToFeedbackProfile(feedback) {

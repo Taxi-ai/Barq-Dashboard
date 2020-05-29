@@ -1,0 +1,18 @@
+<div *ngIf="car">
+  <div class="row">
+    <div class="col-md-2">
+      Car Model:
+    </div>
+    <div class="col-md-10">
+      {{ car.model }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <a class="btn btn-block btn-danger" routerLink="edit">Edit car Data</a>
+    </div>
+  </div>
+</div>
+<div *ngIf="!car">
+  <h1>This user isn't in database</h1>
+</div>

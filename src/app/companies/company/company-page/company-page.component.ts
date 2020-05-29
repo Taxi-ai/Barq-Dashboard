@@ -15,16 +15,11 @@ export class CompanyPageComponent implements OnInit {
 
   ngOnInit() {
 
-    let companyID = this.route.snapshot.params.id;
+    const companyID = this.route.snapshot.params.id;
     this.companiesService.getCompanyByID(companyID).subscribe(company => {
       console.log(company); this.company = company;
     });
-    this.route.params.subscribe(
-      (params) => {
-        companyID = params.id;
-        // this.company = this.companiesService.getCompanyByID(companyID);
-      }
-    );
+
   }
 
 }

@@ -46,19 +46,30 @@ export class User { // TODO remove this after getting user & users
 }
 
 export class UserX {
-    public userID?: number; // not to show in table --> uncomment this after connecting to database
-    public userState: boolean; // true (in ride)/false (not in ride)
-    public pannedState: boolean; // true (user is panned)/false (user isn't panned)
-    public firstName: string; // will get it as first and last name and show as one name
-    public lastName: string; // will get it as first and last name and show as one name
+    // tslint:disable-next-line: variable-name
+    public _id?: number; // not to show in table --> uncomment this after connecting to database
+    public userState?: boolean; // true (in ride)/false (not in ride)
+    public pannedState?: boolean; // true (user is panned)/false (user isn't panned)
+    public firstName?: string; // will get it as first and last name and show as one name
+    public lastName?: string; // will get it as first and last name and show as one name
     public email: string; // will show
-    public country: string; // will show
-    public city: string; // will show
-    public age: number; // will get age
+    public country?: string; // will show
+    public city?: string; // will show
+    public age?: number; // will get age
     public wallet: number; // will get and show
-    public phone: number; // will get
-    public numberOfOffers: number; // will get just number of offers to table // will get and see all user offers in user page show offers
-    public registered: Date; // get as date() and show
-    public numberOfRides: number;
-    public numberOfIssue: number;
+    public phone?: number; // will get
+    public numberOfOffers?: number; // will get just number of offers to table // will get and see all user offers in user page show offers
+    public registered?: Date; // get as date() and show
+    public numberOfRides?: number;
+    public numberOfIssue?: number;
+    // \/ \/ \/ to be changed \/ \/ \/
+    public username: string;
+    public dateOfBirth: Date;
+    public address: { country: string, street: string, city: string };
+    public image: string;
+    public password: string;
+    public notifications: [];
+    public favoriteLocation: [];
+    public usedPackage: { endingDate: Date, startingDate: Date, packageId: {} };
+
 }

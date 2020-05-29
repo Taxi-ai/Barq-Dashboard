@@ -11,10 +11,11 @@ import { Subscription } from 'rxjs';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
+  adminData = { adminId: '', adminName: '', adminEmail: '' };
+
   isAuthenticated = false;
 
   adminSub: Subscription;
-
 
   isLogging = false;
 
@@ -27,8 +28,15 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.adminSub = this.authService.admin.subscribe(
       admin => {
         console.log(admin);
-
         this.isAuthenticated = !!admin;
+
+        if (admin) {
+          this.adminData.adminId = admin.adminId;
+          this.adminData.adminName = admin.adminName;
+          this.adminData.adminEmail = admin.adminEmail;
+        }
+
+
       }
     );
 

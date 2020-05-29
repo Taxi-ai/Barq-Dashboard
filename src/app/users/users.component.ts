@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
 
-  users: UserX[];
+  users: UserX[] = [];
   usersStates = { active: 0, panned: 0 };
   finalCounter: number[] = new Array(12); // array with numbers of months duplicates
   selectForSearch = 'name';
@@ -25,7 +25,12 @@ export class UsersComponent implements OnInit {
 
     this.usersService.getAllUsers().subscribe(users => {
       this.fetchingDataVars.isFetchingError = false;
-      this.users = users;
+      console.log(users);
+      console.log(typeof users);
+      this.users = [...users];
+      console.log(this.users);
+      console.log(typeof this.users);
+
       if (this.users.length > 0) {
         this.fetchingDataVars.usersArrayLength = this.users.length;
         this.handlingGraphData();
@@ -34,7 +39,7 @@ export class UsersComponent implements OnInit {
       this.fetchingDataVars.isFetchingDone = true;
     }, error => {
       this.fetchingDataVars.isFetchingError = true;
-      console.log(new Error(error.message));
+      console.log(error.message);
 
     });
 
@@ -59,7 +64,8 @@ export class UsersComponent implements OnInit {
     const months: number[] = []; // all months that has users registered in
     this.users.forEach(
       (user) => {
-        months.push(user.registered.getMonth() + 1);
+        const birthDate = new Date(user.dateOfBirth);
+        months.push(birthDate.getMonth() + 1);
       }
     );
 

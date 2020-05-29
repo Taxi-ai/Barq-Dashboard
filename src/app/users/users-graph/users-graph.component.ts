@@ -31,7 +31,7 @@ export class UsersGraphComponent implements OnInit {
   handlingGraphDesign(finalCounter: number[]) {
     // function to change graph values
     this.lineChartData = [
-      { data: finalCounter, label: 'Register Per Month' },
+      { data: finalCounter, label: 'Users Birth per month' },
     ];
 
     this.lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June',
