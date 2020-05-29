@@ -1,3 +1,12 @@
-# Taxi-Dashboard - بسم الله.. الله أكبر.. بسم الله بسم الله 🙏
+# Barq -Dashboard 
 
-### سيتم قريبًا بإذن الله افتتاح داشبورد الحاج سامي على أن يكون جزءًا من أعظم مشروع تخرّخ على وجه الكوكب.. المشروع الذي من عظمتِه حاربتُه الدول الأجنبية و العربية و الإسلامية و الفضائيّة و الأرضية و السماويّة و الدارك بلو و الأوف وايت و كل الألوان بمحلّاتنا بمدينة طنطا و أجوارها ❤
+This is a website for admins so they can manage the business resources: adding, removing and updating resources like packages, offers and viewing issues and bugs. They also can make reports based on data analysis that is viewed. We used Angular 9. Angular is a Javascript framework that is used by developers for building web, desktop, and mobile applications. Development of Angular applications involves usage of Typescript, which is a superset of Javascript, along with HTML, CSS etc. The code written in Typescript compiles to Javascript and is rendered in the browser. Angular is one of the most popular Javascript frameworks for building web applications.
+
+Dashboard Responsibilites: 
+* Managing notifications and sending them to users using the mobile application.
+* Managing packages so user can register in one package to get more offers.
+* Managing coupons.
+* Managing companies and related history to each company.
+* Managing cars.
+* Managing issues.
+* Managing users
