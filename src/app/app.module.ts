@@ -41,6 +41,15 @@ import { CarsTableComponent } from './cars/cars-table/cars-table.component';
 import { CarPageComponent } from './cars/car/car-page/car-page.component';
 import { CarEditComponent } from './cars/car/car-edit/car-edit.component';
 import { CarsGraphComponent } from './cars/cars-graph/cars-graph.component';
+import { PackagesComponent } from './packages/packages.component';
+import { PackagesTableComponent } from './packages/packages-table/packages-table.component';
+import { PackagesGraphComponent } from './packages/packages-graph/packages-graph.component';
+import { PackagePageComponent } from './packages/package/package-page/package-page.component';
+import { NotificationsTableComponent } from './notifications/notifications-table/notifications-table.component';
+import { NotificationsGraphComponent } from './notifications/notifications-graph/notifications-graph.component';
+import { NotificationPageComponent } from './notifications/notification/notification-page/notification-page.component';
+import { NotificationEditComponent } from './notifications/notification/notification-edit/notification-edit.component';
+import { PackageEditComponent } from './packages/package/package-edit/package-edit.component';
 
 
 @NgModule({
@@ -79,6 +88,15 @@ import { CarsGraphComponent } from './cars/cars-graph/cars-graph.component';
     CarPageComponent,
     CarEditComponent,
     CarsGraphComponent,
+    PackagesComponent,
+    PackagesTableComponent,
+    PackagesGraphComponent,
+    PackagePageComponent,
+    NotificationsTableComponent,
+    NotificationsGraphComponent,
+    NotificationPageComponent,
+    NotificationEditComponent,
+    PackageEditComponent,
 
   ],
   imports: [
