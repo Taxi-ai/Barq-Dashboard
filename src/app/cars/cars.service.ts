@@ -16,7 +16,7 @@ export class CarsService {
 
   getAllCars() {
 
-    return this.http.get('https://barq-api.herokuapp.com/api/cars').pipe(
+    return this.http.get('https://barq-api.azurewebsites.net/api/cars').pipe(
       map((carsStream: Car[]) => {
         const carsArray = [];
         // tslint:disable-next-line: forin
@@ -30,7 +30,7 @@ export class CarsService {
 
 
   getCarByID(carID: number) {
-    const carAPI = 'https://barq-api.herokuapp.com/api/cars/' + carID;
+    const carAPI = 'https://barq-api.azurewebsites.net/api/cars/' + carID;
     return this.http.get<Car>(carAPI);
   }
 

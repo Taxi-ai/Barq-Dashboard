@@ -160,7 +160,7 @@ export class UsersService {
     // console.log(JSON.stringify(this.users));
 
 
-    return this.http.get('https://barq-api.herokuapp.com/api/users').pipe(
+    return this.http.get('https://barq-api.azurewebsites.net/api/users').pipe(
       map((usersStream: UserX) => {
 
         const usersArray = [];
@@ -200,7 +200,7 @@ export class UsersService {
 
   getUserByID(userID: number) {
 
-    // const companyAPI = 'https://barq-api.herokuapp.com/api/companies/' + companyID;
+    // const companyAPI = 'https://barq-api.azurewebsites.net/api/companies/' + companyID;
     // return this.http.get(companyAPI)
     //   .pipe(map(
     //     (companyStream: Company) => {
@@ -211,7 +211,7 @@ export class UsersService {
     console.log(userID);
 
 
-    const userAPI = 'https://barq-api.herokuapp.com/api/users/' + userID;
+    const userAPI = 'https://barq-api.azurewebsites.net/api/users/' + userID;
 
     return this.http.get(userAPI)
       .pipe(map(

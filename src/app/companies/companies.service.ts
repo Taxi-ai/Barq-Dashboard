@@ -37,7 +37,7 @@ export class CompaniesService {
 
   getAllCompanies() {
 
-    return this.http.get('https://barq-api.herokuapp.com/api/companies').pipe(
+    return this.http.get('https://barq-api.azurewebsites.net/api/companies').pipe(
       map((companiesStream: Company[]) => {
         const companiesArray = [];
         // tslint:disable-next-line: forin
@@ -52,7 +52,7 @@ export class CompaniesService {
 
 
   getCompanyByID(companyID: string) {
-    const companyAPI = 'https://barq-api.herokuapp.com/api/companies/' + companyID;
+    const companyAPI = 'https://barq-api.azurewebsites.net/api/companies/' + companyID;
     return this.http.get<Company>(companyAPI);
   }
 

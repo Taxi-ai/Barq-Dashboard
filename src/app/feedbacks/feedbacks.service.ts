@@ -26,7 +26,7 @@ export class FeedbacksService {
 
 
   getAllFeedbacks() {
-    return this.http.get('https://barq-api.herokuapp.com/api/issues').pipe(
+    return this.http.get('https://barq-api.azurewebsites.net/api/issues').pipe(
       map((companiesStream) => {
         const companiesArray = [];
         // tslint:disable-next-line: forin
@@ -41,7 +41,7 @@ export class FeedbacksService {
 
   getFeedbackByID(feedbackID: string) {
 
-    const feedbackAPI = 'https://barq-api.herokuapp.com/api/issues/' + feedbackID;
+    const feedbackAPI = 'https://barq-api.azurewebsites.net/api/issues/' + feedbackID;
     return this.http.get<FeedbackX>(feedbackAPI);
 
 

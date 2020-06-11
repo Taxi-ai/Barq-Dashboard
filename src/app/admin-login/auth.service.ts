@@ -30,7 +30,7 @@ export class AuthService {
     };
 
     // use the defined interface AuthResponseData as response
-    return this.http.post('https://barq-api.herokuapp.com/api/adminAuth',
+    return this.http.post('https://barq-api.azurewebsites.net/api/adminAuth',
       { password, email },
       requestOptions)
       .pipe(catchError(this.handlingError), tap(adminData => {

@@ -10,7 +10,7 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
 
-    if (req.url === 'https://barq-api.herokuapp.com/api/adminAuth') {
+    if (req.url === 'https://barq-api.azurewebsites.net/api/adminAuth') {
       console.log('admin-auth request');
       return next.handle(req);
     }
