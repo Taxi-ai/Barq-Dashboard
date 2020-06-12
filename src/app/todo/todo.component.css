@@ -1,7 +1,11 @@
 .btn:focus,
 .btn:active,
 input:focus,
-input:active {
+input:active,
+.btn-group label input:focus,
+.btn-group label:focus,
+.btn-group label input:active,
+.btn-group label:active {
   outline: none !important;
   box-shadow: none !important;
 }
@@ -21,21 +25,30 @@ input:active {
 
 .todoItem {
   background-clip: content-box !important;
-  border-radius: 20px;
+  border-radius: 0.5rem;
+  transition: all 0.5s ease;
 }
 
 .todoItem:hover {
   background-color: white;
 }
 
+.btn-group label input,
+.btn-group label {
+  border: none;
+  border-radius: 0rem;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 form input {
   border: none;
-  border-radius: 0.25rem 0rem 0rem 0.25rem;
+  border-radius: 0rem;
 }
 
 form button {
   border: none;
-  border-radius: 0rem 0.25rem 0.25rem 0rem;
+  border-radius: 0rem;
   color: #212529 !important;
 }
 
@@ -47,6 +60,20 @@ form button:disabled {
 }
 
 .checkedToDO {
-  text-decoration: line-through;
   font-style: italic;
+  opacity: 0.5;
+}
+
+.checkedToDO p {
+  text-decoration: line-through;
+}
+
+p {
+  word-break: break-all;
+  white-space: normal;
+}
+
+.row {
+  margin-right: 0rem;
+  margin-left: 0rem;
 }

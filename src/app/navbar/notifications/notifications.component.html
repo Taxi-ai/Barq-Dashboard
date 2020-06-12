@@ -1,44 +1,5 @@
 <div id="notificationButton" (click)="divOpen()">
-  <svg
-    id="important"
-    xmlns="http://www.w3.org/2000/svg"
-    width="28"
-    height="28"
-    viewBox="0 0 28 28"
-  >
-    <rect
-      data-name="Rectangle 24"
-      width="13"
-      height="12"
-      [ngClass]="buttonColorsClass1"
-      rx="2"
-      transform="translate(15)"
-    />
-    <rect
-      data-name="Rectangle 25"
-      width="13"
-      [ngClass]="buttonColorsClass2"
-      height="12"
-      rx="2"
-      transform="translate(0 2)"
-    />
-    <rect
-      data-name="Rectangle 26"
-      width="13"
-      height="12"
-      [ngClass]="buttonColorsClass1"
-      rx="2"
-      transform="translate(0 16)"
-    />
-    <rect
-      data-name="Rectangle 27"
-      width="13"
-      [ngClass]="buttonColorsClass2"
-      height="12"
-      rx="2"
-      transform="translate(15 14)"
-    />
-  </svg>
+  <i class="fas fa-th-list"></i>
 </div>
 <div
   class="primaryBG"
@@ -47,16 +8,5 @@
   }"
   id="notificationsDiv"
 >
-  <div class="row p-3 m-0 secondaryBG notificationTopic">
-    <div class="col-md-12">
-      <i class="fas fa-bell"></i>
-      NOTIFICATIONS
-    </div>
-  </div>
-  <div
-    *ngFor="let item of [1, 2, 3, 4, 5]"
-    class="row notificationContent m-0 p-2 pl-3"
-  >
-    <div class="col-md-12">notification no. {{ item }}</div>
-  </div>
+  <app-todo></app-todo>
 </div>
