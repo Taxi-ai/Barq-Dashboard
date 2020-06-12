@@ -25,7 +25,7 @@ import { MapComponent } from './map/map.component';
 import { DashboardSpinnerComponent } from './dashboard-spinner/dashboard-spinner.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
-import { ShortenPipe } from './shared/shorten.pipe';
+import { ShortenPipe } from './pipes/shorten.pipe';
 import { FetchingErrorComponent } from './fetching/fetching-error/fetching-error.component';
 import { IsFetchingComponent } from './fetching/is-fetching/is-fetching.component';
 import { FetchedNothingComponent } from './fetching/fetched-nothing/fetched-nothing.component';
@@ -50,6 +50,7 @@ import { NotificationsGraphComponent } from './notifications/notifications-graph
 import { NotificationPageComponent } from './notifications/notification/notification-page/notification-page.component';
 import { NotificationEditComponent } from './notifications/notification/notification-edit/notification-edit.component';
 import { PackageEditComponent } from './packages/package/package-edit/package-edit.component';
+import { TodoComponent } from './todo/todo.component';
 
 
 @NgModule({
@@ -97,6 +98,7 @@ import { PackageEditComponent } from './packages/package/package-edit/package-ed
     NotificationPageComponent,
     NotificationEditComponent,
     PackageEditComponent,
+    TodoComponent,
 
   ],
   imports: [
@@ -107,7 +109,7 @@ import { PackageEditComponent } from './packages/package/package-edit/package-ed
     FormsModule,
     HttpClientModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

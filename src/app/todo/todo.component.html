@@ -1,0 +1,63 @@
+<form #todoForm="ngForm" (ngSubmit)="submitTodo(todoForm)">
+  <div class="form-row">
+    <div class="col-sm-10 pr-0">
+      <input
+        required
+        name="todo"
+        id="todo"
+        ngModel
+        #todo="ngModel"
+        class="form-control"
+        type="text"
+      />
+    </div>
+    <div class="col-sm-2 pl-0">
+      <button
+        class="btn"
+        style="background-color: white;"
+        [disabled]="!todoForm.valid"
+        type="submit"
+      >
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+  </div>
+</form>
+
+<div class="todoList">
+  <div class="row todoItem px-3 mt-2 mb-1" *ngFor="let todoItem of todoList">
+    <div class="col-sm-10 pl-0">
+      <span>- </span>
+      <p class="d-inline-block" [ngClass]="{ checkedToDO: todoItem.checked }">
+        {{ todoItem.content }}
+      </p>
+    </div>
+    <div class="col-sm-1 px-0" *ngIf="!todoItem.checked">
+      <button
+        (click)="checkTodo(todoItem._id)"
+        class="btn-primary btn px-0 todoItemCheck"
+        type="button"
+      >
+        <i class="fas fa-check"></i>
+      </button>
+    </div>
+    <div class="col-sm-1 px-0" *ngIf="todoItem.checked">
+      <button
+        (click)="unCheckTodo(todoItem._id)"
+        class="btn-primary btn px-0 todoItemCheck"
+        type="button"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="col-sm-1 px-0">
+      <button
+        class="btn-danger btn px-0 todoItemTrash"
+        (click)="deleteTodo(todoItem._id)"
+        type="button"
+      >
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+.btn:focus,
+.btn:active,
+input:focus,
+input:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+}
+
+.todoItemCheck {
+  border-radius: 0.25rem 0rem 0rem 0.25rem;
+}
+
+.todoItemTrash {
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
+}
+
+.todoItem {
+  background-clip: content-box !important;
+  border-radius: 20px;
+}
+
+.todoItem:hover {
+  background-color: white;
+}
+
+form input {
+  border: none;
+  border-radius: 0.25rem 0rem 0rem 0.25rem;
+}
+
+form button {
+  border: none;
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
+  color: #212529 !important;
+}
+
+form button:disabled {
+  cursor: auto;
+  background-color: white !important;
+  color: aquamarine !important;
+  opacity: 1;
+}
+
+.checkedToDO {
+  text-decoration: line-through;
+  font-style: italic;
+}
