@@ -1,20 +1,25 @@
 <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-  <label class="btn btn-secondary active">
+  <label (click)="filterToDo('All')" class="btn btn-secondary active">
     <input type="radio" name="All" id="All" autocomplete="off" checked /> All
   </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="Checked" id="Checked" autocomplete="off" />
-    Checked
+  <label (click)="filterToDo('Completed')" class="btn btn-secondary">
+    <input type="radio" name="Completed" id="Completed" autocomplete="off" />
+    Completed
   </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="Unchecked" id="Unchecked" autocomplete="off" />
-    Unchecked
+  <label (click)="filterToDo('Uncompleted')" class="btn btn-secondary">
+    <input
+      type="radio"
+      name="Uncompleted"
+      id="Uncompleted"
+      autocomplete="off"
+    />
+    Uncompleted
   </label>
 </div>
 
 <form #todoForm="ngForm" (ngSubmit)="submitTodo(todoForm)">
   <div class="form-row">
-    <div class="col-sm-10 pl-1 pr-0">
+    <div class="col-sm-10 pl-0 pr-0">
       <input
         required
         name="todo"
@@ -39,42 +44,43 @@
 </form>
 
 <div class="todoList">
-  <div
-    class="row todoItem px-1 mt-2 mb-1"
-    [ngClass]="{ checkedToDO: todoItem.checked }"
-    *ngFor="let todoItem of todoList"
-  >
-    <div class="col-sm-10 pl-0">
-      <p class="d-inline-block pl-2">
-        {{ todoItem.content }}
-      </p>
-    </div>
-    <div class="col-sm-1 px-0" *ngIf="!todoItem.checked">
-      <button
-        (click)="checkTodo(todoItem._id)"
-        class="btn-primary btn px-0 todoItemCheck"
-        type="button"
-      >
-        <i class="fas fa-check"></i>
-      </button>
-    </div>
-    <div class="col-sm-1 px-0" *ngIf="todoItem.checked">
-      <button
-        (click)="unCheckTodo(todoItem._id)"
-        class="btn-primary btn px-0 todoItemCheck"
-        type="button"
-      >
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    <div class="col-sm-1 px-0">
-      <button
-        class="btn-danger btn px-0 todoItemTrash"
-        (click)="deleteTodo(todoItem._id)"
-        type="button"
-      >
-        <i class="far fa-trash-alt"></i>
-      </button>
+  <div *ngFor="let todoItem of shownTodoList">
+    <div
+      class="row todoItem px-1 mt-2 mb-1"
+      [ngClass]="{ checkedToDO: todoItem.checked }"
+    >
+      <div class="col-sm-10 pl-0">
+        <p class="d-inline-block pl-2">
+          {{ todoItem.content }}
+        </p>
+      </div>
+      <div class="col-sm-1 px-0" *ngIf="!todoItem.checked">
+        <button
+          (click)="checkTodo(todoItem._id)"
+          class="btn-primary btn px-0 todoItemCheck"
+          type="button"
+        >
+          <i class="fas fa-check"></i>
+        </button>
+      </div>
+      <div class="col-sm-1 px-0" *ngIf="todoItem.checked">
+        <button
+          (click)="unCheckTodo(todoItem._id)"
+          class="btn-primary btn px-0 todoItemCheck"
+          type="button"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="col-sm-1 px-0">
+        <button
+          class="btn-danger btn px-0 todoItemTrash"
+          (click)="deleteTodo(todoItem._id)"
+          type="button"
+        >
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
     </div>
   </div>
 </div>

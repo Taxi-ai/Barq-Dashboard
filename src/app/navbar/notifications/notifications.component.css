@@ -19,5 +19,5 @@
   display: none;
   max-width: 500px;
   overflow-y: auto;
-  overflow-x: auto;
+  overflow-x: none !important;
 }
