@@ -1,19 +1,12 @@
-<div id="todoButton" (click)="showToDos = !showToDos">
+<div id="todoButton" (click)="toggleToDoList()">
   <i class="fas fa-th-list"></i>
 </div>
 
 <app-clicking-layer
-  (layerClicked)="showToDos = false"
+  (layerClicked)="toggleToDoList()"
   [booleanVar]="showToDos"
 ></app-clicking-layer>
 
-<div
-  *ngIf="showToDos"
-  class="primaryBG"
-  [ngStyle]="{
-    'border-top': '2px solid #16202a'
-  }"
-  id="todoDiv"
->
+<div class="primaryBG" id="todoDiv">
   <app-todo></app-todo>
 </div>

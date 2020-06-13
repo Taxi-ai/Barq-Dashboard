@@ -37,27 +37,43 @@ export class TodoComponent implements OnInit {
 
 
   deleteTodo(todoID: string) {
-    console.log(todoID);
-    this.todoList.forEach((todoElement, index) => {
-      if (todoElement._id === todoID) {
-        this.todoList.splice(index, 1);
+    console.log('delete ' + todoID);
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.todoList.length; i++) {
+      if (this.todoList[i]._id === todoID) {
+        this.todoList.splice(i, 1);
+        break;
       }
+    }
+    // this.todoList.forEach((todoElement, index) => {
+    //   if (todoElement._id === todoID) {
+    //     this.todoList.splice(index, 1);
+    //   }
 
-    });
+    // });
 
     this.filterToDo(this.filterQuery);
 
   }
 
   checkTodo(todoID: string) {
-    console.log(todoID);
-    this.todoList.forEach((todoElement, index) => {
-      if (todoElement._id === todoID) {
-        todoElement.checked = true;
-        todoElement.checkerAdminId = this.getAdminUserName();
-        return;
+    console.log('checked ' + todoID);
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.todoList.length; i++) {
+      if (this.todoList[i]._id === todoID) {
+        this.todoList[i].checked = true;
+        this.todoList[i].checkerAdminId = this.getAdminUserName();
+        break;
       }
-    });
+    }
+
+    // this.todoList.forEach((todoElement, index) => {
+    //   if (todoElement._id === todoID) {
+    //     todoElement.checked = true;
+    //     todoElement.checkerAdminId = this.getAdminUserName();
+    //     return;
+    //   }
+    // });
 
 
     this.filterToDo(this.filterQuery);
@@ -65,14 +81,21 @@ export class TodoComponent implements OnInit {
   }
 
   unCheckTodo(todoID: string) {
-    console.log(todoID);
-    this.todoList.forEach((todoElement, index) => {
-      if (todoElement._id === todoID) {
-        todoElement.checked = false;
-        todoElement.checkerAdminId = null;
-        return;
+    console.log('unchecked ' + todoID);
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.todoList.length; i++) {
+      if (this.todoList[i]._id === todoID) {
+        this.todoList[i].checked = false;
+        this.todoList[i].checkerAdminId = null;
+        break;
       }
-    });
+    }
+    // this.todoList.forEach((todoElement, index) => {
+    //   if (todoElement._id === todoID) {
+    //     todoElement.checked = false;
+    //     todoElement.checkerAdminId = null;
+    //   }
+    // });
 
     this.filterToDo(this.filterQuery);
   }
@@ -86,20 +109,24 @@ export class TodoComponent implements OnInit {
     switch (filterQuery) {
       case 'Completed':
         this.filterQuery = 'Completed';
-        this.todoList.forEach(todoElement => {
-          if (todoElement.checked) {
-            this.shownTodoList.push(todoElement);
-          }
-        });
+        this.shownTodoList = this.todoList.filter(todoElement => todoElement.checked);
+
+        // this.todoList.forEach(todoElement => {
+        //   if (todoElement.checked) {
+        //     this.shownTodoList.push(todoElement);
+        //   }
+        // });
         break;
 
       case 'Uncompleted':
         this.filterQuery = 'Uncompleted';
-        this.todoList.forEach(todoElement => {
-          if (!todoElement.checked) {
-            this.shownTodoList.push(todoElement);
-          }
-        });
+        this.shownTodoList = this.todoList.filter(todoElement => !todoElement.checked);
+
+        // this.todoList.forEach(todoElement => {
+        //   if (!todoElement.checked) {
+        //     this.shownTodoList.push(todoElement);
+        //   }
+        // });
         break;
 
       default:

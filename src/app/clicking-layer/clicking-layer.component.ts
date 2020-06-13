@@ -15,7 +15,6 @@ export class ClickingLayerComponent implements OnInit {
 
   ngOnInit() {
     console.log('hi iam here ');
-
   }
 
   clickingLayer() {

@@ -23,7 +23,6 @@ export class CompaniesService {
     // TODO this function in just for creation of firebase database so delete it after that
 
     const company = {
-      id: 264564,
       name: 'The Great',
       email: 'great@great.com',
       phone: '01019111816',
@@ -31,7 +30,7 @@ export class CompaniesService {
       numberOfEmployees: 50
     };
 
-    this.http.post('https://taxi-graduation-project.firebaseio.com/companies.json ', company).subscribe(data => console.log(data));
+    this.http.post('https://barq-api.azurewebsites.net/api/companies ', company).subscribe(data => console.log(data));
   }
 
 

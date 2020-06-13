@@ -11,13 +11,12 @@
 }
 
 #todoDiv {
-  border-left: 2px solid #050510;
   position: fixed;
   top: 52px;
   right: 0;
-  bottom: 0;
   width: 40vw;
   z-index: 5;
+  display: none;
   max-width: 500px;
   overflow-y: auto;
   overflow-x: none !important;
