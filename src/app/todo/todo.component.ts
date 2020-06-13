@@ -30,11 +30,8 @@ export class TodoComponent implements OnInit {
     const todoId = Math.round(Math.random() * 1000).toString();
 
     this.todoList.push({ _id: todoId, checked: false, content: todoForm.value.todo });
-    if (this.filterQuery !== 'Completed') {
-      this.shownTodoList.push({ _id: todoId, checked: false, content: todoForm.value.todo });
-    }
+    this.filterToDo(this.filterQuery);
 
-    this.saveLocalStorageToDos();
   }
 
 
@@ -80,6 +77,7 @@ export class TodoComponent implements OnInit {
 
   filterToDo(filterQuery: string) {
     if (this.todoList.length < 1) {
+      this.saveLocalStorageToDos();
       return;
     }
     this.shownTodoList = [];
@@ -118,6 +116,8 @@ export class TodoComponent implements OnInit {
   }
 
   saveLocalStorageToDos() {
+    console.log(this.todoList);
+
     localStorage.setItem('ToDos', JSON.stringify(this.todoList));
   }
 

@@ -43,7 +43,18 @@
   </div>
 </form>
 
-<div class="todoList">
+<div *ngIf="todoList.length === 0" class="row">
+  <div class="col-sm-12">
+    <p>No ToDos yet!</p>
+  </div>
+</div>
+
+<div *ngIf="todoList.length > 0" class="todoList">
+  <div *ngIf="shownTodoList.length === 0" class="row">
+    <div class="col-sm-12">
+      <p>No ToDos in this list!</p>
+    </div>
+  </div>
   <div *ngFor="let todoItem of shownTodoList">
     <div
       class="row todoItem px-1 mt-2 mb-1"
