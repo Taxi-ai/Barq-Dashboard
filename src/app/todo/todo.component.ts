@@ -11,14 +11,14 @@ import { NgForm } from '@angular/forms';
 })
 export class TodoComponent implements OnInit {
 
-  todoList: ToDo[] = [{ _id: '23dsd32', checked: true, content: 'Play football' }];
+  todoList: ToDo[] = [];
   shownTodoList: ToDo[] = [];
   filterQuery: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.filterToDo('All');
+    this.getLocalStorageToDos();
   }
 
   submitTodo(todoForm: NgForm) {
@@ -31,8 +31,10 @@ export class TodoComponent implements OnInit {
 
     this.todoList.push({ _id: todoId, checked: false, content: todoForm.value.todo });
     if (this.filterQuery !== 'Completed') {
-      this.shownTodoList.push({ _id: todoId, checked: false, content: todoForm.value.todo })
+      this.shownTodoList.push({ _id: todoId, checked: false, content: todoForm.value.todo });
     }
+
+    this.saveLocalStorageToDos();
   }
 
 
@@ -77,6 +79,9 @@ export class TodoComponent implements OnInit {
   }
 
   filterToDo(filterQuery: string) {
+    if (this.todoList.length < 1) {
+      return;
+    }
     this.shownTodoList = [];
     switch (filterQuery) {
       case 'Completed':
@@ -102,7 +107,18 @@ export class TodoComponent implements OnInit {
         this.shownTodoList = [...this.todoList];
         break;
     }
+    this.saveLocalStorageToDos();
+  }
 
+  getLocalStorageToDos() {
+    if (localStorage.getItem('ToDos') !== null) {
+      this.todoList = [...JSON.parse(localStorage.getItem('ToDos'))];
+    }
+    this.filterToDo('All');
+  }
+
+  saveLocalStorageToDos() {
+    localStorage.setItem('ToDos', JSON.stringify(this.todoList));
   }
 
 }
