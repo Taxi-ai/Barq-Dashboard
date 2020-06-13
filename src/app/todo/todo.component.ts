@@ -30,6 +30,7 @@ export class TodoComponent implements OnInit {
     const todoId = Math.round(Math.random() * 1000).toString();
 
     this.todoList.push({ _id: todoId, checked: false, content: todoForm.value.todo, makerAdminId: this.getAdminUserName() });
+    todoForm.reset();
     this.filterToDo(this.filterQuery);
 
   }

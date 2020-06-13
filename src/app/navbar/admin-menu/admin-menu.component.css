@@ -7,6 +7,7 @@ ul {
 li {
   border-radius: inherit;
   transition: all 0.25s ease;
+  border: inherit;
 }
 
 li:hover {
@@ -15,8 +16,10 @@ li:hover {
 
 #adminMenu {
   border-radius: 0px 0px 10px 10px;
+  border-top: none;
   position: absolute;
   top: 52px;
   right: 0px;
   width: 200px;
+  z-index: 10;
 }

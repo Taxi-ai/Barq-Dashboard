@@ -51,6 +51,7 @@ import { PackageEditComponent } from './packages/package/package-edit/package-ed
 import { TodoComponent } from './todo/todo.component';
 import { AdminMenuComponent } from './navbar/admin-menu/admin-menu.component';
 import { TodoContainerComponent } from './navbar/todo-container/todo-container.component';
+import { ClickingLayerComponent } from './clicking-layer/clicking-layer.component';
 
 
 @NgModule({
@@ -99,6 +100,7 @@ import { TodoContainerComponent } from './navbar/todo-container/todo-container.c
     TodoComponent,
     AdminMenuComponent,
     TodoContainerComponent,
+    ClickingLayerComponent,
 
   ],
   imports: [

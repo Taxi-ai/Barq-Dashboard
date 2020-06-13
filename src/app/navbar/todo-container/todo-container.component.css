@@ -4,19 +4,20 @@
   margin: 0;
 }
 
-#notificationButton {
+#todoButton {
   cursor: pointer;
   color: #dcc3c3;
   font-size: 1.3rem;
 }
 
-#notificationsDiv {
+#todoDiv {
   border-left: 2px solid #050510;
   position: fixed;
   top: 52px;
   right: 0;
+  bottom: 0;
   width: 40vw;
-  display: none;
+  z-index: 5;
   max-width: 500px;
   overflow-y: auto;
   overflow-x: none !important;

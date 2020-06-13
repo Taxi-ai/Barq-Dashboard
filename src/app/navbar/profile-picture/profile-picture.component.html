@@ -8,4 +8,12 @@
   </a>
 </div>
 
-<app-admin-menu *ngIf="showAdminMenu"></app-admin-menu>
+<app-clicking-layer
+  (layerClicked)="showAdminMenu = false"
+  [booleanVar]="showAdminMenu"
+></app-clicking-layer>
+
+<app-admin-menu
+  (buttonClicked)="showAdminMenu = false"
+  *ngIf="showAdminMenu"
+></app-admin-menu>

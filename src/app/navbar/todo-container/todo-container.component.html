@@ -1,13 +1,19 @@
-<div id="notificationButton" (click)="divOpen()">
-    <i class="fas fa-th-list"></i>
-  </div>
-  <div
-    class="primaryBG"
-    [ngStyle]="{
-      'border-top': '2px solid #16202a'
-    }"
-    id="notificationsDiv"
-  >
-    <app-todo></app-todo>
-  </div>
-  
+<div id="todoButton" (click)="showToDos = !showToDos">
+  <i class="fas fa-th-list"></i>
+</div>
+
+<app-clicking-layer
+  (layerClicked)="showToDos = false"
+  [booleanVar]="showToDos"
+></app-clicking-layer>
+
+<div
+  *ngIf="showToDos"
+  class="primaryBG"
+  [ngStyle]="{
+    'border-top': '2px solid #16202a'
+  }"
+  id="todoDiv"
+>
+  <app-todo></app-todo>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/admin-login/auth.service';
 import { ThemeService } from '../../dashboard/theme.service';
 
@@ -12,6 +12,7 @@ export class AdminMenuComponent implements OnInit {
 
   makeItDark: boolean;
 
+  @Output() buttonClicked = new EventEmitter<boolean>();
 
   constructor(private authService: AuthService, public themeService: ThemeService) { }
 
@@ -21,13 +22,21 @@ export class AdminMenuComponent implements OnInit {
 
   }
 
+  clickingButton() {
+    this.buttonClicked.emit(false);
+  }
+
   onLogout() {
+    this.clickingButton();
     this.authService.signingOut();
   }
 
   toggleTheme() {
+    this.clickingButton();
     this.makeItDark = !this.makeItDark;
     this.themeService.changeTheme(this.makeItDark);
   }
+
+
 
 }
