@@ -5,26 +5,3 @@ img {
   margin: auto;
   border-radius: 50%;
 }
-
-ul {
-  list-style-type: none;
-  width: 100%;
-  border-radius: inherit;
-}
-
-li {
-  border-radius: inherit;
-  transition: all 0.25s ease;
-}
-
-li:hover {
-  background-color: whitesmoke;
-}
-
-#adminMenu {
-  border-radius: 0px 0px 10px 10px;
-  position: absolute;
-  top: 52px;
-  right: 0px;
-  width: 200px;
-}

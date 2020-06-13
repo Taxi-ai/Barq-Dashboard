@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/admin-login/auth.service';
+
 
 
 @Component({
@@ -12,17 +12,11 @@ export class ProfilePictureComponent implements OnInit {
 
   showAdminMenu = false;
 
-
-  constructor(private authService: AuthService) { }
+  constructor() { }
 
   ngOnInit() {
 
+
   }
-
-
-  onLogout() {
-    this.authService.signingOut();
-  }
-
 
 }

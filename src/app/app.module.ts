@@ -8,9 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { DarkLightToggleComponent } from './navbar/dark-light-toggle/dark-light-toggle.component';
 import { ProfilePictureComponent } from './navbar/profile-picture/profile-picture.component';
-import { NotificationsComponent } from './navbar/notifications/notifications.component';
 import { UsersComponent } from './users/users.component';
 import { UsersTableComponent } from './users/users-table/users-table.component';
 import { UsersGraphComponent } from './users/users-graph/users-graph.component';
@@ -51,15 +49,15 @@ import { NotificationPageComponent } from './notifications/notification/notifica
 import { NotificationEditComponent } from './notifications/notification/notification-edit/notification-edit.component';
 import { PackageEditComponent } from './packages/package/package-edit/package-edit.component';
 import { TodoComponent } from './todo/todo.component';
+import { AdminMenuComponent } from './navbar/admin-menu/admin-menu.component';
+import { TodoContainerComponent } from './navbar/todo-container/todo-container.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    DarkLightToggleComponent,
     ProfilePictureComponent,
-    NotificationsComponent,
     UsersComponent,
     UsersTableComponent,
     UsersGraphComponent,
@@ -99,6 +97,8 @@ import { TodoComponent } from './todo/todo.component';
     NotificationEditComponent,
     PackageEditComponent,
     TodoComponent,
+    AdminMenuComponent,
+    TodoContainerComponent,
 
   ],
   imports: [

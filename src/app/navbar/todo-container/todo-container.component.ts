@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-navbar-notifications',
-  templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.css']
+  selector: 'app-todo-container',
+  templateUrl: './todo-container.component.html',
+  styleUrls: ['./todo-container.component.css']
 })
-
-export class NotificationsComponent implements OnInit {
-
+export class TodoContainerComponent implements OnInit {
 
   divOpen() {
 

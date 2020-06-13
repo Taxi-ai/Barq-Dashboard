@@ -8,17 +8,4 @@
   </a>
 </div>
 
-<div id="adminMenu" *ngIf="showAdminMenu" class="primaryBG">
-  <ul class="m-0 p-0 text-center text-capitalize">
-    <li class="py-3 px-2">
-      <div class="row m-0 p-0" style="cursor: pointer;" (click)="onLogout()">
-        <div class="col-2 m-0 p-0">
-          <i class="fas fa-sign-out-alt p-0 m-0 fa-rotate-180"></i>
-        </div>
-        <div class="col-10 m-0 p-0">
-          <p class="m-0 p-0">Logout</p>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
+<app-admin-menu *ngIf="showAdminMenu"></app-admin-menu>

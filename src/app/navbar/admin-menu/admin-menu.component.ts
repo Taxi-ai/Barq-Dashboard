@@ -1,23 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/admin-login/auth.service';
 import { ThemeService } from '../../dashboard/theme.service';
 
-
-
 @Component({
-  selector: 'app-navbar-dark-light-toggle',
-  templateUrl: './dark-light-toggle.component.html',
-  styleUrls: ['./dark-light-toggle.component.css']
+  selector: 'app-admin-menu',
+  templateUrl: './admin-menu.component.html',
+  styleUrls: ['./admin-menu.component.css']
 })
 
-export class DarkLightToggleComponent implements OnInit {
+export class AdminMenuComponent implements OnInit {
 
   makeItDark: boolean;
 
-  constructor(public themeService: ThemeService) { }
+
+  constructor(private authService: AuthService, public themeService: ThemeService) { }
 
   ngOnInit() {
     // get theme value after if statement of 'prefers-color-scheme' in dashboard component
     this.makeItDark = this.themeService.getTheme();
+
+  }
+
+  onLogout() {
+    this.authService.signingOut();
   }
 
   toggleTheme() {
