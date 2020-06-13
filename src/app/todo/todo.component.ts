@@ -29,7 +29,7 @@ export class TodoComponent implements OnInit {
 
     const todoId = Math.round(Math.random() * 1000).toString();
 
-    this.todoList.push({ _id: todoId, checked: false, content: todoForm.value.todo });
+    this.todoList.push({ _id: todoId, checked: false, content: todoForm.value.todo, makerAdminId: this.getAdminUserName() });
     this.filterToDo(this.filterQuery);
 
   }
@@ -53,9 +53,9 @@ export class TodoComponent implements OnInit {
     this.todoList.forEach((todoElement, index) => {
       if (todoElement._id === todoID) {
         todoElement.checked = true;
+        todoElement.checkerAdminId = this.getAdminUserName();
         return;
       }
-
     });
 
 
@@ -68,6 +68,7 @@ export class TodoComponent implements OnInit {
     this.todoList.forEach((todoElement, index) => {
       if (todoElement._id === todoID) {
         todoElement.checked = false;
+        todoElement.checkerAdminId = null;
         return;
       }
     });
@@ -119,6 +120,11 @@ export class TodoComponent implements OnInit {
     console.log(this.todoList);
 
     localStorage.setItem('ToDos', JSON.stringify(this.todoList));
+  }
+
+
+  getAdminUserName() {
+    return JSON.parse(sessionStorage.getItem('decodedAdminData')).username;
   }
 
 }

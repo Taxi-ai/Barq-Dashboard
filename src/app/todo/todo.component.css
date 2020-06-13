@@ -26,11 +26,21 @@ input:active,
 .todoItem {
   background-clip: content-box !important;
   border-radius: 0.5rem;
-  transition: all 0.5s ease;
+  transition: all 0.25s ease;
 }
 
 .todoItem:hover {
   background-color: white;
+}
+
+.adminsInfo {
+  background-clip: content-box !important;
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+  transition: all 0.25s ease;
+}
+
+.todoItem:hover .adminsInfo {
+  background-color: whitesmoke;
 }
 
 .btn-group label input,
@@ -60,12 +70,12 @@ form button:disabled {
 }
 
 .checkedToDO {
-  font-style: italic;
   opacity: 0.5;
 }
 
-.checkedToDO p {
+.checkedToDO .col-sm-10 p {
   text-decoration: line-through;
+  font-style: italic;
 }
 
 p {

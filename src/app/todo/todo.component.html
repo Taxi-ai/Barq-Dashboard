@@ -18,7 +18,7 @@
 </div>
 
 <form #todoForm="ngForm" (ngSubmit)="submitTodo(todoForm)">
-  <div class="form-row">
+  <div class="form-row m-0">
     <div class="col-sm-10 pl-0 pr-0">
       <input
         required
@@ -57,40 +57,52 @@
   </div>
   <div *ngFor="let todoItem of shownTodoList">
     <div
-      class="row todoItem px-1 mt-2 mb-1"
+      class="todoItem px-1 mt-2 mb-1"
       [ngClass]="{ checkedToDO: todoItem.checked }"
     >
-      <div class="col-sm-10 pl-0">
-        <p class="d-inline-block pl-2">
-          {{ todoItem.content }}
-        </p>
+      <div class="row">
+        <div class="col-sm-10 pl-0">
+          <p class="d-inline-block pl-2">
+            {{ todoItem.content }}
+          </p>
+        </div>
+        <div class="col-sm-1 px-0" *ngIf="!todoItem.checked">
+          <button
+            (click)="checkTodo(todoItem._id)"
+            class="btn-primary btn px-0 todoItemCheck"
+            type="button"
+          >
+            <i class="fas fa-check"></i>
+          </button>
+        </div>
+        <div class="col-sm-1 px-0" *ngIf="todoItem.checked">
+          <button
+            (click)="unCheckTodo(todoItem._id)"
+            class="btn-primary btn px-0 todoItemCheck"
+            type="button"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="col-sm-1 px-0">
+          <button
+            class="btn-danger btn px-0 todoItemTrash"
+            (click)="deleteTodo(todoItem._id)"
+            type="button"
+          >
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </div>
       </div>
-      <div class="col-sm-1 px-0" *ngIf="!todoItem.checked">
-        <button
-          (click)="checkTodo(todoItem._id)"
-          class="btn-primary btn px-0 todoItemCheck"
-          type="button"
-        >
-          <i class="fas fa-check"></i>
-        </button>
-      </div>
-      <div class="col-sm-1 px-0" *ngIf="todoItem.checked">
-        <button
-          (click)="unCheckTodo(todoItem._id)"
-          class="btn-primary btn px-0 todoItemCheck"
-          type="button"
-        >
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="col-sm-1 px-0">
-        <button
-          class="btn-danger btn px-0 todoItemTrash"
-          (click)="deleteTodo(todoItem._id)"
-          type="button"
-        >
-          <i class="far fa-trash-alt"></i>
-        </button>
+      <div class="row text-center adminsInfo text-muted">
+        <div class="col-sm-12">
+          <p style="font-size: 0.8rem;">
+            {{ todoItem.makerAdminId }} added
+            <i class="fas fa-long-arrow-alt-right mx-1"></i>
+            {{ todoItem.checkerAdminId ? todoItem.checkerAdminId : "No one" }}
+            completed
+          </p>
+        </div>
       </div>
     </div>
   </div>
