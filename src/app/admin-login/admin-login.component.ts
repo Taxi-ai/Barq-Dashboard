@@ -21,6 +21,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   errorMessage: string = null;
 
+  // tslint:disable-next-line: max-line-length
+  passwordPattern = '^(?:(?=.*?[A-Z])(?:(?=.*?[0-9])(?=.*?[-!@#$%^&*()_[\\]{},.<>+=])|(?=.*?[a-z])(?:(?=.*?[0-9])|(?=.*?[-!@#$%^&*()_[\\]{},.<>+=])))|(?=.*?[a-z])(?=.*?[0-9])(?=.*?[-!@#$%^&*()_[\\]{},.<>+=]))[A-Za-z0-9!@#$%^&*()_[\\]{},.<>+=-]{7,50}$';
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {

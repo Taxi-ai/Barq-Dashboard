@@ -59,7 +59,7 @@ export class AuthService {
 
   handlingError(errorRes: HttpErrorResponse) {
     let errorMessage = 'Unknown error happened. Check your network and try again.';
-    console.log(errorRes);
+    console.log(errorRes.error);
 
     if (!errorRes.error) {
       return throwError(errorMessage);
