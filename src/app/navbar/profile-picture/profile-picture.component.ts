@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/admin-login/auth.service';
 
 export class ProfilePictureComponent implements OnInit {
 
+  showAdminMenu = false;
 
 
   constructor(private authService: AuthService) { }
