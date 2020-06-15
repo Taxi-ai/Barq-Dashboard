@@ -15,7 +15,6 @@ export class TodoContainerComponent implements OnInit {
 
     const todoDivState: string = document.getElementById('todoDiv').style.display;
 
-
     if (todoDivState === 'none' || todoDivState === '') {
       document.getElementById('todoDiv').style.display = 'block';
     } else if (todoDivState === 'block') {

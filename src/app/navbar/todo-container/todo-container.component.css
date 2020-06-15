@@ -21,3 +21,9 @@
   overflow-y: auto;
   overflow-x: none !important;
 }
+
+@media only screen and (max-width: 800px) {
+  #todoDiv {
+    width: 120vw !important;
+  }
+}
