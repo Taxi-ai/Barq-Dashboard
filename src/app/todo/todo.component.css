@@ -91,3 +91,13 @@ p {
   margin-right: 0rem;
   margin-left: 0rem;
 }
+
+@media only screen and (max-width: 800px) {
+  .todoItem:hover {
+    background-color: transparent;
+  }
+
+  .todoItem:hover .adminsInfo {
+    background-color: whitesmoke;
+  }
+}

@@ -15,10 +15,15 @@ export class TodoComponent implements OnInit {
   shownTodoList: ToDo[] = [];
   filterQuery: string;
 
+  audio: HTMLAudioElement = new Audio('../../../assets/audio/complete-task.mp3');
+
+
   constructor() { }
 
   ngOnInit() {
     this.getLocalStorageToDos();
+    this.audio.load();
+
   }
 
   submitTodo(todoForm: NgForm) {
@@ -52,6 +57,7 @@ export class TodoComponent implements OnInit {
 
     // });
 
+
     this.filterToDo(this.filterQuery);
 
   }
@@ -63,6 +69,7 @@ export class TodoComponent implements OnInit {
       if (this.todoList[i]._id === todoID) {
         this.todoList[i].checked = true;
         this.todoList[i].checkerAdminId = this.getAdminUserName();
+        this.audio.play(); // task-completion sound effect
         break;
       }
     }
@@ -74,7 +81,6 @@ export class TodoComponent implements OnInit {
     //     return;
     //   }
     // });
-
 
     this.filterToDo(this.filterQuery);
 

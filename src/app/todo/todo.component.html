@@ -42,17 +42,27 @@
     </div>
   </div>
 </form>
-
-<div *ngIf="todoList.length === 0" class="row">
-  <div class="col-sm-12">
-    <p>No ToDos yet!</p>
+<div>
+  <div *ngIf="todoList.length === 0" class="row text-center mt-2 mb-2">
+    <div class="col-sm-12">
+      <p>Yaaay, Your team has no tasks to do!</p>
+    </div>
+  </div>
+  <div *ngIf="todoList.length === 0" class="row text-center">
+    <div class="col-sm-12">
+      <img
+        src="https://jowritesstuff.files.wordpress.com/2016/10/giphy-yaay.gif"
+        alt="yaaay image"
+        style="width: 70%; border-radius: 10px;"
+      />
+    </div>
   </div>
 </div>
 
-<div *ngIf="todoList.length > 0" class="todoList">
-  <div *ngIf="shownTodoList.length === 0" class="row">
+<div *ngIf="todoList.length > 0" class="todoList mt-2">
+  <div *ngIf="shownTodoList.length === 0" class="row text-center">
     <div class="col-sm-12">
-      <p>No ToDos in this list!</p>
+      <p>No tasks in this list!</p>
     </div>
   </div>
   <div *ngFor="let todoItem of shownTodoList">
