@@ -52,6 +52,7 @@ import { TodoComponent } from './todo/todo.component';
 import { AdminMenuComponent } from './navbar/admin-menu/admin-menu.component';
 import { TodoContainerComponent } from './navbar/todo-container/todo-container.component';
 import { ClickingLayerComponent } from './clicking-layer/clicking-layer.component';
+import { MobileNavigationMenuComponent } from './mobile-navigation-menu/mobile-navigation-menu.component';
 
 
 @NgModule({
@@ -101,6 +102,7 @@ import { ClickingLayerComponent } from './clicking-layer/clicking-layer.componen
     AdminMenuComponent,
     TodoContainerComponent,
     ClickingLayerComponent,
+    MobileNavigationMenuComponent,
 
   ],
   imports: [

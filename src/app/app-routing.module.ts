@@ -17,6 +17,7 @@ import { AuthGuard } from './admin-login/auth.guard';
 import { CarsComponent } from './cars/cars.component';
 import { CarPageComponent } from './cars/car/car-page/car-page.component';
 import { CarEditComponent } from './cars/car/car-edit/car-edit.component';
+import { MobileNavigationMenuComponent } from "./mobile-navigation-menu/mobile-navigation-menu.component";
 
 
 // TODO remake routing after making the front end site using dashboard and main sites
@@ -42,6 +43,7 @@ const routes: Routes = [
           { path: 'page', component: FeedbackPageComponent }
         ]
       },
+      { path: 'navigate', component: MobileNavigationMenuComponent },
       { path: '**', redirectTo: 'not-found' }
     ]
   },

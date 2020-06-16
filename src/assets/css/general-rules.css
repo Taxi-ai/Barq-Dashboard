@@ -1,0 +1,12 @@
+.btn:focus,
+.btn:active,
+input:focus,
+input:active,
+.btn-group label input:focus,
+.btn-group label:focus,
+.btn-group label input:active,
+.btn-group label:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}

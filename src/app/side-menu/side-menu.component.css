@@ -58,8 +58,12 @@
   }
 
   .activeLink {
-    background-color: #3ea6ff;
-    border-color: #3ea6ff;
+    /* background-color: #3ea6ff;
+    border-color: ; */
+    color: #3ea6ff !important;
+  }
+  .btn:hover {
+    background-color: transparent !important;
   }
 }
 
