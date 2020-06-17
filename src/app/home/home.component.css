@@ -1,0 +1,29 @@
+.carousel-item .col-md-4 {
+  height: 150px;
+  background-color: wheat;
+  background-clip: content-box;
+  padding: 1rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+#fastStatistics {
+  /* margin-bottom: 1rem; */
+  margin-bottom: 2rem !important;
+}
+
+@media only screen and (max-width: 800px) {
+  /* #fastStatistics {
+    padding-bottom: 0rem;
+  } */
+  .carousel-item .col-md-4:not(:last-child) {
+    padding-bottom: 1rem;
+  }
+  /* .carousel-item .col-md-4:last-child {
+    padding-bottom: 0rem;
+  } */
+}

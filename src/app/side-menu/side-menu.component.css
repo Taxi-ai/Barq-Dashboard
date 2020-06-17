@@ -13,6 +13,10 @@
   width: 100%;
 }
 
+.btn {
+  border: none !important;
+}
+
 .btn-primary {
   background-color: #909090;
   border-color: #909090;

@@ -1,5 +1,6 @@
 :root {
   --primary-color: #050510;
+  --primary-box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, 0.05);
   --secondary-color: #16202a;
   /* --font-color: #424242;
   --bg-color: #fff;
@@ -7,8 +8,11 @@
 }
 
 [data-theme="light"] {
-  --primary-color: #dcc3c3;
-  --secondary-color: #efe4e4;
+  --primary-color: whitesmoke;
+  --primary-box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, 0.1);
+  --secondary-color: #f6f7fb;
+  --secondary-box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, 0.05);
+
   /* --font-color: #e1e1ff;
   --bg-color: #161625;
   --heading-color: #818cab; */
@@ -16,8 +20,10 @@
 
 .primaryBG {
   background-color: var(--primary-color);
+  box-shadow: var(--primary-box-shadow);
 }
 
 .secondaryBG {
   background-color: var(--secondary-color);
+  box-shadow: var(--secondary-box-shadow);
 }
