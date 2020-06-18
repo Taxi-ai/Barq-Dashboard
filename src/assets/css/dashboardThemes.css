@@ -1,29 +1,67 @@
 :root {
+  /* TODO make this as light theme  */
   --primary-color: #050510;
+  --primary-filtered-color: rgba(5, 5, 16, 0.6);
   --primary-box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, 0.05);
+  --primary-font-color: whitesmoke;
+  --primary-icon-color: #4466f2;
+
   --secondary-color: #16202a;
-  /* --font-color: #424242;
-  --bg-color: #fff;
-  --heading-color: #292922; */
+  --secondary-filtered-color: rgba(22, 32, 42, 0.6);
+  --secondary-font-color: #6c7292;
 }
 
 [data-theme="light"] {
   --primary-color: whitesmoke;
-  --primary-box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, 0.1);
-  --secondary-color: #f6f7fb;
-  --secondary-box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, 0.05);
+  --primary-filtered-color: rgba(245, 245, 245, 0.6);
+  --primary-box-shadow: 0px 0px 30px 8px rgba(200, 50, 100, 0.1);
+  --primary-font-color: #444444;
+  --primary-icon-color: #4466f2;
 
-  /* --font-color: #e1e1ff;
-  --bg-color: #161625;
-  --heading-color: #818cab; */
+  --secondary-color: #f6f7fb;
+  --secondary-filtered-color: rgba(246, 247, 251, 0.6);
+  --secondary-box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, 0.05);
+  --secondary-font-color: #818181;
+  --secondary-icon-color: #ffab00;
 }
 
 .primaryBG {
-  background-color: var(--primary-color);
-  box-shadow: var(--primary-box-shadow);
+  background-color: var(--primary-color) !important;
+  box-shadow: var(--primary-box-shadow) !important;
 }
 
 .secondaryBG {
-  background-color: var(--secondary-color);
-  box-shadow: var(--secondary-box-shadow);
+  background-color: var(--secondary-color) !important;
+  box-shadow: var(--secondary-box-shadow) !important;
+}
+
+.primaryFC {
+  color: var(--primary-font-color) !important;
+}
+
+.secondaryFC {
+  color: var(--secondary-font-color) !important;
+}
+
+.primaryIC {
+  color: var(--primary-icon-color) !important;
+}
+
+.secondaryIC {
+  color: var(--secondary-icon-color) !important;
+}
+
+.primaryNAVsFilter {
+  background-color: var(--primary-filtered-color) !important;
+  box-shadow: var(--primary-box-shadow) !important;
+}
+
+.secondaryNAVsFilter {
+  background-color: var(--secondary-filtered-color) !important;
+  box-shadow: var(--secondary-box-shadow) !important;
+}
+
+.NAVsFilter {
+  -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
 }

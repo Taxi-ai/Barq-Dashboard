@@ -1,5 +1,5 @@
 nav {
-  backdrop-filter: blur(20px) !important;
+  /* backdrop-filter: blur(20px) !important; */
   height: 52px;
-  background-color: rgba(5, 5, 16, 0.6) !important;
+  /* background-color: rgba(5, 5, 16, 0.6) !important; */
 }

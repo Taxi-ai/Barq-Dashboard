@@ -79,7 +79,7 @@
         <div class="col-1 px-0" *ngIf="!todoItem.checked">
           <button
             (click)="checkTodo(todoItem._id)"
-            class="btn-primary btn px-0 todoItemCheck"
+            class="btn px-0 todoItemCheck"
             type="button"
           >
             <i class="fas fa-check"></i>
@@ -88,7 +88,7 @@
         <div class="col-1 px-0" *ngIf="todoItem.checked">
           <button
             (click)="unCheckTodo(todoItem._id)"
-            class="btn-primary btn px-0 todoItemCheck"
+            class="btn px-0 todoItemCheck"
             type="button"
           >
             <i class="fas fa-times"></i>
@@ -96,7 +96,7 @@
         </div>
         <div class="col-1 px-0">
           <button
-            class="btn-danger btn px-0 todoItemTrash"
+            class="btn px-0 todoItemTrash"
             (click)="deleteTodo(todoItem._id)"
             type="button"
           >

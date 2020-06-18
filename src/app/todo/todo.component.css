@@ -18,7 +18,7 @@
 }
 
 .todoItem:hover {
-  background-color: white;
+  background-color: white !important;
 }
 
 .adminsInfo {
