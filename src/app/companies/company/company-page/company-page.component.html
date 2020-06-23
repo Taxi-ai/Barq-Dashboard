@@ -1,20 +1,54 @@
+<app-back-button></app-back-button>
+
 <div *ngIf="company">
   <div class="row">
-    <div class="col-md-2">
+    <p class="col-md-2 secondaryFC">
       Company name:
-    </div>
-    <div class="col-md-10">
+    </p>
+    <p class="col-md-4 primaryFC">
       {{ company.name }}
-    </div>
+    </p>
+    <p class="col-md-2 secondaryFC">
+      No. of employees:
+    </p>
+    <p class="col-md-4 primaryFC">
+      {{ company.numberOfEmployees }}
+    </p>
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <a class="btn btn-block btn-danger" routerLink="edit"
-        >Edit Company Data</a
+    <p class="col-md-2 secondaryFC">
+      Company email:
+    </p>
+    <p class="col-md-4 primaryFC">
+      {{ company.email }}
+    </p>
+    <p class="col-md-2 secondaryFC">
+      Company phone:
+    </p>
+    <p class="col-md-4 primaryFC">
+      {{ company.phone }}
+    </p>
+  </div>
+  <div class="row">
+    <p class="col-md-2 secondaryFC">
+      Company address:
+    </p>
+    <p class="col-md-10 primaryFC">
+      {{ company.address.country }} - {{ company.address.city }} -
+      {{ company.address.street }}
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <a class="btn btn-block btn-danger" routerLink="edit">Edit Company</a>
+    </div>
+    <div class="col-md-6">
+      <a class="btn btn-block btn-dark secondaryFC" (click)="deleteCompany()"
+        >Delete Company</a
       >
     </div>
   </div>
 </div>
-<div *ngIf="!company">
+<div class="primaryFC text-center" *ngIf="!company">
   <h1>This user isn't in database</h1>
 </div>

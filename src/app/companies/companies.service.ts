@@ -19,18 +19,20 @@ export class CompaniesService {
     }
   }
 
-  postCompany() {
-    // TODO this function in just for creation of firebase database so delete it after that
+  postCompany(company: Company) {
 
-    const company = {
-      name: 'The Great',
-      email: 'great@great.com',
-      phone: '01019111816',
-      address: { country: 'egypt', city: 'tanta', street: 'galaa' },
-      numberOfEmployees: 50
-    };
+    return this.http.post('https://barq-api.azurewebsites.net/api/companies ', company);
+  }
 
-    this.http.post('https://barq-api.azurewebsites.net/api/companies ', company).subscribe(data => console.log(data));
+  updateCompany(companyID: string, company: Company) {
+
+    const companyAPI = 'https://barq-api.azurewebsites.net/api/companies/' + companyID;
+    return this.http.put(companyAPI, company);
+  }
+
+  deleteCompany(companyID: string) {
+    const companyAPI = 'https://barq-api.azurewebsites.net/api/companies/' + companyID;
+    return this.http.delete(companyAPI);
   }
 
 

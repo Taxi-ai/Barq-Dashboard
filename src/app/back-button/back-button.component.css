@@ -1,0 +1,14 @@
+#backButton {
+  font-size: 1.5rem;
+  display: none;
+}
+
+#backButton i {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  #backButton {
+    display: block;
+  }
+}

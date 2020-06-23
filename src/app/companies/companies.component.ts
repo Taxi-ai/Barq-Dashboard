@@ -39,9 +39,6 @@ export class CompaniesComponent implements OnInit {
     });
   }
 
-  postCompany() {
-    // remove this method after removing its button in the UI
-    this.companiesService.postCompany();
-  }
+
 
 }

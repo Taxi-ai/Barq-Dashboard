@@ -18,6 +18,10 @@ import { CarsComponent } from './cars/cars.component';
 import { CarPageComponent } from './cars/car/car-page/car-page.component';
 import { CarEditComponent } from './cars/car/car-edit/car-edit.component';
 import { MobileNavigationMenuComponent } from "./mobile-navigation-menu/mobile-navigation-menu.component";
+import { CompanyNewComponent } from "./companies/company/company-new/company-new.component";
+import { IssuesComponent } from "./issues/issues.component";
+import { IssuePageComponent } from "./issues/issue/issue-page/issue-page.component";
+import { IssueEditComponent } from "./issues/issue/issue-edit/issue-edit.component";
 
 
 // TODO remake routing after making the front end site using dashboard and main sites
@@ -33,16 +37,15 @@ const routes: Routes = [
       { path: 'users/:id', component: UserPageComponent },
       { path: 'users/:id/edit', component: EditUserComponent },
       { path: 'partners', component: CompaniesComponent },
+      { path: 'partners/new', component: CompanyNewComponent },
       { path: 'partners/:id', component: CompanyPageComponent },
       { path: 'partners/:id/edit', component: CompanyEditComponent },
       { path: 'cars', component: CarsComponent },
       { path: 'cars/:id', component: CarPageComponent },
       { path: 'cars/:id/edit', component: CarEditComponent },
-      {
-        path: 'issues', component: FeedbacksComponent, children: [
-          { path: 'page', component: FeedbackPageComponent }
-        ]
-      },
+      { path: 'issues', component: IssuesComponent },
+      { path: 'issues/:id', component: IssuePageComponent },
+      { path: 'issues/:id/edit', component: IssueEditComponent },
       { path: 'navigate', component: MobileNavigationMenuComponent },
       { path: '**', redirectTo: 'not-found' }
     ]

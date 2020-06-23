@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from './theme.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 
@@ -9,7 +10,8 @@ import { ThemeService } from './theme.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  constructor(public themeService: ThemeService) { }
+  constructor(public themeService: ThemeService, private router: Router, private route: ActivatedRoute) { }
+
 
   ngOnInit() {
 

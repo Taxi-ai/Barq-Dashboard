@@ -53,6 +53,13 @@ import { AdminMenuComponent } from './navbar/admin-menu/admin-menu.component';
 import { TodoContainerComponent } from './navbar/todo-container/todo-container.component';
 import { ClickingLayerComponent } from './clicking-layer/clicking-layer.component';
 import { MobileNavigationMenuComponent } from './mobile-navigation-menu/mobile-navigation-menu.component';
+import { CompanyNewComponent } from './companies/company/company-new/company-new.component';
+import { BackButtonComponent } from './back-button/back-button.component';
+import { IssuesComponent } from './issues/issues.component';
+import { IssuePageComponent } from './issues/issue/issue-page/issue-page.component';
+import { IssueEditComponent } from './issues/issue/issue-edit/issue-edit.component';
+import { IssuesGraphComponent } from './issues/issues-graph/issues-graph.component';
+import { IssuesTableComponent } from './issues/issues-table/issues-table.component';
 
 
 @NgModule({
@@ -103,6 +110,13 @@ import { MobileNavigationMenuComponent } from './mobile-navigation-menu/mobile-n
     TodoContainerComponent,
     ClickingLayerComponent,
     MobileNavigationMenuComponent,
+    CompanyNewComponent,
+    BackButtonComponent,
+    IssuesComponent,
+    IssuePageComponent,
+    IssueEditComponent,
+    IssuesGraphComponent,
+    IssuesTableComponent,
 
   ],
   imports: [

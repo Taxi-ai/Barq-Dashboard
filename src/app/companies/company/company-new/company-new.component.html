@@ -1,6 +1,6 @@
 <app-back-button></app-back-button>
 
-<form *ngIf="company">
+<form>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label class="primaryFC" for="companyName">Company Name</label>
@@ -10,11 +10,13 @@
         id="companyName"
         [ngModelOptions]="{ standalone: true }"
         [(ngModel)]="company.name"
+        required
       />
     </div>
     <div class="form-group col-md-6">
       <label class="primaryFC" for="companyEmployees">No. of employees</label>
       <input
+        required
         type="text"
         class="form-control"
         id="companyEmployees"
@@ -27,6 +29,7 @@
     <div class="form-group col-md-6">
       <label class="primaryFC" for="companyEmail">Company Email</label>
       <input
+        required
         type="email"
         class="form-control"
         id="companyEmail"
@@ -37,6 +40,7 @@
     <div class="form-group col-md-6">
       <label class="primaryFC" for="companyPhone">company phone number</label>
       <input
+        required
         type="text"
         class="form-control"
         id="companyPhone"
@@ -49,6 +53,7 @@
     <div class="form-group col-md-4">
       <label class="primaryFC" for="companyCountry">Country</label>
       <input
+        required
         type="text"
         class="form-control"
         id="companyCountry"
@@ -59,6 +64,7 @@
     <div class="form-group col-md-4">
       <label class="primaryFC" for="companyCity">City</label>
       <input
+        required
         type="text"
         class="form-control"
         id="companyCity"
@@ -69,6 +75,7 @@
     <div class="form-group col-md-4">
       <label class="primaryFC" for="companyAddress">Street</label>
       <input
+        required
         type="text"
         class="form-control"
         id="companyAddress"
@@ -81,12 +88,10 @@
   <div class="form-row">
     <button
       type="submit"
-      (click)="updateCompanyData()"
+      (click)="postNewCompany()"
       class="btn btn-primary btn-block"
     >
-      Update Data
+      Add Company
     </button>
   </div>
 </form>
-
-<div *ngIf="!company"><h1>This company isn't in database</h1></div>
