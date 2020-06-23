@@ -1,51 +1,187 @@
 <div id="fastStatistics" class="carousel slide m-0" data-ride="carousel">
   <div class="carousel-inner row px-3 m-0">
-    <div class="carousel-item active" data-interval="5000">
+    <div class="carousel-item active" data-interval="8000">
+      <p
+        class="primaryFC"
+        style="
+          position: static;
+          transform: none;
+          text-align: center !important;
+          padding-top: 0.3rem;
+          padding-bottom: 0.3rem;
+          margin-left: 1rem;
+          margin-right: 1rem;
+        "
+      >
+        |- - - - - - - - - - General - - - - - - - - - -|
+      </p>
       <div class="col-sm-3 d-inline-block">
-        <div class="row">
-          <div class="col-3"><i class="fas fa-users"></i></div>
-          <div class="col-5">
-            <p>{{ dataCounters.users }} <span>user</span></p>
+        <div class="row no-gutters">
+          <div class="col-3">
+            <i [class]="usersCounters[0].icon"></i>
           </div>
-          <div class="col-4"><i class="fas fa-users"></i></div>
+          <div class="col-5">
+            <p>
+              {{ usersCounters[0].counter }}
+              <span>{{ usersCounters[0].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="usersCounters[0].icon"></i></div>
         </div>
       </div>
       <div class="col-sm-3 d-inline-block">
-        12
+        <div class="row no-gutters">
+          <div class="col-3"><i [class]="usersCounters[1].icon"></i></div>
+          <div class="col-5">
+            <p>
+              {{ usersCounters[1].counter }}
+              <span>{{ usersCounters[1].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="usersCounters[1].icon"></i></div>
+        </div>
       </div>
       <div class="col-sm-3 d-inline-block">
-        13
+        <div class="row no-gutters">
+          <div class="col-3"><i [class]="usersCounters[2].icon"></i></div>
+          <div class="col-5">
+            <p>
+              {{ usersCounters[2].counter }}
+              <span>{{ usersCounters[2].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="usersCounters[2].icon"></i></div>
+        </div>
       </div>
       <div class="col-sm-3 d-inline-block">
-        13
+        <div class="row no-gutters">
+          <div class="col-3"><i [class]="usersCounters[3].icon"></i></div>
+          <div class="col-5">
+            <p>
+              {{ usersCounters[3].counter }}
+              <span>{{ usersCounters[3].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="usersCounters[3].icon"></i></div>
+        </div>
       </div>
     </div>
-    <div class="carousel-item" data-interval="5000">
+    <div class="carousel-item" data-interval="8000">
+      <p
+        style="
+          position: static;
+          transform: none;
+          text-align: center !important;
+        "
+      >
+        |- - - - - - - - - - Usage - - - - - - - - - -|
+      </p>
       <div class="col-sm-3 d-inline-block">
-        21
+        <div class="row no-gutters">
+          <div class="col-3"><i [class]="appCounters[0].icon"></i></div>
+          <div class="col-5">
+            <p>
+              {{ appCounters[0].counter }}
+              <span>{{ appCounters[0].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="appCounters[0].icon"></i></div>
+        </div>
       </div>
       <div class="col-sm-3 d-inline-block">
-        22
+        <div class="row no-gutters">
+          <div class="col-3"><i [class]="appCounters[1].icon"></i></div>
+          <div class="col-5">
+            <p>
+              {{ appCounters[1].counter }}
+              <span>{{ appCounters[1].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="appCounters[1].icon"></i></div>
+        </div>
       </div>
       <div class="col-sm-3 d-inline-block">
-        23
+        <div class="row no-gutters">
+          <div class="col-3"><i [class]="appCounters[2].icon"></i></div>
+          <div class="col-5">
+            <p>
+              {{ appCounters[2].counter }}
+              <span>{{ appCounters[2].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="appCounters[2].icon"></i></div>
+        </div>
       </div>
       <div class="col-sm-3 d-inline-block">
-        13
+        <div class="row no-gutters">
+          <div class="col-3"><i [class]="appCounters[3].icon"></i></div>
+          <div class="col-5">
+            <p>
+              {{ appCounters[3].counter }}
+              <span>{{ appCounters[3].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="appCounters[3].icon"></i></div>
+        </div>
       </div>
     </div>
-    <div class="carousel-item" data-interval="5000">
+    <div class="carousel-item" data-interval="8000">
+      <p
+        style="
+          position: static;
+          transform: none;
+          text-align: center !important;
+        "
+      >
+        |- - - - - - - - - - Earnings - - - - - - - - - -|
+      </p>
       <div class="col-sm-3 d-inline-block">
-        31
+        <div class="row no-gutters">
+          <div class="col-3"><i [class]="moneyCounters[0].icon"></i></div>
+          <div class="col-5">
+            <p>
+              {{ moneyCounters[0].counter }}
+              <span>{{ moneyCounters[0].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="moneyCounters[0].icon"></i></div>
+        </div>
       </div>
       <div class="col-sm-3 d-inline-block">
-        32
+        <div class="row no-gutters">
+          <div class="col-3"><i [class]="moneyCounters[1].icon"></i></div>
+          <div class="col-5">
+            <p>
+              {{ moneyCounters[1].counter }}
+              <span>{{ moneyCounters[1].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="moneyCounters[1].icon"></i></div>
+        </div>
       </div>
       <div class="col-sm-3 d-inline-block">
-        33
+        <div class="row no-gutters">
+          <div class="col-3"><i [class]="moneyCounters[2].icon"></i></div>
+          <div class="col-5">
+            <p>
+              {{ moneyCounters[2].counter }}
+              <span>{{ moneyCounters[2].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="moneyCounters[2].icon"></i></div>
+        </div>
       </div>
       <div class="col-sm-3 d-inline-block">
-        13
+        <div class="row no-gutters">
+          <div class="col-3"><i [class]="moneyCounters[3].icon"></i></div>
+          <div class="col-5">
+            <p>
+              {{ moneyCounters[3].counter }}
+              <span>{{ moneyCounters[3].name }}</span>
+            </p>
+          </div>
+          <div class="col-4"><i [class]="moneyCounters[3].icon"></i></div>
+        </div>
       </div>
     </div>
   </div>

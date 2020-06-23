@@ -20,6 +20,14 @@
   width: auto;
 }
 
+.fa-rotate-180 {
+  -webkit-transform: rotate(180deg) translateY(50%) !important;
+  -moz-transform: rotate(180deg) translateY(50%) !important;
+  -ms-transform: rotate(180deg) translateY(50%) !important;
+  -o-transform: rotate(180deg) translateY(50%) !important;
+  transform: rotate(180deg) translateY(50%) !important;
+}
+
 #fastStatistics {
   margin-bottom: 2rem !important;
 }
@@ -55,7 +63,6 @@
 #fastStatistics .col-4 i {
   font-size: 4rem;
   opacity: 0.2;
-  /* transform: rotate(10deg); */
 }
 
 @media only screen and (max-width: 1200px) {
@@ -79,7 +86,7 @@
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 575px) {
   .carousel-item .col-sm-3:not(:last-child) {
     margin-bottom: 1rem;
   }
