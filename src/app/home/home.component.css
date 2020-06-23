@@ -1,6 +1,5 @@
-#fastStatistics .col-5,
-#fastStatistics .col-3,
-#fastStatistics .col-4 {
+#fastStatistics .col-9,
+#fastStatistics .col-3 {
   padding-right: 4px;
   padding-left: 4px;
 }
@@ -21,11 +20,11 @@
 }
 
 .fa-rotate-180 {
-  -webkit-transform: rotate(180deg) translateY(50%) !important;
-  -moz-transform: rotate(180deg) translateY(50%) !important;
-  -ms-transform: rotate(180deg) translateY(50%) !important;
-  -o-transform: rotate(180deg) translateY(50%) !important;
-  transform: rotate(180deg) translateY(50%) !important;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 #fastStatistics {
@@ -44,13 +43,19 @@
   font-size: 1.8rem;
 }
 
-#fastStatistics .carousel-item .row p span {
+#fastStatistics .carousel-item .row {
+  overflow-x: hidden;
+  overflow-y: visible;
+  height: 100%;
+}
+#fastStatistics .carousel-item .row span {
   font-size: 0.8rem;
 }
 
 #fastStatistics .carousel-item .row,
-#fastStatistics .carousel-item i,
-#fastStatistics .carousel-item p {
+#fastStatistics .carousel-item .row :not(.bigI) i,
+#fastStatistics .carousel-item p,
+#fastStatistics .carousel-item span {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -60,23 +65,30 @@
   font-size: 1.5rem;
 }
 
-#fastStatistics .col-4 i {
-  font-size: 4rem;
+.carousel-item .row .bigI {
+  position: absolute;
+  right: 5%;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.carousel-item .row .bigI i {
+  font-size: 3.5rem;
   opacity: 0.2;
 }
 
 @media only screen and (max-width: 1200px) {
-  #fastStatistics .carousel-item i {
+  #fastStatistics .carousel-item .row :not(.bigI) i {
     display: none;
   }
-  .carousel-item .row .col-4,
   .carousel-item .row .col-3 {
     padding-right: 0px;
     padding-left: 0px;
     width: 0px;
   }
 
-  .carousel-item .row .col-5 {
+  .carousel-item .row .col-9 {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -90,16 +102,12 @@
   .carousel-item .col-sm-3:not(:last-child) {
     margin-bottom: 1rem;
   }
-  #fastStatistics .carousel-item i {
-    display: initial;
-  }
-  .carousel-item .row .col-4,
   .carousel-item .row .col-3 {
     padding-right: 4px;
     padding-left: 4px;
     width: 100%;
   }
-  .carousel-item .row .col-5 {
+  .carousel-item .row .col-9 {
     flex: 0 0 41.666667%;
     max-width: 41.666667%;
   }
