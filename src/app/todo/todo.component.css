@@ -14,7 +14,6 @@
 .todoItem {
   background-clip: content-box !important;
   border-radius: 0.5rem;
-  transition: all 0.25s ease;
 }
 
 .todoItem:hover {

@@ -1,10 +1,19 @@
-.carousel-item .col-md-4 {
-  height: 150px;
-  background-color: wheat;
+#fastStatistics .col-5,
+#fastStatistics .col-3,
+#fastStatistics .col-4 {
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+.carousel-item .col-sm-3 {
+  height: 100px;
+  background-image: linear-gradient(to right, #4466f2, #1ea6ec);
   background-clip: content-box;
   padding: 1rem;
   padding-top: 0;
   padding-bottom: 0;
+  border-radius: 10%;
+  overflow: hidden;
 }
 .carousel-control-prev,
 .carousel-control-next {
@@ -15,8 +24,79 @@
   margin-bottom: 2rem !important;
 }
 
-@media only screen and (max-width: 768px) {
-  .carousel-item .col-md-4:not(:last-child) {
-    padding-bottom: 1rem;
+#fastStatistics .carousel-item {
+  text-align: center;
+  color: whitesmoke;
+}
+
+#fastStatistics .carousel-item .row p {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 1.8rem;
+}
+
+#fastStatistics .carousel-item .row p span {
+  font-size: 0.8rem;
+}
+
+#fastStatistics .carousel-item .row,
+#fastStatistics .carousel-item i,
+#fastStatistics .carousel-item p {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#fastStatistics .col-3 i {
+  font-size: 1.5rem;
+}
+
+#fastStatistics .col-4 i {
+  font-size: 4rem;
+  opacity: 0.2;
+  /* transform: rotate(10deg); */
+}
+
+@media only screen and (max-width: 1200px) {
+  #fastStatistics .carousel-item i {
+    display: none;
+  }
+  .carousel-item .row .col-4,
+  .carousel-item .row .col-3 {
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 0px;
+  }
+
+  .carousel-item .row .col-5 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  #fastStatistics .carousel-item p {
+    text-align: center !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .carousel-item .col-sm-3:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  #fastStatistics .carousel-item i {
+    display: initial;
+  }
+  .carousel-item .row .col-4,
+  .carousel-item .row .col-3 {
+    padding-right: 4px;
+    padding-left: 4px;
+    width: 100%;
+  }
+  .carousel-item .row .col-5 {
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+  }
+  #fastStatistics .carousel-item p {
+    text-align: left !important;
   }
 }

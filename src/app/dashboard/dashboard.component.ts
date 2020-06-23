@@ -48,9 +48,9 @@ export class DashboardComponent implements OnInit {
         }
 
       } else {
-        // browser doesn't support 'prefers-color-scheme' media query --> apply 'dark' as default
+        // browser doesn't support 'prefers-color-scheme' media query --> apply 'light' as default
 
-        this.themeService.changeTheme(true);
+        this.themeService.changeTheme(false);
       }
 
     }

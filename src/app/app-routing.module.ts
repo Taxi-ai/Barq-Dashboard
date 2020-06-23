@@ -39,7 +39,7 @@ const routes: Routes = [
       { path: 'cars/:id', component: CarPageComponent },
       { path: 'cars/:id/edit', component: CarEditComponent },
       {
-        path: 'feedbacks', component: FeedbacksComponent, children: [
+        path: 'issues', component: FeedbacksComponent, children: [
           { path: 'page', component: FeedbackPageComponent }
         ]
       },
