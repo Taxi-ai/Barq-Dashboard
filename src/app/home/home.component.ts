@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
     { name: 'firefox', counter: 52, icon: 'fab fa-firefox' }
   ];
   moneyCounters = [
-    { name: 'income', counter: 52, icon: 'fas fa-external-link-alt fa-rotate-90' },
-    { name: 'outcome', counter: 52, icon: 'fas fa-external-link-alt fa-rotate-180' },
+    { name: 'income', counter: 52, icon: 'fas fa-external-link-alt fa-rotate-180' },
+    { name: 'outcome', counter: 52, icon: 'fas fa-external-link-alt' },
     { name: 'assets', counter: 52, icon: 'fas fa-chair' },
     { name: 'salaries', counter: 52, icon: 'fas fa-dollar-sign' }
   ];
