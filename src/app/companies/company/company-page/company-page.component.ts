@@ -19,7 +19,7 @@ export class CompanyPageComponent implements OnInit {
     const companyID = this.route.snapshot.params.id;
 
     this.companiesService.getCompanyByID(companyID).subscribe(company => {
-      // console.log(company);
+      console.log(company);
       this.company = company;
       this.spin = false;
 
