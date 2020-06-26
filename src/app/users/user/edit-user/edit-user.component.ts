@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsersService } from '../../users.service';
-import { User, UserX } from '../../user.model';
+import { UserX } from '../../user.model';
 
 @Component({
   selector: 'app-edit-user',
@@ -11,27 +11,41 @@ import { User, UserX } from '../../user.model';
 export class EditUserComponent implements OnInit {
 
   user: UserX;
-  changesIsSaved = false;
+  spin = true;
 
   constructor(private route: ActivatedRoute, private router: Router, private usersService: UsersService) { }
 
   ngOnInit() {
-    let userID = Number(this.route.snapshot.params.id);
-    // this.user = this.usersService.getUserByID(userID);
-    this.route.params.subscribe(
-      (params) => {
-        userID = Number(params.id);
-        // this.user = this.usersService.getUserByID(userID);
-      }
-    );
+    const userID = this.route.snapshot.params.id;
+    this.usersService.getUserByID(userID).subscribe(user => {
+      // console.log(user);
+      this.user = user;
+      this.spin = false;
+
+    });
+
   }
 
   updateUserData() {
-    console.log(this.user);
-    const userID = Number(this.route.snapshot.params.id);
-    // this.usersService.updateUserByID(userID, this.user);
-    this.changesIsSaved = true;
-    this.router.navigate(['../'], { relativeTo: this.route });
-  }
+    this.spin = true;
 
+    const editedUser: UserX = {
+      username: this.user.username,
+      email: this.user.email,
+      dateOfBirth: this.user.dateOfBirth,
+      address: { country: this.user.address.country, city: this.user.address.city, street: this.user.address.street },
+      image: this.user.image,
+      phone: this.user.phone
+    };
+
+    this.usersService.updateUserByID(this.user._id, editedUser).subscribe(data => {
+      console.log(data);
+      this.spin = false;
+      this.router.navigate(['../'], { relativeTo: this.route });
+    }
+      , error => {
+        this.spin = false;
+      });
+
+  }
 }

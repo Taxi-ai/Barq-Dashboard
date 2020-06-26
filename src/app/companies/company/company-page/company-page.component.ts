@@ -10,6 +10,7 @@ import { Company } from '../../company.model';
 })
 export class CompanyPageComponent implements OnInit {
   company: Company;
+  spin = true;
 
   constructor(private route: ActivatedRoute, private router: Router, private companiesService: CompaniesService) { }
 
@@ -18,17 +19,26 @@ export class CompanyPageComponent implements OnInit {
     const companyID = this.route.snapshot.params.id;
 
     this.companiesService.getCompanyByID(companyID).subscribe(company => {
-      console.log(company); this.company = company;
+      // console.log(company);
+      this.company = company;
+      this.spin = false;
+
     });
 
   }
 
 
   deleteCompany() {
-    this.companiesService.deleteCompany(this.company._id).subscribe(data => {
-      console.log(data);
+    this.spin = true;
+
+    this.companiesService.deleteCompanyByID(this.company._id).subscribe(data => {
+      // console.log(data);
+      this.spin = false;
       this.router.navigate(['../'], { relativeTo: this.route });
-    });
+    },
+      error => {
+        this.spin = false;
+      });
   }
 
 

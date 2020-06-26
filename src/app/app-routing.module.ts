@@ -17,11 +17,12 @@ import { AuthGuard } from './admin-login/auth.guard';
 import { CarsComponent } from './cars/cars.component';
 import { CarPageComponent } from './cars/car/car-page/car-page.component';
 import { CarEditComponent } from './cars/car/car-edit/car-edit.component';
-import { MobileNavigationMenuComponent } from "./mobile-navigation-menu/mobile-navigation-menu.component";
-import { CompanyNewComponent } from "./companies/company/company-new/company-new.component";
-import { IssuesComponent } from "./issues/issues.component";
-import { IssuePageComponent } from "./issues/issue/issue-page/issue-page.component";
-import { IssueEditComponent } from "./issues/issue/issue-edit/issue-edit.component";
+import { MobileNavigationMenuComponent } from './mobile-navigation-menu/mobile-navigation-menu.component';
+import { CompanyNewComponent } from './companies/company/company-new/company-new.component';
+import { IssuesComponent } from './issues/issues.component';
+import { IssuePageComponent } from './issues/issue/issue-page/issue-page.component';
+import { IssueEditComponent } from './issues/issue/issue-edit/issue-edit.component';
+import { UserNewComponent } from "./users/user/user-new/user-new.component";
 
 
 // TODO remake routing after making the front end site using dashboard and main sites
@@ -34,6 +35,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'users', component: UsersComponent },
+      { path: 'users/new', component: UserNewComponent },
       { path: 'users/:id', component: UserPageComponent },
       { path: 'users/:id/edit', component: EditUserComponent },
       { path: 'partners', component: CompaniesComponent },

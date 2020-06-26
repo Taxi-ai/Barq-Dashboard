@@ -1,20 +1,50 @@
 <app-back-button></app-back-button>
 
 <div *ngIf="user">
-  <div class="row">
-    <div class="col-md-2">
-      User name:
-    </div>
-    <div class="col-md-10">
-      {{ user.username }}
+  <div class="row no-gutters primaryBG">
+    <p class="col-md-3 mainPadding secondaryFC">
+      <img style="width: 100%; border-radius: 10px;" [src]="user.image" />
+    </p>
+    <div id="centeringMainData" class="col-md-9 mainPadding primaryFC">
+      <h1 class="m-0 p-0">
+        {{ user.username }}
+      </h1>
+
+      <p class="m-0 p-0">
+        {{ user.email }}
+      </p>
+      <p class="m-0 p-0">
+        {{ user.phone }}
+      </p>
     </div>
   </div>
+
   <div class="row">
-    <div class="col-md-12">
-      <a class="btn btn-block btn-danger" routerLink="edit">Edit User Data</a>
+    <p class="col-md-2 secondaryFC">
+      Address:
+    </p>
+    <p class="col-md-4 primaryFC">
+      {{ user.address.country }} - {{ user.address.city }} -
+      {{ user.address.street }}
+    </p>
+    <p class="col-md-2 secondaryFC">
+      Date of birth:
+    </p>
+    <p class="col-md-4 primaryFC">
+      {{ user.dateOfBirth | date }}
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <a class="btn btn-block btn-danger" routerLink="edit">Edit user</a>
+    </div>
+    <div class="col-6">
+      <a class="btn btn-block btn-dark secondaryFC" (click)="deleteUser()"
+        >Delete user</a
+      >
     </div>
   </div>
 </div>
-<div *ngIf="!user">
+<div class="primaryFC text-center" *ngIf="!user">
   <h1>This user isn't in database</h1>
 </div>

@@ -2,86 +2,99 @@
 
 <form>
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label class="primaryFC" for="companyName">Company Name</label>
+    <div class="form-group col-md-12">
+      <label class="primaryFC" for="userName">Name</label>
       <input
         type="text"
         class="form-control"
-        id="companyName"
+        id="userName"
         [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="company.name"
+        [(ngModel)]="user.username"
         required
-      />
-    </div>
-    <div class="form-group col-md-6">
-      <label class="primaryFC" for="companyEmployees">No. of employees</label>
-      <input
-        required
-        type="number"
-        class="form-control"
-        id="companyEmployees"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="company.numberOfEmployees"
       />
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label class="primaryFC" for="companyEmail">Company Email</label>
+      <label class="primaryFC" for="userEmail">Email</label>
       <input
         required
         type="email"
-        email
         class="form-control"
-        id="companyEmail"
+        id="userEmail"
         [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="company.email"
+        [(ngModel)]="user.email"
       />
     </div>
     <div class="form-group col-md-6">
-      <label class="primaryFC" for="companyPhone">Company phone number</label>
+      <label class="primaryFC" for="userPhone">Phone number</label>
       <input
         required
         type="tel"
         class="form-control"
-        id="companyPhone"
+        id="userPhone"
         [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="company.phone"
+        [(ngModel)]="user.phone"
       />
     </div>
   </div>
   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="userDOP">Date of birth</label>
+      <input
+        required
+        type="date"
+        class="form-control"
+        id="userDOP"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="user.dateOfBirth"
+      />
+    </div>
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="userPicture">Picture link</label>
+      <input
+        required
+        type="url"
+        class="form-control"
+        id="userPicture"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="user.image"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
     <div class="form-group col-md-4">
-      <label class="primaryFC" for="companyCountry">Country</label>
+      <label class="primaryFC" for="userCountry">Country</label>
       <input
         required
         type="text"
         class="form-control"
-        id="companyCountry"
+        id="userCountry"
         [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="company.address.country"
+        [(ngModel)]="user.address.country"
       />
     </div>
     <div class="form-group col-md-4">
-      <label class="primaryFC" for="companyCity">City</label>
+      <label class="primaryFC" for="userCity">City</label>
       <input
         required
         type="text"
         class="form-control"
-        id="companyCity"
+        id="userCity"
         [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="company.address.city"
+        [(ngModel)]="user.address.city"
       />
     </div>
     <div class="form-group col-md-4">
-      <label class="primaryFC" for="companyAddress">Street</label>
+      <label class="primaryFC" for="userAddress">Street</label>
       <input
         required
         type="text"
         class="form-control"
-        id="companyAddress"
+        id="userAddress"
         [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="company.address.street"
+        [(ngModel)]="user.address.street"
       />
     </div>
   </div>
@@ -89,10 +102,10 @@
   <div class="form-row">
     <button
       type="submit"
-      (click)="postNewCompany()"
+      (click)="postNewUser()"
       class="btn btn-primary btn-block"
     >
-      Add Company
+      Add user
     </button>
   </div>
 </form>

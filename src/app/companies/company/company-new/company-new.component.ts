@@ -17,7 +17,6 @@ export class CompanyNewComponent implements OnInit {
     address: { country: ' ', city: ' ', street: ' ' },
     numberOfEmployees: 0
   };
-  changesIsSaved = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private companiesService: CompaniesService) { }
 
@@ -26,8 +25,8 @@ export class CompanyNewComponent implements OnInit {
   }
 
   postNewCompany() {
-    this.companiesService.postCompany(this.company).subscribe(data => {
-      console.log(data); this.changesIsSaved = true;
+    this.companiesService.postNewCompany(this.company).subscribe(data => {
+      // console.log(data); 
       this.router.navigate(['../'], { relativeTo: this.route });
     });
 

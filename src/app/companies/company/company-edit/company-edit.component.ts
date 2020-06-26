@@ -18,7 +18,8 @@ export class CompanyEditComponent implements OnInit {
   ngOnInit() {
     const companyID = this.route.snapshot.params.id;
     this.companiesService.getCompanyByID(companyID).subscribe(company => {
-      console.log(company); this.company = company;
+      // console.log(company); 
+      this.company = company;
     });
   }
 
@@ -30,7 +31,7 @@ export class CompanyEditComponent implements OnInit {
       address: { country: this.company.address.country, city: this.company.address.city, street: this.company.address.street },
       numberOfEmployees: this.company.numberOfEmployees
     };
-    this.companiesService.updateCompany(this.company._id, editedCompany).subscribe(data => {
+    this.companiesService.updateCompanyByID(this.company._id, editedCompany).subscribe(data => {
       console.log(data);
       this.changesIsSaved = true;
       this.router.navigate(['../'], { relativeTo: this.route });

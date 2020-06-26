@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     { name: 'issues', counter: 10, icon: 'fas fa-headset' }
   ];
   appCounters = [
-    { name: 'android', counter: 52, icon: 'fab fa-android' },
+    { name: 'android', counter: 52, icon: 'fab fa-google' },
     { name: 'ios', counter: 52, icon: 'fab fa-apple' },
     { name: 'chrome', counter: 52, icon: 'fab fa-chrome' },
     { name: 'firefox', counter: 52, icon: 'fab fa-firefox' }

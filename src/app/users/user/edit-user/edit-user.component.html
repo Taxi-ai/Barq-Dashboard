@@ -1,69 +1,125 @@
 <app-back-button></app-back-button>
 
-<form *ngIf="user">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="userName">Full Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="userName"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="user.username"
-      />
-    </div>
-    <div class="form-group col-md-6">
-      <label for="userEmail">Email</label>
-      <input
-        type="email"
-        class="form-control"
-        id="userEmail"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="user.email"
-      />
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="userCountry">Country</label>
-      <input
-        type="text"
-        class="form-control"
-        id="userCountry"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="user.address.country"
-      />
-    </div>
-    <div class="form-group col-md-4">
-      <label for="userCity">City</label>
-      <input
-        type="text"
-        class="form-control"
-        id="userCity"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="user.address.city"
-      />
-    </div>
-    <div class="form-group col-md-4">
-      <label for="userAddress">Street</label>
-      <input
-        type="text"
-        class="form-control"
-        id="userAddress"
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="user.address.street"
-      />
-    </div>
-  </div>
-  <div class="form-row">
-    <button
-      type="submit"
-      (click)="updateUserData()"
-      class="btn btn-primary btn-block"
-    >
-      Update Data
-    </button>
-  </div>
-</form>
+<app-dashboard-spinner
+  *ngIf="spin"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  "
+></app-dashboard-spinner>
 
-<div *ngIf="!user"><h1>This user isn't in database</h1></div>
+<div *ngIf="!spin">
+  <form *ngIf="user">
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label class="primaryFC" for="userName">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="userName"
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="user.username"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="primaryFC" for="userEmail">Email</label>
+        <input
+          required
+          type="email"
+          class="form-control"
+          id="userEmail"
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="user.email"
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label class="primaryFC" for="userPhone">Phone number</label>
+        <input
+          required
+          type="tel"
+          class="form-control"
+          id="userPhone"
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="user.phone"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="primaryFC" for="userDOP">Date of birth</label>
+        <input
+          required
+          type="date"
+          class="form-control"
+          id="userDOP"
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="user.dateOfBirth"
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label class="primaryFC" for="userPicture">Picture link</label>
+        <input
+          required
+          type="url"
+          class="form-control"
+          id="userPicture"
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="user.image"
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label class="primaryFC" for="userCountry">Country</label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="userCountry"
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="user.address.country"
+        />
+      </div>
+      <div class="form-group col-md-4">
+        <label class="primaryFC" for="userCity">City</label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="userCity"
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="user.address.city"
+        />
+      </div>
+      <div class="form-group col-md-4">
+        <label class="primaryFC" for="userAddress">Street</label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="userAddress"
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="user.address.street"
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <button
+        type="submit"
+        (click)="updateUserData()"
+        class="btn btn-primary btn-block"
+      >
+        Update Data
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="!user"><h1>This user isn't in database</h1></div>
+</div>

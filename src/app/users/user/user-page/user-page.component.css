@@ -1,3 +1,31 @@
-:host {
-  color: blanchedalmond;
+a {
+  margin-bottom: 1rem;
+}
+
+.primaryBG p {
+  margin: 0;
+}
+
+#centeringMainData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.primaryBG {
+  padding: 1rem;
+  padding-top: 0;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+.mainPadding {
+  padding-top: 1rem;
+}
+
+h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  word-break: normal;
 }

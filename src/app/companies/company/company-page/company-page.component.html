@@ -1,54 +1,59 @@
 <app-back-button></app-back-button>
 
-<div *ngIf="company">
-  <div class="row">
-    <p class="col-md-2 secondaryFC">
-      Company name:
-    </p>
-    <p class="col-md-4 primaryFC">
-      {{ company.name }}
-    </p>
-    <p class="col-md-2 secondaryFC">
-      No. of employees:
-    </p>
-    <p class="col-md-4 primaryFC">
-      {{ company.numberOfEmployees }}
-    </p>
-  </div>
-  <div class="row">
-    <p class="col-md-2 secondaryFC">
-      Company email:
-    </p>
-    <p class="col-md-4 primaryFC">
-      {{ company.email }}
-    </p>
-    <p class="col-md-2 secondaryFC">
-      Company phone:
-    </p>
-    <p class="col-md-4 primaryFC">
-      {{ company.phone }}
-    </p>
-  </div>
-  <div class="row">
-    <p class="col-md-2 secondaryFC">
-      Company address:
-    </p>
-    <p class="col-md-10 primaryFC">
-      {{ company.address.country }} - {{ company.address.city }} -
-      {{ company.address.street }}
-    </p>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <a class="btn btn-block btn-danger" routerLink="edit">Edit Company</a>
+<app-dashboard-spinner
+  *ngIf="spin"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  "
+></app-dashboard-spinner>
+
+<div *ngIf="!spin">
+  <div *ngIf="company">
+    <div class="row no-gutters primaryBG">
+      <p class="col-md-2 mainPadding secondaryFC">
+        <img
+          style="width: 100%; border-radius: 10px;"
+          src="https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png"
+        />
+      </p>
+      <div id="centeringMainData" class="col-md-10 mainPadding primaryFC">
+        <h1 class="m-0 p-0">
+          {{ company.name }}
+        </h1>
+
+        <p class="m-0 p-0">
+          {{ company.email }}
+        </p>
+        <p class="m-0 p-0">
+          {{ company.phone }}
+        </p>
+        <p class="m-0 p-0">
+          {{ company.numberOfEmployees }} Employee<span
+            *ngIf="company.numberOfEmployees > 1"
+            >s</span
+          >
+        </p>
+        <p class="m-0 p-0">
+          {{ company.address.country }} - {{ company.address.city }} -
+          {{ company.address.street }}
+        </p>
+      </div>
     </div>
-    <div class="col-md-6">
-      <a class="btn btn-block btn-dark secondaryFC" (click)="deleteCompany()"
-        >Delete Company</a
-      >
+    <div class="row">
+      <div class="col-6">
+        <a class="btn btn-block btn-danger" routerLink="edit">Edit Company</a>
+      </div>
+      <div class="col-6">
+        <a class="btn btn-block btn-dark secondaryFC" (click)="deleteCompany()"
+          >Delete Company</a
+        >
+      </div>
     </div>
   </div>
-</div>
-<div class="primaryFC text-center" *ngIf="!company">
-  <h1>This user isn't in database</h1>
+  <div class="primaryFC text-center" *ngIf="!company">
+    <h1>This user isn't in database</h1>
+  </div>
 </div>

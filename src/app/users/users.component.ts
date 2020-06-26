@@ -25,11 +25,11 @@ export class UsersComponent implements OnInit {
 
     this.usersService.getAllUsers().subscribe(users => {
       this.fetchingDataVars.isFetchingError = false;
-      console.log(users);
-      console.log(typeof users);
+      // console.log(users);
+      // console.log(typeof users);
       this.users = [...users];
-      console.log(this.users);
-      console.log(typeof this.users);
+      // console.log(this.users);
+      // console.log(typeof this.users);
 
       if (this.users.length > 0) {
         this.fetchingDataVars.usersArrayLength = this.users.length;
@@ -53,10 +53,6 @@ export class UsersComponent implements OnInit {
     // );
   }
 
-  postUser() {
-    // remove this method after removing its button in the UI
-    this.usersService.postUser();
-  }
 
 
   handlingGraphData() {

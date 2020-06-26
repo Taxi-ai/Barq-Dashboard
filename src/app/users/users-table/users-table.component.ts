@@ -12,9 +12,10 @@ export class UsersTableComponent implements OnInit {
   @Input() users: UserX[];
 
   userProfile(user: UserX) {
-    console.log(user._id);
+    console.log(user);
     this.router.navigate([user._id], { relativeTo: this.route });
   }
+
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {

@@ -41,6 +41,11 @@
   padding: 0;
   text-align: left;
   font-size: 1.8rem;
+  line-height: 0.5;
+}
+
+.breakDisplay {
+  display: none;
 }
 
 #fastStatistics .carousel-item .row {
@@ -78,6 +83,9 @@
 }
 
 @media only screen and (max-width: 1200px) {
+  .breakDisplay {
+    display: initial;
+  }
   #fastStatistics .carousel-item .row :not(.bigI) i {
     display: none;
   }

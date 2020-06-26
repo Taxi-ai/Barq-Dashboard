@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../../users.service';
 import { UserX } from '../../user.model';
 
@@ -10,17 +10,27 @@ import { UserX } from '../../user.model';
 })
 export class UserPageComponent implements OnInit {
   user: UserX;
-  constructor(private route: ActivatedRoute, private usersService: UsersService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private usersService: UsersService) { }
 
   ngOnInit() {
 
     const userID = this.route.snapshot.params.id;
-    console.log(userID);
 
     this.usersService.getUserByID(userID).subscribe(user => {
-      console.log(user); this.user = user;
+      // console.log(user);
+      this.user = user;
     });
 
+  }
+
+
+  deleteUser() {
+    // console.log(this.user);
+
+    this.usersService.deleteUserByID(this.route.snapshot.params.id).subscribe(data => {
+      console.log(data);
+      this.router.navigate(['../'], { relativeTo: this.route });
+    });
   }
 
 }
