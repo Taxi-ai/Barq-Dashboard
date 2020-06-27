@@ -21,6 +21,7 @@ import { MobileNavigationMenuComponent } from './mobile-navigation-menu/mobile-n
 import { CompanyNewComponent } from './companies/company/company-new/company-new.component';
 import { IssuesComponent } from './issues/issues.component';
 import { IssuePageComponent } from './issues/issue/issue-page/issue-page.component';
+import { IssueNewComponent } from "./issues/issue/issue-new/issue-new.component";
 import { IssueEditComponent } from './issues/issue/issue-edit/issue-edit.component';
 import { UserNewComponent } from './users/user/user-new/user-new.component';
 import { CarNewComponent } from './cars/car/car-new/car-new.component';
@@ -48,6 +49,7 @@ const routes: Routes = [
       { path: 'cars/:id', component: CarPageComponent },
       { path: 'cars/:id/edit', component: CarEditComponent },
       { path: 'issues', component: IssuesComponent },
+      { path: 'issues/new', component: IssueNewComponent },
       { path: 'issues/:id', component: IssuePageComponent },
       { path: 'issues/:id/edit', component: IssueEditComponent },
       { path: 'navigate', component: MobileNavigationMenuComponent },

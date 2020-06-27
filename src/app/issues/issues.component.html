@@ -1,1 +1,38 @@
-<p>issues works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <!-- TODO delete this button ofter connecting to backend -->
+    <button class="btn btn-block btn-primary mb-5" routerLink="new">
+      New issue
+    </button>
+    <div
+      *ngIf="
+        !fetchingDataVars.isFetchingDone && !fetchingDataVars.isFetchingError
+      "
+    >
+      <app-is-fetching></app-is-fetching>
+    </div>
+    <div *ngIf="fetchingDataVars.isFetchingError">
+      <app-fetching-error></app-fetching-error>
+    </div>
+    <div
+      *ngIf="
+        fetchingDataVars.isFetchingDone &&
+        fetchingDataVars.issuesArrayLength < 1 &&
+        !fetchingDataVars.isFetchingError
+      "
+    >
+      <app-fetched-nothing [dataType]="'issues'"></app-fetched-nothing>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="
+    fetchingDataVars.isFetchingDone && fetchingDataVars.issuesArrayLength >= 1
+  "
+  class="row"
+>
+  <div class="col-md-12">
+    <app-issues-table [issues]="issues"></app-issues-table>
+  </div>
+</div>
