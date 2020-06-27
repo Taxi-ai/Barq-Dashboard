@@ -3,7 +3,9 @@
   height: 90vh;
   width: 17%;
   border-radius: 10px;
+  overflow-y: auto;
 }
+
 #sideMenuNarrowScreen {
   display: none;
   position: fixed;
