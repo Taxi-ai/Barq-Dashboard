@@ -17,7 +17,6 @@ import { EditUserComponent } from './users/user/edit-user/edit-user.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { ChatPanelComponent } from './chat-panel/chat-panel.component';
 import { MapComponent } from './map/map.component';
 import { DashboardSpinnerComponent } from './dashboard-spinner/dashboard-spinner.component';
@@ -31,7 +30,6 @@ import { CompaniesComponent } from './companies/companies.component';
 import { CompaniesTableComponent } from './companies/companies-table/companies-table.component';
 import { CompanyPageComponent } from './companies/company/company-page/company-page.component';
 import { CompanyEditComponent } from './companies/company/company-edit/company-edit.component';
-import { FeedbackPageComponent } from './feedbacks/feedback-page/feedback-page.component';
 import { LoginComponent } from './admin-login/admin-login.component';
 import { AuthInterceptorService } from './admin-login/auth-interceptor.service';
 import { CarsComponent } from './cars/cars.component';
@@ -78,7 +76,6 @@ import { IssueNewComponent } from './issues/issue/issue-new/issue-new.component'
     SideMenuComponent,
     HomeComponent,
     NotFoundComponent,
-    FeedbacksComponent,
     ChatPanelComponent,
     MapComponent,
     DashboardSpinnerComponent,
@@ -92,7 +89,6 @@ import { IssueNewComponent } from './issues/issue/issue-new/issue-new.component'
     CompaniesTableComponent,
     CompanyPageComponent,
     CompanyEditComponent,
-    FeedbackPageComponent,
     LoginComponent,
     CarsComponent,
     CarsTableComponent,
@@ -133,7 +129,7 @@ import { IssueNewComponent } from './issues/issue/issue-new/issue-new.component'
     FormsModule,
     HttpClientModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
