@@ -23,10 +23,17 @@ export class IssueNewComponent implements OnInit {
   postNewIssue() {
     console.log(this.issue);
 
-    this.issuesService.postNewIssue(this.issue).subscribe(data => {
-      console.log(data);
-      this.router.navigate(['../'], { relativeTo: this.route });
-    });
+    this.issuesService.getIssueOwner(this.issue.userId).subscribe(userData => {
+      this.issuesService.postNewIssue(this.issue).subscribe(data => {
+        console.log(data);
+        this.router.navigate(['../'], { relativeTo: this.route });
+      });
+    },
+      error => {
+        console.log('User not in database!');
+      });
+
+
 
   }
 }

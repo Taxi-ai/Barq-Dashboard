@@ -1,0 +1,32 @@
+a {
+  margin-bottom: 1rem;
+}
+
+.primaryBG p {
+  margin: 0;
+}
+
+.primaryBG {
+  padding: 1rem;
+  padding-top: 0;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+.mainPadding {
+  padding-top: 1rem;
+}
+
+#centeringMainData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#issueBody {
+  font-size: 2rem;
+}
+#issueMain {
+  opacity: 0.7;
+}

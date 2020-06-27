@@ -1,1 +1,44 @@
-<p>issue-page works!</p>
+<app-back-button></app-back-button>
+
+<app-dashboard-spinner
+  *ngIf="spin"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  "
+></app-dashboard-spinner>
+
+<div *ngIf="!spin">
+  <div *ngIf="issue">
+    <div class="row no-gutters primaryBG">
+      <div id="centeringMainData" class="col-md-12 mainPadding primaryFC">
+        <p id="issueMain" class="m-0 p-0">
+          {{ issue.label }} by
+          <a
+            class="secondaryBG primaryIC p-1 rounded"
+            [routerLink]="issueOwnerProfileLink"
+            >{{ issue.userId }}</a
+          >
+        </p>
+        <p id="issueBody" class="m-0 p-0">
+          {{ issue.body }}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <a class="btn btn-block btn-danger" routerLink="edit">Edit</a>
+      </div>
+      <div class="col-6">
+        <a class="btn btn-block btn-dark secondaryFC" (click)="deleteIssue()"
+          >Delete</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="primaryFC text-center" *ngIf="!issue">
+    <h1>This issue isn't in database!</h1>
+  </div>
+</div>

@@ -7,5 +7,4 @@ export class Issue {
     public dateOfPublish?: string;
     public label: string;
 
-
 }
