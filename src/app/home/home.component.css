@@ -27,10 +27,6 @@
   transform: rotate(180deg) translateY(50%) !important;
 }
 
-#fastStatistics {
-  margin-bottom: 2rem !important;
-}
-
 #fastStatistics .carousel-item {
   text-align: center;
   color: whitesmoke;

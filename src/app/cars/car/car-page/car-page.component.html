@@ -1,20 +1,51 @@
 <app-back-button></app-back-button>
 
-<div *ngIf="car">
-  <div class="row">
-    <div class="col-md-2">
-      Car Model:
+<app-dashboard-spinner
+  *ngIf="spin"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  "
+></app-dashboard-spinner>
+
+<div *ngIf="!spin">
+  <div *ngIf="car">
+    <div class="row no-gutters primaryBG">
+      <p class="col-md-2 mainPadding secondaryFC">
+        <img style="width: 100%; border-radius: 10px;" [src]="car.image" />
+      </p>
+      <div id="centeringMainData" class="col-md-10 mainPadding primaryFC">
+        <h1 class="m-0 p-0">
+          {{ car.model }}
+        </h1>
+
+        <p class="m-0 p-0">
+          {{ car.color | titlecase }} - {{ car.description }}
+        </p>
+        <p class="m-0 p-0">
+          Accessed: <i *ngIf="car.isAccessed" class="fas fa-check"></i>
+          <i *ngIf="!car.isAccessed" class="fas fa-times"></i>
+        </p>
+        <p class="m-0 p-0">
+          Disabled: <i *ngIf="car.isDisabled" class="fas fa-check"></i>
+          <i *ngIf="!car.isDisabled" class="fas fa-times"></i>
+        </p>
+      </div>
     </div>
-    <div class="col-md-10">
-      {{ car.model }}
+    <div class="row">
+      <div class="col-6">
+        <a class="btn btn-block btn-danger" routerLink="edit">Edit</a>
+      </div>
+      <div class="col-6">
+        <a class="btn btn-block btn-dark secondaryFC" (click)="deleteCar()"
+          >Delete</a
+        >
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <a class="btn btn-block btn-danger" routerLink="edit">Edit car Data</a>
-    </div>
+  <div class="primaryFC text-center" *ngIf="!car">
+    <h1>This car isn't in database!</h1>
   </div>
-</div>
-<div *ngIf="!car">
-  <h1>This user isn't in database</h1>
 </div>

@@ -34,7 +34,7 @@ export class UsersComponent implements OnInit {
       if (this.users.length > 0) {
         this.fetchingDataVars.usersArrayLength = this.users.length;
         this.handlingGraphData();
-        this.gettingUsersStates();
+        // this.gettingUsersStates();
       }
       this.fetchingDataVars.isFetchingDone = true;
     }, error => {
@@ -83,12 +83,12 @@ export class UsersComponent implements OnInit {
 
   gettingUsersStates() {
     this.users.forEach((user) => {
-      if (user.userState === true) {
-        this.usersStates.active += 1;
-      }
-      if (user.pannedState === true) {
-        this.usersStates.panned += 1;
-      }
+      // if (user.userState === true) {
+      //   this.usersStates.active += 1;
+      // }
+      // if (user.pannedState === true) {
+      //   this.usersStates.panned += 1;
+      // }
     });
   }
 

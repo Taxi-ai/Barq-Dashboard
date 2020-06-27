@@ -18,8 +18,8 @@ export class CarsComponent implements OnInit {
 
     this.carsService.getAllCars().subscribe(cars => {
       this.fetchingDataVars.isFetchingError = false;
-      console.log(cars);
-      console.log(typeof cars);
+      // console.log(cars);
+      // console.log(typeof cars);
       this.cars = [...cars];
 
       if (this.cars.length > 0) {
@@ -39,8 +39,4 @@ export class CarsComponent implements OnInit {
 
   }
 
-  postCar() {
-    // remove this method after removing its button in the UI
-    this.carsService.postCar();
-  }
 }

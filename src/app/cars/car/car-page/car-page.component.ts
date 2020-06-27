@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarsService } from '../../cars.service';
 import { Car } from '../../car.model';
 
@@ -11,19 +11,32 @@ import { Car } from '../../car.model';
 export class CarPageComponent implements OnInit {
 
   car: Car;
+  spin = true;
 
-  constructor(private route: ActivatedRoute, private carsService: CarsService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private carsService: CarsService) { }
 
 
   ngOnInit() {
-
-
     const carID = this.route.snapshot.params.id;
     this.carsService.getCarByID(carID).subscribe(car => {
-      console.log(car); this.car = car;
+      console.log(car);
+      this.car = car;
+      this.spin = false;
+
     });
+  }
 
+  deleteCar() {
+    this.spin = true;
 
+    this.carsService.deleteCarByID(this.car._id).subscribe(data => {
+      // console.log(data);
+      this.spin = false;
+      this.router.navigate(['../'], { relativeTo: this.route });
+    },
+      error => {
+        this.spin = false;
+      });
   }
 
 }

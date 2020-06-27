@@ -10,8 +10,8 @@ export class CarsService {
 
   constructor(private http: HttpClient) { }
 
-  postCar() {
-    // new car to system
+  postNewCar(car: Car) {
+    return this.http.post('https://barq-api.azurewebsites.net/api/cars ', car);
   }
 
   getAllCars() {
@@ -25,14 +25,22 @@ export class CarsService {
         }
         return carsArray;
       }));
-
   }
 
 
-  getCarByID(carID: number) {
+  getCarByID(carID: string) {
     const carAPI = 'https://barq-api.azurewebsites.net/api/cars/' + carID;
     return this.http.get<Car>(carAPI);
   }
 
+  updateCarByID(carID: string, car: Car) {
+    const carAPI = 'https://barq-api.azurewebsites.net/api/cars/' + carID;
+    return this.http.put(carAPI, car);
+  }
+
+  deleteCarByID(carID: string) {
+    const carAPI = 'https://barq-api.azurewebsites.net/api/cars/' + carID;
+    return this.http.delete(carAPI);
+  }
 
 }

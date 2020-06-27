@@ -1,215 +1,228 @@
-<div id="fastStatistics" class="carousel slide m-0" data-ride="carousel">
-  <div class="carousel-inner row px-3 m-0">
-    <div class="carousel-item active" data-interval="8000">
-      <p
-        class="primaryFC"
-        style="
-          position: static;
-          transform: none;
-          text-align: center !important;
-        "
-      >
-        |- - - - - - - - - - General - - - - - - - - - -|
-      </p>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3">
-            <i [class]="usersCounters[0].icon"></i>
+<div class="primaryBG primaryBR px-3 py-4">
+  <div id="fastStatistics" class="carousel px-4 slide m-0" data-ride="carousel">
+    <div class="carousel-inner row m-0">
+      <div class="carousel-item active" data-interval="8000">
+        <p
+          class="primaryFC"
+          style="
+            position: static;
+            transform: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding-left: 1rem;
+            text-align: left !important;
+          "
+        >
+          General:
+        </p>
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3">
+              <i [class]="usersCounters[0].icon"></i>
+            </div>
+            <div class="col-9">
+              <p>
+                {{ usersCounters[0].counter }} <br class="breakDisplay" />
+                <span>{{ usersCounters[0].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="usersCounters[0].icon"></i></div>
           </div>
-          <div class="col-9">
-            <p>
-              {{ usersCounters[0].counter }} <br class="breakDisplay" />
-              <span>{{ usersCounters[0].name }}</span>
-            </p>
+        </div>
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3"><i [class]="usersCounters[1].icon"></i></div>
+            <div class="col-9">
+              <p>
+                {{ usersCounters[1].counter }} <br class="breakDisplay" />
+                <span>{{ usersCounters[1].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="usersCounters[1].icon"></i></div>
           </div>
-          <div class="bigI"><i [class]="usersCounters[0].icon"></i></div>
+        </div>
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3"><i [class]="usersCounters[2].icon"></i></div>
+            <div class="col-9">
+              <p>
+                {{ usersCounters[2].counter }} <br class="breakDisplay" />
+                <span>{{ usersCounters[2].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="usersCounters[2].icon"></i></div>
+          </div>
+        </div>
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3"><i [class]="usersCounters[3].icon"></i></div>
+            <div class="col-9">
+              <p>
+                {{ usersCounters[3].counter }} <br class="breakDisplay" />
+                <span>{{ usersCounters[3].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="usersCounters[3].icon"></i></div>
+          </div>
         </div>
       </div>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3"><i [class]="usersCounters[1].icon"></i></div>
-          <div class="col-9">
-            <p>
-              {{ usersCounters[1].counter }} <br class="breakDisplay" />
-              <span>{{ usersCounters[1].name }}</span>
-            </p>
+      <div class="carousel-item" data-interval="8000">
+        <p
+          class="primaryFC"
+          style="
+            position: static;
+            transform: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding-left: 1rem;
+            text-align: left !important;
+          "
+        >
+          Usage:
+        </p>
+
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3"><i [class]="appCounters[0].icon"></i></div>
+            <div class="col-9">
+              <p>
+                {{ appCounters[0].counter }} <br class="breakDisplay" />
+                <span>{{ appCounters[0].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="appCounters[0].icon"></i></div>
           </div>
-          <div class="bigI"><i [class]="usersCounters[1].icon"></i></div>
+        </div>
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3"><i [class]="appCounters[1].icon"></i></div>
+            <div class="col-9">
+              <p>
+                {{ appCounters[1].counter }} <br class="breakDisplay" />
+                <span>{{ appCounters[1].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="appCounters[1].icon"></i></div>
+          </div>
+        </div>
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3"><i [class]="appCounters[2].icon"></i></div>
+            <div class="col-9">
+              <p>
+                {{ appCounters[2].counter }} <br class="breakDisplay" />
+                <span>{{ appCounters[2].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="appCounters[2].icon"></i></div>
+          </div>
+        </div>
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3"><i [class]="appCounters[3].icon"></i></div>
+            <div class="col-9">
+              <p>
+                {{ appCounters[3].counter }} <br class="breakDisplay" />
+                <span>{{ appCounters[3].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="appCounters[3].icon"></i></div>
+          </div>
         </div>
       </div>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3"><i [class]="usersCounters[2].icon"></i></div>
-          <div class="col-9">
-            <p>
-              {{ usersCounters[2].counter }} <br class="breakDisplay" />
-              <span>{{ usersCounters[2].name }}</span>
-            </p>
+      <div class="carousel-item" data-interval="8000">
+        <p
+          class="primaryFC"
+          style="
+            position: static;
+            transform: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding-left: 1rem;
+            text-align: left !important;
+          "
+        >
+          Earnings:
+        </p>
+
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3">
+              <i
+                [class]="moneyCounters[0].icon"
+                style="
+                  -webkit-transform: rotate(180deg) translateY(50%) !important;
+                  -moz-transform: rotate(180deg) translateY(50%) !important;
+                  -ms-transform: rotate(180deg) translateY(50%) !important;
+                  -o-transform: rotate(180deg) translateY(50%) !important;
+                  transform: rotate(180deg) translateY(50%) !important;
+                "
+              ></i>
+            </div>
+            <div class="col-9">
+              <p>
+                {{ moneyCounters[0].counter }} <br class="breakDisplay" />
+                <span>{{ moneyCounters[0].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="moneyCounters[0].icon"></i></div>
           </div>
-          <div class="bigI"><i [class]="usersCounters[2].icon"></i></div>
         </div>
-      </div>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3"><i [class]="usersCounters[3].icon"></i></div>
-          <div class="col-9">
-            <p>
-              {{ usersCounters[3].counter }} <br class="breakDisplay" />
-              <span>{{ usersCounters[3].name }}</span>
-            </p>
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3"><i [class]="moneyCounters[1].icon"></i></div>
+            <div class="col-9">
+              <p>
+                {{ moneyCounters[1].counter }} <br class="breakDisplay" />
+                <span>{{ moneyCounters[1].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="moneyCounters[1].icon"></i></div>
           </div>
-          <div class="bigI"><i [class]="usersCounters[3].icon"></i></div>
+        </div>
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3"><i [class]="moneyCounters[2].icon"></i></div>
+            <div class="col-9">
+              <p>
+                {{ moneyCounters[2].counter }} <br class="breakDisplay" />
+                <span>{{ moneyCounters[2].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="moneyCounters[2].icon"></i></div>
+          </div>
+        </div>
+        <div class="col-sm-3 d-inline-block">
+          <div class="row no-gutters">
+            <div class="col-3"><i [class]="moneyCounters[3].icon"></i></div>
+            <div class="col-9">
+              <p>
+                {{ moneyCounters[3].counter }} <br class="breakDisplay" />
+                <span>{{ moneyCounters[3].name }}</span>
+              </p>
+            </div>
+            <div class="bigI"><i [class]="moneyCounters[3].icon"></i></div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="carousel-item" data-interval="8000">
-      <p
-        class="primaryFC"
-        style="
-          position: static;
-          transform: none;
-          text-align: center !important;
-        "
-      >
-        |- - - - - - - - - - Usage - - - - - - - - - -|
-      </p>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3"><i [class]="appCounters[0].icon"></i></div>
-          <div class="col-9">
-            <p>
-              {{ appCounters[0].counter }} <br class="breakDisplay" />
-              <span>{{ appCounters[0].name }}</span>
-            </p>
-          </div>
-          <div class="bigI"><i [class]="appCounters[0].icon"></i></div>
-        </div>
-      </div>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3"><i [class]="appCounters[1].icon"></i></div>
-          <div class="col-9">
-            <p>
-              {{ appCounters[1].counter }} <br class="breakDisplay" />
-              <span>{{ appCounters[1].name }}</span>
-            </p>
-          </div>
-          <div class="bigI"><i [class]="appCounters[1].icon"></i></div>
-        </div>
-      </div>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3"><i [class]="appCounters[2].icon"></i></div>
-          <div class="col-9">
-            <p>
-              {{ appCounters[2].counter }} <br class="breakDisplay" />
-              <span>{{ appCounters[2].name }}</span>
-            </p>
-          </div>
-          <div class="bigI"><i [class]="appCounters[2].icon"></i></div>
-        </div>
-      </div>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3"><i [class]="appCounters[3].icon"></i></div>
-          <div class="col-9">
-            <p>
-              {{ appCounters[3].counter }} <br class="breakDisplay" />
-              <span>{{ appCounters[3].name }}</span>
-            </p>
-          </div>
-          <div class="bigI"><i [class]="appCounters[3].icon"></i></div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item" data-interval="8000">
-      <p
-        class="primaryFC"
-        style="
-          position: static;
-          transform: none;
-          text-align: center !important;
-        "
-      >
-        |- - - - - - - - - - Earnings - - - - - - - - - -|
-      </p>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3">
-            <i
-              [class]="moneyCounters[0].icon"
-              style="
-                -webkit-transform: rotate(180deg) translateY(50%) !important;
-                -moz-transform: rotate(180deg) translateY(50%) !important;
-                -ms-transform: rotate(180deg) translateY(50%) !important;
-                -o-transform: rotate(180deg) translateY(50%) !important;
-                transform: rotate(180deg) translateY(50%) !important;
-              "
-            ></i>
-          </div>
-          <div class="col-9">
-            <p>
-              {{ moneyCounters[0].counter }} <br class="breakDisplay" />
-              <span>{{ moneyCounters[0].name }}</span>
-            </p>
-          </div>
-          <div class="bigI"><i [class]="moneyCounters[0].icon"></i></div>
-        </div>
-      </div>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3"><i [class]="moneyCounters[1].icon"></i></div>
-          <div class="col-9">
-            <p>
-              {{ moneyCounters[1].counter }} <br class="breakDisplay" />
-              <span>{{ moneyCounters[1].name }}</span>
-            </p>
-          </div>
-          <div class="bigI"><i [class]="moneyCounters[1].icon"></i></div>
-        </div>
-      </div>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3"><i [class]="moneyCounters[2].icon"></i></div>
-          <div class="col-9">
-            <p>
-              {{ moneyCounters[2].counter }} <br class="breakDisplay" />
-              <span>{{ moneyCounters[2].name }}</span>
-            </p>
-          </div>
-          <div class="bigI"><i [class]="moneyCounters[2].icon"></i></div>
-        </div>
-      </div>
-      <div class="col-sm-3 d-inline-block">
-        <div class="row no-gutters">
-          <div class="col-3"><i [class]="moneyCounters[3].icon"></i></div>
-          <div class="col-9">
-            <p>
-              {{ moneyCounters[3].counter }} <br class="breakDisplay" />
-              <span>{{ moneyCounters[3].name }}</span>
-            </p>
-          </div>
-          <div class="bigI"><i [class]="moneyCounters[3].icon"></i></div>
-        </div>
-      </div>
-    </div>
+    <a
+      class="carousel-control-prev primaryIC"
+      href="#fastStatistics"
+      role="button"
+      data-slide="prev"
+    >
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next primaryIC"
+      href="#fastStatistics"
+      role="button"
+      data-slide="next"
+    >
+      <i class="fas fa-arrow-right" aria-hidden="true"></i>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <a
-    class="carousel-control-prev primaryIC"
-    href="#fastStatistics"
-    role="button"
-    data-slide="prev"
-  >
-    <i class="fas fa-arrow-left" aria-hidden="true"></i>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a
-    class="carousel-control-next primaryIC"
-    href="#fastStatistics"
-    role="button"
-    data-slide="next"
-  >
-    <i class="fas fa-arrow-right" aria-hidden="true"></i>
-    <span class="sr-only">Next</span>
-  </a>
 </div>

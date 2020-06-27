@@ -1,0 +1,37 @@
+a {
+  margin-bottom: 1rem;
+}
+
+.primaryBG p {
+  margin: 0;
+}
+
+.primaryBG {
+  padding: 1rem;
+  padding-top: 0;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+.mainPadding {
+  padding-top: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  word-break: normal;
+}
+
+.col-md-8 {
+  min-height: 100px;
+}
+#centeringMainData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.col-md-4 {
+  font-size: 1.2;
+}

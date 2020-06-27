@@ -22,7 +22,8 @@ import { CompanyNewComponent } from './companies/company/company-new/company-new
 import { IssuesComponent } from './issues/issues.component';
 import { IssuePageComponent } from './issues/issue/issue-page/issue-page.component';
 import { IssueEditComponent } from './issues/issue/issue-edit/issue-edit.component';
-import { UserNewComponent } from "./users/user/user-new/user-new.component";
+import { UserNewComponent } from './users/user/user-new/user-new.component';
+import { CarNewComponent } from './cars/car/car-new/car-new.component';
 
 
 // TODO remake routing after making the front end site using dashboard and main sites
@@ -43,19 +44,20 @@ const routes: Routes = [
       { path: 'partners/:id', component: CompanyPageComponent },
       { path: 'partners/:id/edit', component: CompanyEditComponent },
       { path: 'cars', component: CarsComponent },
+      { path: 'cars/new', component: CarNewComponent },
       { path: 'cars/:id', component: CarPageComponent },
       { path: 'cars/:id/edit', component: CarEditComponent },
       { path: 'issues', component: IssuesComponent },
       { path: 'issues/:id', component: IssuePageComponent },
       { path: 'issues/:id/edit', component: IssueEditComponent },
       { path: 'navigate', component: MobileNavigationMenuComponent },
-      { path: '**', redirectTo: 'not-found' }
+      { path: '**', redirectTo: 'page-not-found' }
     ]
   },
   { path: '', component: UnderConstructionComponent, pathMatch: 'full' },
   { path: 'barq-admin', component: LoginComponent },
-  { path: 'not-found', component: NotFoundComponent },
-  { path: '**', redirectTo: 'not-found' }
+  { path: 'page-not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: 'page-not-found' }
 ];
 
 @NgModule({

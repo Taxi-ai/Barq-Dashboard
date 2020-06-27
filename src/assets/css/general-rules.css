@@ -14,3 +14,7 @@ input:active,
   box-shadow: none !important;
   border: none !important;
 }
+
+.primaryBR {
+  border-radius: 10px;
+}

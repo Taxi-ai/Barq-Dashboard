@@ -26,7 +26,7 @@ export class CompanyNewComponent implements OnInit {
 
   postNewCompany() {
     this.companiesService.postNewCompany(this.company).subscribe(data => {
-      // console.log(data); 
+      // console.log(data);
       this.router.navigate(['../'], { relativeTo: this.route });
     });
 

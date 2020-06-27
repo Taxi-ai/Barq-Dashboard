@@ -14,6 +14,7 @@ export class TodoComponent implements OnInit {
   todoList: ToDo[] = [];
   shownTodoList: ToDo[] = [];
   filterQuery: string;
+  vibration = false;
 
   audio: HTMLAudioElement = new Audio('../../../assets/audio/complete-task.mp3');
 
@@ -23,6 +24,9 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
     this.getLocalStorageToDos();
     this.audio.load();
+    if (window.navigator && window.navigator.vibrate) {
+      this.vibration = true;
+    }
 
   }
 
@@ -47,16 +51,10 @@ export class TodoComponent implements OnInit {
     for (let i = 0; i < this.todoList.length; i++) {
       if (this.todoList[i]._id === todoID) {
         this.todoList.splice(i, 1);
+        this.makeSmallVibration();
         break;
       }
     }
-    // this.todoList.forEach((todoElement, index) => {
-    //   if (todoElement._id === todoID) {
-    //     this.todoList.splice(index, 1);
-    //   }
-
-    // });
-
 
     this.filterToDo(this.filterQuery);
 
@@ -69,18 +67,11 @@ export class TodoComponent implements OnInit {
       if (this.todoList[i]._id === todoID) {
         this.todoList[i].checked = true;
         this.todoList[i].checkerAdminId = this.getAdminUserName();
+        this.makeSmallVibration();
         this.audio.play(); // task-completion sound effect
         break;
       }
     }
-
-    // this.todoList.forEach((todoElement, index) => {
-    //   if (todoElement._id === todoID) {
-    //     todoElement.checked = true;
-    //     todoElement.checkerAdminId = this.getAdminUserName();
-    //     return;
-    //   }
-    // });
 
     this.filterToDo(this.filterQuery);
 
@@ -93,15 +84,10 @@ export class TodoComponent implements OnInit {
       if (this.todoList[i]._id === todoID) {
         this.todoList[i].checked = false;
         this.todoList[i].checkerAdminId = null;
+        this.makeSmallVibration();
         break;
       }
     }
-    // this.todoList.forEach((todoElement, index) => {
-    //   if (todoElement._id === todoID) {
-    //     todoElement.checked = false;
-    //     todoElement.checkerAdminId = null;
-    //   }
-    // });
 
     this.filterToDo(this.filterQuery);
   }
@@ -116,23 +102,11 @@ export class TodoComponent implements OnInit {
       case 'Completed':
         this.filterQuery = 'Completed';
         this.shownTodoList = this.todoList.filter(todoElement => todoElement.checked);
-
-        // this.todoList.forEach(todoElement => {
-        //   if (todoElement.checked) {
-        //     this.shownTodoList.push(todoElement);
-        //   }
-        // });
         break;
 
       case 'Uncompleted':
         this.filterQuery = 'Uncompleted';
         this.shownTodoList = this.todoList.filter(todoElement => !todoElement.checked);
-
-        // this.todoList.forEach(todoElement => {
-        //   if (!todoElement.checked) {
-        //     this.shownTodoList.push(todoElement);
-        //   }
-        // });
         break;
 
       default:
@@ -159,6 +133,12 @@ export class TodoComponent implements OnInit {
 
   getAdminUserName() {
     return JSON.parse(sessionStorage.getItem('decodedAdminData')).username;
+  }
+
+  makeSmallVibration() {
+    if (this.vibration) {
+      window.navigator.vibrate(50);
+    }
   }
 
 }

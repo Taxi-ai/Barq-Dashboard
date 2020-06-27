@@ -20,7 +20,7 @@ export class FeedbacksService {
 
   constructor(private usersService: UsersService, private http: HttpClient) { }
 
-  getFeedbackOwner(ownerID: number) {
+  getFeedbackOwner(ownerID: string) {
     this.usersService.getUserByID(ownerID);
   }
 

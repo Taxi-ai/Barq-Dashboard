@@ -61,6 +61,7 @@ import { IssueEditComponent } from './issues/issue/issue-edit/issue-edit.compone
 import { IssuesGraphComponent } from './issues/issues-graph/issues-graph.component';
 import { IssuesTableComponent } from './issues/issues-table/issues-table.component';
 import { UserNewComponent } from './users/user/user-new/user-new.component';
+import { CarNewComponent } from './cars/car/car-new/car-new.component';
 
 
 @NgModule({
@@ -119,6 +120,7 @@ import { UserNewComponent } from './users/user/user-new/user-new.component';
     IssuesGraphComponent,
     IssuesTableComponent,
     UserNewComponent,
+    CarNewComponent,
 
   ],
   imports: [

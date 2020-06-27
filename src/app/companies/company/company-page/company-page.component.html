@@ -44,16 +44,16 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <a class="btn btn-block btn-danger" routerLink="edit">Edit Company</a>
+        <a class="btn btn-block btn-danger" routerLink="edit">Edit</a>
       </div>
       <div class="col-6">
         <a class="btn btn-block btn-dark secondaryFC" (click)="deleteCompany()"
-          >Delete Company</a
+          >Delete</a
         >
       </div>
     </div>
   </div>
   <div class="primaryFC text-center" *ngIf="!company">
-    <h1>This user isn't in database</h1>
+    <h1>This company isn't in database!</h1>
   </div>
 </div>

@@ -10,9 +10,7 @@ export class CompaniesService {
 
   constructor(private http: HttpClient) { }
 
-
   postNewCompany(company: Company) {
-
     return this.http.post('https://barq-api.azurewebsites.net/api/companies ', company);
   }
 
@@ -27,7 +25,6 @@ export class CompaniesService {
         }
         return companiesArray;
       }));
-
   }
 
   getCompanyByID(companyID: string) {
@@ -36,7 +33,6 @@ export class CompaniesService {
   }
 
   updateCompanyByID(companyID: string, company: Company) {
-
     const companyAPI = 'https://barq-api.azurewebsites.net/api/companies/' + companyID;
     return this.http.put(companyAPI, company);
   }
