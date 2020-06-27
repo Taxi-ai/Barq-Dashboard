@@ -30,7 +30,7 @@ export class IssueNewComponent implements OnInit {
       });
     },
       error => {
-        console.log('User not in database!');
+        console.log('user id is not in database!');
       });
 
 

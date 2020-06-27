@@ -18,7 +18,7 @@ export class CompanyEditComponent implements OnInit {
   ngOnInit() {
     const companyID = this.route.snapshot.params.id;
     this.companiesService.getCompanyByID(companyID).subscribe(company => {
-      // console.log(company); 
+      // console.log(company);
       this.company = company;
     });
   }
