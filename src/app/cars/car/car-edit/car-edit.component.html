@@ -1,3 +1,70 @@
 <app-back-button></app-back-button>
 
-<p>car-edit works!</p>
+<form *ngIf="car">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="carModel">Model</label>
+      <input
+        type="text"
+        class="form-control"
+        id="carModel"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="car.model"
+        required
+      />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="carColor">Color</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="carColor"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="car.color"
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label class="primaryFC" for="carDisabled">Disabled</label>
+      <select
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="car.isDisabled"
+        id="carDisabled"
+        required
+        class="custom-select mr-sm-2"
+        id="inlineFormCustomSelect"
+      >
+        <option selected>Choose...</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label class="primaryFC" for="carDescription">Description</label>
+      <textarea
+        required
+        type="text"
+        class="form-control"
+        id="carDescription"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="car.description"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <button
+      type="submit"
+      (click)="updateCarData()"
+      class="btn btn-primary btn-block"
+    >
+      Update Data
+    </button>
+  </div>
+</form>
+<div *ngIf="!car"><h1>This company isn't in database</h1></div>
