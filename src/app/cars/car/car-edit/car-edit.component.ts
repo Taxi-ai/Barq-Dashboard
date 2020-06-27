@@ -13,6 +13,7 @@ export class CarEditComponent implements OnInit {
   car: Car;
   changesIsSaved = false;
 
+
   constructor(private route: ActivatedRoute, private router: Router, private carsService: CarsService) { }
 
   ngOnInit() {
@@ -31,10 +32,8 @@ export class CarEditComponent implements OnInit {
       model: this.car.model,
       description: this.car.description,
       color: this.car.color,
-      isDisabled: false,
+      isDisabled: this.car.isDisabled
     };
-
-    if (this.car.isDisabled === 'true') { editedCar.isDisabled = true; }
 
     this.carsService.updateCarByID(this.car._id, editedCar).subscribe(data => {
       console.log(data);

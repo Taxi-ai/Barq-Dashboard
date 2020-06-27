@@ -11,7 +11,7 @@ export class CompaniesService {
   constructor(private http: HttpClient) { }
 
   postNewCompany(company: Company) {
-    return this.http.post('https://barq-api.azurewebsites.net/api/companies ', company);
+    return this.http.post('https://barq-api.azurewebsites.net/api/companies', company);
   }
 
   getAllCompanies() {
