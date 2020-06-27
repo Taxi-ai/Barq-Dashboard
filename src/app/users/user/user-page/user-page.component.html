@@ -35,10 +35,15 @@
     </p>
   </div>
   <div class="row">
-    <div class="col-6">
+    <div class="col-4">
+      <a class="btn btn-block btn-primary" [routerLink]="addIssueForThatUser"
+        >Add Issue</a
+      >
+    </div>
+    <div class="col-4">
       <a class="btn btn-block btn-danger" routerLink="edit">Edit user</a>
     </div>
-    <div class="col-6">
+    <div class="col-4">
       <a class="btn btn-block btn-dark secondaryFC" (click)="deleteUser()"
         >Delete user</a
       >

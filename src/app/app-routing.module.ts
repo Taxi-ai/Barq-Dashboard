@@ -50,6 +50,7 @@ const routes: Routes = [
       { path: 'cars/:id/edit', component: CarEditComponent },
       { path: 'issues', component: IssuesComponent },
       { path: 'issues/new', component: IssueNewComponent },
+      { path: 'issues/new/:ownerID', component: IssueNewComponent },
       { path: 'issues/:id', component: IssuePageComponent },
       { path: 'issues/:id/edit', component: IssueEditComponent },
       { path: 'navigate', component: MobileNavigationMenuComponent },

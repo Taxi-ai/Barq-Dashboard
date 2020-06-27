@@ -10,15 +10,20 @@ import { UserX } from '../../user.model';
 })
 export class UserPageComponent implements OnInit {
   user: UserX;
+
+  addIssueForThatUser = '../../issues/new/';
+
   constructor(private route: ActivatedRoute, private router: Router, private usersService: UsersService) { }
 
   ngOnInit() {
 
     const userID = this.route.snapshot.params.id;
+    this.addIssueForThatUser += userID;
 
     this.usersService.getUserByID(userID).subscribe(user => {
       // console.log(user);
       this.user = user;
+
     });
 
   }

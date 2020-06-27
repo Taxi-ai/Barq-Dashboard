@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Issue } from '../../issue.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IssuesService } from '../../issues.service';
@@ -19,7 +19,14 @@ export class IssueNewComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private issuesService: IssuesService) { }
 
   ngOnInit() {
+    console.log('before if')
+
+    if (this.route.snapshot.params.ownerID) {
+      console.log('in if')
+      this.issue.userId = this.route.snapshot.params.ownerID;
+    }
   }
+
   postNewIssue() {
     console.log(this.issue);
 
