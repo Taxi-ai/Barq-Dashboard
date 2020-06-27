@@ -43,14 +43,6 @@ export class UsersComponent implements OnInit {
 
     });
 
-
-    // this.usersService.usersChanged.subscribe(
-    //   (users: User[]) => {
-    //     this.users = users;
-    //     this.handlingGraphData();
-    //     this.gettingUsersStates();
-    //   }
-    // );
   }
 
 

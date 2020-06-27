@@ -34,44 +34,44 @@
 >
   <div class="row"></div>
   <div class="row mb-5">
-    <div class="col-md-4">
-      <h1 class="m-0 py-5 informationCardNumber">
+    <div class="col-4">
+      <h2 class="m-0 py-5 informationCardNumber">
         {{ fetchingDataVars.usersArrayLength }}
-      </h1>
-      <h3 class="m-0 py-3 informationCardName">
+      </h2>
+      <h4 class="m-0 py-3 informationCardName">
         User<span *ngIf="users.length > 1">s</span>
-      </h3>
+      </h4>
     </div>
-    <div class="col-md-4">
-      <h1 class="m-0 py-5 informationCardNumber">
+    <div class="col-4">
+      <h2 class="m-0 py-5 informationCardNumber">
         {{ usersStates.active }}
-      </h1>
-      <h3 class="m-0 py-3 informationCardName">
-        Active User<span *ngIf="usersStates.active > 1">s</span>
-      </h3>
+      </h2>
+      <h4 class="m-0 py-3 informationCardName">
+        Active<span *ngIf="usersStates.active > 1">s</span>
+      </h4>
     </div>
-    <div class="col-md-4">
-      <h1 class="m-0 py-5 informationCardNumber">
+    <div class="col-4">
+      <h2 class="m-0 py-5 informationCardNumber">
         {{ usersStates.panned }}
-      </h1>
-      <h3 class="m-0 py-3 informationCardName">
-        Panned User<span *ngIf="usersStates.panned > 1">s</span>
-      </h3>
+      </h2>
+      <h4 class="m-0 py-3 informationCardName">
+        Panned<span *ngIf="usersStates.panned > 1">s</span>
+      </h4>
     </div>
   </div>
 
   <form class="form-row pb-2">
     <div class="col-md-6">
       <div class="form-group m-0">
-        <div class="row">
+        <div class="row no-gutters">
           <div class="col-md-12">
-            <label for="searchForUsers"
+            <label class="secondaryFC" for="searchForUsers"
               >Search by
               <select
                 [(ngModel)]="selectForSearch"
                 [ngModelOptions]="{ standalone: true }"
                 #selectOfSearch
-                class="form-control d-inline"
+                class="form-control d-inline primaryFC"
                 id="searchForUsers"
               >
                 <option value="name">Name</option>
@@ -84,7 +84,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row no-gutters">
           <div class="col-md-9 pr-0">
             <input
               *ngIf="selectForSearch === 'name'"
@@ -124,14 +124,14 @@
 
     <div class="col-md-5">
       <div class="form-group m-0">
-        <div class="row">
+        <div class="row no-gutters">
           <div class="col-md-12 pl-0">
-            <label for="filterUsers"
+            <label class="secondaryFC" for="filterUsers"
               >Filter by
               <select
                 [(ngModel)]="selectForFilter"
                 [ngModelOptions]="{ standalone: true }"
-                class="form-control d-inline"
+                class="form-control d-inline primaryFC"
                 id="filterUsers"
               >
                 <option value="date">Registration Date</option>
@@ -144,7 +144,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row no-gutters">
           <div class="col-md-9 px-0">
             <div [ngSwitch]="selectForFilter">
               <div *ngSwitchCase="'city'">
@@ -154,16 +154,12 @@
                 <input class="form-control" type="text" />
               </div>
               <div *ngSwitchCase="'date'">
-                <div style="height: 100%;" class="row">
+                <div style="height: 100%;" class="row no-gutters">
                   <div style="height: 100%;" class="col-md-1 p-0 m-auto">
                     <label
                       for="filterFromDate"
-                      class="m-auto d-block text-center"
-                      style="
-                        color: wheat;
-                        text-align: center;
-                        font-size: smaller;
-                      "
+                      class="m-auto d-block text-center secondaryFC"
+                      style="text-align: center; font-size: smaller;"
                       >from</label
                     >
                   </div>
@@ -180,12 +176,8 @@
                   >
                     <label
                       for="filterToDate"
-                      class="m-auto d-block text-center"
-                      style="
-                        color: wheat;
-                        text-align: center;
-                        font-size: smaller;
-                      "
+                      class="m-auto d-block text-center secondaryFC"
+                      style="text-align: center; font-size: smaller;"
                       >to</label
                     >
                   </div>
@@ -199,7 +191,7 @@
                 </div>
               </div>
               <div *ngSwitchCase="'state'">
-                <select class="form-control">
+                <select class="form-control primaryFC">
                   <option value="active">Active</option>
                   <option value="panned">Panned</option>
                   <option value="notActiveNotPanned">
