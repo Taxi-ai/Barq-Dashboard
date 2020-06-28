@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CarsService } from './cars.service';
 import { Car } from './car.model';
 
@@ -10,6 +10,11 @@ import { Car } from './car.model';
 export class CarsComponent implements OnInit {
 
   cars: Car[] = [];
+  carsLocations = [
+    { xCord: 161, yCord: 92 },
+    { xCord: 30, yCord: 224 },
+    { xCord: 501, yCord: 437 },
+  ];
   carsStates = { Car: 0, Disabled: 0, Accessed: 0 };
   countersArray = ['Car', 'Disabled', 'Accessed', this.carsStates];
 
@@ -42,6 +47,12 @@ export class CarsComponent implements OnInit {
     }
   ];
 
+  @ViewChild('NewBTN', { static: true }) NewBTN: ElementRef;
+  // @ViewChild('carsTable', { static: true }) carsTable: ElementRef;
+
+  mapWidth: number;
+  tableHeight: number;
+
   constructor(private carsService: CarsService) { }
 
   ngOnInit() {
@@ -62,6 +73,10 @@ export class CarsComponent implements OnInit {
 
       this.fetchingDataVars.isFetchingDone = true;
 
+      this.setMapWidth();
+
+
+
     }, error => {
       this.fetchingDataVars.isFetchingError = true;
 
@@ -69,6 +84,12 @@ export class CarsComponent implements OnInit {
 
     });
 
+  }
+
+
+  setMapWidth() {
+    this.mapWidth = this.NewBTN.nativeElement.clientWidth - 30;
+    console.log(this.NewBTN.nativeElement);
   }
 
 
@@ -99,5 +120,11 @@ export class CarsComponent implements OnInit {
       }
     });
   }
+
+  changeTableHeight(height: number) {
+    console.log(height);
+    this.tableHeight = height;
+  }
+
 
 }

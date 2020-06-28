@@ -1,34 +1,30 @@
-<div
-  style="border-radius: 0.25rem 0.25rem 0px 0px;"
-  class="table-responsive p-0 m-0"
->
-  <table
-    style="border-radius: 0.25rem 0.25rem 0px 0px;"
-    class="table table-dark p-0 m-0"
-  >
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Model</th>
-        <th scope="col">Description</th>
-        <th scope="col">Color</th>
-        <th scope="col">Accessed</th>
-        <th scope="col">Disabled</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        *ngFor="let car of cars; index as i"
-        (click)="carProfile(car)"
-        style="cursor: pointer;"
-      >
-        <td scope="row">{{ i + 1 }}</td>
-        <td>{{ car.model | titlecase }}</td>
-        <td>{{ car.description }}</td>
-        <td>{{ car.color }}</td>
-        <td>{{ car.isAccessed ? "Accessed" : "Not Accessed" }}</td>
-        <td>{{ car.isDisabled ? "Disabled" : "Not Disabled" }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div id="tableHeight">
+  <div class="table-responsive p-0 m-0">
+    <table class="table table-dark p-0 m-0">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Model</th>
+          <th scope="col">Description</th>
+          <th scope="col">Color</th>
+          <th scope="col">Accessed</th>
+          <th scope="col">Disabled</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let car of cars; index as i"
+          (click)="carProfile(car)"
+          style="cursor: pointer;"
+        >
+          <td scope="row">{{ i + 1 }}</td>
+          <td>{{ car.model | titlecase }}</td>
+          <td>{{ car.description }}</td>
+          <td>{{ car.color }}</td>
+          <td>{{ car.isAccessed ? "Accessed" : "Not Accessed" }}</td>
+          <td>{{ car.isDisabled ? "Disabled" : "Not Disabled" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -9,37 +9,53 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor() { }
 
+  @Input() locations: { xCord: number, yCord: number }[];
+  @Input() mapWidth: number;
+
   @ViewChild('myCanvas', { static: false }) myCanvas: ElementRef;
   context: CanvasRenderingContext2D;
 
-  numberCanvasCoordinates = { canvasWidth: 0, canvasHeight: 0 };
+  canvasDimensions = { canvasWidth: 0, canvasHeight: 0 };
 
   canvasImages = {
-    map: 'https://image.freepik.com/free-vector/colored-city-map-with-river-park_23-2148319224.jpg',
-    endPoint: 'https://www.connectsafely.org/wp-content/uploads/Location-pin-1.png',
-    startingPoint: 'https://lh3.googleusercontent.com/S8BDYwHyxKR9T1DupOmAhif21jqLLUkl6GGQrwIXQuV7jFlmBXEF6TCvkCUl9V1D2Q',
-    currentLocation: 'https://play14.org/images/games/magic-triangles/01.png'
+    map: 'https://i.ibb.co/cvX9K9c/realMap.png',
+    currentLocation: 'https://i.ibb.co/kJyjcZc/location-pin.png'
   };
+
+  mapImageWidth = 800;
+  mapImageHeight = 684;
+
+  pinImageWidth = 419;
+  pinImageHeight = 641;
+
+  pinWidth = 20;
+  pinHeight = (this.pinWidth * this.pinImageHeight) / this.pinImageWidth;
 
   newX = 0;
   newY = 0;
   oldX: number;
   oldY: number;
   stopLoading = false;
-  locationInterval;
+  // locationInterval;
+
 
   ngOnInit() {
 
-    // TODO this will be set using input and property-binding -- just take a number and do the math to keep the dimensions
-    this.numberCanvasCoordinates.canvasWidth = 1252;
-    this.numberCanvasCoordinates.canvasHeight = 834;
+    this.canvasDimensions.canvasWidth = this.mapWidth;
+    this.canvasDimensions.canvasHeight = (this.mapWidth * this.mapImageHeight) / this.mapImageWidth;
+
+    this.locationMapping(this.locations);
+
+    console.log(this.canvasDimensions.canvasWidth);
+    console.log(this.canvasDimensions.canvasHeight);
+
 
   }
 
   ngAfterViewInit() {
 
-    this.myCanvas.nativeElement.width = this.numberCanvasCoordinates.canvasWidth;
-    this.myCanvas.nativeElement.height = this.numberCanvasCoordinates.canvasHeight;
+    this.myCanvas.nativeElement.width = this.canvasDimensions.canvasWidth;
+    this.myCanvas.nativeElement.height = this.canvasDimensions.canvasHeight;
 
     this.context = this.myCanvas.nativeElement.getContext('2d');
 
@@ -51,23 +67,45 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     // pin need to be drawImage(images.pin, 100-(30/2) , 75-50, 30, 50)
 
     this.loadingImages(this.canvasImages, (images: any) => {
-      this.locationInterval = setInterval(
-        () => {
-          this.stopLoading = true;
+      // this.locationInterval = setInterval(
+      // () => {
+      this.stopLoading = true;
 
-          if (this.newX !== this.oldX || this.newY !== this.oldY) {
+      if (this.newX !== this.oldX || this.newY !== this.oldY) {
 
-            this.context.clearRect(0, 0, this.numberCanvasCoordinates.canvasWidth, this.numberCanvasCoordinates.canvasHeight);
-            this.context.drawImage(images.map, 0, 0, this.numberCanvasCoordinates.canvasWidth, this.numberCanvasCoordinates.canvasHeight);
-            this.context.drawImage(images.endPoint, (839.5 - 100 / 2), 123 - 100, 100, 100);
-            this.context.drawImage(images.startingPoint, 437.5 - 25, 399 - 25, 50, 50);
-            this.context.drawImage(images.currentLocation, this.newX - 25, this.newY - 16.65, 50, 33.3);
-            console.log('running');
-            this.newX = this.oldX;
-            this.newY = this.oldY;
-          }
-        }
-        , 2000);
+        this.context.clearRect(0, 0, this.canvasDimensions.canvasWidth, this.canvasDimensions.canvasHeight);
+
+        this.context.drawImage(images.map, 0, 0, this.canvasDimensions.canvasWidth, this.canvasDimensions.canvasHeight);
+
+
+        this.locations.forEach((location) => {
+          console.log(location);
+
+          this.context.drawImage(
+            images.currentLocation,
+            location.xCord,
+            location.yCord,
+            this.pinWidth,
+            this.pinHeight
+          );
+
+        });
+
+        // this.context.drawImage(
+        //   images.currentLocation,
+        //   this.newX - (this.pinWidth / 2),
+        //   this.newY - this.pinHeight,
+        //   this.pinWidth, this.pinHeight
+        // );
+
+        console.log('running');
+
+        this.newX = this.oldX;
+
+        this.newY = this.oldY;
+      }
+      // }
+      // , 2000);
 
     });
 
@@ -77,26 +115,25 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     console.log('destroy map');
 
-    clearInterval(this.locationInterval);
+    // clearInterval(this.locationInterval);
   }
 
 
   getMousePosition(event: MouseEvent) {
-    console.log(event);
-    const rect = this.myCanvas.nativeElement.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    console.log('Coordinate x: ' + x,
-      'Coordinate y: ' + y);
-    this.newX = x;
-    this.newY = y;
+    // console.log(event);
+    // const rect = this.myCanvas.nativeElement.getBoundingClientRect();
+    // const x = event.clientX - rect.left;
+    // const y = event.clientY - rect.top;
+    // console.log('Coordinate x: ' + x,
+    //   'Coordinate y: ' + y);
+    // this.newX = x;
+    // this.newY = y;
   }
 
 
 
 
   loadingImages(canvasImages: object, callback: (images: any) => void) {
-
 
     const images = {};
     let imagesNumber = 0;
@@ -119,5 +156,20 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  locationMapping(locations: { xCord: number, yCord: number }[]) {
+
+    const initialMapWidth = 629;
+    const initialMapHeight = 537.5;
+
+    locations.forEach((location, index) => {
+      const newXCord = (location.xCord * this.canvasDimensions.canvasWidth) / initialMapWidth;
+      const newYCord = (location.yCord * this.canvasDimensions.canvasHeight) / initialMapHeight;
+      this.locations[index].xCord = newXCord;
+      this.locations[index].yCord = newYCord;
+      console.log(newXCord + ' - ' + newYCord);
+
+    });
+
+  }
 
 }

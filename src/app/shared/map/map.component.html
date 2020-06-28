@@ -1,13 +1,8 @@
 <app-dashboard-spinner
   *ngIf="!stopLoading"
-  class="m-auto"
+  class="m-auto w-100"
 ></app-dashboard-spinner>
 
-<canvas
-  #myCanvas
-  [hidden]="!stopLoading"
-  (click)="getMousePosition($event)"
-  style="border: 1px solid #d3d3d3;"
->
+<canvas #myCanvas [hidden]="!stopLoading" (click)="getMousePosition($event)">
   Your browser does not support the HTML canvas tag.</canvas
 >

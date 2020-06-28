@@ -1,0 +1,15 @@
+table tr:hover td {
+  background-color: bisque;
+  color: darkblue;
+}
+
+table,
+.table-responsive,
+#tableHeight {
+  border-radius: inherit;
+}
+
+#tableHeight {
+  height: inherit;
+  background-color: #343a40;
+}
