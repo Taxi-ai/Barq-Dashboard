@@ -33,6 +33,15 @@ form .col-lg-3 {
   padding-left: 0.5rem !important;
 }
 
+#dateFrom {
+  padding-right: 0.25rem;
+  margin-bottom: 0rem;
+}
+#dateTo {
+  padding-left: 0.25rem;
+  margin-bottom: 0rem;
+}
+
 .centeringVertically {
   border: 1px solid #ced4da;
   background-color: white;
@@ -40,6 +49,7 @@ form .col-lg-3 {
   align-items: center;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .centeringVertically label {
@@ -60,5 +70,31 @@ form .col-lg-3 {
 
   form .col-lg-3 {
     padding-left: 0 !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #dateFrom {
+    padding-right: 0rem;
+  }
+  #dateTo {
+    padding-left: 0rem;
+  }
+
+  #dateFrom .centeringVertically {
+    border-radius: 0.25rem 0 0 0;
+    border-bottom: none;
+  }
+
+  #dateFrom .dateFilterInputs {
+    border-bottom: none;
+    border-radius: 0 0.25rem 0 0 !important;
+  }
+
+  #dateTo .centeringVertically {
+    border-radius: 0 0 0 0.25rem;
+  }
+
+  #dateTo .dateFilterInputs {
+    border-radius: 0 0 0.25rem 0 !important;
   }
 }
