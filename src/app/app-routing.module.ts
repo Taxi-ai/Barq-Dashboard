@@ -15,7 +15,7 @@ import { AuthGuard } from './admin-login/auth.guard';
 import { CarsComponent } from './cars/cars.component';
 import { CarPageComponent } from './cars/car/car-page/car-page.component';
 import { CarEditComponent } from './cars/car/car-edit/car-edit.component';
-import { MobileNavigationMenuComponent } from './mobile-navigation-menu/mobile-navigation-menu.component';
+import { MobileNavigationMenuComponent } from './side-menu/mobile-navigation-menu/mobile-navigation-menu.component';
 import { CompanyNewComponent } from './companies/company/company-new/company-new.component';
 import { IssuesComponent } from './issues/issues.component';
 import { IssuePageComponent } from './issues/issue/issue-page/issue-page.component';

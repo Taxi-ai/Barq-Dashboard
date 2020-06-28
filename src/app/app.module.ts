@@ -18,8 +18,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ChatPanelComponent } from './chat-panel/chat-panel.component';
-import { MapComponent } from './map/map.component';
-import { DashboardSpinnerComponent } from './dashboard-spinner/dashboard-spinner.component';
+import { MapComponent } from './shared/map/map.component';
+import { DashboardSpinnerComponent } from './shared/dashboard-spinner/dashboard-spinner.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
@@ -49,10 +49,10 @@ import { PackageEditComponent } from './packages/package/package-edit/package-ed
 import { TodoComponent } from './todo/todo.component';
 import { AdminMenuComponent } from './navbar/admin-menu/admin-menu.component';
 import { TodoContainerComponent } from './navbar/todo-container/todo-container.component';
-import { ClickingLayerComponent } from './clicking-layer/clicking-layer.component';
-import { MobileNavigationMenuComponent } from './mobile-navigation-menu/mobile-navigation-menu.component';
+import { ClickingLayerComponent } from './shared/clicking-layer/clicking-layer.component';
+import { MobileNavigationMenuComponent } from './side-menu/mobile-navigation-menu/mobile-navigation-menu.component';
 import { CompanyNewComponent } from './companies/company/company-new/company-new.component';
-import { BackButtonComponent } from './back-button/back-button.component';
+import { BackButtonComponent } from './shared/back-button/back-button.component';
 import { IssuesComponent } from './issues/issues.component';
 import { IssuePageComponent } from './issues/issue/issue-page/issue-page.component';
 import { IssueEditComponent } from './issues/issue/issue-edit/issue-edit.component';
@@ -63,6 +63,7 @@ import { CarNewComponent } from './cars/car/car-new/car-new.component';
 import { IssueNewComponent } from './issues/issue/issue-new/issue-new.component';
 import { InformationCardsComponent } from './shared/information-cards/information-cards.component';
 import { SearchAndFilterComponent } from './shared/search-and-filter/search-and-filter.component';
+import { GraphComponent } from './shared/graph/graph.component';
 
 
 @NgModule({
@@ -123,6 +124,7 @@ import { SearchAndFilterComponent } from './shared/search-and-filter/search-and-
     IssueNewComponent,
     InformationCardsComponent,
     SearchAndFilterComponent,
+    GraphComponent,
 
   ],
   imports: [
