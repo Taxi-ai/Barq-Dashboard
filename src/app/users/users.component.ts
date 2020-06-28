@@ -11,12 +11,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UsersComponent implements OnInit {
 
   users: UserX[] = [];
-  usersStates = { active: 0, panned: 0 };
+  usersStates = { User: 0, Active: 0, Panned: 0 };
   finalCounter: number[] = new Array(12); // array with numbers of months duplicates
   selectForSearch = 'name';
   selectForFilter = 'date';
   fetchingDataVars = { isFetchingError: false, isFetchingDone: false, usersArrayLength: 0 };
 
+  dataArray = ['User', 'Active', 'Panned', this.usersStates];
 
   constructor(private usersService: UsersService, private router: Router, private route: ActivatedRoute) { }
 
@@ -33,6 +34,7 @@ export class UsersComponent implements OnInit {
 
       if (this.users.length > 0) {
         this.fetchingDataVars.usersArrayLength = this.users.length;
+        this.usersStates.User = this.users.length;
         this.handlingGraphData();
         // this.gettingUsersStates();
       }

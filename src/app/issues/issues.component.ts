@@ -8,6 +8,9 @@ import { IssuesService } from './issues.service';
 })
 export class IssuesComponent implements OnInit {
   issues = [];
+  issuesStates = { Issue: 0, Solved: 0, Unsolved: 0 };
+  dataArray = ['Issue', 'Solved', 'Unsolved', this.issuesStates];
+
   fetchingDataVars = { isFetchingError: false, isFetchingDone: false, issuesArrayLength: 0 };
 
   constructor(private issuesService: IssuesService) { }
@@ -21,6 +24,7 @@ export class IssuesComponent implements OnInit {
 
       if (this.issues.length > 0) {
         this.fetchingDataVars.issuesArrayLength = this.issues.length;
+        this.issuesStates.Issue = this.issues.length;
         // this.handlingGraphData(); // there is no graph
         // this.gettingIssuesStates(); //company won't be banned
       }

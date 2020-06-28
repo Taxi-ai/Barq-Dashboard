@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarsService } from './cars.service';
+import { Car } from './car.model';
 
 @Component({
   selector: 'app-cars',
@@ -8,7 +9,9 @@ import { CarsService } from './cars.service';
 })
 export class CarsComponent implements OnInit {
 
-  cars = [];
+  cars: Car[] = [];
+  carsStates = { Car: 0, Disabled: 0, Accessed: 0 };
+  dataArray = ['Car', 'Disabled', 'Accessed', this.carsStates];
 
   fetchingDataVars = { isFetchingError: false, isFetchingDone: false, carsArrayLength: 0 };
 
@@ -24,8 +27,10 @@ export class CarsComponent implements OnInit {
 
       if (this.cars.length > 0) {
         this.fetchingDataVars.carsArrayLength = this.cars.length;
+        this.carsStates.Car = this.cars.length;
+
         // this.handlingGraphData(); // there is no graph
-        // this.gettingCarsStates(); //company won't be banned
+        this.gettingCarsStates();
       }
 
       this.fetchingDataVars.isFetchingDone = true;
@@ -37,6 +42,18 @@ export class CarsComponent implements OnInit {
 
     });
 
+  }
+
+
+  gettingCarsStates() {
+    this.cars.forEach((car) => {
+      if (car.isDisabled === true) {
+        this.carsStates.Disabled += 1;
+      }
+      if (car.isAccessed === true) {
+        this.carsStates.Accessed += 1;
+      }
+    });
   }
 
 }

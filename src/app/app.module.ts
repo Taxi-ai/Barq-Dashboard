@@ -61,6 +61,8 @@ import { IssuesTableComponent } from './issues/issues-table/issues-table.compone
 import { UserNewComponent } from './users/user/user-new/user-new.component';
 import { CarNewComponent } from './cars/car/car-new/car-new.component';
 import { IssueNewComponent } from './issues/issue/issue-new/issue-new.component';
+import { InformationCardsComponent } from './shared/information-cards/information-cards.component';
+import { SearchAndFilterComponent } from './shared/search-and-filter/search-and-filter.component';
 
 
 @NgModule({
@@ -119,6 +121,8 @@ import { IssueNewComponent } from './issues/issue/issue-new/issue-new.component'
     UserNewComponent,
     CarNewComponent,
     IssueNewComponent,
+    InformationCardsComponent,
+    SearchAndFilterComponent,
 
   ],
   imports: [

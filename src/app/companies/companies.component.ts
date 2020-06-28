@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CompaniesService } from './companies.service';
+import { Company } from './company.model';
 
 @Component({
   selector: 'app-companies',
@@ -9,6 +10,11 @@ import { CompaniesService } from './companies.service';
 export class CompaniesComponent implements OnInit {
 
   companies = [];
+  // @Output() statesChanged = new EventEmitter<any>();
+
+  companyStates = { Partner: 0, Employee: 0, Active: 0 };
+
+  dataArray = ['Partner', 'Employee', 'Active', this.companyStates];
 
   fetchingDataVars = { isFetchingError: false, isFetchingDone: false, companiesArrayLength: 0 };
 
@@ -25,10 +31,11 @@ export class CompaniesComponent implements OnInit {
 
       if (this.companies.length > 0) {
         this.fetchingDataVars.companiesArrayLength = this.companies.length;
+        this.companyStates.Partner = this.companies.length;
         // this.handlingGraphData(); // there is no graph
-        // this.gettingCompaniesStates(); //company won't be banned
+        this.gettingCompaniesStates();
       }
-
+      // this.statesChanged.emit(this.companyStates);
       this.fetchingDataVars.isFetchingDone = true;
 
     }, error => {
@@ -39,6 +46,15 @@ export class CompaniesComponent implements OnInit {
     });
   }
 
-
+  gettingCompaniesStates() {
+    this.companies.forEach((company: Company) => {
+      if (company.numberOfEmployees) {
+        this.companyStates.Employee += company.numberOfEmployees;
+      }
+      // if (company.pannedState === true) {
+      //   this.companyStates.active += 1;
+      // }
+    });
+  }
 
 }

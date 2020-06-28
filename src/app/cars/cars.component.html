@@ -2,8 +2,13 @@
   <div class="col-md-12">
     <!-- TODO delete this button ofter connecting to backend -->
     <button class="btn btn-block btn-primary mb-5" routerLink="new">
-      New Car
+      New car
     </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
     <div
       *ngIf="
         !fetchingDataVars.isFetchingDone && !fetchingDataVars.isFetchingError
@@ -30,9 +35,12 @@
   *ngIf="
     fetchingDataVars.isFetchingDone && fetchingDataVars.carsArrayLength >= 1
   "
-  class="row"
 >
-  <div class="col-md-12">
-    <app-cars-table [cars]="cars"></app-cars-table>
+  <app-information-cards [dataArray]="dataArray"></app-information-cards>
+
+  <div class="row">
+    <div class="col-md-12">
+      <app-cars-table [cars]="cars"></app-cars-table>
+    </div>
   </div>
 </div>

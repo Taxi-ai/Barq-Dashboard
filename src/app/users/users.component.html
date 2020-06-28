@@ -32,32 +32,7 @@
     fetchingDataVars.isFetchingDone && fetchingDataVars.usersArrayLength >= 1
   "
 >
-  <div class="row mb-5">
-    <div class="col-4">
-      <h2 class="m-0 py-5 informationCardNumber">
-        {{ fetchingDataVars.usersArrayLength }}
-      </h2>
-      <h4 class="m-0 py-3 informationCardName">
-        User<span *ngIf="users.length > 1">s</span>
-      </h4>
-    </div>
-    <div class="col-4">
-      <h2 class="m-0 py-5 informationCardNumber">
-        {{ usersStates.active }}
-      </h2>
-      <h4 class="m-0 py-3 informationCardName">
-        Active<span *ngIf="usersStates.active > 1">s</span>
-      </h4>
-    </div>
-    <div class="col-4">
-      <h2 class="m-0 py-5 informationCardNumber">
-        {{ usersStates.panned }}
-      </h2>
-      <h4 class="m-0 py-3 informationCardName">
-        Panned<span *ngIf="usersStates.panned > 1">s</span>
-      </h4>
-    </div>
-  </div>
+  <app-information-cards [dataArray]="dataArray"></app-information-cards>
 
   <form class="form-row pb-2">
     <div class="col-md-6">

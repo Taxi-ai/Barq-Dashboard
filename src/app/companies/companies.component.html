@@ -31,9 +31,11 @@
     fetchingDataVars.isFetchingDone &&
     fetchingDataVars.companiesArrayLength >= 1
   "
-  class="row"
 >
-  <div class="col-md-12">
-    <app-companies-table [companies]="companies"></app-companies-table>
+  <app-information-cards [dataArray]="dataArray"></app-information-cards>
+  <div class="row">
+    <div class="col-md-12">
+      <app-companies-table [companies]="companies"></app-companies-table>
+    </div>
   </div>
 </div>
