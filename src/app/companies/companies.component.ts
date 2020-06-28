@@ -10,13 +10,29 @@ import { Company } from './company.model';
 export class CompaniesComponent implements OnInit {
 
   companies = [];
-  // @Output() statesChanged = new EventEmitter<any>();
 
   companyStates = { Partner: 0, Employee: 0, Active: 0 };
 
-  dataArray = ['Partner', 'Employee', 'Active', this.companyStates];
+  countersArray = ['Partner', 'Employee', 'Active', this.companyStates];
 
   fetchingDataVars = { isFetchingError: false, isFetchingDone: false, companiesArrayLength: 0 };
+
+  searchQueries = [
+    { label: 'ID', value: 'id', type: 'text' },
+    { label: 'Name', value: 'name', type: 'text' },
+    { label: 'Email Address', value: 'email', type: 'email' },
+    { label: 'Phone Number', value: 'phone', type: 'tel' }
+  ];
+  filterQueries = [
+    {
+      label: 'Country', value: 'country', type: 'select', selectOptions: []
+    },
+    {
+      label: 'City', value: 'city', type: 'select', selectOptions: []
+    },
+    { label: 'Max-Employees', value: 'max-employees', type: 'number' },
+    { label: 'Min-Employees', value: 'min-employees', type: 'number' }
+  ];
 
 
   constructor(private companiesService: CompaniesService) { }
@@ -47,7 +63,23 @@ export class CompaniesComponent implements OnInit {
   }
 
   gettingCompaniesStates() {
+    const countriesArray = [];
+    const citiesArray = [];
+
     this.companies.forEach((company: Company) => {
+
+      if (countriesArray.includes(company.address.country)) {
+      } else {
+        this.filterQueries[0].selectOptions.push({ label: company.address.country, value: company.address.country });
+        countriesArray.push(company.address.country);
+      }
+
+      if (citiesArray.includes(company.address.city)) {
+      } else {
+        this.filterQueries[1].selectOptions.push({ label: company.address.city, value: company.address.city });
+        citiesArray.push(company.address.city);
+      }
+
       if (company.numberOfEmployees) {
         this.companyStates.Employee += company.numberOfEmployees;
       }

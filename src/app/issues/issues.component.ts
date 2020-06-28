@@ -9,9 +9,25 @@ import { IssuesService } from './issues.service';
 export class IssuesComponent implements OnInit {
   issues = [];
   issuesStates = { Issue: 0, Solved: 0, Unsolved: 0 };
-  dataArray = ['Issue', 'Solved', 'Unsolved', this.issuesStates];
+  countersArray = ['Issue', 'Solved', 'Unsolved', this.issuesStates];
 
   fetchingDataVars = { isFetchingError: false, isFetchingDone: false, issuesArrayLength: 0 };
+
+  searchQueries = [
+    { label: 'ID', value: 'id', type: 'text' },
+    { label: 'Body', value: 'body', type: 'text' },
+  ];
+  filterQueries = [{
+    label: 'Label', value: 'Label', type: 'select',
+    selectOptions: [
+      { label: 'Issue in the app', value: 'app' },
+      { label: 'Issue in the car', value: 'car' },
+      { label: 'Issue in the service', value: 'service' },
+      { label: 'Others', value: 'others' }
+    ]
+  },
+  { label: 'Registration Date', value: 'date', type: 'date' },
+  ];
 
   constructor(private issuesService: IssuesService) { }
 

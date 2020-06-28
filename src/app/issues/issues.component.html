@@ -31,7 +31,12 @@
     fetchingDataVars.isFetchingDone && fetchingDataVars.issuesArrayLength >= 1
   "
 >
-  <app-information-cards [dataArray]="dataArray"></app-information-cards>
+  <app-information-cards [dataArray]="countersArray"></app-information-cards>
+
+  <app-search-and-filter
+    [searchQueries]="searchQueries"
+    [filterQueries]="filterQueries"
+  ></app-search-and-filter>
 
   <div class="row">
     <div class="col-md-12">
