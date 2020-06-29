@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
-import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { RouterModule } from '@angular/router';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
 import { ProfilePictureComponent } from '../navbar/profile-picture/profile-picture.component';
@@ -15,7 +11,6 @@ import { UsersGraphComponent } from '../users/users-graph/users-graph.component'
 import { UserPageComponent } from '../users/user/user-page/user-page.component';
 import { EditUserComponent } from '../users/user/edit-user/edit-user.component';
 import { SideMenuComponent } from '../side-menu/side-menu.component';
-import { NotFoundComponent } from '../not-found/not-found.component';
 import { ChatPanelComponent } from '../chat-panel/chat-panel.component';
 import { MapComponent } from '../shared/map/map.component';
 import { DashboardComponent } from './dashboard.component';
@@ -60,10 +55,8 @@ import { InformationCardsComponent } from '../shared/information-cards/informati
 import { SearchAndFilterComponent } from '../shared/search-and-filter/search-and-filter.component';
 import { GraphComponent } from '../shared/graph/graph.component';
 import { NavbarComponent } from '../navbar/navbar.component';
-
-
-
 import { HomeComponent } from '../home/home.component';
+import { NotificationsComponent } from '../notifications/notifications.component';
 
 
 
@@ -81,7 +74,7 @@ import { HomeComponent } from '../home/home.component';
     UserPageComponent,
     EditUserComponent,
     SideMenuComponent,
-    NotFoundComponent,
+    NotificationsComponent,
     ChatPanelComponent,
     MapComponent,
     DashboardComponent,

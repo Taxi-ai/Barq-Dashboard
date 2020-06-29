@@ -26,7 +26,7 @@ import { MobileNavigationMenuComponent } from '../side-menu/mobile-navigation-me
 const routes: Routes = [
 
   {
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent,
     canActivate: [AuthGuard],
     children: [
