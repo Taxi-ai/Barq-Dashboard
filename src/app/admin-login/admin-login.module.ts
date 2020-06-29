@@ -13,16 +13,10 @@ import { RouterModule } from '@angular/router';
 
   ],
   imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule,
 
     SharedModule
 
   ],
-  exports: [
-    LoginComponent,
 
-  ]
 })
 export class AdminLoginModule { }

@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
-
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 import { ProfilePictureComponent } from '../navbar/profile-picture/profile-picture.component';
-
 import { UsersComponent } from '../users/users.component';
 import { UsersTableComponent } from '../users/users-table/users-table.component';
 import { UsersGraphComponent } from '../users/users-graph/users-graph.component';
@@ -58,9 +60,14 @@ import { InformationCardsComponent } from '../shared/information-cards/informati
 import { SearchAndFilterComponent } from '../shared/search-and-filter/search-and-filter.component';
 import { GraphComponent } from '../shared/graph/graph.component';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { RouterModule } from '@angular/router';
+
+
+
+import { HomeComponent } from '../home/home.component';
+
+
+
+
 
 
 
@@ -88,6 +95,7 @@ import { RouterModule } from '@angular/router';
     CompanyEditComponent,
     CarsComponent,
     CarsTableComponent,
+    HomeComponent,
     CarPageComponent,
     CarEditComponent,
     CarsGraphComponent,
@@ -117,77 +125,20 @@ import { RouterModule } from '@angular/router';
     IssueNewComponent,
     InformationCardsComponent,
     SearchAndFilterComponent,
-
     GraphComponent
   ],
 
 
   imports: [
-    AppRoutingModule,
     SharedModule,
     ChartsModule,
-    FormsModule,
     FontAwesomeModule,
-    RouterModule,
+    DashboardRoutingModule
 
-    CommonModule
   ],
 
 
-  exports: [
-    NavbarComponent,
-    ProfilePictureComponent,
-    UsersComponent,
-    UsersTableComponent,
-    UsersGraphComponent,
-    UserPageComponent,
-    EditUserComponent,
-    SideMenuComponent,
-    NotFoundComponent,
-    ChatPanelComponent,
-    MapComponent,
-    DashboardComponent,
-    ShortenPipe,
-    FetchingErrorComponent,
-    IsFetchingComponent,
-    FetchedNothingComponent,
-    CompaniesComponent,
-    CompaniesTableComponent,
-    CompanyPageComponent,
-    CompanyEditComponent,
-    CarsComponent,
-    CarsTableComponent,
-    CarPageComponent,
-    CarEditComponent,
-    CarsGraphComponent,
-    PackagesComponent,
-    PackagesTableComponent,
-    PackagesGraphComponent,
-    PackagePageComponent,
-    NotificationsTableComponent,
-    NotificationsGraphComponent,
-    NotificationPageComponent,
-    NotificationEditComponent,
-    PackageEditComponent,
-    TodoComponent,
-    AdminMenuComponent,
-    TodoContainerComponent,
-    ClickingLayerComponent,
-    MobileNavigationMenuComponent,
-    CompanyNewComponent,
-    BackButtonComponent,
-    IssuesComponent,
-    IssuePageComponent,
-    IssueEditComponent,
-    IssuesGraphComponent,
-    IssuesTableComponent,
-    UserNewComponent,
-    CarNewComponent,
-    IssueNewComponent,
-    InformationCardsComponent,
-    SearchAndFilterComponent,
-    GraphComponent
-  ],
+
 
 
 })
