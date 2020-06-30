@@ -12,7 +12,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() locations: { xCord: number, yCord: number }[];
   @Input() mapWidth: number;
 
-  @ViewChild('myCanvas', { static: false }) myCanvas: ElementRef;
+  @ViewChild('myCanvas') myCanvas: ElementRef;
   context: CanvasRenderingContext2D;
 
   canvasDimensions = { canvasWidth: 0, canvasHeight: 0 };
