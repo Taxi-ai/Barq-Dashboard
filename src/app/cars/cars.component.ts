@@ -134,10 +134,10 @@ export class CarsComponent implements OnInit {
   }
 
   addRandomCarCords() {
-    // mapImageWidth = 800;
-    // mapImageHeight = 684;
-    const xCord = Math.floor(Math.random() * (750 - 50 + 1)) + 50;
-    const yCord = Math.floor(Math.random() * (640 - 40 + 1)) + 40;
+    // mapImageWidth = 800; 629;
+    // mapImageHeight = 684;537.5;
+    const xCord = Math.floor(Math.random() * (600 - 29 + 1)) + 29;
+    const yCord = Math.floor(Math.random() * (500 - 30 + 1)) + 30;
     this.carsLocations.push({ xCord, yCord });
     console.log(this.carsLocations);
 

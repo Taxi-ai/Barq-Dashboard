@@ -1,55 +1,67 @@
 <app-back-button></app-back-button>
 
-<div *ngIf="user">
-  <div class="row no-gutters primaryBG">
-    <p class="col-md-3 mainPadding secondaryFC">
-      <img style="width: 100%; border-radius: 10px;" [src]="user.image" />
-    </p>
-    <div id="centeringMainData" class="col-md-9 mainPadding primaryFC">
-      <h1 class="m-0 p-0">
-        {{ user.username | uppercase }}
-      </h1>
+<app-dashboard-spinner
+  *ngIf="spin"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  "
+></app-dashboard-spinner>
 
-      <p class="m-0 p-0">
-        {{ user.email }}
+<div *ngIf="!spin">
+  <div *ngIf="user">
+    <div class="row no-gutters primaryBG">
+      <p class="col-md-3 mainPadding secondaryFC">
+        <img style="width: 100%; border-radius: 10px;" [src]="user.image" />
       </p>
-      <p class="m-0 p-0">
-        {{ user.phone }}
-      </p>
-    </div>
-  </div>
+      <div id="centeringMainData" class="col-md-9 mainPadding primaryFC">
+        <h1 class="m-0 p-0">
+          {{ user.username | uppercase }}
+        </h1>
 
-  <div class="row">
-    <p class="col-md-2 secondaryFC">
-      Address:
-    </p>
-    <p class="col-md-4 primaryFC">
-      {{ user.address.country }} - {{ user.address.city }} -
-      {{ user.address.street }}
-    </p>
-    <p class="col-md-2 secondaryFC">
-      Date of birth:
-    </p>
-    <p class="col-md-4 primaryFC">
-      {{ user.dateOfBirth | date }}
-    </p>
-  </div>
-  <div class="row">
-    <div class="col-8">
-      <a class="btn btn-block btn-primary" [routerLink]="addIssueForThatUser"
-        >Add Issue</a
-      >
+        <p class="m-0 p-0">
+          {{ user.email }}
+        </p>
+        <p class="m-0 p-0">
+          {{ user.phone }}
+        </p>
+      </div>
     </div>
-    <!-- <div class="col-4">
-      <a class="btn btn-block btn-danger" routerLink="edit">Edit user</a>
-    </div> -->
-    <div class="col-4">
-      <a class="btn btn-block btn-dark secondaryFC" (click)="deleteUser()"
-        >Delete user</a
-      >
+
+    <div class="row">
+      <p class="col-md-2 secondaryFC">
+        Address:
+      </p>
+      <p class="col-md-4 primaryFC">
+        {{ user.address.country }} - {{ user.address.city }} -
+        {{ user.address.street }}
+      </p>
+      <p class="col-md-2 secondaryFC">
+        Date of birth:
+      </p>
+      <p class="col-md-4 primaryFC">
+        {{ user.dateOfBirth | date }}
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <a class="btn btn-block btn-primary" [routerLink]="addIssueForThatUser"
+          >Add Issue</a
+        >
+      </div>
+      <!-- <div class="col-4">
+        <a class="btn btn-block btn-danger" routerLink="edit">Edit user</a>
+      </div> -->
+      <div class="col-4">
+        <a class="btn btn-block btn-dark secondaryFC" (click)="deleteUser()"
+          >Delete user</a
+        >
+      </div>
     </div>
   </div>
-</div>
-<div class="primaryFC text-center" *ngIf="!user">
-  <h1>This user isn't in database</h1>
+  <div class="primaryFC text-center" *ngIf="!user">
+    <h1>This user isn't in database</h1>
+  </div>
 </div>

@@ -10,6 +10,8 @@ import { UserX } from '../../user.model';
 })
 export class UserPageComponent implements OnInit {
   user: UserX;
+  spin = true;
+
 
   addIssueForThatUser = '../../issues/new/';
 
@@ -23,6 +25,8 @@ export class UserPageComponent implements OnInit {
     this.usersService.getUserByID(userID).subscribe(user => {
       // console.log(user);
       this.user = user;
+      this.spin = false;
+
 
     });
 
@@ -35,7 +39,10 @@ export class UserPageComponent implements OnInit {
     this.usersService.deleteUserByID(this.route.snapshot.params.id).subscribe(data => {
       console.log(data);
       this.router.navigate(['../'], { relativeTo: this.route });
-    });
+    },
+      error => {
+        this.spin = false;
+      });
   }
 
 }

@@ -48,6 +48,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.locationMapping(this.locations);
 
+
     console.log(this.canvasDimensions.canvasWidth);
     console.log(this.canvasDimensions.canvasHeight);
 
@@ -122,6 +123,9 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   }
+
+
+
 
   ngOnDestroy() {
     console.log('destroy map');
