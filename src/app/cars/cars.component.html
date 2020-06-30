@@ -11,7 +11,7 @@
   <div class="col-md-12">
     <div
       *ngIf="
-        !fetchingDataVars.isFetchingDone && !fetchingDataVars.isFetchingError
+        !fetchingDataVars.isFetchingDone && !!fetchingDataVars.isFetchingError
       "
     >
       <app-is-fetching></app-is-fetching>
@@ -45,10 +45,18 @@
 
   <div class="row no-gutters">
     <div class="col-lg-6">
-      <app-cars-table [cars]="cars"></app-cars-table>
+      <app-cars-table
+        [style.height.px]="tableHeight"
+        [tableHeight]="tableHeight"
+        [cars]="cars"
+      ></app-cars-table>
     </div>
     <div class="col-lg-6">
-      <app-map [mapWidth]="mapWidth" [locations]="carsLocations"></app-map>
+      <app-map
+        [mapWidth]="mapWidth"
+        (mapHeightWasSet)="setTableHeight($event)"
+        [locations]="carsLocations"
+      ></app-map>
     </div>
   </div>
 </div>

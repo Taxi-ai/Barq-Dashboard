@@ -12,4 +12,9 @@ table,
 #tableHeight {
   height: inherit;
   background-color: #343a40;
+  overflow: auto;
+}
+
+.table-responsive {
+  overflow: visible;
 }

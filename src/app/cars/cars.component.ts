@@ -11,14 +11,13 @@ export class CarsComponent implements OnInit {
 
   cars: Car[] = [];
   carsLocations = [
-    { xCord: 161, yCord: 92 },
-    { xCord: 30, yCord: 224 },
-    { xCord: 501, yCord: 437 },
+
   ];
   carsStates = { Car: 0, Disabled: 0, Accessed: 0 };
   countersArray = ['Car', 'Disabled', 'Accessed', this.carsStates];
 
   fetchingDataVars = { isFetchingError: false, isFetchingDone: false, carsArrayLength: 0 };
+
 
   searchQueries = [
     { label: 'ID', value: 'id', type: 'text' },
@@ -55,6 +54,7 @@ export class CarsComponent implements OnInit {
 
   constructor(private carsService: CarsService) { }
 
+
   ngOnInit() {
 
     this.carsService.getAllCars().subscribe(cars => {
@@ -87,9 +87,19 @@ export class CarsComponent implements OnInit {
   }
 
 
+
+
   setMapWidth() {
     this.mapWidth = this.NewBTN.nativeElement.clientWidth - 30;
     console.log(this.NewBTN.nativeElement);
+  }
+
+  setTableHeight(height: number) {
+    if (document.body.clientWidth > 992) {
+      this.tableHeight = height;
+      console.log(height);
+    }
+
   }
 
 
@@ -98,6 +108,8 @@ export class CarsComponent implements OnInit {
     const modelsArray = [];
 
     this.cars.forEach((car) => {
+
+      this.addRandomCarCords();
 
       if (modelsArray.includes(car.model)) {
       } else {
@@ -121,9 +133,14 @@ export class CarsComponent implements OnInit {
     });
   }
 
-  changeTableHeight(height: number) {
-    console.log(height);
-    this.tableHeight = height;
+  addRandomCarCords() {
+    // mapImageWidth = 800;
+    // mapImageHeight = 684;
+    const xCord = Math.floor(Math.random() * (750 - 50 + 1)) + 50;
+    const yCord = Math.floor(Math.random() * (640 - 40 + 1)) + 40;
+    this.carsLocations.push({ xCord, yCord });
+    console.log(this.carsLocations);
+
   }
 
 

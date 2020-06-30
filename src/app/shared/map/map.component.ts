@@ -11,6 +11,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() locations: { xCord: number, yCord: number }[];
   @Input() mapWidth: number;
+  @Output() mapHeightWasSet = new EventEmitter<number>();
 
   @ViewChild('myCanvas') myCanvas: ElementRef;
   context: CanvasRenderingContext2D;
@@ -28,7 +29,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   pinImageWidth = 419;
   pinImageHeight = 641;
 
-  pinWidth = 20;
+  pinWidth = 40;
   pinHeight = (this.pinWidth * this.pinImageHeight) / this.pinImageWidth;
 
   newX = 0;
@@ -50,6 +51,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log(this.canvasDimensions.canvasHeight);
 
 
+
+
   }
 
   ngAfterViewInit() {
@@ -58,8 +61,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.myCanvas.nativeElement.height = this.canvasDimensions.canvasHeight;
 
     this.context = this.myCanvas.nativeElement.getContext('2d');
-
-
 
     // TODO height and width of pin must be scaled with map not has fixed width and height
     // it put (0,0) of the image in the place you want
@@ -103,11 +104,18 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
         this.newX = this.oldX;
 
         this.newY = this.oldY;
+
+
       }
       // }
       // , 2000);
 
     });
+
+    setTimeout(() => {
+      this.mapHeightWasSet.emit(this.myCanvas.nativeElement.clientHeight);
+    }, 1000);
+
 
 
   }
@@ -128,6 +136,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     //   'Coordinate y: ' + y);
     // this.newX = x;
     // this.newY = y;
+
+
   }
 
 

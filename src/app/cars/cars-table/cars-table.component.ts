@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Car } from '../car.model';
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
@@ -6,14 +6,30 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './cars-table.component.html',
   styleUrls: ['./cars-table.component.css']
 })
-export class CarsTableComponent implements OnInit {
+export class CarsTableComponent implements OnInit, AfterViewInit {
 
   @Input() cars: Car[];
+  @Input() tableHeight: number;
+
+  @ViewChild('tableHeight') tableHeightDiv: ElementRef;
 
 
   constructor(private router: Router, private route: ActivatedRoute) { }
+
   ngOnInit() {
   }
+
+
+  ngAfterViewInit() {
+
+    this.tableHeightDiv.nativeElement.clientHeight = this.tableHeight;
+    console.log(this.tableHeightDiv.nativeElement.clientHeight);
+
+
+  }
+
+
+
 
   carProfile(car: Car) {
     console.log(car._id);
