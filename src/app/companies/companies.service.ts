@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Company } from './company.model';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { data } from 'jquery';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,7 @@ export class CompaniesService {
 
   getCompanyByID(companyID: string) {
     const companyAPI = 'https://barq-api.azurewebsites.net/api/companies/' + companyID;
+    this.postNewCompanyHistory(companyID);
     return this.http.get<Company>(companyAPI);
   }
 
@@ -43,4 +45,29 @@ export class CompaniesService {
   }
 
 
+  postNewCompanyHistory(companyID: string) {
+
+    const company = {
+      companyId: companyID,
+      startingDate: new Date(),
+      endingDate: new Date(),
+      offerId: companyID,
+      moneyIncome: 22,
+    };
+    this.http.post('https://barq-api.azurewebsites.net/api/companiesHistory', company).subscribe(data => {
+      console.log(data);
+      this.getCompanyHistoryByID(companyID);
+
+    })
+  }
+
+  getCompanyHistoryByID(companyID: string) {
+    const historyAPI = 'https://barq-api.azurewebsites.net/api/companiesHistory';
+    this.http.get<Company>(historyAPI).subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+
 }
+

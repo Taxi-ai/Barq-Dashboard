@@ -10,12 +10,12 @@
       <tr>
         <th scope="col">#</th>
         <!-- <th scope="col">In A Ride?</th> -->
-        <th scope="col">User Name</th>
+        <th scope="col">Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
         <th scope="col">City</th>
         <!-- <th scope="col">age</th> -->
         <th scope="col">Birth date</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Email</th>
         <!-- <th scope="col">Wallet</th> -->
         <!-- <th scope="col">Rides</th> -->
         <!-- <th scope="col">Used Offers</th> -->
@@ -38,13 +38,13 @@
         <td>
           {{ user.username | titlecase }}
         </td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.email | shorten: 10 }}</td>
         <td>
           {{ user.address.city | titlecase }} -
           {{ user.address.country | titlecase }}
         </td>
         <td>{{ user.dateOfBirth | date: "y/MM/dd" }}</td>
-        <td>{{ user.phone }}</td>
-        <td>{{ user.email | shorten: 10 }}</td>
         <!-- <td>{{ user.wallet }}</td> -->
         <!-- <td>{{ user.numberOfRides }}</td> -->
         <!-- <td>{{ user.numberOfOffers }}</td> -->
