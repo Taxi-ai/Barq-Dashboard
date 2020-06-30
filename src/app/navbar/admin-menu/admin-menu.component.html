@@ -1,17 +1,12 @@
-<div id="adminMenu" class="primaryNAVsFilter NAVsFilter">
+<div id="adminMenu" class="primaryNAVsFilter secondaryFC NAVsFilter">
   <ul class="m-0 p-0 text-center text-capitalize">
-    <li
-      class="py-3 px-2"
-      [ngStyle]="{ color: makeItDark ? 'yellow' : '#191919' }"
-      style="cursor: pointer;"
-      (click)="toggleTheme()"
-    >
+    <li class="py-3 px-2" style="cursor: pointer;" (click)="toggleTheme()">
       <div class="row m-0 p-0">
         <div class="col-2 m-0 p-0">
           <i class="fas fa-lightbulb"></i>
         </div>
         <div class="col-10 m-0 p-0">
-          <p class="m-0 p-0">Dark mode {{ makeItDark ? "on" : "off" }}</p>
+          <p class="m-0 p-0">Turn Dark mode {{ makeItDark ? "off" : "on" }}</p>
         </div>
       </div>
     </li>

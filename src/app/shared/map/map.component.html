@@ -1,7 +1,6 @@
-<!-- <app-dashboard-spinner
-  *ngIf="!stopLoading"
-  class="m-auto w-100"
-></app-dashboard-spinner> -->
+<div id="app-dashboard-spinner" class="text-center">
+  <app-dashboard-spinner *ngIf="!stopLoading"></app-dashboard-spinner>
+</div>
 
 <canvas #myCanvas [hidden]="!stopLoading">
   Your browser does not support the HTML canvas tag.</canvas

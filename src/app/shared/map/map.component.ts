@@ -38,6 +38,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   oldY: number;
   stopLoading = false;
   // locationInterval;
+  tableHeightInterval;
 
 
   ngOnInit() {
@@ -112,9 +113,11 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     });
 
-    setTimeout(() => {
-      this.mapHeightWasSet.emit(this.myCanvas.nativeElement.clientHeight);
-    }, 1000);
+    this.tableHeightInterval = setInterval(() => {
+      if (document.body.clientWidth > 992) {
+        this.mapHeightWasSet.emit(this.myCanvas.nativeElement.clientHeight);
+      }
+    }, 500);
 
 
 
@@ -123,6 +126,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     console.log('destroy map');
 
+    clearInterval(this.tableHeightInterval);
     // clearInterval(this.locationInterval);
   }
 

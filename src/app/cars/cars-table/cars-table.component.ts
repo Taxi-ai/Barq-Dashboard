@@ -22,7 +22,7 @@ export class CarsTableComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
 
-    this.tableHeightDiv.nativeElement.clientHeight = this.tableHeight;
+    // this.tableHeightDiv.nativeElement.clientHeight = this.tableHeight;
     console.log(this.tableHeightDiv.nativeElement.clientHeight);
 
 

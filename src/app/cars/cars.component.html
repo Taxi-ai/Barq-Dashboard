@@ -11,7 +11,7 @@
   <div class="col-md-12">
     <div
       *ngIf="
-        !fetchingDataVars.isFetchingDone && !!fetchingDataVars.isFetchingError
+        !fetchingDataVars.isFetchingDone && !fetchingDataVars.isFetchingError
       "
     >
       <app-is-fetching></app-is-fetching>
