@@ -11,7 +11,7 @@ import { CompaniesService } from '../../companies.service';
 export class CompanyEditComponent implements OnInit {
 
   company: Company;
-  changesIsSaved = false;
+  spin = true;
 
   constructor(private route: ActivatedRoute, private router: Router, private companiesService: CompaniesService) { }
 
@@ -20,10 +20,14 @@ export class CompanyEditComponent implements OnInit {
     this.companiesService.getCompanyByID(companyID).subscribe(company => {
       // console.log(company);
       this.company = company;
+      this.spin = false;
+
     });
   }
 
   updateCompanyData() {
+    this.spin = true;
+
     const editedCompany: Company = {
       name: this.company.name,
       email: this.company.email,
@@ -33,7 +37,7 @@ export class CompanyEditComponent implements OnInit {
     };
     this.companiesService.updateCompanyByID(this.company._id, editedCompany).subscribe(data => {
       console.log(data);
-      this.changesIsSaved = true;
+      this.spin = false;
       this.router.navigate(['../'], { relativeTo: this.route });
     }
     );

@@ -11,7 +11,7 @@ import { CarsService } from '../../cars.service';
 export class CarEditComponent implements OnInit {
 
   car: Car;
-  changesIsSaved = false;
+  spin = true;
 
 
   constructor(private route: ActivatedRoute, private router: Router, private carsService: CarsService) { }
@@ -21,11 +21,15 @@ export class CarEditComponent implements OnInit {
     this.carsService.getCarByID(carID).subscribe(car => {
       // console.log(car);
       this.car = car;
+      this.spin = false;
+
     });
   }
 
 
   updateCarData() {
+    this.spin = true;
+
     console.log(this.car);
 
     const editedCar: Car = {
@@ -37,7 +41,8 @@ export class CarEditComponent implements OnInit {
 
     this.carsService.updateCarByID(this.car._id, editedCar).subscribe(data => {
       console.log(data);
-      this.changesIsSaved = true;
+      this.spin = false;
+
       this.router.navigate(['../'], { relativeTo: this.route });
     }
     );

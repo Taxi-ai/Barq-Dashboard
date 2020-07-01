@@ -11,7 +11,7 @@ import { IssuesService } from '../../issues.service';
 export class IssueEditComponent implements OnInit {
 
   issue: Issue;
-  changesIsSaved = false;
+  spin = true;
 
   constructor(private route: ActivatedRoute, private router: Router, private issuesService: IssuesService) { }
 
@@ -20,10 +20,14 @@ export class IssueEditComponent implements OnInit {
     this.issuesService.getIssueByID(issueID).subscribe(issue => {
       // console.log(issue);
       this.issue = issue;
+      this.spin = false;
+
     });
   }
 
   updateIssueData() {
+    this.spin = true;
+
     const editedIssue: Issue = {
       label: this.issue.label,
       body: this.issue.body,
@@ -32,7 +36,7 @@ export class IssueEditComponent implements OnInit {
     this.issuesService.getIssueOwner(this.issue.userId).subscribe(userData => {
       this.issuesService.updateIssueByID(this.issue._id, editedIssue).subscribe(data => {
         console.log(data);
-        this.changesIsSaved = true;
+        this.spin = false;
         this.router.navigate(['../'], { relativeTo: this.route });
       }
       );

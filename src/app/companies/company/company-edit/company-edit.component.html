@@ -1,6 +1,7 @@
 <app-back-button></app-back-button>
+<app-dashboard-spinner *ngIf="spin"></app-dashboard-spinner>
 
-<form *ngIf="company">
+<form *ngIf="!spin">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label class="primaryFC" for="companyName">Company Name</label>
@@ -84,9 +85,7 @@
       (click)="updateCompanyData()"
       class="btn btn-primary btn-block"
     >
-      Update Data
+      SAVE
     </button>
   </div>
 </form>
-
-<div *ngIf="!company"><h1>This company isn't in database</h1></div>

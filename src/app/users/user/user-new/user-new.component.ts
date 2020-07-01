@@ -19,6 +19,7 @@ export class UserNewComponent implements OnInit {
     password: '1234qwer!@#$',
     phone: ' '
   };
+  spin = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private usersService: UsersService) { }
 
@@ -26,8 +27,12 @@ export class UserNewComponent implements OnInit {
   }
 
   postNewUser() {
+    this.spin = true;
+
     this.usersService.postNewUser(this.user).subscribe(data => {
       // console.log(data);
+      this.spin = false;
+
       this.router.navigate(['../'], { relativeTo: this.route });
     });
 

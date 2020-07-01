@@ -15,24 +15,28 @@ export class IssueNewComponent implements OnInit {
     label: '',
     body: '',
   };
+  spin = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private issuesService: IssuesService) { }
 
   ngOnInit() {
-    console.log('before if')
+    console.log('before if');
 
     if (this.route.snapshot.params.ownerID) {
-      console.log('in if')
+      console.log('in if');
       this.issue.userId = this.route.snapshot.params.ownerID;
     }
   }
 
   postNewIssue() {
     console.log(this.issue);
+    this.spin = true;
 
     this.issuesService.getIssueOwner(this.issue.userId).subscribe(userData => {
       this.issuesService.postNewIssue(this.issue).subscribe(data => {
         console.log(data);
+        this.spin = false;
+
         this.router.navigate(['../'], { relativeTo: this.route });
       });
     },

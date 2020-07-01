@@ -17,6 +17,7 @@ export class CompanyNewComponent implements OnInit {
     address: { country: ' ', city: ' ', street: ' ' },
     numberOfEmployees: 0
   };
+  spin = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private companiesService: CompaniesService) { }
 
@@ -25,8 +26,12 @@ export class CompanyNewComponent implements OnInit {
   }
 
   postNewCompany() {
+    this.spin = true;
+
     this.companiesService.postNewCompany(this.company).subscribe(data => {
       // console.log(data);
+      this.spin = false;
+
       this.router.navigate(['../'], { relativeTo: this.route });
     });
 

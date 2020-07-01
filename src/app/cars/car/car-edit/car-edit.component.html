@@ -1,6 +1,7 @@
 <app-back-button></app-back-button>
+<app-dashboard-spinner *ngIf="spin"></app-dashboard-spinner>
 
-<form *ngIf="car">
+<form *ngIf="!spin">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label class="primaryFC" for="carModel">Model</label>
@@ -63,8 +64,7 @@
       (click)="updateCarData()"
       class="btn btn-primary btn-block"
     >
-      Update Data
+      SAVE
     </button>
   </div>
 </form>
-<div *ngIf="!car"><h1>This company isn't in database</h1></div>

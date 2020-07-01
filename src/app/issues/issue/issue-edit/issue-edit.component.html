@@ -1,6 +1,7 @@
 <app-back-button></app-back-button>
+<app-dashboard-spinner *ngIf="spin"></app-dashboard-spinner>
 
-<form *ngIf="issue">
+<form *ngIf="!spin">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label class="primaryFC" for="issueLabel">Label</label>
@@ -52,9 +53,7 @@
       (click)="updateIssueData()"
       class="btn btn-primary btn-block"
     >
-      Update data
+      SAVE
     </button>
   </div>
 </form>
-
-<div *ngIf="!issue"><h1>This issue isn't in database</h1></div>

@@ -16,6 +16,7 @@ export class CarNewComponent implements OnInit {
     color: '',
 
   };
+  spin = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private carsService: CarsService) { }
 
@@ -25,9 +26,12 @@ export class CarNewComponent implements OnInit {
 
   postNewCar() {
     console.log(this.car);
+    this.spin = true;
 
     this.carsService.postNewCar(this.car).subscribe(data => {
       console.log(data);
+      this.spin = false;
+
       this.router.navigate(['../'], { relativeTo: this.route });
     });
 

@@ -1,6 +1,7 @@
 <app-back-button></app-back-button>
+<app-dashboard-spinner *ngIf="spin"></app-dashboard-spinner>
 
-<form>
+<form *ngIf="!spin">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label class="primaryFC" for="issueLabel">Label</label>
@@ -52,7 +53,7 @@
       (click)="postNewIssue()"
       class="btn btn-primary btn-block"
     >
-      Add issue
+      ADD TO SYSTEM
     </button>
   </div>
 </form>
