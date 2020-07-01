@@ -1,1 +1,113 @@
-<p>package-new works!</p>
+<app-back-button></app-back-button>
+
+<app-dashboard-spinner *ngIf="spin"></app-dashboard-spinner>
+
+<form *ngIf="!spin">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="Category">Category</label>
+      <select
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="companyPackage.category"
+        id="Category"
+        required
+        class="custom-select mr-sm-2"
+        id="inlineFormCustomSelect"
+      >
+        <option value="gold" selected>Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="Duration">Duration</label>
+      <input
+        required
+        type="number"
+        class="form-control"
+        id="Duration"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="companyPackage.duration"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="price">Price</label>
+      <input
+        required
+        type="number"
+        class="form-control"
+        id="price"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="companyPackage.price"
+      />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="offerDiscount">Min price per ride</label>
+      <input
+        required
+        type="number"
+        class="form-control"
+        id="offerDiscount"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="companyPackage.limitedPricePerRide"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="numberOfRides">Number Of Rides</label>
+      <input
+        required
+        type="number"
+        class="form-control"
+        id="numberOfRides"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="companyPackage.numberOfRides"
+      />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="numberOfGiftCodes"
+        >Number Of Gift Codes</label
+      >
+      <input
+        required
+        type="number"
+        class="form-control"
+        id="numberOfGiftCodes"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="companyPackage.numberOfGiftCodes"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label class="primaryFC" for="Description">Description</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="Description"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="companyPackage.description"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <button
+      type="submit"
+      (click)="postNewPackage()"
+      class="btn btn-primary btn-block"
+    >
+      Add package
+    </button>
+  </div>
+</form>
