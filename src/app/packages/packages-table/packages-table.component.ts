@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Package } from '../package.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-packages-table',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PackagesTableComponent implements OnInit {
 
-  constructor() { }
+  @Input() companyPackages: Package[];
+
+
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  companyPackageProfile(companyPackage: Package) {
+    console.log(companyPackage._id);
+    this.router.navigate([companyPackage._id], { relativeTo: this.route });
   }
 
 }

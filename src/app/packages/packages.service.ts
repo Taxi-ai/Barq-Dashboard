@@ -12,12 +12,12 @@ export class PackagesService {
 
 
   postNewPackage(companyPackage: Package) {
-    return this.http.post('https://barq-api.azurewebsites.net/api/companyPackages', companyPackage);
+    return this.http.post('https://barq-api.azurewebsites.net/api/packages', companyPackage);
   }
 
   getAllPackages() {
 
-    return this.http.get('https://barq-api.azurewebsites.net/api/companyPackages').pipe(
+    return this.http.get('https://barq-api.azurewebsites.net/api/packages').pipe(
       map((companyPackagesStream: Package[]) => {
         const companyPackagesArray = [];
         // tslint:disable-next-line: forin
@@ -29,18 +29,18 @@ export class PackagesService {
   }
 
   getPackageByID(companyPackageID: string) {
-    const companyPackageAPI = 'https://barq-api.azurewebsites.net/api/companyPackages/' + companyPackageID;
+    const companyPackageAPI = 'https://barq-api.azurewebsites.net/api/packages/' + companyPackageID;
     return this.http.get<Package>(companyPackageAPI);
   }
 
 
   updatePackageByID(companyPackageID: string, companyPackage: Package) {
-    const companyPackageAPI = 'https://barq-api.azurewebsites.net/api/companyPackages/' + companyPackageID;
+    const companyPackageAPI = 'https://barq-api.azurewebsites.net/api/packages/' + companyPackageID;
     return this.http.put(companyPackageAPI, companyPackage);
   }
 
   deletePackageByID(companyPackageID: string) {
-    const companyPackageAPI = 'https://barq-api.azurewebsites.net/api/companyPackages/' + companyPackageID;
+    const companyPackageAPI = 'https://barq-api.azurewebsites.net/api/packages/' + companyPackageID;
     return this.http.delete(companyPackageAPI);
   }
 

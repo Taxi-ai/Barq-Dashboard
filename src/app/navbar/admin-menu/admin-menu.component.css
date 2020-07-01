@@ -11,7 +11,7 @@ li {
 }
 
 li:hover {
-  background-color: whitesmoke;
+  background-color: var(--primary-color) !important;
 }
 
 #adminMenu {

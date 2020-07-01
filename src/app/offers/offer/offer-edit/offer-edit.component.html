@@ -1,8 +1,8 @@
 <app-back-button></app-back-button>
 
-<!-- <app-dashboard-spinner *ngIf="!spin"></app-dashboard-spinner> -->
+<app-dashboard-spinner *ngIf="spin"></app-dashboard-spinner>
 
-<form>
+<form *ngIf="!spin">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label class="primaryFC" for="offerCode">Code</label>

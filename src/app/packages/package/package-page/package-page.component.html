@@ -1,1 +1,64 @@
-<p>package-page works!</p>
+<app-back-button></app-back-button>
+
+<app-dashboard-spinner
+  *ngIf="spin"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  "
+></app-dashboard-spinner>
+
+<div *ngIf="!spin">
+  <div *ngIf="companyPackage">
+    <div class="row no-gutters primaryBG">
+      <div id="centeringMainData" class="col-md-12 mainPadding primaryFC">
+        <p id="issueMain" class="m-0 p-0">
+          <span
+            [ngClass]="{
+              gold: companyPackage.category === 'gold',
+              silver: companyPackage.category === 'silver',
+              bronze: companyPackage.category === 'bronze'
+            }"
+            >{{
+              companyPackage.category === "gold"
+                ? "GOLD"
+                : companyPackage.category === "silver"
+                ? "Silver"
+                : "BRONZE"
+            }}</span
+          >
+          PACKAGE
+        </p>
+        <P> </P>
+        <p id="offerCode" class="m-0 p-0">
+          {{ companyPackage.price }} EGP with minimum ride price of
+          {{ companyPackage.limitedPricePerRide }}.
+        </p>
+        <p id="offerDiscount" class="m-0 p-0">
+          Offers {{ companyPackage.numberOfGiftCodes }} gift codes.
+        </p>
+        <p class="m-0 p-0">{{ companyPackage.description }}</p>
+        <p class="m-0 p-0">
+          Was used in {{ companyPackage.numberOfRides }} rides till now.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <a class="btn btn-block btn-danger" routerLink="edit">Edit</a>
+      </div>
+      <div class="col-6">
+        <a
+          class="btn btn-block btn-dark secondaryFC"
+          (click)="deleteCompanyPackage()"
+          >Delete</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="primaryFC text-center" *ngIf="!companyPackage">
+    <h1>This package isn't in database!</h1>
+  </div>
+</div>

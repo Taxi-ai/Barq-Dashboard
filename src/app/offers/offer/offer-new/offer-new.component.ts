@@ -18,7 +18,7 @@ export class OfferNewComponent implements OnInit {
     endingDate: new Date()
   };
 
-  spin = true;
+  spin = false;
 
 
   constructor(private route: ActivatedRoute, private router: Router, private offersService: OffersService) { }

@@ -1,1 +1,56 @@
-<p>packages-table works!</p>
+<div
+  style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
+  class="table-responsive p-0 m-0"
+>
+  <table
+    style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
+    class="table table-dark p-0 m-0"
+  >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Package ID</th>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+        <th scope="col">No. of gift codes</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Price</th>
+        <th scope="col">Minimum price/ride</th>
+        <th scope="col">No. of rides</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let companyPackage of companyPackages; index as i"
+        (click)="companyPackageProfile(companyPackage)"
+        style="cursor: pointer;"
+      >
+        <td scope="row">{{ i + 1 }}</td>
+        <td scope="row">{{ companyPackage._id | shorten: 5 }}...</td>
+        <td
+          scope="row"
+          style="width: 5px; text-align: center;"
+          [ngClass]="{
+            gold: companyPackage.category === 'gold',
+            silver: companyPackage.category === 'silver',
+            bronze: companyPackage.category === 'bronze'
+          }"
+        >
+          {{
+            companyPackage.category === "gold"
+              ? "GOLD"
+              : companyPackage.category === "silver"
+              ? "Silver"
+              : "BRONZE"
+          }}
+        </td>
+        <td>{{ companyPackage.description }}</td>
+        <td>{{ companyPackage.numberOfGiftCodes }}</td>
+        <td>{{ companyPackage.duration }}</td>
+        <td>{{ companyPackage.price }}</td>
+        <td>{{ companyPackage.limitedPricePerRide }}</td>
+        <td>{{ companyPackage.numberOfRides }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

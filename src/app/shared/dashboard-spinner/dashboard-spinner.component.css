@@ -1,3 +1,7 @@
+:host {
+  display: block;
+  text-align: center;
+}
 .lds-grid {
   display: inline-block;
   position: relative;
