@@ -1,1 +1,79 @@
-<p>offer-new works!</p>
+<app-back-button></app-back-button>
+
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="offerCode">Code</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="offerCode"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="offer.code"
+      />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="offerDiscount">Discount</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="offerDiscount"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="offer.discount"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="offerStart">Start</label>
+      <input
+        required
+        type="date"
+        class="form-control"
+        id="offerStart"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="offer.startingDate"
+      />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="offerEnd">End</label>
+      <input
+        required
+        type="date"
+        class="form-control"
+        id="offerEnd"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="offer.endingDate"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label class="primaryFC" for="offerCountry">Body</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="offerCountry"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="offer.body"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <button
+      type="submit"
+      (click)="postNewOffer()"
+      class="btn btn-primary btn-block"
+    >
+      Add code
+    </button>
+  </div>
+</form>

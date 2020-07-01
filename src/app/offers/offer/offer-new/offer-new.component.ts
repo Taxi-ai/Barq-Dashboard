@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Offer } from '../../offer.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { OffersService } from '../../offers.service';
 
 @Component({
   selector: 'app-offer-new',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OfferNewComponent implements OnInit {
 
-  constructor() { }
+  offer: Offer = {
+    code: '',
+    discount: 0,
+    body: '',
+    startingDate: new Date(),
+    endingDate: new Date()
+  };
+
+  constructor(private route: ActivatedRoute, private router: Router, private offersService: OffersService) { }
 
   ngOnInit(): void {
+
+  }
+
+
+  postNewOffer() {
+    console.log(this.offer);
+
+    this.offersService.postNewOffer(this.offer).subscribe(data => {
+      console.log(data);
+      this.router.navigate(['../'], { relativeTo: this.route });
+    });
+
   }
 
 }

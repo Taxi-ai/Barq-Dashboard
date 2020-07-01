@@ -5,7 +5,7 @@ export class Offer {
     public code: string;
     public discount: number;
     public body: string;
-    public image: string;
+    public image?: string;
     public startingDate: Date;
     public endingDate: Date;
 
