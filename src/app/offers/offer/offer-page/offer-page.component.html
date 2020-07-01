@@ -1,1 +1,42 @@
-<p>offer-page works!</p>
+<app-back-button></app-back-button>
+
+<app-dashboard-spinner
+  *ngIf="spin"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  "
+></app-dashboard-spinner>
+
+<div *ngIf="!spin">
+  <div *ngIf="offer">
+    <div class="row no-gutters primaryBG">
+      <div id="centeringMainData" class="col-md-12 mainPadding primaryFC">
+        <p id="issueMain" class="m-0 p-0">
+          FROM {{ offer.startingDate | date: "fullDate" }} TO
+          {{ offer.endingDate | date: "fullDate" }}
+        </p>
+        <p id="offerCode" class="m-0 p-0">
+          {{ offer.code }}
+        </p>
+        <p id="offerDiscount" class="m-0 p-0">{{ offer.discount }}%/ride</p>
+        <p class="m-0 p-0">{{ offer.body }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <a class="btn btn-block btn-danger" routerLink="edit">Edit</a>
+      </div>
+      <div class="col-6">
+        <a class="btn btn-block btn-dark secondaryFC" (click)="deleteOffer()"
+          >Delete</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="primaryFC text-center" *ngIf="!offer">
+    <h1>This offer isn't in database!</h1>
+  </div>
+</div>
