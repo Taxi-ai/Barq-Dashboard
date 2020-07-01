@@ -13,3 +13,15 @@ export class Company {
     };
 
 }
+
+
+export class ComponyHistory {
+
+    public companyId: string;
+    public offerId: string;
+    public moneyIncome: number;
+    public startingDate: Date;
+    public endingDate: Date;
+    public feedback?: { adminId: string, body: string };
+
+}
