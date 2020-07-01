@@ -1,1 +1,43 @@
-<p>question-new works!</p>
+<app-back-button></app-back-button>
+
+<app-dashboard-spinner *ngIf="spin"></app-dashboard-spinner>
+
+<form *ngIf="!spin">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label class="primaryFC" for="question">Question</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="question"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="question.question"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label class="primaryFC" for="answer">Answer</label>
+      <textarea
+        required
+        type="text"
+        class="form-control"
+        id="answer"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="question.answer"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <button
+      type="submit"
+      (click)="postNewQuestion()"
+      class="btn btn-primary btn-block"
+    >
+      Add question
+    </button>
+  </div>
+</form>

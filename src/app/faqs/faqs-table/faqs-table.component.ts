@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Question } from '../question.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-faqs-table',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaqsTableComponent implements OnInit {
 
-  constructor() { }
+  @Input() questions: Question[];
+
+
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+  }
+
+  questionProfile(question: Question) {
+    console.log(question._id);
+    this.router.navigate([question._id], { relativeTo: this.route });
   }
 
 }

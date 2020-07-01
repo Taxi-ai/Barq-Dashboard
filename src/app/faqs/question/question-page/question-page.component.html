@@ -1,1 +1,35 @@
-<p>question-page works!</p>
+<app-back-button></app-back-button>
+
+<app-dashboard-spinner
+  *ngIf="spin"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  "
+></app-dashboard-spinner>
+
+<div *ngIf="!spin">
+  <div *ngIf="question">
+    <div class="row no-gutters primaryBG">
+      <div id="centeringMainData" class="col-md-12 mainPadding primaryFC">
+        <p id="issueMain" class="m-0 p-0">Question: {{ question.question }}?</p>
+        <p id="offerCode" class="m-0 p-0">Answer: {{ question.answer }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <a class="btn btn-block btn-danger" routerLink="edit">Edit</a>
+      </div>
+      <div class="col-6">
+        <a class="btn btn-block btn-dark secondaryFC" (click)="deleteQuestion()"
+          >Delete</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="primaryFC text-center" *ngIf="!question">
+    <h1>This question isn't in database!</h1>
+  </div>
+</div>
