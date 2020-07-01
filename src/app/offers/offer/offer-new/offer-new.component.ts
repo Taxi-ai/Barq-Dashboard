@@ -18,6 +18,9 @@ export class OfferNewComponent implements OnInit {
     endingDate: new Date()
   };
 
+  spin = true;
+
+
   constructor(private route: ActivatedRoute, private router: Router, private offersService: OffersService) { }
 
   ngOnInit(): void {
@@ -27,9 +30,12 @@ export class OfferNewComponent implements OnInit {
 
   postNewOffer() {
     console.log(this.offer);
+    this.spin = true;
 
     this.offersService.postNewOffer(this.offer).subscribe(data => {
       console.log(data);
+      this.spin = false;
+
       this.router.navigate(['../'], { relativeTo: this.route });
     });
 
