@@ -58,14 +58,14 @@
   <div class="form-row">
     <div class="form-group col-md-12">
       <label class="primaryFC" for="offerCountry">Body</label>
-      <input
+      <textarea
         required
         type="text"
         class="form-control"
         id="offerCountry"
         [ngModelOptions]="{ standalone: true }"
         [(ngModel)]="offer.body"
-      />
+      ></textarea>
     </div>
   </div>
 

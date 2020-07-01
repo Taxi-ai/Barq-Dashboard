@@ -90,14 +90,14 @@
   <div class="form-row">
     <div class="form-group col-md-12">
       <label class="primaryFC" for="Description">Description</label>
-      <input
+      <textarea
         required
         type="text"
         class="form-control"
         id="Description"
         [ngModelOptions]="{ standalone: true }"
         [(ngModel)]="companyPackage.description"
-      />
+      ></textarea>
     </div>
   </div>
 
