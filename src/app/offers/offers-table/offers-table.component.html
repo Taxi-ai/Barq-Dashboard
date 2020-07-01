@@ -1,1 +1,36 @@
-<p>offers-table works!</p>
+<div
+  style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
+  class="table-responsive p-0 m-0"
+>
+  <table
+    style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
+    class="table table-dark p-0 m-0"
+  >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Offer ID</th>
+        <th scope="col">Code</th>
+        <th scope="col">Discount</th>
+        <th scope="col">Body</th>
+        <th scope="col">Start</th>
+        <th scope="col">End</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let offer of offers; index as i"
+        (click)="offerProfile(offer)"
+        style="cursor: pointer;"
+      >
+        <td scope="row">{{ i + 1 }}</td>
+        <td scope="row">{{ offer._id | shorten: 5 }}...</td>
+        <td>{{ offer.code }}</td>
+        <td>{{ offer.discount }}%</td>
+        <td>{{ offer.body }}</td>
+        <td>{{ offer.startingDate | date: "fullDate" }}</td>
+        <td>{{ offer.endingDate | date: "fullDate" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

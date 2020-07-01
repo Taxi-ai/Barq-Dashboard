@@ -17,6 +17,8 @@ export class Company {
 
 export class ComponyHistory {
 
+    // tslint:disable-next-line: variable-name
+    public _id?: string;
     public companyId: string;
     public offerId: string;
     public moneyIncome: number;

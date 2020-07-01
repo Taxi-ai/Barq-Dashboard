@@ -21,6 +21,22 @@ import { IssueNewComponent } from '../issues/issue/issue-new/issue-new.component
 import { IssuePageComponent } from '../issues/issue/issue-page/issue-page.component';
 import { IssueEditComponent } from '../issues/issue/issue-edit/issue-edit.component';
 import { MobileNavigationMenuComponent } from '../side-menu/mobile-navigation-menu/mobile-navigation-menu.component';
+import { OffersComponent } from '../offers/offers.component';
+import { OfferNewComponent } from '../offers/offer/offer-new/offer-new.component';
+import { OfferEditComponent } from '../offers/offer/offer-edit/offer-edit.component';
+import { OfferPageComponent } from '../offers/offer/offer-page/offer-page.component';
+import { PackagesComponent } from '../packages/packages.component';
+import { PackageNewComponent } from '../packages/package/package-new/package-new.component';
+import { PackagePageComponent } from '../packages/package/package-page/package-page.component';
+import { PackageEditComponent } from '../packages/package/package-edit/package-edit.component';
+import { NotificationsComponent } from '../notifications/notifications.component';
+import { NotificationNewComponent } from '../notifications/notification/notification-new/notification-new.component';
+import { NotificationPageComponent } from '../notifications/notification/notification-page/notification-page.component';
+import { NotificationEditComponent } from '../notifications/notification/notification-edit/notification-edit.component';
+import { FaqsComponent } from '../faqs/faqs.component';
+import { QuestionNewComponent } from '../faqs/question/question-new/question-new.component';
+import { QuestionPageComponent } from '../faqs/question/question-page/question-page.component';
+import { QuestionEditComponent } from '../faqs/question/question-edit/question-edit.component';
 
 
 const routes: Routes = [
@@ -48,6 +64,22 @@ const routes: Routes = [
       { path: 'issues/new/:ownerID', component: IssueNewComponent },
       { path: 'issues/:id', component: IssuePageComponent },
       { path: 'issues/:id/edit', component: IssueEditComponent },
+      { path: 'offers', component: OffersComponent },
+      { path: 'offers/new', component: OfferNewComponent },
+      { path: 'offers/:id', component: OfferPageComponent },
+      { path: 'offers/:id/edit', component: OfferEditComponent },
+      { path: 'packages', component: PackagesComponent },
+      { path: 'packages/new', component: PackageNewComponent },
+      { path: 'packages/:id', component: PackagePageComponent },
+      { path: 'packages/:id/edit', component: PackageEditComponent },
+      { path: 'notifications', component: NotificationsComponent },
+      { path: 'notifications/new', component: NotificationNewComponent },
+      { path: 'notifications/:id', component: NotificationPageComponent },
+      { path: 'notifications/:id/edit', component: NotificationEditComponent },
+      { path: 'faqs', component: FaqsComponent },
+      { path: 'faqs/new', component: QuestionNewComponent },
+      { path: 'faqs/:id', component: QuestionPageComponent },
+      { path: 'faqs/:id/edit', component: QuestionEditComponent },
       { path: 'navigate', component: MobileNavigationMenuComponent },
       { path: '**', redirectTo: 'page-not-found' }
     ]
