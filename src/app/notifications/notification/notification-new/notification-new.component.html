@@ -1,1 +1,55 @@
-<p>notification-new works!</p>
+<app-back-button></app-back-button>
+
+<app-dashboard-spinner *ngIf="spin"></app-dashboard-spinner>
+
+<form *ngIf="!spin">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="title">Title</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="title"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="notification.title"
+      />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="image">Image</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="image"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="notification.image"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label class="primaryFC" for="body">Body</label>
+      <textarea
+        required
+        type="text"
+        class="form-control"
+        id="body"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="notification.body"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <button
+      type="submit"
+      (click)="postNewNotification()"
+      class="btn btn-primary btn-block"
+    >
+      Add Notification
+    </button>
+  </div>
+</form>

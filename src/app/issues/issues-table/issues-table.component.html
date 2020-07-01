@@ -22,7 +22,7 @@
         style="cursor: pointer;"
       >
         <td scope="row">{{ i + 1 }}</td>
-        <td scope="row">{{ issue._id }}</td>
+        <td scope="row">{{ issue._id | shorten: 5 }}</td>
         <td>
           {{ issue.label }}
         </td>

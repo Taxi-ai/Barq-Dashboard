@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Notification } from '../notification.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-notifications-table',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationsTableComponent implements OnInit {
 
-  constructor() { }
+  @Input() notifications: Notification[];
 
-  ngOnInit() {
+  constructor(private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+  }
+
+  notificationProfile(notification: Notification) {
+    console.log(notification._id);
+    this.router.navigate([notification._id], { relativeTo: this.route });
   }
 
 }

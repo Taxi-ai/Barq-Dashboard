@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationsService } from '../../notifications.service';
+import { Notification } from '../../notification.model';
 
 @Component({
   selector: 'app-notification-page',
@@ -6,10 +9,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notification-page.component.css']
 })
 export class NotificationPageComponent implements OnInit {
+  notification: Notification;
+  spin = true;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router, private notificationsService: NotificationsService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+
+    const notificationID = this.route.snapshot.params.id;
+
+    this.notificationsService.getNotificationByID(notificationID).subscribe(notification => {
+      console.log(notification);
+      this.notification = notification;
+      this.spin = false;
+
+    });
+
   }
+
+  deleteNotification() {
+    this.spin = true;
+
+    this.notificationsService.deleteNotificationByID(this.notification._id).subscribe(data => {
+      // console.log(data);
+      this.spin = false;
+      this.router.navigate(['../'], { relativeTo: this.route });
+    },
+      error => {
+        this.spin = false;
+      });
+  }
+
+
 
 }

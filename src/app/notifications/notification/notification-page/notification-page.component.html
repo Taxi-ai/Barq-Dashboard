@@ -1,1 +1,57 @@
-<p>notification-page works!</p>
+<app-back-button></app-back-button>
+
+<app-dashboard-spinner
+  *ngIf="spin"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  "
+></app-dashboard-spinner>
+
+<div *ngIf="!spin">
+  <div *ngIf="notification">
+    <div class="row primaryBG no-gutters pb-0">
+      <div class="col-md-12 p-3 pb-0">
+        <div
+          style="
+            width: 100%;
+            border-radius: 10px;
+            height: 250px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+          "
+          [style.background-image]="'url(' + notification.image + ')'"
+        ></div>
+      </div>
+    </div>
+    <div class="row no-gutters primaryBG">
+      <div id="centeringMainData" class="col-md-12 mainPadding primaryFC">
+        <p id="issueMain" class="m-0 p-0">
+          Published on {{ notification.dateOfPublish | date: "fullDate" }}
+        </p>
+        <p id="offerCode" class="m-0 p-0">
+          {{ notification.title }}
+        </p>
+        <p class="m-0 p-0">{{ notification.body }}</p>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-6">
+        <a class="btn btn-block btn-danger" routerLink="edit">Edit</a>
+      </div>
+      <div class="col-6">
+        <a
+          class="btn btn-block btn-dark secondaryFC"
+          (click)="deleteNotification()"
+          >Delete</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="primaryFC text-center" *ngIf="!notification">
+    <h1>This notification isn't in database!</h1>
+  </div>
+</div>
