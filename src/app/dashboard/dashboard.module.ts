@@ -11,7 +11,6 @@ import { UsersGraphComponent } from '../users/users-graph/users-graph.component'
 import { UserPageComponent } from '../users/user/user-page/user-page.component';
 import { EditUserComponent } from '../users/user/edit-user/edit-user.component';
 import { SideMenuComponent } from '../side-menu/side-menu.component';
-import { ChatPanelComponent } from '../chat-panel/chat-panel.component';
 import { MapComponent } from '../shared/map/map.component';
 import { DashboardComponent } from './dashboard.component';
 import { ShortenPipe } from '../pipes/shorten.pipe';
@@ -57,6 +56,18 @@ import { GraphComponent } from '../shared/graph/graph.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { HomeComponent } from '../home/home.component';
 import { NotificationsComponent } from '../notifications/notifications.component';
+import { OffersComponent } from '../offers/offers.component';
+import { OfferNewComponent } from '../offers/offer/offer-new/offer-new.component';
+import { OfferPageComponent } from '../offers/offer/offer-page/offer-page.component';
+import { OfferEditComponent } from '../offers/offer/offer-edit/offer-edit.component';
+import { OffersTableComponent } from '../offers/offers-table/offers-table.component';
+import { PackageNewComponent } from '../packages/package/package-new/package-new.component';
+import { NotificationNewComponent } from '../notifications/notification/notification-new/notification-new.component';
+import { QuestionNewComponent } from '../faqs/question/question-new/question-new.component';
+import { FaqsComponent } from '../faqs/faqs.component';
+import { QuestionEditComponent } from '../faqs/question/question-edit/question-edit.component';
+import { QuestionPageComponent } from '../faqs/question/question-page/question-page.component';
+import { FaqsTableComponent } from '../faqs/faqs-table/faqs-table.component';
 
 
 
@@ -75,7 +86,6 @@ import { NotificationsComponent } from '../notifications/notifications.component
     EditUserComponent,
     SideMenuComponent,
     NotificationsComponent,
-    ChatPanelComponent,
     MapComponent,
     DashboardComponent,
     ShortenPipe,
@@ -118,7 +128,19 @@ import { NotificationsComponent } from '../notifications/notifications.component
     IssueNewComponent,
     InformationCardsComponent,
     SearchAndFilterComponent,
-    GraphComponent
+    GraphComponent,
+    OffersComponent,
+    OfferNewComponent,
+    OfferPageComponent,
+    OfferEditComponent,
+    OffersTableComponent,
+    PackageNewComponent,
+    NotificationNewComponent,
+    QuestionNewComponent,
+    FaqsComponent,
+    QuestionEditComponent,
+    QuestionPageComponent,
+    FaqsTableComponent
   ],
 
 
