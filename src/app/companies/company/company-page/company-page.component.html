@@ -43,13 +43,95 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-6">
+      <div class="col-4">
+        <a
+          class="btn btn-block btn-primary"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapseExample"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+          >Add History</a
+        >
+      </div>
+      <div class="col-4">
         <a class="btn btn-block btn-danger" routerLink="edit">EDIT</a>
       </div>
-      <div class="col-6">
+      <div class="col-4">
         <a class="btn btn-block btn-dark secondaryFC" (click)="deleteCompany()"
           >DELETE</a
         >
+      </div>
+    </div>
+    <div
+      id="collapseExample"
+      class="row collapse m-0 px-2 py-3 no-gutters primaryBG"
+    >
+      <div class="col-12 m-0 p-0">
+        <div class="p-0 m-0">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label class="primaryFC" for="offerId">Offer ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="offerId"
+                  [ngModelOptions]="{ standalone: true }"
+                  [(ngModel)]="componyHistory.offerId"
+                  required
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <label class="primaryFC" for="moneyIncome">Money Income</label>
+                <input
+                  required
+                  type="number"
+                  class="form-control"
+                  id="moneyIncome"
+                  [ngModelOptions]="{ standalone: true }"
+                  [(ngModel)]="componyHistory.moneyIncome"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label class="primaryFC" for="startingDate">Start</label>
+                <input
+                  required
+                  type="date"
+                  class="form-control"
+                  id="startingDate"
+                  [ngModelOptions]="{ standalone: true }"
+                  [(ngModel)]="componyHistory.startingDate"
+                />
+              </div>
+
+              <div class="form-group col-md-6">
+                <label class="primaryFC" for="endingDate">End</label>
+                <input
+                  required
+                  type="date"
+                  class="form-control"
+                  id="endingDate"
+                  [ngModelOptions]="{ standalone: true }"
+                  [(ngModel)]="componyHistory.endingDate"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12">
+                <button
+                  type="submit"
+                  (click)="assignOffer()"
+                  class="btn btn-primary btn-block"
+                >
+                  ADD TO SYSTEM
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

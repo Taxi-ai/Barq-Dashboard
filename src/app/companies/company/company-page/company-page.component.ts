@@ -64,6 +64,8 @@ export class CompanyPageComponent implements OnInit {
     this.companiesService.postNewCompanyHistory(componyHistory).subscribe(data => {
       // console.log(data);
       this.spin = false;
+      this.router.navigate(['../'], { relativeTo: this.route });
+
     },
       error => {
         this.spin = false;
