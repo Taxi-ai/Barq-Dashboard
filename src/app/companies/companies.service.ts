@@ -29,7 +29,6 @@ export class CompaniesService {
 
   getCompanyByID(companyID: string) {
     const companyAPI = 'https://barq-api.azurewebsites.net/api/companies/' + companyID;
-    this.postNewCompanyHistory(companyID);
     return this.http.get<Company>(companyAPI);
   }
 
@@ -44,21 +43,10 @@ export class CompaniesService {
   }
 
 
-  postNewCompanyHistory(companyID: string) {
+  postNewCompanyHistory(componyHistory: ComponyHistory) {
 
-    const company: ComponyHistory = {
-      companyId: companyID,
-      startingDate: new Date(),
-      endingDate: new Date(),
-      offerId: companyID,
-      moneyIncome: 22,
-    };
+    return this.http.post('https://barq-api.azurewebsites.net/api/companiesHistory', componyHistory);
 
-    this.http.post('https://barq-api.azurewebsites.net/api/companiesHistory', company).subscribe(data => {
-      console.log(data);
-      this.getCompanyHistoryByID(companyID);
-
-    })
   }
 
   getCompanyHistoryByID(companyID: string) {

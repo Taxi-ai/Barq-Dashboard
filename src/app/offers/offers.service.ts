@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Offer } from './offer.model';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { ComponyHistory } from '../companies/company.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,6 @@ import { map } from 'rxjs/operators';
 export class OffersService {
 
   constructor(private http: HttpClient) { }
-
-
 
   postNewOffer(offer: Offer) {
     return this.http.post('https://barq-api.azurewebsites.net/api/offers', offer);
@@ -44,4 +43,6 @@ export class OffersService {
     const offerAPI = 'https://barq-api.azurewebsites.net/api/offers/' + offerID;
     return this.http.delete(offerAPI);
   }
+
+
 }

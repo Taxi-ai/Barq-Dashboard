@@ -12,6 +12,8 @@ export class OfferPageComponent implements OnInit {
   offer: Offer;
   spin = true;
 
+
+
   constructor(private route: ActivatedRoute, private router: Router, private offersService: OffersService) { }
 
   ngOnInit(): void {
@@ -39,6 +41,7 @@ export class OfferPageComponent implements OnInit {
         this.spin = false;
       });
   }
+
 
 
 

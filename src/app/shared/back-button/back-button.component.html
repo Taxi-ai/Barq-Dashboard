@@ -1,3 +1,19 @@
-<p id="backButton" class="primaryIC">
+<!-- <p id="backButton" class="primaryIC">
   <i class="fas fa-chevron-left primaryBG p-3 rounded" routerLink="../"></i>
-</p>
+</p> -->
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb primaryBG">
+    <li *ngFor="let item of breadcrumbData" class="breadcrumb-item primaryIC">
+      <a
+        [routerLink]="['/' + item.url]"
+        routerLinkActive="router-link-active"
+        href="#"
+        >{{ item.text | titlecase }}</a
+      >
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      {{ profileType | titlecase }} Profile
+    </li>
+  </ol>
+</nav>
