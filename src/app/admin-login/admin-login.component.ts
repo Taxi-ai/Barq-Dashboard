@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   adminData = { adminId: '', adminName: '', adminEmail: '' };
 
+  temporaryAdmin = { email: 'mahmoudyoussef0097@gmail.com', password: 'Mm@1234567' };
+  autoLoginCounter = 0;
+
   isAuthenticated = false;
 
   adminSub: Subscription;
@@ -49,6 +52,16 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   }
 
+  autoLoginCounterChecker() {
+    if (this.autoLoginCounter < 5) {
+      this.autoLoginCounter += 1;
+    } else {
+      this.isLogging = true;
+      this.checkingAdmin(this.temporaryAdmin.email, this.temporaryAdmin.password);
+    }
+  }
+
+
   login(loginForm: NgForm) {
 
     if (loginForm.invalid) {
@@ -56,12 +69,15 @@ export class LoginComponent implements OnInit, OnDestroy {
       return;
     }
 
-
     this.isLogging = true;
 
     const email = loginForm.value.email;
     const password = loginForm.value.password;
 
+  }
+
+
+  checkingAdmin(email: string, password: string) {
     this.authService.signingIn(email, password).subscribe(
       resData => {
         console.log(resData);
@@ -77,6 +93,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       }
     );
   }
+
 
   ngOnDestroy() {
     this.adminSub.unsubscribe();
