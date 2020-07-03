@@ -45,10 +45,6 @@ export class AuthService {
 
     const { adminID, adminName, adminEmail } = this.decodingAdminToken(adminToken);
 
-
-
-    /* TODO here we make new admin using admin data, change dataRes when yousef send data as an object
-       and define adminToken as AuthResponseData */
     const admin = new Admin(adminToken, adminID, adminName, adminEmail);
     console.log(admin);
     this.storingData(adminToken);

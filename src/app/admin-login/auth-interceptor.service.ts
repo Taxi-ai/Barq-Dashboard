@@ -19,7 +19,6 @@ export class AuthInterceptorService implements HttpInterceptor {
       take(1),
       exhaustMap(admin => {
         if (!admin) {
-          // TODO check if request for auth deny it
           return next.handle(req);
         }
         const modifiedReq = req.clone({

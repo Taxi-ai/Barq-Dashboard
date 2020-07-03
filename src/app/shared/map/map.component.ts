@@ -64,7 +64,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.context = this.myCanvas.nativeElement.getContext('2d');
 
-    // TODO height and width of pin must be scaled with map not has fixed width and height
     // it put (0,0) of the image in the place you want
     // if you need to put pin in 100,75 and pin width is 30 and hight is 50
     // pin need to be drawImage(images.pin, 100-(30/2) , 75-50, 30, 50)
