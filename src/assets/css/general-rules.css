@@ -18,3 +18,7 @@ input:active,
 .primaryBR {
   border-radius: 10px;
 }
+
+.btn i:not(:last-child) {
+  margin-right: 0em;
+}

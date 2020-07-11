@@ -42,7 +42,10 @@
         </p>
       </div>
     </div>
-    <div *ngIf="company.history" class="row no-gutters m-0 px-2 py-3 primaryBG">
+    <div
+      *ngIf="company.history"
+      class="row no-gutters m-0 px-2 py-3 primaryBG primaryFC"
+    >
       <div class="col-md-12">
         <h4>Company History</h4>
         <div *ngFor="let history of company.history">
@@ -50,7 +53,7 @@
             Offer ID:
             <a
               class="secondaryBG primaryIC p-1 rounded"
-              [routerLink]="'../../users/' + history.offerId"
+              [routerLink]="'../../offers/' + history.offerId"
               >{{ history.offerId }}</a
             >.
           </p>
