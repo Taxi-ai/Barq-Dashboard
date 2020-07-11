@@ -30,7 +30,6 @@
             ],
             "extractCss": true,
             "styles": [
-              "./node_modules/bootstrap/dist/css/bootstrap.css",
               "./node_modules/@fortawesome/fontawesome-free/css/all.css",
               "src/assets/css/argon.css",
               "src/assets/css/dashboardThemes.css",
@@ -38,9 +37,6 @@
               "src/styles.css"
             ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "src/assets/js/argon.js",
               "src/assets/js/components/charts/chart-bars.js",
               "src/assets/js/components/charts/chart-line.js"
             ]
