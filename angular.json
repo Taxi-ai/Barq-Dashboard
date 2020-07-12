@@ -36,10 +36,7 @@
               "src/assets/css/general-rules.css",
               "src/styles.css"
             ],
-            "scripts": [
-              "src/assets/js/components/charts/chart-bars.js",
-              "src/assets/js/components/charts/chart-line.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
