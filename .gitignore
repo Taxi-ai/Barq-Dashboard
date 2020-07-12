@@ -2,6 +2,7 @@
 
 # large files
 /src/assets/project-music.mp3
+/not-minimized
 
 # compiled output
 /dist
