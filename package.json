@@ -30,6 +30,7 @@
     "fontawesome": "^5.6.3",
     "jquery": "^3.5.1",
     "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.19",
     "moment": "^2.24.0",
     "ng2-charts": "^2.3.0",
     "npm-registry-fetch": "^8.1.1",
