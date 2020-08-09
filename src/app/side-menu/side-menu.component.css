@@ -20,10 +20,45 @@
 #sideMenuNarrowScreen {
   display: none;
   position: fixed;
-  bottom: 0;
   left: 0;
   z-index: 1000;
   width: 100%;
+}
+
+.hideSideMenu {
+  bottom: 0px;
+  animation-name: hideSideMenuKeyframes;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hideSideMenuKeyframes {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: -53px;
+  }
+}
+
+.showSideMenu {
+  bottom: -52px;
+  animation-name: showSideMenuKeyframes;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes showSideMenuKeyframes {
+  from {
+    bottom: -53px;
+  }
+  to {
+    bottom: 0px;
+  }
 }
 
 .btn {
@@ -81,6 +116,24 @@
   }
   .btn:hover {
     background-color: transparent !important;
+  }
+
+  @keyframes showSideMenuKeyframes {
+    from {
+      bottom: -80px;
+    }
+    to {
+      bottom: 0px;
+    }
+  }
+
+  @keyframes hideSideMenuKeyframes {
+    from {
+      bottom: 0px;
+    }
+    to {
+      bottom: -80px;
+    }
   }
 }
 

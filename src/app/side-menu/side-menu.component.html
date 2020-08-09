@@ -57,7 +57,14 @@
   >
 </nav>
 
-<nav id="sideMenuNarrowScreen" class="row p-0 m-0 primaryNAVsFilter NAVsFilter">
+<nav
+  id="sideMenuNarrowScreen"
+  [ngClass]="{
+    hideSideMenu: !scrollingUp,
+    showSideMenu: scrollingUp
+  }"
+  class="row p-0 m-0 primaryNAVsFilter NAVsFilter"
+>
   <div class="row">
     <div class="col-sm-3 p-0">
       <a
