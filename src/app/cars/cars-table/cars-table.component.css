@@ -11,7 +11,7 @@ table,
 
 #tableHeight {
   height: inherit;
-  background-color: #343a40;
+  background-color: rgb(23, 43, 77);
   overflow: auto;
 }
 
