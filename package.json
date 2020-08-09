@@ -27,6 +27,7 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "constants": "0.0.2",
+    "elliptic": "^6.5.3",
     "fontawesome": "^5.6.3",
     "jquery": "^3.5.1",
     "jwt-decode": "^2.2.0",

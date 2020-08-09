@@ -3,6 +3,8 @@
 # large files
 /src/assets/project-music.mp3
 /not-minimized
+Design.xd
+project-structure.pptx
 
 # compiled output
 /dist
