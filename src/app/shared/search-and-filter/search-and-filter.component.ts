@@ -32,7 +32,7 @@ export class SearchAndFilterComponent implements OnInit, AfterContentChecked {
 
   ngAfterContentChecked() {
 
-    console.log('changed');
+    // console.log('changed');
 
 
     if (this.oldSelectForSearch !== this.selectForSearch) {
