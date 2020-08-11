@@ -1,12 +1,16 @@
 :root {
-  --primary-color: #050510;
-  --primary-filtered-color: rgba(5, 5, 16, 0.6);
-  --primary-box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, 0.05);
+  /* --primary-color: #050510; */
+  --primary-color: #323336;
+  /* --primary-filtered-color: rgba(5, 5, 16, 0.6); */
+  --primary-filtered-color: rgba(50, 51, 54, 0.6);
+  --primary-box-shadow: 1px 5px 24px 0 rgba(5, 5, 16, 0.05);
   --primary-font-color: whitesmoke;
   --primary-icon-color: #4466f2;
 
-  --secondary-color: #16202a;
-  --secondary-filtered-color: rgba(22, 32, 42, 0.6);
+  /* --secondary-color: #16202a; */
+  --secondary-color: #202124;
+  /* --secondary-filtered-color: rgba(22, 32, 42, 0.6); */
+  --secondary-filtered-color: rgba(32, 33, 36, 0.6);
   --secondary-font-color: #6c7292;
 }
 
