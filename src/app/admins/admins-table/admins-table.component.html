@@ -10,7 +10,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Admin ID</th>
-        <th scope="col">Name</th>
+        <th scope="col">Admin Code</th>
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
         <!-- <th scope="col">Birth date</th> -->
@@ -25,7 +25,7 @@
       >
         <td scope="row">{{ i + 1 }}</td>
         <td scope="row">{{ admin._id | shorten: 5 }}</td>
-        <td>{{ admin.username | titlecase }}</td>
+        <td>{{ admin.username }}</td>
         <td>{{ admin.email | shorten: 10 }}</td>
         <td>{{ admin.phone }}</td>
         <!-- <td>{{ admin.dateOfBirth }}</td> -->

@@ -41,9 +41,19 @@ export class SideMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.scrollingUp = true;
 
     const x = document.documentElement.clientHeight;
     // console.log(x);
+    console.log(window.innerHeight);
+    console.log(window.pageYOffset);
+
+    console.log(document.body.offsetHeight);
+
+    // if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+    //   console.log('in if');
+    //   this.scrollingUp = true;
+    // }
 
 
   }
