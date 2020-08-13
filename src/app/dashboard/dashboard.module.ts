@@ -69,7 +69,12 @@ import { QuestionEditComponent } from '../faqs/question/question-edit/question-e
 import { QuestionPageComponent } from '../faqs/question/question-page/question-page.component';
 import { FaqsTableComponent } from '../faqs/faqs-table/faqs-table.component';
 
-
+import { AdminsComponent } from '../admins/admins.component';
+import { AdminsGraphComponent } from '../admins/admins-graph/admins-graph.component';
+import { AdminsTableComponent } from '../admins/admins-table/admins-table.component';
+import { AdminNewComponent } from '../admins/admin/admin-new/admin-new.component';
+import { AdminPageComponent } from '../admins/admin/admin-page/admin-page.component';
+import { AdminEditComponent } from '../admins/admin/admin-edit/admin-edit.component';
 
 
 
@@ -140,7 +145,13 @@ import { FaqsTableComponent } from '../faqs/faqs-table/faqs-table.component';
     FaqsComponent,
     QuestionEditComponent,
     QuestionPageComponent,
-    FaqsTableComponent
+    FaqsTableComponent,
+    AdminsComponent,
+    AdminsGraphComponent,
+    AdminsTableComponent,
+    AdminNewComponent,
+    AdminPageComponent,
+    AdminEditComponent,
   ],
 
 

@@ -37,6 +37,10 @@ import { FaqsComponent } from '../faqs/faqs.component';
 import { QuestionNewComponent } from '../faqs/question/question-new/question-new.component';
 import { QuestionPageComponent } from '../faqs/question/question-page/question-page.component';
 import { QuestionEditComponent } from '../faqs/question/question-edit/question-edit.component';
+import { AdminsComponent } from '../admins/admins.component';
+import { AdminNewComponent } from '../admins/admin/admin-new/admin-new.component';
+import { AdminEditComponent } from '../admins/admin/admin-edit/admin-edit.component';
+import { AdminPageComponent } from '../admins/admin/admin-page/admin-page.component';
 
 
 const routes: Routes = [
@@ -80,6 +84,10 @@ const routes: Routes = [
       { path: 'faqs/new', component: QuestionNewComponent },
       { path: 'faqs/:id', component: QuestionPageComponent },
       { path: 'faqs/:id/edit', component: QuestionEditComponent },
+      { path: 'admins', component: AdminsComponent },
+      { path: 'admins/new', component: AdminNewComponent },
+      { path: 'admins/:id', component: AdminPageComponent },
+      { path: 'admins/:id/edit', component: AdminEditComponent },
       { path: 'navigate', component: MobileNavigationMenuComponent },
       { path: '**', redirectTo: 'page-not-found' }
     ]
