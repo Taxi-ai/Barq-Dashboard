@@ -44,7 +44,7 @@ export class ThemeService {
 
     let barColor: { hex: string; text: string; };
     if (makeItDark) {
-      barColor = { hex: '#202124', text: 'black' };
+      barColor = { hex: '#323336', text: 'black' };
     } else {
       barColor = { hex: '#f6f7fb', text: 'default' };
     }

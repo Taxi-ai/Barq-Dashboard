@@ -3,3 +3,11 @@ nav {
   height: 52px;
   /* background-color: rgba(5, 5, 16, 0.6) !important; */
 }
+app-navbar-todo-container {
+  display: inline-block;
+}
+@media only screen and (max-width: 800px) {
+  /* app-navbar-todo-container {
+    display: none;
+  } */
+}

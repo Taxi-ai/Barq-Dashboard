@@ -4,7 +4,7 @@
   margin: 0;
 }
 
-#todoButton {
+.todoButton {
   cursor: pointer;
   font-size: 1.1rem;
 }
@@ -24,5 +24,6 @@
 @media only screen and (max-width: 800px) {
   #todoDiv {
     width: 100vw !important;
+    /* bottom: 52px; */
   }
 }
