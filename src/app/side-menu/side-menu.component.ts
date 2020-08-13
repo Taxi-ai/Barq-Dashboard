@@ -16,9 +16,9 @@ export class SideMenuComponent implements OnInit {
   scrollHandler(event) {
 
     const newScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    console.log('window.pageYOffset ' + window.pageYOffset);
-    console.log('document.documentElement.scrollTop ' + document.documentElement.scrollTop);
-    console.log('document.documentElement.scrollHeight ' + document.documentElement.scrollHeight);
+    // console.log('window.pageYOffset ' + window.pageYOffset);
+    // console.log('document.documentElement.scrollTop ' + document.documentElement.scrollTop);
+    // console.log('document.documentElement.scrollHeight ' + document.documentElement.scrollHeight);
 
     //   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
     //     // you're at the bottom of the page
@@ -43,7 +43,7 @@ export class SideMenuComponent implements OnInit {
   ngOnInit() {
 
     const x = document.documentElement.clientHeight;
-    console.log(x);
+    // console.log(x);
 
 
   }

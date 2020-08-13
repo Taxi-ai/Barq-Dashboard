@@ -10,9 +10,9 @@ import { AdminsService } from './admins.service';
 export class AdminsComponent implements OnInit {
   admins = [];
 
-  adminStates = { Partner: 0, Employee: 0, Active: 0 };
+  adminStates = { Admin: 0, Issues: 0, Online: 0 };
 
-  countersArray = ['Partner', 'Employee', 'Active', this.adminStates];
+  countersArray = ['Admin', 'Issues', 'Online', this.adminStates];
 
   fetchingDataVars = { isFetchingError: false, isFetchingDone: false, adminsArrayLength: 0 };
 
@@ -23,14 +23,14 @@ export class AdminsComponent implements OnInit {
     { label: 'Phone Number', value: 'phone', type: 'tel' }
   ];
   filterQueries = [
+    { label: 'Employment Date', value: 'date', type: 'date' },
+
     {
-      label: 'Country', value: 'country', type: 'select', selectOptions: []
-    },
-    {
-      label: 'City', value: 'city', type: 'select', selectOptions: []
-    },
-    { label: 'Max-Employees', value: 'max-employees', type: 'number' },
-    { label: 'Min-Employees', value: 'min-employees', type: 'number' }
+      label: 'Admin State', value: 'state', type: 'select', selectOptions: [
+        { label: 'Online', value: 'online' },
+        { label: 'Not Online', value: 'not-not' }
+      ]
+    }
   ];
 
 
@@ -46,7 +46,7 @@ export class AdminsComponent implements OnInit {
 
       if (this.admins.length > 0) {
         this.fetchingDataVars.adminsArrayLength = this.admins.length;
-        this.adminStates.Partner = this.admins.length;
+        this.adminStates.Admin = this.admins.length;
         // this.handlingGraphData(); // there is no graph
         this.gettingAdminsStates();
       }
@@ -67,25 +67,42 @@ export class AdminsComponent implements OnInit {
 
     this.admins.forEach((admin: Admin) => {
 
-      if (countriesArray.includes(admin.address.country)) {
-      } else {
-        this.filterQueries[0].selectOptions.push({ label: admin.address.country, value: admin.address.country });
-        countriesArray.push(admin.address.country);
-      }
+      // if (countriesArray.includes(admin.address.country)) {
+      // } else {
+      //   this.filterQueries[0].selectOptions.push({ label: admin.address.country, value: admin.address.country });
+      //   countriesArray.push(admin.address.country);
+      // }
 
-      if (citiesArray.includes(admin.address.city)) {
-      } else {
-        this.filterQueries[1].selectOptions.push({ label: admin.address.city, value: admin.address.city });
-        citiesArray.push(admin.address.city);
-      }
+      // if (citiesArray.includes(admin.address.city)) {
+      // } else {
+      //   this.filterQueries[1].selectOptions.push({ label: admin.address.city, value: admin.address.city });
+      //   citiesArray.push(admin.address.city);
+      // }
 
-      if (admin.numberOfEmployees) {
-        this.adminStates.Employee += admin.numberOfEmployees;
-      }
+      this.adminStates.Online += 1;
+
+      // if (admin.numberOfEmployees) {
+      //   this.adminStates.Employee += admin.numberOfEmployees;
+      // }
       // if (admin.pannedState === true) {
-      //   this.adminStates.active += 1;
+      //   this.adminStates.online += 1;
       // }
     });
+    console.log(this.adminsService.getIssuesNumber());
+
+
+    this.adminsService.getIssuesNumber().subscribe(issues => {
+
+      const issuesArray = [...issues];
+
+      this.adminStates.Issues = issuesArray.length;
+
+    }, error => {
+
+      this.adminStates.Issues = 0;
+
+    });
+
   }
 
 }

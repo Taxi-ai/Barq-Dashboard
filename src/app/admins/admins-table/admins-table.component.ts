@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Admin } from '../admin.model';
 import { Router, ActivatedRoute } from '@angular/router';
 

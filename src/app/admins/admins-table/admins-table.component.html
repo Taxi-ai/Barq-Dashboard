@@ -9,11 +9,12 @@
     <thead>
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Admin ID</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
-        <th scope="col">No. of employees</th>
-        <th scope="col">Address</th>
+        <!-- <th scope="col">Birth date</th> -->
+        <!-- <th scope="col">Address</th> -->
       </tr>
     </thead>
     <tbody>
@@ -23,15 +24,16 @@
         style="cursor: pointer;"
       >
         <td scope="row">{{ i + 1 }}</td>
-        <td>{{ admin.name | titlecase }}</td>
+        <td scope="row">{{ admin._id | shorten: 5 }}</td>
+        <td>{{ admin.username | titlecase }}</td>
         <td>{{ admin.email | shorten: 10 }}</td>
         <td>{{ admin.phone }}</td>
-        <td>{{ admin.numberOfEmployees }}</td>
-        <td>
+        <!-- <td>{{ admin.dateOfBirth }}</td> -->
+        <!-- <td>
           {{ admin.address.country | titlecase }} |
           {{ admin.address.city | titlecase }} |
           {{ admin.address.street | titlecase }}
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>

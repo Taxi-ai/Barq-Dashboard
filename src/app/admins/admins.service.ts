@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { Admin } from './admin.model';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { IssuesService } from '../issues/issues.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private issuesService: IssuesService, private http: HttpClient) { }
+
+  issuesNumber: number | null;
 
 
   postNewAdmin(admin: Admin) {
@@ -17,9 +20,13 @@ export class AdminsService {
 
 
   getAllAdmins() {
+    console.log('in service');
+
 
     return this.http.get('https://barq-api.azurewebsites.net/api/admins').pipe(
       map((adminsStream: Admin[]) => {
+        console.log(adminsStream);
+
 
         const adminsArray = [];
         // tslint:disable-next-line: forin
@@ -49,6 +56,11 @@ export class AdminsService {
 
     const adminAPI = 'https://barq-api.azurewebsites.net/api/admins/' + adminID;
     return this.http.delete(adminAPI);
+  }
+
+  getIssuesNumber() {
+
+    return this.issuesService.getAllIssues();
   }
 
   getAdminsNotifications() { }
