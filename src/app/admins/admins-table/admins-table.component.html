@@ -1,1 +1,38 @@
-<p>admins-table works!</p>
+<div
+  style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
+  class="table-responsive p-0 m-0"
+>
+  <table
+    style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
+    class="table table-dark p-0 m-0"
+  >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">No. of employees</th>
+        <th scope="col">Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let admin of admins; index as i"
+        (click)="adminProfile(admin)"
+        style="cursor: pointer;"
+      >
+        <td scope="row">{{ i + 1 }}</td>
+        <td>{{ admin.name | titlecase }}</td>
+        <td>{{ admin.email | shorten: 10 }}</td>
+        <td>{{ admin.phone }}</td>
+        <td>{{ admin.numberOfEmployees }}</td>
+        <td>
+          {{ admin.address.country | titlecase }} |
+          {{ admin.address.city | titlecase }} |
+          {{ admin.address.street | titlecase }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

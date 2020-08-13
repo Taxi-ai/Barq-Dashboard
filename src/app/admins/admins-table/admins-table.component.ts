@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Admin } from '../admin.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admins-table',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminsTableComponent implements OnInit {
 
-  constructor() { }
+  @Input() admins: Admin[];
 
-  ngOnInit(): void {
+  constructor(private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+  }
+
+  adminProfile(admin: Admin) {
+    console.log(admin._id);
+    this.router.navigate([admin._id], { relativeTo: this.route });
   }
 
 }

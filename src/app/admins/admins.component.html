@@ -1,1 +1,47 @@
-<p>admins works!</p>
+<div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-block btn-primary mb-5" routerLink="new">
+        NEW COMPANY
+      </button>
+      <div
+        *ngIf="
+          !fetchingDataVars.isFetchingDone && !fetchingDataVars.isFetchingError
+        "
+      >
+        <app-is-fetching></app-is-fetching>
+      </div>
+      <div *ngIf="fetchingDataVars.isFetchingError">
+        <app-fetching-error></app-fetching-error>
+      </div>
+      <div
+        *ngIf="
+          fetchingDataVars.isFetchingDone &&
+          fetchingDataVars.adminsArrayLength < 1 &&
+          !fetchingDataVars.isFetchingError
+        "
+      >
+        <app-fetched-nothing [dataType]="'Admins'"></app-fetched-nothing>
+      </div>
+    </div>
+  </div>
+  
+  <div
+    *ngIf="
+      fetchingDataVars.isFetchingDone &&
+      fetchingDataVars.adminsArrayLength >= 1
+    "
+  >
+    <app-information-cards [dataArray]="countersArray"></app-information-cards>
+  
+    <app-search-and-filter
+      [searchQueries]="searchQueries"
+      [filterQueries]="filterQueries"
+    ></app-search-and-filter>
+  
+    <div class="row">
+      <div class="col-md-12">
+        <app-admins-table [admins]="admins"></app-admins-table>
+      </div>
+    </div>
+  </div>
+  
