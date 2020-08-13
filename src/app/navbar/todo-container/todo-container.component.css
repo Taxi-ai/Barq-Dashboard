@@ -8,6 +8,9 @@
   cursor: pointer;
   font-size: 1.1rem;
 }
+/* i {
+  font-size: 1.1rem
+} */
 
 #todoDiv {
   position: fixed;
@@ -25,5 +28,30 @@
   #todoDiv {
     width: 100vw !important;
     /* bottom: 52px; */
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #todoDiv {
+    top: 40px;
+  }
+
+  .smallTodoIcon,
+  .smallTodoIcon i {
+    animation-name: smallTodoIcon;
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes smallTodoIcon {
+    from {
+      font-size: 1.1rem;
+    }
+    to {
+      font-size: 0.85rem;
+    }
   }
 }

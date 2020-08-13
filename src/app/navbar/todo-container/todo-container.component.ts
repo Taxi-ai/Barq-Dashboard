@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-todo-container',
@@ -7,7 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoContainerComponent implements OnInit {
 
+  constructor() {
+
+  }
+
+  // pageScrolled = false;
+
   showToDos = false;
+
+  // @HostListener('window:scroll', ['$event'])
+
+  // scrollHandler(event) {
+  //   this.pageScrolled = true;
+  //   console.log('todo');
+
+  // }
 
   toggleToDoList() {
 
@@ -22,17 +36,25 @@ export class TodoContainerComponent implements OnInit {
     }
   }
 
-  constructor() {
+
+  ngOnInit() {
+    console.log(window.innerWidth);
+
+    if (window.innerWidth > 500) {
+      this.setTodoDivHeight(52);
+
+    } else {
+      this.setTodoDivHeight(40);
+
+    }
+
 
   }
 
-
-  ngOnInit() {
-
+  setTodoDivHeight(navHeight: number) {
     const viewportHeight = window.innerHeight;
-    const todoDivHeight = viewportHeight - 52;
+    const todoDivHeight = viewportHeight - navHeight;
     document.getElementById('todoDiv').style.height = todoDivHeight.toString() + 'px';
-
   }
 
 }

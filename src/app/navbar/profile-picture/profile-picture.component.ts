@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 
 
@@ -10,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class ProfilePictureComponent implements OnInit {
 
+  constructor() { }
+
+  // pageScrolled = false;
+
   showAdminMenu = false;
 
-  constructor() { }
+  // @HostListener('window:scroll', ['$event'])
+
+  // scrollHandler(event) {
+  //   this.pageScrolled = true;
+  //   console.log('profile');
+
+  // }
 
   ngOnInit() {
 

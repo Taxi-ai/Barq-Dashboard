@@ -23,3 +23,9 @@ li:hover {
   width: 200px;
   z-index: 10;
 }
+
+@media only screen and (max-width: 500px) {
+  #adminMenu {
+    top: 40px;
+  }
+}
