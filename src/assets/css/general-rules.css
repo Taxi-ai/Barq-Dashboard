@@ -22,3 +22,7 @@ input:active,
 .btn i:not(:last-child) {
   margin-right: 0em;
 }
+
+.mainMarginBottom {
+  margin-bottom: 1rem;
+}

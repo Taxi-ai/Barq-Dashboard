@@ -1,1 +1,112 @@
-<p>admin-new works!</p>
+<app-back-button></app-back-button>
+<app-dashboard-spinner *ngIf="spin"></app-dashboard-spinner>
+
+<form *ngIf="!spin">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label class="primaryFC" for="adminName">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="adminName"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="admin.username"
+        required
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="adminEmail">Email</label>
+      <input
+        required
+        type="email"
+        class="form-control"
+        id="adminEmail"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="admin.email"
+      />
+    </div>
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="adminPhone">Phone number</label>
+      <input
+        required
+        type="tel"
+        class="form-control"
+        id="adminPhone"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="admin.phone"
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="adminDOP">Date of birth</label>
+      <input
+        required
+        type="date"
+        class="form-control"
+        id="adminDOP"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="admin.dateOfBirth"
+      />
+    </div>
+    <div class="form-group col-md-6">
+      <label class="primaryFC" for="adminPicture">Picture link</label>
+      <input
+        required
+        type="url"
+        class="form-control"
+        id="adminPicture"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="admin.image"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label class="primaryFC" for="adminCountry">Country</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="adminCountry"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="admin.address.country"
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <label class="primaryFC" for="adminCity">City</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="adminCity"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="admin.address.city"
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <label class="primaryFC" for="adminAddress">Street</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="adminAddress"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="admin.address.street"
+      />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <button
+      type="submit"
+      (click)="postNewAdmin()"
+      class="btn btn-primary btn-block"
+    >
+      ADD TO SYSTEM
+    </button>
+  </div>
+</form>

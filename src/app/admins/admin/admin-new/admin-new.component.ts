@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Admin } from '../../admin.model';
+import { AdminsService } from '../../admins.service';
 
 @Component({
   selector: 'app-admin-new',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminNewComponent implements OnInit {
 
-  constructor() { }
+  admin: Admin = {
+    username: ' ',
+    email: ' ',
+    dateOfBirth: new Date(),
+    address: { country: ' ', city: ' ', street: ' ' },
+    image: ' ',
+    password: '1234qwer!@#$',
+    phone: ' '
+  };
+  spin = false;
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute, private router: Router, private adminsService: AdminsService) { }
+
+  ngOnInit() {
+  }
+
+  postNewAdmin() {
+    this.spin = true;
+
+    this.adminsService.postNewAdmin(this.admin).subscribe(data => {
+      // console.log(data);
+      this.spin = false;
+
+      this.router.navigate(['../'], { relativeTo: this.route });
+    });
+
   }
 
 }

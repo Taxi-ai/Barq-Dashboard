@@ -12,7 +12,7 @@
 
 <div *ngIf="!spin">
   <div *ngIf="admin">
-    <div class="row no-gutters primaryBG">
+    <div class="row no-gutters primaryBG mainMarginBottom">
       <p class="col-md-3 mainPadding secondaryFC">
         <img style="width: 100%; border-radius: 10px;" [src]="admin.image" />
       </p>
@@ -52,7 +52,7 @@
         >
       </div> -->
       <div class="col-6">
-        <a class="btn btn-block btn-danger" routerLink="edit">Edit admin</a>
+        <a class="btn btn-block btn-danger" routerLink="edit">EDIT</a>
       </div>
       <div class="col-6">
         <a class="btn btn-block btn-dark secondaryFC" (click)="deleteAdmin()"
