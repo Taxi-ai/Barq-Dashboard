@@ -4,7 +4,7 @@
 }
 
 .todoItemCheck {
-  border-radius: 0.25rem 0rem 0rem 0.25rem;
+  border-radius: 0rem 0rem 0rem 0rem;
 }
 
 .todoItemTrash {
@@ -15,19 +15,18 @@
   background-clip: content-box !important;
   border-radius: 0.5rem;
   transition: all 0.25s ease;
+  background-color: white !important;
 }
 
-.todoItem:hover {
-  background-color: white !important;
+.todoList:hover > *:not(:hover) {
+  opacity: 0.8;
 }
 
 .adminsInfo {
   background-clip: content-box !important;
   border-radius: 0rem 0rem 0.5rem 0.5rem;
   transition: all 0.25s ease;
-}
-
-.todoItem:hover .adminsInfo {
+  white-space: nowrap !important;
   background-color: #e0e0e0;
 }
 
@@ -58,7 +57,7 @@ form button:disabled {
 }
 
 .checkedToDO {
-  opacity: 0.5;
+  opacity: 0.65;
 }
 
 .checkedToDO .col-sm-10 p {
