@@ -74,10 +74,14 @@ export class LoginComponent implements OnInit, OnDestroy {
     const email = loginForm.value.email;
     const password = loginForm.value.password;
 
+    this.checkingAdmin(email, password);
+
   }
 
 
   checkingAdmin(email: string, password: string) {
+    console.log(email + ' ' + password);
+
     this.authService.signingIn(email, password).subscribe(
       resData => {
         console.log(resData);

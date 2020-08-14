@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../admin-login/auth.service';
 
 @Component({
   selector: 'app-mobile-navigation-menu',
@@ -8,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class MobileNavigationMenuComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  superAdmin = false;
+
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
 
@@ -18,6 +21,14 @@ export class MobileNavigationMenuComponent implements OnInit {
 
 
       this.router.navigate(['./dashboard']);
+
+      const { adminID, adminName, adminEmail } = this.authService.decodingAdminToken(this.authService.gettingStoredData('jwt'));
+
+      if (adminName === 'mahmoudyoussef97') {
+        this.superAdmin = true;
+      } else {
+        this.superAdmin = false;
+      }
     }
 
   }

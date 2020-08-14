@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Admin } from './admin.model';
 import { AdminsService } from './admins.service';
+import { AuthService } from '../admin-login/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admins',
@@ -9,6 +11,8 @@ import { AdminsService } from './admins.service';
 })
 export class AdminsComponent implements OnInit {
   admins = [];
+
+  superAdmin = false;
 
   adminStates = { Admin: 0, Issues: 0, Online: 0 };
 
@@ -34,9 +38,15 @@ export class AdminsComponent implements OnInit {
   ];
 
 
-  constructor(private adminsService: AdminsService) { }
+  constructor(private adminsService: AdminsService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+
+    const { adminID, adminName, adminEmail } = this.authService.decodingAdminToken(this.authService.gettingStoredData('jwt'));
+
+    if (adminName !== 'mahmoudyoussef97') {
+      this.router.navigate(['./dashboard']);
+    }
 
     this.adminsService.getAllAdmins().subscribe(admins => {
       this.fetchingDataVars.isFetchingError = false;

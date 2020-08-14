@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { AuthService } from '../admin-login/auth.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -7,8 +8,13 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class SideMenuComponent implements OnInit {
 
+
+  constructor(private authService: AuthService) { }
+
   lastScrollTop = 0;
   scrollingUp = false;
+
+  superAdmin = false;
 
   @HostListener('window:scroll', ['$event'])
 
@@ -37,9 +43,6 @@ export class SideMenuComponent implements OnInit {
     this.lastScrollTop = newScrollTop <= 0 ? 0 : newScrollTop; // For Mobile or negative scrolling
   }
 
-
-  constructor() { }
-
   ngOnInit() {
     this.scrollingUp = true;
 
@@ -55,6 +58,13 @@ export class SideMenuComponent implements OnInit {
     //   this.scrollingUp = true;
     // }
 
+    const { adminID, adminName, adminEmail } = this.authService.decodingAdminToken(this.authService.gettingStoredData('jwt'));
+
+    if (adminName === 'mahmoudyoussef97') {
+      this.superAdmin = true;
+    } else {
+      this.superAdmin = false;
+    }
 
   }
 
