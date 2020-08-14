@@ -15,20 +15,19 @@ export class MobileNavigationMenuComponent implements OnInit {
 
   ngOnInit() {
 
+    const { adminID, adminName, adminEmail } = this.authService.decodingAdminToken(this.authService.gettingStoredData('jwt'));
+
+    if (adminName === 'mahmoudyoussef97') {
+      this.superAdmin = true;
+    } else {
+      this.superAdmin = false;
+    }
+
     if (window.innerWidth > 800) {
       console.log(document.body.style.width);
       console.log(window.innerWidth);
 
-
       this.router.navigate(['./dashboard']);
-
-      const { adminID, adminName, adminEmail } = this.authService.decodingAdminToken(this.authService.gettingStoredData('jwt'));
-
-      if (adminName === 'mahmoudyoussef97') {
-        this.superAdmin = true;
-      } else {
-        this.superAdmin = false;
-      }
     }
 
   }

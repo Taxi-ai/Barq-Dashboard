@@ -9,8 +9,11 @@ a {
 .primaryBG {
   padding: 1rem;
   padding-top: 0;
-  margin-bottom: 2rem;
   border-radius: 10px;
+}
+
+.mainMargin {
+  margin-bottom: 1rem;
 }
 
 .mainPadding {

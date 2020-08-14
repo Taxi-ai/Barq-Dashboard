@@ -25,8 +25,8 @@
       >
         <td scope="row">{{ i + 1 }}</td>
         <td scope="row">{{ admin._id | shorten: 5 }}</td>
-        <td>{{ admin.username }}</td>
-        <td>{{ admin.email | shorten: 10 }}</td>
+        <td>{{ admin.username | lowercase }}</td>
+        <td>{{ admin.email | lowercase | shorten: 13 }}</td>
         <td>{{ admin.phone }}</td>
         <!-- <td>{{ admin.dateOfBirth }}</td> -->
         <!-- <td>

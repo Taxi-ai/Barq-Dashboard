@@ -5,7 +5,6 @@ nav {
 }
 app-navbar-todo-container {
   display: inline-block;
-  cursor: pointer;
 }
 .navbar-brand {
   margin-left: auto !important;

@@ -11,7 +11,8 @@ import { Company, ComponyHistory } from '../../company.model';
 export class CompanyPageComponent implements OnInit {
   company: Company;
   spin = true;
-  addHistory = false;
+  addingHistoryMenu = false;
+
 
   componyHistory: ComponyHistory = {
     companyId: '',

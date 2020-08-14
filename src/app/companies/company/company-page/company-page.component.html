@@ -12,7 +12,7 @@
 
 <div *ngIf="!spin">
   <div *ngIf="company">
-    <div class="row no-gutters primaryBG">
+    <div class="row no-gutters primaryBG mainMargin">
       <p class="col-md-2 mainPadding secondaryFC">
         <img
           style="width: 100%; border-radius: 10px;"
@@ -44,7 +44,7 @@
     </div>
     <div
       *ngIf="company.history"
-      class="row no-gutters m-0 px-2 py-3 primaryBG primaryFC"
+      class="row no-gutters mt-0 mx-0 px-2 py-3 primaryBG mainMargin primaryFC"
     >
       <div class="col-md-12">
         <h4>Company History</h4>
@@ -74,7 +74,8 @@
           data-target="#collapseExample"
           aria-expanded="false"
           aria-controls="collapseExample"
-          >Add History</a
+          (click)="addingHistoryMenu = !addingHistoryMenu"
+          >{{ addingHistoryMenu ? "Cancel" : "Add History" }}</a
         >
       </div>
       <div class="col-4">

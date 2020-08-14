@@ -1,1 +1,67 @@
-<p>admin-page works!</p>
+<app-back-button></app-back-button>
+
+<app-dashboard-spinner
+  *ngIf="spin"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  "
+></app-dashboard-spinner>
+
+<div *ngIf="!spin">
+  <div *ngIf="admin">
+    <div class="row no-gutters primaryBG">
+      <p class="col-md-3 mainPadding secondaryFC">
+        <img style="width: 100%; border-radius: 10px;" [src]="admin.image" />
+      </p>
+      <div id="centeringMainData" class="col-md-9 mainPadding primaryFC">
+        <h1 class="m-0 p-0">
+          {{ admin.username | uppercase }}
+        </h1>
+
+        <p class="m-0 p-0">
+          {{ admin.email }}
+        </p>
+        <p class="m-0 p-0">
+          {{ admin.phone }}
+        </p>
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <p class="col-md-2 secondaryFC">
+        Address:
+      </p>
+      <p class="col-md-4 primaryFC">
+        {{ admin.address.country }} - {{ admin.address.city }} -
+        {{ admin.address.street }}
+      </p>
+      <p class="col-md-2 secondaryFC">
+        Date of birth:
+      </p>
+      <p class="col-md-4 primaryFC">
+        {{ admin.dateOfBirth | date }}
+      </p>
+    </div> -->
+    <div class="row">
+      <!-- <div class="col-8">
+        <a class="btn btn-block btn-primary" [routerLink]="addIssueForThatAdmin"
+          >ADD ISSUE</a
+        >
+      </div> -->
+      <div class="col-6">
+        <a class="btn btn-block btn-danger" routerLink="edit">Edit admin</a>
+      </div>
+      <div class="col-6">
+        <a class="btn btn-block btn-dark secondaryFC" (click)="deleteAdmin()"
+          >DELETE</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="primaryFC text-center" *ngIf="!admin">
+    <h1>This admin isn't in database</h1>
+  </div>
+</div>

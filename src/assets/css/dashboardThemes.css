@@ -66,5 +66,8 @@
 
 .NAVsFilter {
   -webkit-backdrop-filter: blur(20px) !important;
+  -moz-backdrop-filter: blur(20px) !important;
+  -ms-backdrop-filter: blur(20px) !important;
+  -o-backdrop-filter: blur(20px) !important;
   backdrop-filter: blur(20px) !important;
 }
