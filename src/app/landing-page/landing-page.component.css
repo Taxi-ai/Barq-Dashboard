@@ -339,7 +339,7 @@ section {
   min-height: 200px;
   border-radius: 10px;
   height: 100%;
-  background-image: url("https://www.imgacademy.com/themes/custom/imgacademy/images/helpbox-contact.jpg");
+  background-image: url("../../assets/safer.jpg");
 }
 
 #features .col-md-6 #easier {
@@ -348,7 +348,7 @@ section {
   min-height: 200px;
   border-radius: 10px;
   height: 100%;
-  background-image: url("../../assets/Barq-Easier-1.webp");
+  background-image: url("../../assets/easier.jpg");
 }
 
 #features .col-md-6 #smarter {
@@ -357,7 +357,7 @@ section {
   min-height: 200px;
   border-radius: 10px;
   height: 100%;
-  background-image: url("https://www.imgacademy.com/themes/custom/imgacademy/images/helpbox-contact.jpg");
+  background-image: url("../../assets/smarter.jpg");
 }
 
 .testimonial-box p {
