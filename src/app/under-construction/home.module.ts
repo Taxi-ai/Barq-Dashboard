@@ -4,18 +4,21 @@ import { CommonModule } from '@angular/common';
 import { UnderConstructionComponent } from './under-construction.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from '../not-found/not-found.component';
+import { LandingPageComponent } from '../landing-page/landing-page.component';
+
 
 const routes: Routes = [
 
 
-  { path: '', component: UnderConstructionComponent, pathMatch: 'full' },
+  { path: '', component: LandingPageComponent, pathMatch: 'full' },
 
 
 ];
 
 @NgModule({
   declarations: [
-    UnderConstructionComponent
+    UnderConstructionComponent,
+    LandingPageComponent
   ],
   imports: [
     CommonModule,

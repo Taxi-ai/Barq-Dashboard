@@ -39,7 +39,10 @@ export class BackButtonComponent implements OnInit {
 
         if (splitURL[index - 1].toLowerCase() === 'new') { // to handle issue/new/user_id
           const pluralWordWithoutS = splitURL[index - 2].slice(0, -1);
+          // splitURL.slice(0, -1);
+          this.breadcrumbData.pop();
           this.profileType = 'New ' + pluralWordWithoutS;
+
         } else {
 
           let pluralWordWithoutS = this.urlArray[index - 2].slice(0, -1);
