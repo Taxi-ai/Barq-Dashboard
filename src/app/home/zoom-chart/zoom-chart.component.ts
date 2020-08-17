@@ -18,7 +18,7 @@ export class ZoomChartComponent implements OnInit {
         animationEnabled: true,
         zoomEnabled: true,
         title: {
-          text: 'Try Zooming and Panning'
+          text: 'Users Rides Per Age'
         },
         data: [{
           type: 'area',

@@ -1,0 +1,5 @@
+.canvasjs-chart-canvas,
+#chartContainer,
+canvas {
+  border-radius: 10px;
+}

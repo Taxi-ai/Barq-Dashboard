@@ -17,7 +17,7 @@ export class NullChartComponent implements OnInit {
       theme: 'dark2',
       exportEnabled: true,
       title: {
-        text: 'Live Chart with Data-Points from External JSON'
+        text: 'System Requests Per Second'
       },
       data: [{
         type: 'spline',

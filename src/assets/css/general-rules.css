@@ -26,3 +26,19 @@ input:active,
 .mainMarginBottom {
   margin-bottom: 1rem;
 }
+
+app-null-chart,
+app-zoom-chart,
+app-candlestick-chart,
+#charts .col-md-6,
+#charts .col-md-12,
+#charts canvas,
+.canvasjs-chart-container {
+  border-radius: 10px !important;
+}
+
+#charts button,
+#charts .canvasjs-chart-toolbar,
+#charts a {
+  display: none !important;
+}

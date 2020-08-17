@@ -21,7 +21,7 @@ export class CandlestickChartComponent implements OnInit {
       theme: 'dark2', // "light1", "light2", "dark1", "dark2"
       exportEnabled: true,
       title: {
-        text: 'Netflix Stock Price in 2016'
+        text: 'BARQ Stock Price Last Year'
       },
       subtitles: [{
         text: 'Weekly Averages'
