@@ -43,6 +43,7 @@ import { AdminEditComponent } from '../admins/admin/admin-edit/admin-edit.compon
 import { AdminPageComponent } from '../admins/admin/admin-page/admin-page.component';
 
 
+
 const routes: Routes = [
 
   {

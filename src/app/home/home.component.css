@@ -119,3 +119,11 @@
     text-align: left !important;
   }
 }
+
+#charts .col-md-6,
+app-null-chart,
+app-zoom-chart,
+#charts .col-md-6 canvas,
+.canvasjs-chart-container {
+  border-radius: 20px !important;
+}

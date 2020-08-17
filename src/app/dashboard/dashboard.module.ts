@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
 import { SharedModule } from '../shared/shared.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
 import { ProfilePictureComponent } from '../navbar/profile-picture/profile-picture.component';
@@ -75,8 +74,9 @@ import { AdminsTableComponent } from '../admins/admins-table/admins-table.compon
 import { AdminNewComponent } from '../admins/admin/admin-new/admin-new.component';
 import { AdminPageComponent } from '../admins/admin/admin-page/admin-page.component';
 import { AdminEditComponent } from '../admins/admin/admin-edit/admin-edit.component';
-
-
+import { NullChartComponent } from '../home/null-chart/null-chart.component';
+import { ZoomChartComponent } from '../home/zoom-chart/zoom-chart.component';
+import { CandlestickChartComponent } from '../home/candlestick-chart/candlestick-chart.component';
 
 
 
@@ -85,6 +85,8 @@ import { AdminEditComponent } from '../admins/admin/admin-edit/admin-edit.compon
     NavbarComponent,
     ProfilePictureComponent,
     UsersComponent,
+    NullChartComponent,
+    ZoomChartComponent,
     UsersTableComponent,
     UsersGraphComponent,
     UserPageComponent,
@@ -152,13 +154,13 @@ import { AdminEditComponent } from '../admins/admin/admin-edit/admin-edit.compon
     AdminNewComponent,
     AdminPageComponent,
     AdminEditComponent,
+    CandlestickChartComponent,
   ],
 
 
   imports: [
     SharedModule,
     ChartsModule,
-    FontAwesomeModule,
     DashboardRoutingModule
 
   ],

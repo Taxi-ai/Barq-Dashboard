@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardSpinnerComponent } from './dashboard-spinner/dashboard-spinner.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     FormsModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    FontAwesomeModule
   ]
 })
 export class SharedModule { }

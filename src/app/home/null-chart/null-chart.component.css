@@ -1,0 +1,6 @@
+canvas,
+.canvasjs-chart-container,
+.canvasjs-chart-canvas,
+#chartContainer2 {
+  border-radius: 20px !important;
+}
