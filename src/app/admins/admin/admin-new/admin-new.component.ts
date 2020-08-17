@@ -16,7 +16,7 @@ export class AdminNewComponent implements OnInit {
     dateOfBirth: new Date(),
     address: { country: ' ', city: ' ', street: ' ' },
     image: ' ',
-    password: '1234qwer!@#$',
+    password: 'Mm@1234567',
     phone: ' '
   };
   spin = false;

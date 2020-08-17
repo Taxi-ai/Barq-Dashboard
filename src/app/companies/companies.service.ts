@@ -44,7 +44,18 @@ export class CompaniesService {
 
 
   postNewCompanyHistory(componyHistory: ComponyHistory) {
-
+    componyHistory = {
+      companyId: '5eb80d719169448084a5863b',
+      startingDate: '2020-08-14',
+      endingDate: '2020-08-18',
+      offerId: '5ec3c27f02209b204c0ddcb2',
+      feedback:
+      {
+        adminId: '5eb6a76265f3fd43441affdf',
+        body: 'this is a feedback'
+      },
+      moneyIncome: 25000
+    };
     return this.http.post('https://barq-api.azurewebsites.net/api/companiesHistory', componyHistory);
 
   }

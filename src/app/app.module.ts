@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { AuthInterceptorService } from './admin-login/auth-interceptor.service';
 import { SharedModule } from './shared/shared.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NullChartComponent } from './home/null-chart/null-chart.component';
+import { ZoomChartComponent } from './home/zoom-chart/zoom-chart.component';
 
 
 
@@ -18,6 +20,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
   declarations: [
     AppComponent,
     NotFoundComponent,
+    NullChartComponent,
+    ZoomChartComponent,
 
 
 

@@ -63,12 +63,18 @@ export class CompanyPageComponent implements OnInit {
     };
 
     this.companiesService.postNewCompanyHistory(componyHistory).subscribe(data => {
-      // console.log(data);
+      console.log('data');
+
+      console.log(data);
       this.spin = false;
-      this.router.navigate(['../'], { relativeTo: this.route });
+      // this.router.navigate(['../'], { relativeTo: this.route });
+      this.addingHistoryMenu = false;
 
     },
       error => {
+        console.log('error');
+
+        console.log(error);
         this.spin = false;
       });
   }
