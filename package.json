@@ -35,7 +35,7 @@
     "lodash": "^4.17.19",
     "moment": "^2.24.0",
     "ng2-charts": "^2.3.0",
-    "npm-registry-fetch": "^8.1.1",
+    "npm-registry-fetch": "^8.1.5",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "websocket-extensions": "^0.1.4",
