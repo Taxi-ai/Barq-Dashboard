@@ -11,35 +11,35 @@ export class FaqsService {
   constructor(private http: HttpClient) { }
 
   postNewQuestion(question: Question) {
-    return this.http.post('https://barq-api.azurewebsites.net/api/faqs', question);
+    return this.http.post('https://taxi-graduation-project.firebaseio.com/faqs.json', question);
   }
 
   getAllQuestions() {
 
-    return this.http.get('https://barq-api.azurewebsites.net/api/faqs').pipe(
+    return this.http.get('https://taxi-graduation-project.firebaseio.com/faqs.json').pipe(
       map((questionsStream: Question[]) => {
         const questionsArray = [];
         // tslint:disable-next-line: forin
         for (const id in questionsStream) {
-          questionsArray.push({ ...questionsStream[id] });
+          questionsArray.push({ id, ...questionsStream[id] });
         }
         return questionsArray;
       }));
   }
 
   getQuestionByID(questionID: string) {
-    const questionAPI = 'https://barq-api.azurewebsites.net/api/faqs/' + questionID;
+    const questionAPI = 'https://taxi-graduation-project.firebaseio.com/faqs/' + questionID + '.json';
     return this.http.get<Question>(questionAPI);
   }
 
 
   updateQuestionByID(questionID: string, question: Question) {
-    const questionAPI = 'https://barq-api.azurewebsites.net/api/faqs/' + questionID;
+    const questionAPI = 'https://taxi-graduation-project.firebaseio.com/faqs/' + questionID + '.json';
     return this.http.put(questionAPI, question);
   }
 
   deleteQuestionByID(questionID: string) {
-    const questionAPI = 'https://barq-api.azurewebsites.net/api/faqs/' + questionID;
+    const questionAPI = 'https://taxi-graduation-project.firebaseio.com/faqs/' + questionID + '.json';
     return this.http.delete(questionAPI);
   }
 }

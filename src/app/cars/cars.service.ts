@@ -11,17 +11,17 @@ export class CarsService {
   constructor(private http: HttpClient) { }
 
   postNewCar(car: Car) {
-    return this.http.post('https://barq-api.azurewebsites.net/api/cars ', car);
+    return this.http.post('https://taxi-graduation-project.firebaseio.com/cars.json', car);
   }
 
   getAllCars() {
 
-    return this.http.get('https://barq-api.azurewebsites.net/api/cars').pipe(
+    return this.http.get('https://taxi-graduation-project.firebaseio.com/cars.json').pipe(
       map((carsStream: Car[]) => {
         const carsArray = [];
         // tslint:disable-next-line: forin
         for (const id in carsStream) {
-          carsArray.push({ ...carsStream[id] });
+          carsArray.push({ id, ...carsStream[id] });
         }
         return carsArray;
       }));
@@ -29,17 +29,17 @@ export class CarsService {
 
 
   getCarByID(carID: string) {
-    const carAPI = 'https://barq-api.azurewebsites.net/api/cars/' + carID;
+    const carAPI = 'https://taxi-graduation-project.firebaseio.com/cars/' + carID + '.json';
     return this.http.get<Car>(carAPI);
   }
 
   updateCarByID(carID: string, car: Car) {
-    const carAPI = 'https://barq-api.azurewebsites.net/api/cars/' + carID;
+    const carAPI = 'https://taxi-graduation-project.firebaseio.com/cars/' + carID + '.json';
     return this.http.put(carAPI, car);
   }
 
   deleteCarByID(carID: string) {
-    const carAPI = 'https://barq-api.azurewebsites.net/api/cars/' + carID;
+    const carAPI = 'https://taxi-graduation-project.firebaseio.com/cars/' + carID + '.json';
     return this.http.delete(carAPI);
   }
 

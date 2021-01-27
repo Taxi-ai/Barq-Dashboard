@@ -12,35 +12,35 @@ export class OffersService {
   constructor(private http: HttpClient) { }
 
   postNewOffer(offer: Offer) {
-    return this.http.post('https://barq-api.azurewebsites.net/api/offers', offer);
+    return this.http.post('https://taxi-graduation-project.firebaseio.com/offers.json', offer);
   }
 
   getAllOffers() {
 
-    return this.http.get('https://barq-api.azurewebsites.net/api/offers').pipe(
+    return this.http.get('https://taxi-graduation-project.firebaseio.com/offers.json').pipe(
       map((offersStream: Offer[]) => {
         const offersArray = [];
         // tslint:disable-next-line: forin
         for (const id in offersStream) {
-          offersArray.push({ ...offersStream[id] });
+          offersArray.push({ id, ...offersStream[id] });
         }
         return offersArray;
       }));
   }
 
   getOfferByID(offerID: string) {
-    const offerAPI = 'https://barq-api.azurewebsites.net/api/offers/' + offerID;
+    const offerAPI = 'https://taxi-graduation-project.firebaseio.com/offers/' + offerID + '.json';
     return this.http.get<Offer>(offerAPI);
   }
 
 
   updateOfferByID(offerID: string, offer: Offer) {
-    const offerAPI = 'https://barq-api.azurewebsites.net/api/offers/' + offerID;
+    const offerAPI = 'https://taxi-graduation-project.firebaseio.com/offers/' + offerID + '.json';
     return this.http.put(offerAPI, offer);
   }
 
   deleteOfferByID(offerID: string) {
-    const offerAPI = 'https://barq-api.azurewebsites.net/api/offers/' + offerID;
+    const offerAPI = 'https://taxi-graduation-project.firebaseio.com/offers/' + offerID + '.json';
     return this.http.delete(offerAPI);
   }
 

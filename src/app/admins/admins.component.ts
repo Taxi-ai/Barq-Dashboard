@@ -44,9 +44,9 @@ export class AdminsComponent implements OnInit {
 
     const { adminID, adminName, adminEmail } = this.authService.decodingAdminToken(this.authService.gettingStoredData('jwt'));
 
-    if (adminName !== 'mahmoudyoussef97') {
-      this.router.navigate(['./dashboard']);
-    }
+    // if (adminName !== 'mahmoudyoussef97') {
+    //   this.router.navigate(['./dashboard']);
+    // }
 
     this.adminsService.getAllAdmins().subscribe(admins => {
       this.fetchingDataVars.isFetchingError = false;

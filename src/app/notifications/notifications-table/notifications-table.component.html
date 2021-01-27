@@ -1,11 +1,5 @@
-<div
-  style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
-  class="table-responsive p-0 m-0"
->
-  <table
-    style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
-    class="table table-dark p-0 m-0"
-  >
+<div style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;" class="table-responsive p-0 m-0">
+  <table style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;" class="table table-dark p-0 m-0">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -16,13 +10,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        *ngFor="let notification of notifications; index as i"
-        (click)="notificationProfile(notification)"
-        style="cursor: pointer;"
-      >
+      <tr *ngFor="let notification of notifications; index as i" (click)="notificationProfile(notification)"
+        style="cursor: pointer;">
         <td scope="row">{{ i + 1 }}</td>
-        <td scope="row">{{ notification._id | shorten: 5 }}...</td>
+        <td scope="row">{{ notification.id | shorten: 5 }}...</td>
         <td>{{ notification.title }}</td>
         <td>{{ notification.body }}%</td>
         <td>{{ notification.dateOfPublish }}</td>

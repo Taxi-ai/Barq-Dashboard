@@ -1,15 +1,10 @@
-<div
-  style="border-radius: 0.25rem 0.25rem 0px 0px;"
-  class="table-responsive p-0 m-0"
->
-  <table
-    style="border-radius: 0.25rem 0.25rem 0px 0px;"
-    class="table table-dark p-0 m-0"
-  >
+<div style="border-radius: 0.25rem 0.25rem 0px 0px;" class="table-responsive p-0 m-0">
+  <table style="border-radius: 0.25rem 0.25rem 0px 0px;" class="table table-dark p-0 m-0">
     <thead>
       <tr>
         <th scope="col">#</th>
         <!-- <th scope="col">In A Ride?</th> -->
+        <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Phone</th>
         <th scope="col">Email</th>
@@ -25,25 +20,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        *ngFor="let user of users; index as i"
-        (click)="userProfile(user)"
-        style="cursor: pointer;"
-      >
+      <tr *ngFor="let user of users; index as i" (click)="userProfile(user)" style="cursor: pointer;">
         <td scope="row">{{ i + 1 }}</td>
         <!-- <td>{{ user.userState ? "✅" : "❎" }}</td> -->
         <!-- <td>
           {{ user.firstName | titlecase }} {{ user.lastName | titlecase }}
         </td> -->
-        <td>
-          {{ user.username | titlecase }}
-        </td>
+        <td> {{ user.id }} </td>
+        <td> {{ user.username | titlecase }} </td>
         <td>{{ user.phone }}</td>
         <td>{{ user.email | shorten: 10 }}</td>
-        <td>
-          {{ user.address.city | titlecase }} -
-          {{ user.address.country | titlecase }}
-        </td>
+        <td> {{ user.address.city | titlecase }} - {{ user.address.country | titlecase }} </td>
         <td>{{ user.dateOfBirth | date: "y/MM/dd" }}</td>
         <!-- <td>{{ user.wallet }}</td> -->
         <!-- <td>{{ user.numberOfRides }}</td> -->

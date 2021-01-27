@@ -15,7 +15,7 @@ export class AdminsService {
 
 
   postNewAdmin(admin: Admin) {
-    return this.http.post('https://barq-api.azurewebsites.net/api/admins ', admin);
+    return this.http.post('https://taxi-graduation-project.firebaseio.com/admins.json', admin);
   }
 
 
@@ -23,16 +23,19 @@ export class AdminsService {
     console.log('in service');
 
 
-    return this.http.get('https://barq-api.azurewebsites.net/api/admins').pipe(
+    return this.http.get('https://taxi-graduation-project.firebaseio.com/admins.json').pipe(
       map((adminsStream: Admin[]) => {
         console.log(adminsStream);
-
 
         const adminsArray = [];
         // tslint:disable-next-line: forin
         for (const id in adminsStream) {
-          adminsArray.push({ ...adminsStream[id] });
+          console.log(id);
+
+          adminsArray.push({ id, ...adminsStream[id] });
         }
+        console.log(adminsArray);
+
         return adminsArray;
       }));
 
@@ -40,21 +43,21 @@ export class AdminsService {
 
   getAdminByID(adminID: string) {
 
-    const adminAPI = 'https://barq-api.azurewebsites.net/api/admins/' + adminID;
+    const adminAPI = 'https://taxi-graduation-project.firebaseio.com/admins/' + adminID + '.json';
     return this.http.get<Admin>(adminAPI);
 
   }
 
   updateAdminByID(adminID: string, admin: Admin) {
 
-    const companyAPI = 'https://barq-api.azurewebsites.net/api/admins/' + adminID;
+    const companyAPI = 'https://taxi-graduation-project.firebaseio.com/admins/' + adminID + '.json';
     return this.http.put(companyAPI, admin);
 
   }
 
   deleteAdminByID(adminID: string) {
 
-    const adminAPI = 'https://barq-api.azurewebsites.net/api/admins/' + adminID;
+    const adminAPI = 'https://taxi-graduation-project.firebaseio.com/admins/' + adminID + '.json';
     return this.http.delete(adminAPI);
   }
 

@@ -12,24 +12,24 @@ export class IssuesService {
   constructor(private usersService: UsersService, private http: HttpClient) { }
 
   postNewIssue(issue: Issue) {
-    return this.http.post('https://barq-api.azurewebsites.net/api/issues', issue);
+    return this.http.post('https://taxi-graduation-project.firebaseio.com/issues.json', issue);
   }
 
   getAllIssues() {
 
-    return this.http.get('https://barq-api.azurewebsites.net/api/issues').pipe(
+    return this.http.get('https://taxi-graduation-project.firebaseio.com/issues.json').pipe(
       map((issuesStream: Issue[]) => {
         const issuesArray = [];
         // tslint:disable-next-line: forin
         for (const id in issuesStream) {
-          issuesArray.push({ ...issuesStream[id] });
+          issuesArray.push({ id, ...issuesStream[id] });
         }
         return issuesArray;
       }));
   }
 
   getIssueByID(issueID: string) {
-    const issueAPI = 'https://barq-api.azurewebsites.net/api/issues/' + issueID;
+    const issueAPI = 'https://taxi-graduation-project.firebaseio.com/issues/' + issueID + '.json';
     return this.http.get<Issue>(issueAPI);
   }
 
@@ -38,12 +38,12 @@ export class IssuesService {
   }
 
   updateIssueByID(issueID: string, issue: Issue) {
-    const issueAPI = 'https://barq-api.azurewebsites.net/api/issues/' + issueID;
+    const issueAPI = 'https://taxi-graduation-project.firebaseio.com/issues/' + issueID + '.json';
     return this.http.put(issueAPI, issue);
   }
 
   deleteIssueByID(issueID: string) {
-    const issueAPI = 'https://barq-api.azurewebsites.net/api/issues/' + issueID;
+    const issueAPI = 'https://taxi-graduation-project.firebaseio.com/issues/' + issueID + '.json';
     return this.http.delete(issueAPI);
   }
 

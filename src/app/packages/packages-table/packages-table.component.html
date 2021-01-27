@@ -1,11 +1,5 @@
-<div
-  style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
-  class="table-responsive p-0 m-0"
->
-  <table
-    style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
-    class="table table-dark p-0 m-0"
-  >
+<div style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;" class="table-responsive p-0 m-0">
+  <table style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;" class="table table-dark p-0 m-0">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -20,30 +14,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        *ngFor="let companyPackage of companyPackages; index as i"
-        (click)="companyPackageProfile(companyPackage)"
-        style="cursor: pointer;"
-      >
+      <tr *ngFor="let companyPackage of companyPackages; index as i" (click)="companyPackageProfile(companyPackage)"
+        style="cursor: pointer;">
         <td scope="row">{{ i + 1 }}</td>
-        <td scope="row">{{ companyPackage._id | shorten: 5 }}...</td>
-        <td
-          scope="row"
-          style="width: 5px; text-align: center;"
-          [ngClass]="{
+        <td scope="row">{{ companyPackage.id | shorten: 5 }}...</td>
+        <td scope="row" style="width: 5px; text-align: center;" [ngClass]="{
             gold: companyPackage.category === 'gold',
             silver: companyPackage.category === 'silver',
             bronze: companyPackage.category === 'bronze'
-          }"
-        >
-          {{
+          }"> {{
             companyPackage.category === "gold"
               ? "GOLD"
               : companyPackage.category === "silver"
               ? "Silver"
               : "BRONZE"
-          }}
-        </td>
+          }} </td>
         <td>{{ companyPackage.description }}</td>
         <td>{{ companyPackage.numberOfGiftCodes }}</td>
         <td>{{ companyPackage.duration }}</td>

@@ -12,17 +12,17 @@ export class NotificationsService {
   constructor(private http: HttpClient) { }
 
   postNewNotification(notification: Notification) {
-    return this.http.post('https://barq-api.azurewebsites.net/api/notifications', notification);
+    return this.http.post('https://taxi-graduation-project.firebaseio.com/notifications.json', notification);
   }
 
   getAllNotifications() {
 
-    return this.http.get('https://barq-api.azurewebsites.net/api/notifications').pipe(
+    return this.http.get('https://taxi-graduation-project.firebaseio.com/notifications.json').pipe(
       map((notificationsStream: Notification[]) => {
         const notificationsArray = [];
         // tslint:disable-next-line: forin
         for (const id in notificationsStream) {
-          notificationsArray.push({ ...notificationsStream[id] });
+          notificationsArray.push({ id, ...notificationsStream[id] });
         }
         console.log(notificationsArray);
 
@@ -31,18 +31,18 @@ export class NotificationsService {
   }
 
   getNotificationByID(notificationID: string) {
-    const notificationAPI = 'https://barq-api.azurewebsites.net/api/notifications/' + notificationID;
+    const notificationAPI = 'https://taxi-graduation-project.firebaseio.com/notifications/' + notificationID + '.json';
     return this.http.get<Notification>(notificationAPI);
   }
 
 
   updateNotificationByID(notificationID: string, notification: Notification) {
-    const notificationAPI = 'https://barq-api.azurewebsites.net/api/notifications/' + notificationID;
+    const notificationAPI = 'https://taxi-graduation-project.firebaseio.com/notifications/' + notificationID + '.json';
     return this.http.put(notificationAPI, notification);
   }
 
   deleteNotificationByID(notificationID: string) {
-    const notificationAPI = 'https://barq-api.azurewebsites.net/api/notifications/' + notificationID;
+    const notificationAPI = 'https://taxi-graduation-project.firebaseio.com/notifications/' + notificationID + '.json';
     return this.http.delete(notificationAPI);
   }
 

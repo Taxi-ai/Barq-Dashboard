@@ -30,18 +30,23 @@ export class AuthService {
     };
 
     // use the defined interface AuthResponseData as response
-    return this.http.post('https://barq-api.azurewebsites.net/api/adminAuth',
-      { password, email },
-      requestOptions)
+    // https://barq-api.azurewebsites.net/api/adminAuth
+    return this.http.post<{ localId, expiresIn, refreshToken, email, idToken, displayName }>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAYfrf1lYsdwVTBdSxWyiWD3jnQCku8k3E',
+      { password, email })
       .pipe(catchError(this.handlingError), tap(adminData => {
         this.handlingAuthentication(adminData);
       }));
   }
 
 
-  handlingAuthentication(adminToken: string) {
+  handlingAuthentication(adminData: { localId, expiresIn, refreshToken, email, idToken, displayName }) {
     console.log('handlingAuthentication');
-    console.log(adminToken);
+    console.log(adminData);
+
+    // const adminID = adminData.idToken;
+    // const adminName = adminData.displayName
+    // const adminEmail = adminData.email
+    const adminToken = adminData.idToken
 
     const { adminID, adminName, adminEmail } = this.decodingAdminToken(adminToken);
 
@@ -84,6 +89,8 @@ export class AuthService {
 
     const loadedAdmin = new Admin(jwtToken, adminID, adminName, adminEmail);
 
+    console.log(loadedAdmin);
+
     if (loadedAdmin.jwtToken) {
       this.admin.next(loadedAdmin);
     }
@@ -112,7 +119,7 @@ export class AuthService {
   decodingAdminToken(adminToken: string) {
     const decodedAdminData = jwt_decode(adminToken);
     this.storingAdminData(decodedAdminData);
-    return { adminID: decodedAdminData._id, adminName: decodedAdminData.username, adminEmail: decodedAdminData.email };
+    return { adminID: 'MiHDVN6uRQVPq88aVotrpidpQyw2', adminName: '', adminEmail: decodedAdminData.email };
   }
 
   storingAdminData(decodedAdminData: {}) {

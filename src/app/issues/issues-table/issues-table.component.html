@@ -1,11 +1,5 @@
-<div
-  style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
-  class="table-responsive p-0 m-0"
->
-  <table
-    style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;"
-    class="table table-dark p-0 m-0"
-  >
+<div style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;" class="table-responsive p-0 m-0">
+  <table style="border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;" class="table table-dark p-0 m-0">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -16,16 +10,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        *ngFor="let issue of issues; index as i"
-        (click)="issueProfile(issue)"
-        style="cursor: pointer;"
-      >
+      <tr *ngFor="let issue of issues; index as i" (click)="issueProfile(issue)" style="cursor: pointer;">
         <td scope="row">{{ i + 1 }}</td>
-        <td scope="row">{{ issue._id | shorten: 5 }}</td>
-        <td>
-          {{ issue.label }}
-        </td>
+        <td scope="row">{{ issue.id | shorten: 5 }}</td>
+        <td> {{ issue.label }} </td>
         <td>{{ issue.body }}</td>
         <td>{{ issue.userId }}</td>
       </tr>

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   adminData = { adminId: '', adminName: '', adminEmail: '' };
 
-  temporaryAdmin = { email: 'mahmoudyoussef0097@gmail.com', password: 'Mm@1234567' };
+  temporaryAdmin = { email: 'admin@barq.vision', password: 'Mm@1234567' };
   autoLoginCounter = 0;
 
   isAuthenticated = false;
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       }
     );
 
-    console.log('mahmoudyoussef0097@gmail.com');
+    console.log('admin@barq.vision');
 
     console.log('Mm@1234567');
 

@@ -10,8 +10,8 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
 
-
-    if (req.url === 'https://barq-api.azurewebsites.net/api/adminAuth') {
+    'https://barq-api.azurewebsites.net/api/adminAuth'
+    if (req.url === 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAYfrf1lYsdwVTBdSxWyiWD3jnQCku8k3E') {
       console.log('admin-auth request');
 
       return next.handle(req);
@@ -24,7 +24,7 @@ export class AuthInterceptorService implements HttpInterceptor {
           return next.handle(req);
         }
         const modifiedReq = req.clone({
-          headers: new HttpHeaders().append('x-auth-token', admin.jwtToken),
+          headers: new HttpHeaders().append('auth', admin.jwtToken),
         });
         return next.handle(modifiedReq);
       }));

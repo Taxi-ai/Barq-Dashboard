@@ -63,7 +63,8 @@ export class SideMenuComponent implements OnInit {
     if (adminName === 'mahmoudyoussef97') {
       this.superAdmin = true;
     } else {
-      this.superAdmin = false;
+      // this.superAdmin = false;
+      this.superAdmin = true;
     }
 
   }

@@ -12,19 +12,19 @@ export class UsersService {
 
 
   postNewUser(user: UserX) {
-    return this.http.post('https://barq-api.azurewebsites.net/api/users ', user);
+    return this.http.post('https://taxi-graduation-project.firebaseio.com/users.json', user);
   }
 
 
   getAllUsers() {
 
-    return this.http.get('https://barq-api.azurewebsites.net/api/users').pipe(
+    return this.http.get('https://taxi-graduation-project.firebaseio.com/users.json').pipe(
       map((usersStream: UserX[]) => {
 
         const usersArray = [];
         // tslint:disable-next-line: forin
         for (const id in usersStream) {
-          usersArray.push({ ...usersStream[id] });
+          usersArray.push({id, ...usersStream[id] });
         }
         return usersArray;
       }));
@@ -33,21 +33,21 @@ export class UsersService {
 
   getUserByID(userID: string) {
 
-    const userAPI = 'https://barq-api.azurewebsites.net/api/users/' + userID;
+    const userAPI = 'https://taxi-graduation-project.firebaseio.com/users/' + userID + '.json';
     return this.http.get<UserX>(userAPI);
 
   }
 
   updateUserByID(userID: string, user: UserX) {
 
-    const companyAPI = 'https://barq-api.azurewebsites.net/api/users/' + userID;
+    const companyAPI = 'https://taxi-graduation-project.firebaseio.com/users/' + userID + '.json';
     return this.http.put(companyAPI, user);
 
   }
 
   deleteUserByID(userID: string) {
 
-    const userAPI = 'https://barq-api.azurewebsites.net/api/users/' + userID;
+    const userAPI = 'https://taxi-graduation-project.firebaseio.com/users/' + userID + '.json';
     return this.http.delete(userAPI);
   }
 

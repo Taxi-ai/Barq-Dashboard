@@ -11,46 +11,46 @@ export class CompaniesService {
   constructor(private http: HttpClient) { }
 
   postNewCompany(company: Company) {
-    return this.http.post('https://barq-api.azurewebsites.net/api/companies', company);
+    return this.http.post('https://taxi-graduation-project.firebaseio.com/companies.json', company);
   }
 
   getAllCompanies() {
 
-    return this.http.get('https://barq-api.azurewebsites.net/api/companies').pipe(
+    return this.http.get('https://taxi-graduation-project.firebaseio.com/companies.json').pipe(
       map((companiesStream: Company[]) => {
         const companiesArray = [];
         // tslint:disable-next-line: forin
         for (const id in companiesStream) {
-          companiesArray.push({ ...companiesStream[id] });
+          companiesArray.push({ id, ...companiesStream[id] });
         }
         return companiesArray;
       }));
   }
 
   getCompanyByID(companyID: string) {
-    const companyAPI = 'https://barq-api.azurewebsites.net/api/companies/' + companyID;
+    const companyAPI = 'https://taxi-graduation-project.firebaseio.com/companies/' + companyID + '.json';
     return this.http.get<Company>(companyAPI);
   }
 
   updateCompanyByID(companyID: string, company: Company) {
-    const companyAPI = 'https://barq-api.azurewebsites.net/api/companies/' + companyID;
+    const companyAPI = 'https://taxi-graduation-project.firebaseio.com/companies/' + companyID + '.json';
     return this.http.put(companyAPI, company);
   }
 
   deleteCompanyByID(companyID: string) {
-    const companyAPI = 'https://barq-api.azurewebsites.net/api/companies/' + companyID;
+    const companyAPI = 'https://taxi-graduation-project.firebaseio.com/companies/' + companyID + '.json';
     return this.http.delete(companyAPI);
   }
 
 
   postNewCompanyHistory(componyHistory: ComponyHistory) {
 
-    return this.http.post('https://barq-api.azurewebsites.net/api/companiesHistory', componyHistory);
+    return this.http.post('https://taxi-graduation-project.firebaseio.com/companiesHistory', componyHistory);
 
   }
 
   getCompanyHistoryByID(companyID: string) {
-    const historyAPI = 'https://barq-api.azurewebsites.net/api/companiesHistory';
+    const historyAPI = 'https://taxi-graduation-project.firebaseio.com/companiesHistory';
     this.http.get<Company>(historyAPI).subscribe((data) => {
       console.log(data);
     });
