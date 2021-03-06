@@ -5,78 +5,33 @@
         <app-dashboard-spinner class="m-0 p-0"></app-dashboard-spinner>
       </div>
     </div>
-
-    <div
-      *ngIf="isAuthenticated"
-      id="userDataRow"
-      class="row m-auto px-0 pt-2 pb-1"
-    >
+    <div *ngIf="isAuthenticated" id="userDataRow" class="row m-auto px-0 pt-2 pb-1">
       <div class="col-md-12 px-2">
         <!-- here display admin data and a link to dashboard -->
-        <a routerLink="../dashboard"
-          >WELCOME {{ adminData.adminName }}, GO TO DASHBOARD >></a
-        >
+        <a routerLink="../dashboard">WELCOME {{ adminData.adminName }}, GO TO DASHBOARD >></a>
       </div>
     </div>
-
-    <div
-      *ngIf="!isAuthenticated && !isLogging"
-      id="loggingRow"
-      class="row flex-wrap-reverse"
-    >
+    <div *ngIf="!isAuthenticated && !isLogging" id="loggingRow" class="row flex-wrap-reverse">
       <div id="formDiv" class="py-5 px-4 col-md-6">
         <h2 style="font-weight: bold">Admin Login</h2>
-        <p>
-          If you forgot your logging information, ask the IT center for a reset.
-        </p>
-        <p *ngIf="errorMessage" class="alert alert-danger">
-          {{ errorMessage }}
-        </p>
+        <p> If you forgot your logging information, ask the IT center for a reset. </p>
+        <p *ngIf="errorMessage" class="alert alert-danger"> {{ errorMessage }} </p>
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
           <div class="form-group">
             <label for="email">Email</label>
-            <small
-              *ngIf="email.dirty && !email.valid"
-              class="form-text font-italic text-muted ml-2 d-inline"
-              >~ Please enter a valid email!</small
-            >
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              ngModel
-              #email="ngModel"
-              email
-              name="email"
-              required
-            />
+            <small *ngIf="email.dirty && !email.valid" class="form-text font-italic text-muted ml-2 d-inline">~ Please
+              enter a valid email!</small>
+            <input type="email" class="form-control" id="email" ngModel #email="ngModel" email name="email"
+              [(ngModel)]="temporaryAdmin.email" required />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <small
-              *ngIf="password.dirty && !password.valid"
-              class="form-text font-italic text-muted ml-2 d-inline"
-              >~ Please enter a valid password!</small
-            >
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              ngModel
-              #password="ngModel"
-              name="password"
-              [value]="temporaryAdmin.password"
-              required
-              [pattern]="passwordPattern"
-            />
+            <small *ngIf="password.dirty && !password.valid" class="form-text font-italic text-muted ml-2 d-inline">~
+              Please enter a valid password!</small>
+            <input type="password" class="form-control" id="password" ngModel #password="ngModel" name="password"
+              [(ngModel)]="temporaryAdmin.password" required [pattern]="passwordPattern" />
           </div>
-          <button
-            class="btn btn-primary"
-            [disabled]="!loginForm.valid"
-            type="submit"
-          >
-            LOGIN
-          </button>
+          <button class="btn btn-primary" [disabled]="!loginForm.valid" type="submit"> LOGIN </button>
         </form>
       </div>
       <div id="imgDiv" class="col-md-6">
