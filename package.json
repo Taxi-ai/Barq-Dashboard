@@ -27,7 +27,7 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "constants": "0.0.2",
-    "elliptic": "^6.5.3",
+    "elliptic": "^6.5.4",
     "fontawesome": "^5.6.3",
     "http-proxy": "^1.18.1",
     "ini": "^2.0.0",
